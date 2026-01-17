@@ -1,0 +1,6576 @@
+{
+  "_meta": {
+    "repo": "fallout2-ce/fallout2-ce",
+    "commit": "58b811f2ae9402bb613726ed56a886c3151e9b24",
+    "shortCommit": "58b811f",
+    "generatedAt": "2026-01-17T16:29:22.583Z",
+    "functionCount": 352
+  },
+  "functions": {
+    "opNoop": {
+      "file": "src/interpreter.cc",
+      "startLine": 673,
+      "endLine": 675,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "noop": {
+      "file": "src/interpreter.cc",
+      "startLine": 673,
+      "endLine": 675,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opNoop"
+    },
+    "opPush": {
+      "file": "src/interpreter.cc",
+      "startLine": 678,
+      "endLine": 689,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "push": {
+      "file": "src/interpreter.cc",
+      "startLine": 678,
+      "endLine": 689,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPush"
+    },
+    "opPushBase": {
+      "file": "src/interpreter.cc",
+      "startLine": 696,
+      "endLine": 701,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "push_base": {
+      "file": "src/interpreter.cc",
+      "startLine": 696,
+      "endLine": 701,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPushBase"
+    },
+    "opPopBase": {
+      "file": "src/interpreter.cc",
+      "startLine": 705,
+      "endLine": 709,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_base": {
+      "file": "src/interpreter.cc",
+      "startLine": 705,
+      "endLine": 709,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopBase"
+    },
+    "opPopToBase": {
+      "file": "src/interpreter.cc",
+      "startLine": 712,
+      "endLine": 717,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_to_base": {
+      "file": "src/interpreter.cc",
+      "startLine": 712,
+      "endLine": 717,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopToBase"
+    },
+    "opSetGlobal": {
+      "file": "src/interpreter.cc",
+      "startLine": 720,
+      "endLine": 723,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_global": {
+      "file": "src/interpreter.cc",
+      "startLine": 720,
+      "endLine": 723,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetGlobal"
+    },
+    "opDump": {
+      "file": "src/interpreter.cc",
+      "startLine": 726,
+      "endLine": 734,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "dump": {
+      "file": "src/interpreter.cc",
+      "startLine": 726,
+      "endLine": 734,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDump"
+    },
+    "opDelayedCall": {
+      "file": "src/interpreter.cc",
+      "startLine": 737,
+      "endLine": 757,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "delayed_call": {
+      "file": "src/interpreter.cc",
+      "startLine": 737,
+      "endLine": 757,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDelayedCall"
+    },
+    "opConditionalCall": {
+      "file": "src/interpreter.cc",
+      "startLine": 760,
+      "endLine": 773,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "conditional_call": {
+      "file": "src/interpreter.cc",
+      "startLine": 760,
+      "endLine": 773,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opConditionalCall"
+    },
+    "opWait": {
+      "file": "src/interpreter.cc",
+      "startLine": 776,
+      "endLine": 784,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "wait": {
+      "file": "src/interpreter.cc",
+      "startLine": 776,
+      "endLine": 784,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opWait"
+    },
+    "opCancel": {
+      "file": "src/interpreter.cc",
+      "startLine": 787,
+      "endLine": 799,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "cancel": {
+      "file": "src/interpreter.cc",
+      "startLine": 787,
+      "endLine": 799,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCancel"
+    },
+    "opCancelAll": {
+      "file": "src/interpreter.cc",
+      "startLine": 802,
+      "endLine": 814,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "cancel_all": {
+      "file": "src/interpreter.cc",
+      "startLine": 802,
+      "endLine": 814,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCancelAll"
+    },
+    "opIf": {
+      "file": "src/interpreter.cc",
+      "startLine": 817,
+      "endLine": 826,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "if": {
+      "file": "src/interpreter.cc",
+      "startLine": 817,
+      "endLine": 826,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opIf"
+    },
+    "opWhile": {
+      "file": "src/interpreter.cc",
+      "startLine": 829,
+      "endLine": 836,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "while": {
+      "file": "src/interpreter.cc",
+      "startLine": 829,
+      "endLine": 836,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opWhile"
+    },
+    "opStore": {
+      "file": "src/interpreter.cc",
+      "startLine": 839,
+      "endLine": 857,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "store": {
+      "file": "src/interpreter.cc",
+      "startLine": 839,
+      "endLine": 857,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opStore"
+    },
+    "opFetch": {
+      "file": "src/interpreter.cc",
+      "startLine": 861,
+      "endLine": 867,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "fetch": {
+      "file": "src/interpreter.cc",
+      "startLine": 861,
+      "endLine": 867,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFetch"
+    },
+    "opConditionalOperatorNotEqual": {
+      "file": "src/interpreter.cc",
+      "startLine": 870,
+      "endLine": 963,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "conditional_operator_not_equal": {
+      "file": "src/interpreter.cc",
+      "startLine": 870,
+      "endLine": 963,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opConditionalOperatorNotEqual"
+    },
+    "opConditionalOperatorEqual": {
+      "file": "src/interpreter.cc",
+      "startLine": 966,
+      "endLine": 1059,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "conditional_operator_equal": {
+      "file": "src/interpreter.cc",
+      "startLine": 966,
+      "endLine": 1059,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opConditionalOperatorEqual"
+    },
+    "opConditionalOperatorLessThanEquals": {
+      "file": "src/interpreter.cc",
+      "startLine": 1062,
+      "endLine": 1155,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "conditional_operator_less_than_equals": {
+      "file": "src/interpreter.cc",
+      "startLine": 1062,
+      "endLine": 1155,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opConditionalOperatorLessThanEquals"
+    },
+    "opConditionalOperatorGreaterThanEquals": {
+      "file": "src/interpreter.cc",
+      "startLine": 1158,
+      "endLine": 1237,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "conditional_operator_greater_than_equals": {
+      "file": "src/interpreter.cc",
+      "startLine": 1158,
+      "endLine": 1237,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opConditionalOperatorGreaterThanEquals"
+    },
+    "opConditionalOperatorLessThan": {
+      "file": "src/interpreter.cc",
+      "startLine": 1240,
+      "endLine": 1318,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "conditional_operator_less_than": {
+      "file": "src/interpreter.cc",
+      "startLine": 1240,
+      "endLine": 1318,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opConditionalOperatorLessThan"
+    },
+    "opConditionalOperatorGreaterThan": {
+      "file": "src/interpreter.cc",
+      "startLine": 1321,
+      "endLine": 1414,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "conditional_operator_greater_than": {
+      "file": "src/interpreter.cc",
+      "startLine": 1321,
+      "endLine": 1414,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opConditionalOperatorGreaterThan"
+    },
+    "opAdd": {
+      "file": "src/interpreter.cc",
+      "startLine": 1417,
+      "endLine": 1525,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "add": {
+      "file": "src/interpreter.cc",
+      "startLine": 1417,
+      "endLine": 1525,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAdd"
+    },
+    "opSubtract": {
+      "file": "src/interpreter.cc",
+      "startLine": 1528,
+      "endLine": 1558,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "subtract": {
+      "file": "src/interpreter.cc",
+      "startLine": 1528,
+      "endLine": 1558,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSubtract"
+    },
+    "opMultiply": {
+      "file": "src/interpreter.cc",
+      "startLine": 1561,
+      "endLine": 1591,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "multiply": {
+      "file": "src/interpreter.cc",
+      "startLine": 1561,
+      "endLine": 1591,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opMultiply"
+    },
+    "opDivide": {
+      "file": "src/interpreter.cc",
+      "startLine": 1594,
+      "endLine": 1639,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "divide": {
+      "file": "src/interpreter.cc",
+      "startLine": 1594,
+      "endLine": 1639,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDivide"
+    },
+    "opModulo": {
+      "file": "src/interpreter.cc",
+      "startLine": 1642,
+      "endLine": 1667,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "modulo": {
+      "file": "src/interpreter.cc",
+      "startLine": 1642,
+      "endLine": 1667,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opModulo"
+    },
+    "opLogicalOperatorAnd": {
+      "file": "src/interpreter.cc",
+      "startLine": 1670,
+      "endLine": 1762,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "logical_operator_and": {
+      "file": "src/interpreter.cc",
+      "startLine": 1670,
+      "endLine": 1762,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opLogicalOperatorAnd"
+    },
+    "opLogicalOperatorOr": {
+      "file": "src/interpreter.cc",
+      "startLine": 1765,
+      "endLine": 1851,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "logical_operator_or": {
+      "file": "src/interpreter.cc",
+      "startLine": 1765,
+      "endLine": 1851,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opLogicalOperatorOr"
+    },
+    "opLogicalOperatorNot": {
+      "file": "src/interpreter.cc",
+      "startLine": 1854,
+      "endLine": 1858,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "logical_operator_not": {
+      "file": "src/interpreter.cc",
+      "startLine": 1854,
+      "endLine": 1858,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opLogicalOperatorNot"
+    },
+    "opUnaryMinus": {
+      "file": "src/interpreter.cc",
+      "startLine": 1861,
+      "endLine": 1875,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "unary_minus": {
+      "file": "src/interpreter.cc",
+      "startLine": 1861,
+      "endLine": 1875,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opUnaryMinus"
+    },
+    "opBitwiseOperatorNot": {
+      "file": "src/interpreter.cc",
+      "startLine": 1878,
+      "endLine": 1882,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "bitwise_operator_not": {
+      "file": "src/interpreter.cc",
+      "startLine": 1878,
+      "endLine": 1882,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opBitwiseOperatorNot"
+    },
+    "opFloor": {
+      "file": "src/interpreter.cc",
+      "startLine": 1886,
+      "endLine": 1898,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "floor": {
+      "file": "src/interpreter.cc",
+      "startLine": 1886,
+      "endLine": 1898,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFloor"
+    },
+    "opBitwiseOperatorAnd": {
+      "file": "src/interpreter.cc",
+      "startLine": 1901,
+      "endLine": 1936,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "bitwise_operator_and": {
+      "file": "src/interpreter.cc",
+      "startLine": 1901,
+      "endLine": 1936,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opBitwiseOperatorAnd"
+    },
+    "opBitwiseOperatorOr": {
+      "file": "src/interpreter.cc",
+      "startLine": 1939,
+      "endLine": 1974,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "bitwise_operator_or": {
+      "file": "src/interpreter.cc",
+      "startLine": 1939,
+      "endLine": 1974,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opBitwiseOperatorOr"
+    },
+    "opBitwiseOperatorXor": {
+      "file": "src/interpreter.cc",
+      "startLine": 1977,
+      "endLine": 2012,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "bitwise_operator_xor": {
+      "file": "src/interpreter.cc",
+      "startLine": 1977,
+      "endLine": 2012,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opBitwiseOperatorXor"
+    },
+    "opSwapReturnStack": {
+      "file": "src/interpreter.cc",
+      "startLine": 2015,
+      "endLine": 2021,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "swap_return_stack": {
+      "file": "src/interpreter.cc",
+      "startLine": 2015,
+      "endLine": 2021,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSwapReturnStack"
+    },
+    "opLeaveCriticalSection": {
+      "file": "src/interpreter.cc",
+      "startLine": 2024,
+      "endLine": 2027,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "leave_critical_section": {
+      "file": "src/interpreter.cc",
+      "startLine": 2024,
+      "endLine": 2027,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opLeaveCriticalSection"
+    },
+    "opEnterCriticalSection": {
+      "file": "src/interpreter.cc",
+      "startLine": 2030,
+      "endLine": 2033,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "enter_critical_section": {
+      "file": "src/interpreter.cc",
+      "startLine": 2030,
+      "endLine": 2033,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opEnterCriticalSection"
+    },
+    "opJump": {
+      "file": "src/interpreter.cc",
+      "startLine": 2036,
+      "endLine": 2039,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "jump": {
+      "file": "src/interpreter.cc",
+      "startLine": 2036,
+      "endLine": 2039,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opJump"
+    },
+    "opCall": {
+      "file": "src/interpreter.cc",
+      "startLine": 2042,
+      "endLine": 2057,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "call": {
+      "file": "src/interpreter.cc",
+      "startLine": 2042,
+      "endLine": 2057,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCall"
+    },
+    "opPopFlags": {
+      "file": "src/interpreter.cc",
+      "startLine": 2060,
+      "endLine": 2065,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_flags": {
+      "file": "src/interpreter.cc",
+      "startLine": 2060,
+      "endLine": 2065,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopFlags"
+    },
+    "opPopReturn": {
+      "file": "src/interpreter.cc",
+      "startLine": 2069,
+      "endLine": 2072,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_return": {
+      "file": "src/interpreter.cc",
+      "startLine": 2069,
+      "endLine": 2072,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopReturn"
+    },
+    "opPopExit": {
+      "file": "src/interpreter.cc",
+      "startLine": 2075,
+      "endLine": 2080,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_exit": {
+      "file": "src/interpreter.cc",
+      "startLine": 2075,
+      "endLine": 2080,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopExit"
+    },
+    "opPopFlagsReturn": {
+      "file": "src/interpreter.cc",
+      "startLine": 2083,
+      "endLine": 2087,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_flags_return": {
+      "file": "src/interpreter.cc",
+      "startLine": 2083,
+      "endLine": 2087,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopFlagsReturn"
+    },
+    "opPopFlagsExit": {
+      "file": "src/interpreter.cc",
+      "startLine": 2090,
+      "endLine": 2095,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_flags_exit": {
+      "file": "src/interpreter.cc",
+      "startLine": 2090,
+      "endLine": 2095,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopFlagsExit"
+    },
+    "opPopFlagsReturnValExit": {
+      "file": "src/interpreter.cc",
+      "startLine": 2098,
+      "endLine": 2106,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_flags_return_val_exit": {
+      "file": "src/interpreter.cc",
+      "startLine": 2098,
+      "endLine": 2106,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopFlagsReturnValExit"
+    },
+    "opPopFlagsReturnValExitExtern": {
+      "file": "src/interpreter.cc",
+      "startLine": 2109,
+      "endLine": 2124,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_flags_return_val_exit_extern": {
+      "file": "src/interpreter.cc",
+      "startLine": 2109,
+      "endLine": 2124,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopFlagsReturnValExitExtern"
+    },
+    "opPopFlagsReturnExtern": {
+      "file": "src/interpreter.cc",
+      "startLine": 2127,
+      "endLine": 2136,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_flags_return_extern": {
+      "file": "src/interpreter.cc",
+      "startLine": 2127,
+      "endLine": 2136,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopFlagsReturnExtern"
+    },
+    "opPopFlagsExitExtern": {
+      "file": "src/interpreter.cc",
+      "startLine": 2139,
+      "endLine": 2150,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_flags_exit_extern": {
+      "file": "src/interpreter.cc",
+      "startLine": 2139,
+      "endLine": 2150,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopFlagsExitExtern"
+    },
+    "opPopFlagsReturnValExtern": {
+      "file": "src/interpreter.cc",
+      "startLine": 2154,
+      "endLine": 2179,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_flags_return_val_extern": {
+      "file": "src/interpreter.cc",
+      "startLine": 2154,
+      "endLine": 2179,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopFlagsReturnValExtern"
+    },
+    "opPopAddress": {
+      "file": "src/interpreter.cc",
+      "startLine": 2182,
+      "endLine": 2185,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop_address": {
+      "file": "src/interpreter.cc",
+      "startLine": 2182,
+      "endLine": 2185,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPopAddress"
+    },
+    "opAtoD": {
+      "file": "src/interpreter.cc",
+      "startLine": 2188,
+      "endLine": 2192,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "ato_d": {
+      "file": "src/interpreter.cc",
+      "startLine": 2188,
+      "endLine": 2192,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAtoD"
+    },
+    "opDtoA": {
+      "file": "src/interpreter.cc",
+      "startLine": 2195,
+      "endLine": 2199,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "dto_a": {
+      "file": "src/interpreter.cc",
+      "startLine": 2195,
+      "endLine": 2199,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDtoA"
+    },
+    "opExitProgram": {
+      "file": "src/interpreter.cc",
+      "startLine": 2202,
+      "endLine": 2205,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "exit_program": {
+      "file": "src/interpreter.cc",
+      "startLine": 2202,
+      "endLine": 2205,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opExitProgram"
+    },
+    "opStopProgram": {
+      "file": "src/interpreter.cc",
+      "startLine": 2208,
+      "endLine": 2211,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "stop_program": {
+      "file": "src/interpreter.cc",
+      "startLine": 2208,
+      "endLine": 2211,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opStopProgram"
+    },
+    "opFetchGlobalVariable": {
+      "file": "src/interpreter.cc",
+      "startLine": 2214,
+      "endLine": 2220,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "fetch_global_variable": {
+      "file": "src/interpreter.cc",
+      "startLine": 2214,
+      "endLine": 2220,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFetchGlobalVariable"
+    },
+    "opStoreGlobalVariable": {
+      "file": "src/interpreter.cc",
+      "startLine": 2223,
+      "endLine": 2239,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "store_global_variable": {
+      "file": "src/interpreter.cc",
+      "startLine": 2223,
+      "endLine": 2239,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opStoreGlobalVariable"
+    },
+    "opSwapStack": {
+      "file": "src/interpreter.cc",
+      "startLine": 2242,
+      "endLine": 2248,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "swap_stack": {
+      "file": "src/interpreter.cc",
+      "startLine": 2242,
+      "endLine": 2248,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSwapStack"
+    },
+    "opFetchProcedureAddress": {
+      "file": "src/interpreter.cc",
+      "startLine": 2252,
+      "endLine": 2258,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "fetch_proc_address": {
+      "file": "src/interpreter.cc",
+      "startLine": 2252,
+      "endLine": 2258,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFetchProcedureAddress"
+    },
+    "fetch_procedure_address": {
+      "file": "src/interpreter.cc",
+      "startLine": 2252,
+      "endLine": 2258,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFetchProcedureAddress",
+      "sslName": "fetch_proc_address"
+    },
+    "opPop": {
+      "file": "src/interpreter.cc",
+      "startLine": 2263,
+      "endLine": 2266,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pop": {
+      "file": "src/interpreter.cc",
+      "startLine": 2263,
+      "endLine": 2266,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPop"
+    },
+    "opDuplicate": {
+      "file": "src/interpreter.cc",
+      "startLine": 2269,
+      "endLine": 2274,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "duplicate": {
+      "file": "src/interpreter.cc",
+      "startLine": 2269,
+      "endLine": 2274,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDuplicate"
+    },
+    "opStoreExternalVariable": {
+      "file": "src/interpreter.cc",
+      "startLine": 2277,
+      "endLine": 2289,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "store_external_variable": {
+      "file": "src/interpreter.cc",
+      "startLine": 2277,
+      "endLine": 2289,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opStoreExternalVariable"
+    },
+    "opFetchExternalVariable": {
+      "file": "src/interpreter.cc",
+      "startLine": 2292,
+      "endLine": 2306,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "fetch_external_variable": {
+      "file": "src/interpreter.cc",
+      "startLine": 2292,
+      "endLine": 2306,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFetchExternalVariable"
+    },
+    "opExportProcedure": {
+      "file": "src/interpreter.cc",
+      "startLine": 2309,
+      "endLine": 2324,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "export_procedure": {
+      "file": "src/interpreter.cc",
+      "startLine": 2309,
+      "endLine": 2324,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opExportProcedure"
+    },
+    "opExportVariable": {
+      "file": "src/interpreter.cc",
+      "startLine": 2327,
+      "endLine": 2338,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "export_variable": {
+      "file": "src/interpreter.cc",
+      "startLine": 2327,
+      "endLine": 2338,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opExportVariable"
+    },
+    "opExit": {
+      "file": "src/interpreter.cc",
+      "startLine": 2341,
+      "endLine": 2356,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "exit": {
+      "file": "src/interpreter.cc",
+      "startLine": 2341,
+      "endLine": 2356,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opExit"
+    },
+    "opDetach": {
+      "file": "src/interpreter.cc",
+      "startLine": 2359,
+      "endLine": 2372,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "detach": {
+      "file": "src/interpreter.cc",
+      "startLine": 2359,
+      "endLine": 2372,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDetach"
+    },
+    "opCallStart": {
+      "file": "src/interpreter.cc",
+      "startLine": 2376,
+      "endLine": 2396,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "callstart": {
+      "file": "src/interpreter.cc",
+      "startLine": 2376,
+      "endLine": 2396,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCallStart"
+    },
+    "call_start": {
+      "file": "src/interpreter.cc",
+      "startLine": 2376,
+      "endLine": 2396,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCallStart",
+      "sslName": "callstart"
+    },
+    "opSpawn": {
+      "file": "src/interpreter.cc",
+      "startLine": 2400,
+      "endLine": 2425,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "spawn": {
+      "file": "src/interpreter.cc",
+      "startLine": 2400,
+      "endLine": 2425,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSpawn"
+    },
+    "opFork": {
+      "file": "src/interpreter.cc",
+      "startLine": 2448,
+      "endLine": 2451,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "fork": {
+      "file": "src/interpreter.cc",
+      "startLine": 2448,
+      "endLine": 2451,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFork"
+    },
+    "opExec": {
+      "file": "src/interpreter.cc",
+      "startLine": 2454,
+      "endLine": 2478,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "exec": {
+      "file": "src/interpreter.cc",
+      "startLine": 2454,
+      "endLine": 2478,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opExec"
+    },
+    "opCheckProcedureArgumentCount": {
+      "file": "src/interpreter.cc",
+      "startLine": 2481,
+      "endLine": 2493,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "check_procedure_argument_count": {
+      "file": "src/interpreter.cc",
+      "startLine": 2481,
+      "endLine": 2493,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCheckProcedureArgumentCount"
+    },
+    "opLookupStringProc": {
+      "file": "src/interpreter.cc",
+      "startLine": 2497,
+      "endLine": 2522,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "lookup_string_proc": {
+      "file": "src/interpreter.cc",
+      "startLine": 2497,
+      "endLine": 2522,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opLookupStringProc"
+    },
+    "scriptPredefinedError": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 156,
+      "endLine": 346,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptError": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 157,
+      "endLine": 346,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "opGiveExpPoints": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 465,
+      "endLine": 472,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "give_exp_points": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 465,
+      "endLine": 472,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGiveExpPoints"
+    },
+    "opScrReturn": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 476,
+      "endLine": 486,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "scr_return": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 476,
+      "endLine": 486,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opScrReturn"
+    },
+    "opPlaySfx": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 490,
+      "endLine": 495,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "play_sfx": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 490,
+      "endLine": 495,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPlaySfx"
+    },
+    "opSetMapStart": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 499,
+      "endLine": 518,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_map_start": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 499,
+      "endLine": 518,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetMapStart"
+    },
+    "opOverrideMapStart": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 522,
+      "endLine": 556,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "override_map_start": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 522,
+      "endLine": 556,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opOverrideMapStart"
+    },
+    "opHasSkill": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 560,
+      "endLine": 575,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "has_skill": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 560,
+      "endLine": 575,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opHasSkill"
+    },
+    "opUsingSkill": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 579,
+      "endLine": 594,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "using_skill": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 579,
+      "endLine": 594,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opUsingSkill"
+    },
+    "opRollVsSkill": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 598,
+      "endLine": 619,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "roll_vs_skill": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 598,
+      "endLine": 619,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRollVsSkill"
+    },
+    "opSkillContest": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 623,
+      "endLine": 633,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "skill_contest": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 623,
+      "endLine": 633,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSkillContest"
+    },
+    "opDoCheck": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 637,
+      "endLine": 669,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "do_check": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 637,
+      "endLine": 669,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDoCheck"
+    },
+    "opSuccess": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 673,
+      "endLine": 691,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "success": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 673,
+      "endLine": 691,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSuccess"
+    },
+    "opCritical": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 695,
+      "endLine": 713,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critical": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 695,
+      "endLine": 713,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritical"
+    },
+    "opHowMuch": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 717,
+      "endLine": 733,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "how_much": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 717,
+      "endLine": 733,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opHowMuch"
+    },
+    "opMarkAreaKnown": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 737,
+      "endLine": 756,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "mark_area_known": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 737,
+      "endLine": 756,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opMarkAreaKnown"
+    },
+    "opReactionInfluence": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 760,
+      "endLine": 770,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "reaction_influence": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 760,
+      "endLine": 770,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opReactionInfluence"
+    },
+    "opRandom": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 774,
+      "endLine": 785,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "random": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 774,
+      "endLine": 785,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRandom"
+    },
+    "opRollDice": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 789,
+      "endLine": 800,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "roll_dice": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 789,
+      "endLine": 800,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRollDice"
+    },
+    "opMoveTo": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 804,
+      "endLine": 859,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "move_to": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 804,
+      "endLine": 859,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opMoveTo"
+    },
+    "opCreateObject": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 863,
+      "endLine": 947,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "create_object_sid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 863,
+      "endLine": 947,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCreateObject"
+    },
+    "create_object": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 863,
+      "endLine": 947,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCreateObject",
+      "sslName": "create_object_sid"
+    },
+    "opDestroyObject": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 951,
+      "endLine": 1009,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "destroy_object": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 951,
+      "endLine": 1009,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDestroyObject"
+    },
+    "opDisplayMsg": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1013,
+      "endLine": 1022,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "display_msg": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1013,
+      "endLine": 1022,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDisplayMsg"
+    },
+    "opScriptOverrides": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1026,
+      "endLine": 1036,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "script_overrides": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1026,
+      "endLine": 1036,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opScriptOverrides"
+    },
+    "opObjectIsCarryingObjectWithPid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1040,
+      "endLine": 1053,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_is_carrying_obj_pid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1040,
+      "endLine": 1053,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectIsCarryingObjectWithPid"
+    },
+    "object_is_carrying_object_with_pid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1040,
+      "endLine": 1053,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectIsCarryingObjectWithPid",
+      "sslName": "obj_is_carrying_obj_pid"
+    },
+    "opTileContainsObjectWithPid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1057,
+      "endLine": 1075,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "tile_contains_obj_pid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1057,
+      "endLine": 1075,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opTileContainsObjectWithPid"
+    },
+    "tile_contains_object_with_pid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1057,
+      "endLine": 1075,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opTileContainsObjectWithPid",
+      "sslName": "tile_contains_obj_pid"
+    },
+    "opGetSelf": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1079,
+      "endLine": 1083,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "self_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1079,
+      "endLine": 1083,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetSelf"
+    },
+    "get_self": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1079,
+      "endLine": 1083,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetSelf",
+      "sslName": "self_obj"
+    },
+    "opGetSource": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1087,
+      "endLine": 1101,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "source_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1087,
+      "endLine": 1101,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetSource"
+    },
+    "get_source": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1087,
+      "endLine": 1101,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetSource",
+      "sslName": "source_obj"
+    },
+    "opGetTarget": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1105,
+      "endLine": 1119,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "target_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1105,
+      "endLine": 1119,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetTarget"
+    },
+    "get_target": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1105,
+      "endLine": 1119,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetTarget",
+      "sslName": "target_obj"
+    },
+    "opGetDude": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1123,
+      "endLine": 1126,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "dude_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1123,
+      "endLine": 1126,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetDude"
+    },
+    "get_dude": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1123,
+      "endLine": 1126,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetDude",
+      "sslName": "dude_obj"
+    },
+    "opGetObjectBeingUsed": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1132,
+      "endLine": 1146,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_being_used_with": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1132,
+      "endLine": 1146,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectBeingUsed"
+    },
+    "get_object_being_used": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1132,
+      "endLine": 1146,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectBeingUsed",
+      "sslName": "obj_being_used_with"
+    },
+    "opGetLocalVar": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1150,
+      "endLine": 1162,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "local_var": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1150,
+      "endLine": 1162,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetLocalVar"
+    },
+    "get_local_var": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1150,
+      "endLine": 1162,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetLocalVar",
+      "sslName": "local_var"
+    },
+    "opSetLocalVar": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1166,
+      "endLine": 1173,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_local_var": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1166,
+      "endLine": 1173,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetLocalVar"
+    },
+    "opGetMapVar": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1177,
+      "endLine": 1188,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "map_var": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1177,
+      "endLine": 1188,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetMapVar"
+    },
+    "get_map_var": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1177,
+      "endLine": 1188,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetMapVar",
+      "sslName": "map_var"
+    },
+    "opSetMapVar": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1192,
+      "endLine": 1198,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_map_var": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1192,
+      "endLine": 1198,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetMapVar"
+    },
+    "opGetGlobalVar": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1202,
+      "endLine": 1217,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "global_var": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1202,
+      "endLine": 1217,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetGlobalVar"
+    },
+    "get_global_var": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1202,
+      "endLine": 1217,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetGlobalVar",
+      "sslName": "global_var"
+    },
+    "opSetGlobalVar": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1222,
+      "endLine": 1238,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_global_var": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1222,
+      "endLine": 1238,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetGlobalVar"
+    },
+    "opGetScriptAction": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1242,
+      "endLine": 1256,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "script_action": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1242,
+      "endLine": 1256,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetScriptAction"
+    },
+    "get_script_action": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1242,
+      "endLine": 1256,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetScriptAction",
+      "sslName": "script_action"
+    },
+    "opGetObjectType": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1260,
+      "endLine": 1270,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_type": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1260,
+      "endLine": 1270,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectType"
+    },
+    "get_object_type": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1260,
+      "endLine": 1270,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectType",
+      "sslName": "obj_type"
+    },
+    "opGetItemType": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1274,
+      "endLine": 1289,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_item_subtype": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1274,
+      "endLine": 1289,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetItemType"
+    },
+    "get_item_type": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1274,
+      "endLine": 1289,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetItemType",
+      "sslName": "obj_item_subtype"
+    },
+    "opGetCritterStat": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1293,
+      "endLine": 1306,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_critter_stat": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1293,
+      "endLine": 1306,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetCritterStat"
+    },
+    "opSetCritterStat": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1313,
+      "endLine": 1335,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_critter_stat": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1313,
+      "endLine": 1335,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetCritterStat"
+    },
+    "opAnimateStand": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1339,
+      "endLine": 1359,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "animate_stand_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1339,
+      "endLine": 1359,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAnimateStand"
+    },
+    "animate_stand": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1339,
+      "endLine": 1359,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAnimateStand",
+      "sslName": "animate_stand_obj"
+    },
+    "opAnimateStandReverse": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1363,
+      "endLine": 1383,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "animate_stand_reverse_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1363,
+      "endLine": 1383,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAnimateStandReverse"
+    },
+    "animate_stand_reverse": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1363,
+      "endLine": 1383,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAnimateStandReverse",
+      "sslName": "animate_stand_reverse_obj"
+    },
+    "opAnimateMoveObjectToTile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1387,
+      "endLine": 1432,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "animate_move_obj_to_tile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1387,
+      "endLine": 1432,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAnimateMoveObjectToTile"
+    },
+    "animate_move_object_to_tile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1387,
+      "endLine": 1432,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAnimateMoveObjectToTile",
+      "sslName": "animate_move_obj_to_tile"
+    },
+    "opTileInTileRect": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1436,
+      "endLine": 1462,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "tile_in_tile_rect": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1436,
+      "endLine": 1462,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opTileInTileRect"
+    },
+    "opMakeDayTime": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1466,
+      "endLine": 1468,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "make_daytime": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1466,
+      "endLine": 1468,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opMakeDayTime"
+    },
+    "make_day_time": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1466,
+      "endLine": 1468,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opMakeDayTime",
+      "sslName": "make_daytime"
+    },
+    "opTileDistanceBetween": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1472,
+      "endLine": 1486,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "tile_distance": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1472,
+      "endLine": 1486,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opTileDistanceBetween"
+    },
+    "tile_distance_between": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1472,
+      "endLine": 1486,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opTileDistanceBetween",
+      "sslName": "tile_distance"
+    },
+    "opTileDistanceBetweenObjects": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1490,
+      "endLine": 1510,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "tile_distance_objs": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1490,
+      "endLine": 1510,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opTileDistanceBetweenObjects"
+    },
+    "tile_distance_between_objects": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1490,
+      "endLine": 1510,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opTileDistanceBetweenObjects",
+      "sslName": "tile_distance_objs"
+    },
+    "opGetObjectTile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1514,
+      "endLine": 1526,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "tile_num": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1514,
+      "endLine": 1526,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectTile"
+    },
+    "get_object_tile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1514,
+      "endLine": 1526,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectTile",
+      "sslName": "tile_num"
+    },
+    "opGetTileInDirection": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1530,
+      "endLine": 1557,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "tile_num_in_direction": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1530,
+      "endLine": 1557,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetTileInDirection"
+    },
+    "get_tile_in_direction": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1530,
+      "endLine": 1557,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetTileInDirection",
+      "sslName": "tile_num_in_direction"
+    },
+    "opPickup": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1561,
+      "endLine": 1593,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "pickup_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1561,
+      "endLine": 1593,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPickup"
+    },
+    "pickup": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1561,
+      "endLine": 1593,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPickup",
+      "sslName": "pickup_obj"
+    },
+    "opDrop": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1597,
+      "endLine": 1621,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "drop_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1597,
+      "endLine": 1621,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDrop"
+    },
+    "drop": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1597,
+      "endLine": 1621,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDrop",
+      "sslName": "drop_obj"
+    },
+    "opAddObjectToInventory": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1625,
+      "endLine": 1644,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "add_obj_to_inven": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1625,
+      "endLine": 1644,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddObjectToInventory"
+    },
+    "add_object_to_inventory": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1625,
+      "endLine": 1644,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddObjectToInventory",
+      "sslName": "add_obj_to_inven"
+    },
+    "opRemoveObjectFromInventory": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1648,
+      "endLine": 1685,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "rm_obj_from_inven": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1648,
+      "endLine": 1685,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRemoveObjectFromInventory"
+    },
+    "remove_object_from_inventory": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1648,
+      "endLine": 1685,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRemoveObjectFromInventory",
+      "sslName": "rm_obj_from_inven"
+    },
+    "opWieldItem": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1689,
+      "endLine": 1746,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "wield_obj_critter": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1689,
+      "endLine": 1746,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opWieldItem"
+    },
+    "wield_item": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1689,
+      "endLine": 1746,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opWieldItem",
+      "sslName": "wield_obj_critter"
+    },
+    "opUseObject": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1750,
+      "endLine": 1779,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "use_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1750,
+      "endLine": 1779,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opUseObject"
+    },
+    "use_object": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1750,
+      "endLine": 1779,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opUseObject",
+      "sslName": "use_obj"
+    },
+    "opObjectCanSeeObject": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1783,
+      "endLine": 1809,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_can_see_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1783,
+      "endLine": 1809,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectCanSeeObject"
+    },
+    "object_can_see_object": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1783,
+      "endLine": 1809,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectCanSeeObject",
+      "sslName": "obj_can_see_obj"
+    },
+    "opAttackComplex": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1813,
+      "endLine": 1889,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "attack_complex": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1813,
+      "endLine": 1889,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAttackComplex"
+    },
+    "opStartGameDialog": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1893,
+      "endLine": 1944,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "start_gdialog": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1893,
+      "endLine": 1944,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opStartGameDialog"
+    },
+    "start_game_dialog": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1893,
+      "endLine": 1944,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opStartGameDialog",
+      "sslName": "start_gdialog"
+    },
+    "opEndGameDialog": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1948,
+      "endLine": 1954,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "end_dialogue": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1948,
+      "endLine": 1954,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opEndGameDialog"
+    },
+    "end_game_dialog": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1948,
+      "endLine": 1954,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opEndGameDialog",
+      "sslName": "end_dialogue"
+    },
+    "opGameDialogReaction": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1958,
+      "endLine": 1964,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "dialogue_reaction": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1958,
+      "endLine": 1964,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameDialogReaction"
+    },
+    "game_dialog_reaction": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1958,
+      "endLine": 1964,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameDialogReaction",
+      "sslName": "dialogue_reaction"
+    },
+    "opMetarule3": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1968,
+      "endLine": 2060,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "metarule3": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 1968,
+      "endLine": 2060,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opMetarule3"
+    },
+    "opSetMapMusic": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2064,
+      "endLine": 2071,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_map_music": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2064,
+      "endLine": 2071,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetMapMusic"
+    },
+    "opSetObjectVisibility": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2080,
+      "endLine": 2123,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_obj_visibility": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2080,
+      "endLine": 2123,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetObjectVisibility"
+    },
+    "set_object_visibility": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2080,
+      "endLine": 2123,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetObjectVisibility",
+      "sslName": "set_obj_visibility"
+    },
+    "opLoadMap": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2127,
+      "endLine": 2162,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "load_map": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2127,
+      "endLine": 2162,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opLoadMap"
+    },
+    "opWorldmapCitySetPos": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2166,
+      "endLine": 2176,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "wm_area_set_pos": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2166,
+      "endLine": 2176,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opWorldmapCitySetPos"
+    },
+    "worldmap_city_set_pos": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2166,
+      "endLine": 2176,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opWorldmapCitySetPos",
+      "sslName": "wm_area_set_pos"
+    },
+    "opSetExitGrids": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2180,
+      "endLine": 2197,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_exit_grids": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2180,
+      "endLine": 2197,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetExitGrids"
+    },
+    "opAnimBusy": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2201,
+      "endLine": 2213,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "anim_busy": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2201,
+      "endLine": 2213,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAnimBusy"
+    },
+    "opCritterHeal": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2217,
+      "endLine": 2229,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critter_heal": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2217,
+      "endLine": 2229,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterHeal"
+    },
+    "opSetLightLevel": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2233,
+      "endLine": 2265,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_light_level": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2233,
+      "endLine": 2265,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetLightLevel"
+    },
+    "opGetGameTime": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2269,
+      "endLine": 2273,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "game_time": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2269,
+      "endLine": 2273,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetGameTime"
+    },
+    "get_game_time": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2269,
+      "endLine": 2273,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetGameTime",
+      "sslName": "game_time"
+    },
+    "opGetGameTimeInSeconds": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2277,
+      "endLine": 2281,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "game_time_in_seconds": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2277,
+      "endLine": 2281,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetGameTimeInSeconds"
+    },
+    "get_game_time_in_seconds": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2277,
+      "endLine": 2281,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetGameTimeInSeconds",
+      "sslName": "game_time_in_seconds"
+    },
+    "opGetObjectElevation": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2285,
+      "endLine": 2297,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "elevation": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2285,
+      "endLine": 2297,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectElevation"
+    },
+    "get_object_elevation": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2285,
+      "endLine": 2297,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectElevation",
+      "sslName": "elevation"
+    },
+    "opKillCritter": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2301,
+      "endLine": 2329,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "kill_critter": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2301,
+      "endLine": 2329,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opKillCritter"
+    },
+    "opKillCritterType": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2364,
+      "endLine": 2467,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "kill_critter_type": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2364,
+      "endLine": 2467,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opKillCritterType"
+    },
+    "opCritterDamage": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2471,
+      "endLine": 2505,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critter_dmg": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2471,
+      "endLine": 2505,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterDamage"
+    },
+    "critter_damage": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2471,
+      "endLine": 2505,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterDamage",
+      "sslName": "critter_dmg"
+    },
+    "opAddTimerEvent": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2509,
+      "endLine": 2521,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "add_timer_event": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2509,
+      "endLine": 2521,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddTimerEvent"
+    },
+    "opRemoveTimerEvent": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2525,
+      "endLine": 2536,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "rm_timer_event": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2525,
+      "endLine": 2536,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRemoveTimerEvent"
+    },
+    "remove_timer_event": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2525,
+      "endLine": 2536,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRemoveTimerEvent",
+      "sslName": "rm_timer_event"
+    },
+    "opGameTicks": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2542,
+      "endLine": 2551,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "game_ticks": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2542,
+      "endLine": 2551,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameTicks"
+    },
+    "opHasTrait": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2560,
+      "endLine": 2616,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "has_trait": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2560,
+      "endLine": 2616,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opHasTrait"
+    },
+    "opObjectCanHearObject": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2620,
+      "endLine": 2641,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_can_hear_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2620,
+      "endLine": 2641,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectCanHearObject"
+    },
+    "object_can_hear_object": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2620,
+      "endLine": 2641,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectCanHearObject",
+      "sslName": "obj_can_hear_obj"
+    },
+    "opGameTimeHour": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2645,
+      "endLine": 2649,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "game_time_hour": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2645,
+      "endLine": 2649,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameTimeHour"
+    },
+    "opGetFixedParam": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2653,
+      "endLine": 2667,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "fixed_param": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2653,
+      "endLine": 2667,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetFixedParam"
+    },
+    "get_fixed_param": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2653,
+      "endLine": 2667,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetFixedParam",
+      "sslName": "fixed_param"
+    },
+    "opTileIsVisible": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2671,
+      "endLine": 2681,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "tile_is_visible": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2671,
+      "endLine": 2681,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opTileIsVisible"
+    },
+    "opGameDialogSystemEnter": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2685,
+      "endLine": 2710,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "dialogue_system_enter": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2685,
+      "endLine": 2710,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameDialogSystemEnter"
+    },
+    "game_dialog_system_enter": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2685,
+      "endLine": 2710,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameDialogSystemEnter",
+      "sslName": "dialogue_system_enter"
+    },
+    "opGetActionBeingUsed": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2714,
+      "endLine": 2728,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "action_being_used": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2714,
+      "endLine": 2728,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetActionBeingUsed"
+    },
+    "get_action_being_used": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2714,
+      "endLine": 2728,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetActionBeingUsed",
+      "sslName": "action_being_used"
+    },
+    "opGetCritterState": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2732,
+      "endLine": 2757,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critter_state": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2732,
+      "endLine": 2757,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetCritterState"
+    },
+    "get_critter_state": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2732,
+      "endLine": 2757,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetCritterState",
+      "sslName": "critter_state"
+    },
+    "opGameTimeAdvance": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2761,
+      "endLine": 2775,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "game_time_advance": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2761,
+      "endLine": 2775,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameTimeAdvance"
+    },
+    "opRadiationIncrease": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2779,
+      "endLine": 2790,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "radiation_inc": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2779,
+      "endLine": 2790,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRadiationIncrease"
+    },
+    "radiation_increase": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2779,
+      "endLine": 2790,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRadiationIncrease",
+      "sslName": "radiation_inc"
+    },
+    "opRadiationDecrease": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2794,
+      "endLine": 2808,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "radiation_dec": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2794,
+      "endLine": 2808,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRadiationDecrease"
+    },
+    "radiation_decrease": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2794,
+      "endLine": 2808,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRadiationDecrease",
+      "sslName": "radiation_dec"
+    },
+    "opCritterAttemptPlacement": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2812,
+      "endLine": 2831,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critter_attempt_placement": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2812,
+      "endLine": 2831,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterAttemptPlacement"
+    },
+    "opGetObjectPid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2835,
+      "endLine": 2847,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_pid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2835,
+      "endLine": 2847,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectPid"
+    },
+    "get_object_pid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2835,
+      "endLine": 2847,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectPid",
+      "sslName": "obj_pid"
+    },
+    "opGetCurrentMap": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2851,
+      "endLine": 2855,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "cur_map_index": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2851,
+      "endLine": 2855,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetCurrentMap"
+    },
+    "get_current_map": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2851,
+      "endLine": 2855,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetCurrentMap",
+      "sslName": "cur_map_index"
+    },
+    "opCritterAddTrait": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2859,
+      "endLine": 2925,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critter_add_trait": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2859,
+      "endLine": 2925,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterAddTrait"
+    },
+    "opCritterRemoveTrait": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2929,
+      "endLine": 2958,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critter_rm_trait": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2929,
+      "endLine": 2958,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterRemoveTrait"
+    },
+    "critter_remove_trait": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2929,
+      "endLine": 2958,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterRemoveTrait",
+      "sslName": "critter_rm_trait"
+    },
+    "opGetProtoData": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2962,
+      "endLine": 2981,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "proto_data": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2962,
+      "endLine": 2981,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetProtoData"
+    },
+    "get_proto_data": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2962,
+      "endLine": 2981,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetProtoData",
+      "sslName": "proto_data"
+    },
+    "opGetMessageString": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2985,
+      "endLine": 3005,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "message_str": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2985,
+      "endLine": 3005,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetMessageString"
+    },
+    "get_message_string": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 2985,
+      "endLine": 3005,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetMessageString",
+      "sslName": "message_str"
+    },
+    "opCritterGetInventoryObject": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3009,
+      "endLine": 3054,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critter_inven_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3009,
+      "endLine": 3054,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterGetInventoryObject"
+    },
+    "critter_get_inventory_object": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3009,
+      "endLine": 3054,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterGetInventoryObject",
+      "sslName": "critter_inven_obj"
+    },
+    "opSetObjectLightLevel": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3058,
+      "endLine": 3080,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_set_light_level": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3058,
+      "endLine": 3080,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetObjectLightLevel"
+    },
+    "set_object_light_level": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3058,
+      "endLine": 3080,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetObjectLightLevel",
+      "sslName": "obj_set_light_level"
+    },
+    "opWorldmap": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3083,
+      "endLine": 3086,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "worldmap": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3083,
+      "endLine": 3086,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opWorldmap"
+    },
+    "opFloatMessage": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3113,
+      "endLine": 3196,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "float_msg": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3113,
+      "endLine": 3196,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFloatMessage"
+    },
+    "float_message": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3113,
+      "endLine": 3196,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFloatMessage",
+      "sslName": "float_msg"
+    },
+    "opMetarule": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3200,
+      "endLine": 3351,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "metarule": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3200,
+      "endLine": 3351,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opMetarule"
+    },
+    "opAnim": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3355,
+      "endLine": 3434,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "anim": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3355,
+      "endLine": 3434,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAnim"
+    },
+    "opObjectCarryingObjectByPid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3438,
+      "endLine": 3451,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_carrying_pid_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3438,
+      "endLine": 3451,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectCarryingObjectByPid"
+    },
+    "object_carrying_object_by_pid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3438,
+      "endLine": 3451,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectCarryingObjectByPid",
+      "sslName": "obj_carrying_pid_obj"
+    },
+    "opRegAnimFunc": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3455,
+      "endLine": 3473,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "reg_anim_func": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3455,
+      "endLine": 3473,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimFunc"
+    },
+    "opRegAnimAnimate": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3477,
+      "endLine": 3492,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "reg_anim_animate": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3477,
+      "endLine": 3492,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimAnimate"
+    },
+    "opRegAnimAnimateReverse": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3496,
+      "endLine": 3509,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "reg_anim_animate_reverse": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3496,
+      "endLine": 3509,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimAnimateReverse"
+    },
+    "opRegAnimObjectMoveToObject": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3513,
+      "endLine": 3526,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "reg_anim_obj_move_to_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3513,
+      "endLine": 3526,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimObjectMoveToObject"
+    },
+    "reg_anim_object_move_to_object": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3513,
+      "endLine": 3526,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimObjectMoveToObject",
+      "sslName": "reg_anim_obj_move_to_obj"
+    },
+    "opRegAnimObjectRunToObject": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3530,
+      "endLine": 3543,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "reg_anim_obj_run_to_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3530,
+      "endLine": 3543,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimObjectRunToObject"
+    },
+    "reg_anim_object_run_to_object": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3530,
+      "endLine": 3543,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimObjectRunToObject",
+      "sslName": "reg_anim_obj_run_to_obj"
+    },
+    "opRegAnimObjectMoveToTile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3547,
+      "endLine": 3560,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "reg_anim_obj_move_to_tile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3547,
+      "endLine": 3560,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimObjectMoveToTile"
+    },
+    "reg_anim_object_move_to_tile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3547,
+      "endLine": 3560,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimObjectMoveToTile",
+      "sslName": "reg_anim_obj_move_to_tile"
+    },
+    "opRegAnimObjectRunToTile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3564,
+      "endLine": 3577,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "reg_anim_obj_run_to_tile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3564,
+      "endLine": 3577,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimObjectRunToTile"
+    },
+    "reg_anim_object_run_to_tile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3564,
+      "endLine": 3577,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimObjectRunToTile",
+      "sslName": "reg_anim_obj_run_to_tile"
+    },
+    "opPlayGameMovie": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3581,
+      "endLine": 3626,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "play_gmovie": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3581,
+      "endLine": 3626,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPlayGameMovie"
+    },
+    "play_game_movie": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3581,
+      "endLine": 3626,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPlayGameMovie",
+      "sslName": "play_gmovie"
+    },
+    "opAddMultipleObjectsToInventory": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3630,
+      "endLine": 3652,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "add_mult_objs_to_inven": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3630,
+      "endLine": 3652,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddMultipleObjectsToInventory"
+    },
+    "add_multiple_objects_to_inventory": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3630,
+      "endLine": 3652,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddMultipleObjectsToInventory",
+      "sslName": "add_mult_objs_to_inven"
+    },
+    "opRemoveMultipleObjectsFromInventory": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3656,
+      "endLine": 3689,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "rm_mult_objs_from_inven": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3656,
+      "endLine": 3689,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRemoveMultipleObjectsFromInventory"
+    },
+    "remove_multiple_objects_from_inventory": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3656,
+      "endLine": 3689,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRemoveMultipleObjectsFromInventory",
+      "sslName": "rm_mult_objs_from_inven"
+    },
+    "opGetMonth": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3693,
+      "endLine": 3699,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_month": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3693,
+      "endLine": 3699,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetMonth"
+    },
+    "opGetDay": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3703,
+      "endLine": 3709,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_day": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3703,
+      "endLine": 3709,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetDay"
+    },
+    "opExplosion": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3713,
+      "endLine": 3730,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "explosion": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3713,
+      "endLine": 3730,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opExplosion"
+    },
+    "opGetDaysSinceLastVisit": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3734,
+      "endLine": 3745,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "days_since_visited": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3734,
+      "endLine": 3745,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetDaysSinceLastVisit"
+    },
+    "get_days_since_last_visit": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3734,
+      "endLine": 3745,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetDaysSinceLastVisit",
+      "sslName": "days_since_visited"
+    },
+    "opPoison": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3908,
+      "endLine": 3921,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "poison": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3908,
+      "endLine": 3921,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPoison"
+    },
+    "opGetPoison": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3925,
+      "endLine": 3941,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_poison": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3925,
+      "endLine": 3941,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetPoison"
+    },
+    "opPartyAdd": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3945,
+      "endLine": 3954,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "party_add": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3945,
+      "endLine": 3954,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPartyAdd"
+    },
+    "opPartyRemove": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3958,
+      "endLine": 3967,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "party_remove": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3958,
+      "endLine": 3967,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPartyRemove"
+    },
+    "opRegAnimAnimateForever": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3971,
+      "endLine": 3983,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "reg_anim_animate_forever": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3971,
+      "endLine": 3983,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimAnimateForever"
+    },
+    "opCritterInjure": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3987,
+      "endLine": 4015,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critter_injure": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 3987,
+      "endLine": 4015,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterInjure"
+    },
+    "opCombatIsInitialized": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4019,
+      "endLine": 4022,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "combat_is_initialized": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4019,
+      "endLine": 4022,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCombatIsInitialized"
+    },
+    "opGetGameDifficulty": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4037,
+      "endLine": 4040,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "difficulty_level": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4037,
+      "endLine": 4040,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetGameDifficulty"
+    },
+    "get_game_difficulty": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4037,
+      "endLine": 4040,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetGameDifficulty",
+      "sslName": "difficulty_level"
+    },
+    "opGetRunningBurningGuy": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4044,
+      "endLine": 4047,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "running_burning_guy": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4044,
+      "endLine": 4047,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetRunningBurningGuy"
+    },
+    "get_running_burning_guy": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4044,
+      "endLine": 4047,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetRunningBurningGuy",
+      "sslName": "running_burning_guy"
+    },
+    "opObjectIsLocked": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4067,
+      "endLine": 4079,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_is_locked": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4067,
+      "endLine": 4079,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectIsLocked"
+    },
+    "object_is_locked": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4067,
+      "endLine": 4079,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectIsLocked",
+      "sslName": "obj_is_locked"
+    },
+    "opObjectLock": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4083,
+      "endLine": 4092,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_lock": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4083,
+      "endLine": 4092,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectLock"
+    },
+    "object_lock": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4083,
+      "endLine": 4092,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectLock",
+      "sslName": "obj_lock"
+    },
+    "opObjectUnlock": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4096,
+      "endLine": 4105,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_unlock": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4096,
+      "endLine": 4105,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectUnlock"
+    },
+    "object_unlock": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4096,
+      "endLine": 4105,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectUnlock",
+      "sslName": "obj_unlock"
+    },
+    "opObjectIsOpen": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4109,
+      "endLine": 4121,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_is_open": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4109,
+      "endLine": 4121,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectIsOpen"
+    },
+    "object_is_open": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4109,
+      "endLine": 4121,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectIsOpen",
+      "sslName": "obj_is_open"
+    },
+    "opObjectOpen": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4125,
+      "endLine": 4134,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_open": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4125,
+      "endLine": 4134,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectOpen"
+    },
+    "object_open": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4125,
+      "endLine": 4134,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectOpen",
+      "sslName": "obj_open"
+    },
+    "opObjectClose": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4138,
+      "endLine": 4147,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_close": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4138,
+      "endLine": 4147,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectClose"
+    },
+    "object_close": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4138,
+      "endLine": 4147,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectClose",
+      "sslName": "obj_close"
+    },
+    "opGameUiDisable": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4151,
+      "endLine": 4154,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "game_ui_disable": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4151,
+      "endLine": 4154,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameUiDisable"
+    },
+    "opGameUiEnable": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4158,
+      "endLine": 4161,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "game_ui_enable": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4158,
+      "endLine": 4161,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameUiEnable"
+    },
+    "opGameUiIsDisabled": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4165,
+      "endLine": 4168,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "game_ui_is_disabled": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4165,
+      "endLine": 4168,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameUiIsDisabled"
+    },
+    "opGameFadeOut": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4172,
+      "endLine": 4181,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "gfade_out": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4172,
+      "endLine": 4181,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameFadeOut"
+    },
+    "game_fade_out": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4172,
+      "endLine": 4181,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameFadeOut",
+      "sslName": "gfade_out"
+    },
+    "opGameFadeIn": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4185,
+      "endLine": 4194,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "gfade_in": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4185,
+      "endLine": 4194,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameFadeIn"
+    },
+    "game_fade_in": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4185,
+      "endLine": 4194,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameFadeIn",
+      "sslName": "gfade_in"
+    },
+    "opItemCapsTotal": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4198,
+      "endLine": 4210,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "item_caps_total": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4198,
+      "endLine": 4210,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opItemCapsTotal"
+    },
+    "opItemCapsAdjust": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4214,
+      "endLine": 4228,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "item_caps_adjust": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4214,
+      "endLine": 4228,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opItemCapsAdjust"
+    },
+    "opRegAnimPlaySfx": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4255,
+      "endLine": 4271,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "reg_anim_play_sfx": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4255,
+      "endLine": 4271,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRegAnimPlaySfx"
+    },
+    "opCritterModifySkill": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4275,
+      "endLine": 4321,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critter_mod_skill": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4275,
+      "endLine": 4321,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterModifySkill"
+    },
+    "critter_modify_skill": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4275,
+      "endLine": 4321,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterModifySkill",
+      "sslName": "critter_mod_skill"
+    },
+    "opSfxBuildCharName": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4325,
+      "endLine": 4339,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfx_build_char_name": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4325,
+      "endLine": 4339,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSfxBuildCharName"
+    },
+    "opSfxBuildAmbientName": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4343,
+      "endLine": 4350,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfx_build_ambient_name": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4343,
+      "endLine": 4350,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSfxBuildAmbientName"
+    },
+    "opSfxBuildInterfaceName": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4354,
+      "endLine": 4361,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfx_build_interface_name": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4354,
+      "endLine": 4361,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSfxBuildInterfaceName"
+    },
+    "opSfxBuildItemName": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4365,
+      "endLine": 4372,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfx_build_item_name": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4365,
+      "endLine": 4372,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSfxBuildItemName"
+    },
+    "opSfxBuildWeaponName": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4376,
+      "endLine": 4386,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfx_build_weapon_name": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4376,
+      "endLine": 4386,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSfxBuildWeaponName"
+    },
+    "opSfxBuildSceneryName": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4390,
+      "endLine": 4399,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfx_build_scenery_name": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4390,
+      "endLine": 4399,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSfxBuildSceneryName"
+    },
+    "opSfxBuildOpenName": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4403,
+      "endLine": 4416,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfx_build_open_name": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4403,
+      "endLine": 4416,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSfxBuildOpenName"
+    },
+    "opAttackSetup": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4420,
+      "endLine": 4467,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "attack_setup": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4420,
+      "endLine": 4467,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAttackSetup"
+    },
+    "opDestroyMultipleObjects": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4471,
+      "endLine": 4527,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "destroy_mult_objs": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4471,
+      "endLine": 4527,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDestroyMultipleObjects"
+    },
+    "destroy_multiple_objects": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4471,
+      "endLine": 4527,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDestroyMultipleObjects",
+      "sslName": "destroy_mult_objs"
+    },
+    "opUseObjectOnObject": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4531,
+      "endLine": 4569,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "use_obj_on_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4531,
+      "endLine": 4569,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opUseObjectOnObject"
+    },
+    "use_object_on_object": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4531,
+      "endLine": 4569,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opUseObjectOnObject",
+      "sslName": "use_obj_on_obj"
+    },
+    "opEndgameSlideshow": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4573,
+      "endLine": 4578,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "endgame_slideshow": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4573,
+      "endLine": 4578,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opEndgameSlideshow"
+    },
+    "opMoveObjectInventoryToObject": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4582,
+      "endLine": 4630,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "move_obj_inven_to_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4582,
+      "endLine": 4630,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opMoveObjectInventoryToObject"
+    },
+    "move_object_inventory_to_object": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4582,
+      "endLine": 4630,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opMoveObjectInventoryToObject",
+      "sslName": "move_obj_inven_to_obj"
+    },
+    "opEndgameMovie": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4634,
+      "endLine": 4639,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "endgame_movie": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4634,
+      "endLine": 4639,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opEndgameMovie"
+    },
+    "opGetObjectFid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4643,
+      "endLine": 4655,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_art_fid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4643,
+      "endLine": 4655,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectFid"
+    },
+    "get_object_fid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4643,
+      "endLine": 4655,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectFid",
+      "sslName": "obj_art_fid"
+    },
+    "opGetFidAnim": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4659,
+      "endLine": 4663,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "art_anim": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4659,
+      "endLine": 4663,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetFidAnim"
+    },
+    "get_fid_anim": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4659,
+      "endLine": 4663,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetFidAnim",
+      "sslName": "art_anim"
+    },
+    "opGetPartyMember": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4667,
+      "endLine": 4673,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "party_member_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4667,
+      "endLine": 4673,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetPartyMember"
+    },
+    "get_party_member": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4667,
+      "endLine": 4673,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetPartyMember",
+      "sslName": "party_member_obj"
+    },
+    "opGetRotationToTile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4677,
+      "endLine": 4684,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "rotation_to_tile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4677,
+      "endLine": 4684,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetRotationToTile"
+    },
+    "get_rotation_to_tile": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4677,
+      "endLine": 4684,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetRotationToTile",
+      "sslName": "rotation_to_tile"
+    },
+    "opJamLock": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4688,
+      "endLine": 4693,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "jam_lock": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4688,
+      "endLine": 4693,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opJamLock"
+    },
+    "opGameDialogSetBarterMod": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4697,
+      "endLine": 4702,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "gdialog_set_barter_mod": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4697,
+      "endLine": 4702,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameDialogSetBarterMod"
+    },
+    "game_dialog_set_barter_mod": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4697,
+      "endLine": 4702,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGameDialogSetBarterMod",
+      "sslName": "gdialog_set_barter_mod"
+    },
+    "opGetCombatDifficulty": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4706,
+      "endLine": 4709,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "combat_difficulty": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4706,
+      "endLine": 4709,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetCombatDifficulty"
+    },
+    "get_combat_difficulty": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4706,
+      "endLine": 4709,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetCombatDifficulty",
+      "sslName": "combat_difficulty"
+    },
+    "opObjectOnScreen": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4713,
+      "endLine": 4736,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_on_screen": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4713,
+      "endLine": 4736,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectOnScreen"
+    },
+    "object_on_screen": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4713,
+      "endLine": 4736,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opObjectOnScreen",
+      "sslName": "obj_on_screen"
+    },
+    "opCritterIsFleeing": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4740,
+      "endLine": 4752,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critter_is_fleeing": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4740,
+      "endLine": 4752,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterIsFleeing"
+    },
+    "opCritterSetFleeState": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4756,
+      "endLine": 4770,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critter_set_flee_state": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4756,
+      "endLine": 4770,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterSetFleeState"
+    },
+    "opTerminateCombat": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4774,
+      "endLine": 4787,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "terminate_combat": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4774,
+      "endLine": 4787,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opTerminateCombat"
+    },
+    "opDebugMessage": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4791,
+      "endLine": 4801,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "debug_msg": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4791,
+      "endLine": 4801,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDebugMessage"
+    },
+    "debug_message": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4791,
+      "endLine": 4801,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDebugMessage",
+      "sslName": "debug_msg"
+    },
+    "opCritterStopAttacking": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4805,
+      "endLine": 4816,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "critter_stop_attacking": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4805,
+      "endLine": 4816,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCritterStopAttacking"
+    },
+    "opTileGetObjectWithPid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4820,
+      "endLine": 4839,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "tile_contains_pid_obj": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4820,
+      "endLine": 4839,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opTileGetObjectWithPid"
+    },
+    "tile_get_object_with_pid": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4820,
+      "endLine": 4839,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opTileGetObjectWithPid",
+      "sslName": "tile_contains_pid_obj"
+    },
+    "opGetObjectName": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4843,
+      "endLine": 4853,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_name": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4843,
+      "endLine": 4853,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectName"
+    },
+    "get_object_name": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4843,
+      "endLine": 4853,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetObjectName",
+      "sslName": "obj_name"
+    },
+    "opGetPcStat": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4857,
+      "endLine": 4863,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_pc_stat": {
+      "file": "src/interpreter_extra.cc",
+      "startLine": 4857,
+      "endLine": 4863,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGetPcStat"
+    },
+    "opFillWin3x3": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 166,
+      "endLine": 191,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "fillwin3x3": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 166,
+      "endLine": 191,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFillWin3x3"
+    },
+    "fill_win3x3": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 166,
+      "endLine": 191,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFillWin3x3",
+      "sslName": "fillwin3x3"
+    },
+    "opFormat": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 195,
+      "endLine": 207,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "format": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 195,
+      "endLine": 207,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFormat"
+    },
+    "opPrint": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 211,
+      "endLine": 240,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "print": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 211,
+      "endLine": 240,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPrint"
+    },
+    "opSelectFileList": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 244,
+      "endLine": 274,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "selectfilelist": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 244,
+      "endLine": 274,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSelectFileList"
+    },
+    "select_file_list": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 244,
+      "endLine": 274,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSelectFileList",
+      "sslName": "selectfilelist"
+    },
+    "opTokenize": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 278,
+      "endLine": 341,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "tokenize": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 278,
+      "endLine": 341,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opTokenize"
+    },
+    "opPrintRect": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 345,
+      "endLine": 373,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "printrect": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 345,
+      "endLine": 373,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPrintRect"
+    },
+    "print_rect": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 345,
+      "endLine": 373,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPrintRect",
+      "sslName": "printrect"
+    },
+    "opSelect": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 376,
+      "endLine": 387,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "select": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 376,
+      "endLine": 387,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSelect"
+    },
+    "opDisplay": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 391,
+      "endLine": 399,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "display": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 391,
+      "endLine": 399,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDisplay"
+    },
+    "opDisplayRaw": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 403,
+      "endLine": 411,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "displayraw": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 403,
+      "endLine": 411,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDisplayRaw"
+    },
+    "display_raw": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 403,
+      "endLine": 411,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDisplayRaw",
+      "sslName": "displayraw"
+    },
+    "opFadeIn": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 524,
+      "endLine": 538,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "fadein": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 524,
+      "endLine": 538,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFadeIn"
+    },
+    "fade_in": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 524,
+      "endLine": 538,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFadeIn",
+      "sslName": "fadein"
+    },
+    "opFadeOut": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 542,
+      "endLine": 561,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "fadeout": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 542,
+      "endLine": 561,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFadeOut"
+    },
+    "fade_out": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 542,
+      "endLine": 561,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFadeOut",
+      "sslName": "fadeout"
+    },
+    "opSetMovieFlags": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 575,
+      "endLine": 582,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "movieflags": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 575,
+      "endLine": 582,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetMovieFlags"
+    },
+    "set_movie_flags": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 575,
+      "endLine": 582,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetMovieFlags",
+      "sslName": "movieflags"
+    },
+    "opPlayMovie": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 586,
+      "endLine": 605,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "playmovie": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 586,
+      "endLine": 605,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPlayMovie"
+    },
+    "play_movie": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 586,
+      "endLine": 605,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPlayMovie",
+      "sslName": "playmovie"
+    },
+    "opStopMovie": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 636,
+      "endLine": 640,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "stopmovie": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 636,
+      "endLine": 640,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opStopMovie"
+    },
+    "stop_movie": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 636,
+      "endLine": 640,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opStopMovie",
+      "sslName": "stopmovie"
+    },
+    "opAddRegionProc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 723,
+      "endLine": 736,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addregionproc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 723,
+      "endLine": 736,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddRegionProc"
+    },
+    "add_region_proc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 723,
+      "endLine": 736,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddRegionProc",
+      "sslName": "addregionproc"
+    },
+    "opAddRegionRightProc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 740,
+      "endLine": 750,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addregionrightproc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 740,
+      "endLine": 750,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddRegionRightProc"
+    },
+    "add_region_right_proc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 740,
+      "endLine": 750,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddRegionRightProc",
+      "sslName": "addregionrightproc"
+    },
+    "opCreateWin": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 754,
+      "endLine": 770,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "createwin": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 754,
+      "endLine": 770,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCreateWin"
+    },
+    "create_win": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 754,
+      "endLine": 770,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCreateWin",
+      "sslName": "createwin"
+    },
+    "opResizeWin": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 774,
+      "endLine": 790,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "resizewin": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 774,
+      "endLine": 790,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opResizeWin"
+    },
+    "resize_win": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 774,
+      "endLine": 790,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opResizeWin",
+      "sslName": "resizewin"
+    },
+    "opScaleWin": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 794,
+      "endLine": 810,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "scalewin": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 794,
+      "endLine": 810,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opScaleWin"
+    },
+    "scale_win": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 794,
+      "endLine": 810,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opScaleWin",
+      "sslName": "scalewin"
+    },
+    "opDeleteWin": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 814,
+      "endLine": 823,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "deletewin": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 814,
+      "endLine": 823,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDeleteWin"
+    },
+    "delete_win": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 814,
+      "endLine": 823,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDeleteWin",
+      "sslName": "deletewin"
+    },
+    "opSayStart": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 827,
+      "endLine": 838,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "saystart": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 827,
+      "endLine": 838,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayStart"
+    },
+    "say_start": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 827,
+      "endLine": 838,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayStart",
+      "sslName": "saystart"
+    },
+    "opDeleteRegion": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 644,
+      "endLine": 664,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "deleteregion": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 644,
+      "endLine": 664,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDeleteRegion"
+    },
+    "delete_region": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 644,
+      "endLine": 664,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDeleteRegion",
+      "sslName": "deleteregion"
+    },
+    "opActivateRegion": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 668,
+      "endLine": 674,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "activateregion": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 668,
+      "endLine": 674,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opActivateRegion"
+    },
+    "activate_region": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 668,
+      "endLine": 674,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opActivateRegion",
+      "sslName": "activateregion"
+    },
+    "opCheckRegion": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 678,
+      "endLine": 684,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "checkregion": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 678,
+      "endLine": 684,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCheckRegion"
+    },
+    "check_region": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 678,
+      "endLine": 684,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opCheckRegion",
+      "sslName": "checkregion"
+    },
+    "opAddRegion": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 688,
+      "endLine": 719,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addregion": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 688,
+      "endLine": 719,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddRegion"
+    },
+    "add_region": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 688,
+      "endLine": 719,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddRegion",
+      "sslName": "addregion"
+    },
+    "opSayStartPos": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 842,
+      "endLine": 853,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "saystartpos": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 842,
+      "endLine": 853,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayStartPos"
+    },
+    "say_start_pos": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 842,
+      "endLine": 853,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayStartPos",
+      "sslName": "saystartpos"
+    },
+    "opSayReplyTitle": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 857,
+      "endLine": 869,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayreplytitle": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 857,
+      "endLine": 869,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayReplyTitle"
+    },
+    "say_reply_title": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 857,
+      "endLine": 869,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayReplyTitle",
+      "sslName": "sayreplytitle"
+    },
+    "opSayGoToReply": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 873,
+      "endLine": 885,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "saygotoreply": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 873,
+      "endLine": 885,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayGoToReply"
+    },
+    "say_go_to_reply": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 873,
+      "endLine": 885,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayGoToReply",
+      "sslName": "saygotoreply"
+    },
+    "opSayReply": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 889,
+      "endLine": 919,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayreply": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 889,
+      "endLine": 919,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayReply"
+    },
+    "say_reply": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 889,
+      "endLine": 919,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayReply",
+      "sslName": "sayreply"
+    },
+    "opSayOption": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 922,
+      "endLine": 949,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayoption": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 922,
+      "endLine": 949,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayOption"
+    },
+    "say_option": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 922,
+      "endLine": 949,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayOption",
+      "sslName": "sayoption"
+    },
+    "opSayEnd": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 959,
+      "endLine": 969,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "say_end": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 959,
+      "endLine": 969,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayEnd"
+    },
+    "opSayGetLastPos": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 973,
+      "endLine": 977,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "saygetlastpos": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 973,
+      "endLine": 977,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayGetLastPos"
+    },
+    "say_get_last_pos": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 973,
+      "endLine": 977,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayGetLastPos",
+      "sslName": "saygetlastpos"
+    },
+    "opSayQuit": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 981,
+      "endLine": 986,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayquit": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 981,
+      "endLine": 986,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayQuit"
+    },
+    "say_quit": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 981,
+      "endLine": 986,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayQuit",
+      "sslName": "sayquit"
+    },
+    "opSayMessageTimeout": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1006,
+      "endLine": 1016,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "saymessagetimeout": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1006,
+      "endLine": 1016,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayMessageTimeout"
+    },
+    "say_message_timeout": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1006,
+      "endLine": 1016,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayMessageTimeout",
+      "sslName": "saymessagetimeout"
+    },
+    "opSayMessage": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1020,
+      "endLine": 1047,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "saymessage": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1020,
+      "endLine": 1047,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayMessage"
+    },
+    "say_message": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1020,
+      "endLine": 1047,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayMessage",
+      "sslName": "saymessage"
+    },
+    "opGotoXY": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1051,
+      "endLine": 1059,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "gotoxy": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1051,
+      "endLine": 1059,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGotoXY"
+    },
+    "goto_xy": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1051,
+      "endLine": 1059,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opGotoXY",
+      "sslName": "gotoxy"
+    },
+    "opAddButtonFlag": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1063,
+      "endLine": 1072,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addbuttonflag": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1063,
+      "endLine": 1072,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddButtonFlag"
+    },
+    "add_button_flag": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1063,
+      "endLine": 1072,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddButtonFlag",
+      "sslName": "addbuttonflag"
+    },
+    "opAddRegionFlag": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1076,
+      "endLine": 1085,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addregionflag": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1076,
+      "endLine": 1085,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddRegionFlag"
+    },
+    "add_region_flag": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1076,
+      "endLine": 1085,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddRegionFlag",
+      "sslName": "addregionflag"
+    },
+    "opAddButton": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1089,
+      "endLine": 1105,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addbutton": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1089,
+      "endLine": 1105,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddButton"
+    },
+    "add_button": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1089,
+      "endLine": 1105,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddButton",
+      "sslName": "addbutton"
+    },
+    "opAddButtonText": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1109,
+      "endLine": 1117,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addbuttontext": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1109,
+      "endLine": 1117,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddButtonText"
+    },
+    "add_button_text": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1109,
+      "endLine": 1117,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddButtonText",
+      "sslName": "addbuttontext"
+    },
+    "opAddButtonGfx": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1121,
+      "endLine": 1143,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addbuttongfx": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1121,
+      "endLine": 1143,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddButtonGfx"
+    },
+    "add_button_gfx": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1121,
+      "endLine": 1143,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddButtonGfx",
+      "sslName": "addbuttongfx"
+    },
+    "opAddButtonProc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1147,
+      "endLine": 1159,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addbuttonproc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1147,
+      "endLine": 1159,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddButtonProc"
+    },
+    "add_button_proc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1147,
+      "endLine": 1159,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddButtonProc",
+      "sslName": "addbuttonproc"
+    },
+    "opAddButtonRightProc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1163,
+      "endLine": 1173,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addbuttonrightproc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1163,
+      "endLine": 1173,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddButtonRightProc"
+    },
+    "add_button_right_proc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1163,
+      "endLine": 1173,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddButtonRightProc",
+      "sslName": "addbuttonrightproc"
+    },
+    "opShowWin": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1177,
+      "endLine": 1181,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "showwin": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1177,
+      "endLine": 1181,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opShowWin"
+    },
+    "show_win": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1177,
+      "endLine": 1181,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opShowWin",
+      "sslName": "showwin"
+    },
+    "opDeleteButton": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1185,
+      "endLine": 1215,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "deletebutton": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1185,
+      "endLine": 1215,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDeleteButton"
+    },
+    "delete_button": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1185,
+      "endLine": 1215,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDeleteButton",
+      "sslName": "deletebutton"
+    },
+    "opFillWin": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1219,
+      "endLine": 1258,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "fillwin": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1219,
+      "endLine": 1258,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFillWin"
+    },
+    "fill_win": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1219,
+      "endLine": 1258,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFillWin",
+      "sslName": "fillwin"
+    },
+    "opFillRect": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1262,
+      "endLine": 1305,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "fillrect": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1262,
+      "endLine": 1305,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFillRect"
+    },
+    "fill_rect": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1262,
+      "endLine": 1305,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opFillRect",
+      "sslName": "fillrect"
+    },
+    "opHideMouse": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1309,
+      "endLine": 1312,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "hidemouse": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1309,
+      "endLine": 1312,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opHideMouse"
+    },
+    "hide_mouse": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1309,
+      "endLine": 1312,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opHideMouse",
+      "sslName": "hidemouse"
+    },
+    "opShowMouse": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1316,
+      "endLine": 1319,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "showmouse": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1316,
+      "endLine": 1319,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opShowMouse"
+    },
+    "show_mouse": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1316,
+      "endLine": 1319,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opShowMouse",
+      "sslName": "showmouse"
+    },
+    "opMouseShape": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1323,
+      "endLine": 1332,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "mouseshape": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1323,
+      "endLine": 1332,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opMouseShape"
+    },
+    "mouse_shape": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1323,
+      "endLine": 1332,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opMouseShape",
+      "sslName": "mouseshape"
+    },
+    "opSetGlobalMouseFunc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1336,
+      "endLine": 1339,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "setglobalmousefunc": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1336,
+      "endLine": 1339,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetGlobalMouseFunc"
+    },
+    "set_global_mouse_func": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1336,
+      "endLine": 1339,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetGlobalMouseFunc",
+      "sslName": "setglobalmousefunc"
+    },
+    "opDisplayGfx": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1343,
+      "endLine": 1353,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "displaygfx": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1343,
+      "endLine": 1353,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDisplayGfx"
+    },
+    "display_gfx": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1343,
+      "endLine": 1353,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDisplayGfx",
+      "sslName": "displaygfx"
+    },
+    "opLoadPaletteTable": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1357,
+      "endLine": 1363,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "loadpalettetable": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1357,
+      "endLine": 1363,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opLoadPaletteTable"
+    },
+    "load_palette_table": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1357,
+      "endLine": 1363,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opLoadPaletteTable",
+      "sslName": "loadpalettetable"
+    },
+    "opAddNamedEvent": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1367,
+      "endLine": 1372,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addnamedevent": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1367,
+      "endLine": 1372,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddNamedEvent"
+    },
+    "add_named_event": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1367,
+      "endLine": 1372,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddNamedEvent",
+      "sslName": "addnamedevent"
+    },
+    "opAddNamedHandler": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1376,
+      "endLine": 1381,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addnamedhandler": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1376,
+      "endLine": 1381,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddNamedHandler"
+    },
+    "add_named_handler": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1376,
+      "endLine": 1381,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddNamedHandler",
+      "sslName": "addnamedhandler"
+    },
+    "opClearNamed": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1385,
+      "endLine": 1389,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "clearnamed": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1385,
+      "endLine": 1389,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opClearNamed"
+    },
+    "clear_named": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1385,
+      "endLine": 1389,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opClearNamed",
+      "sslName": "clearnamed"
+    },
+    "opSignalNamed": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1393,
+      "endLine": 1397,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "signalnamed": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1393,
+      "endLine": 1397,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSignalNamed"
+    },
+    "signal_named": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1393,
+      "endLine": 1397,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSignalNamed",
+      "sslName": "signalnamed"
+    },
+    "opAddKey": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1401,
+      "endLine": 1417,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "addkey": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1401,
+      "endLine": 1417,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddKey"
+    },
+    "add_key": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1401,
+      "endLine": 1417,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opAddKey",
+      "sslName": "addkey"
+    },
+    "opDeleteKey": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1421,
+      "endLine": 1436,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "deletekey": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1421,
+      "endLine": 1436,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDeleteKey"
+    },
+    "delete_key": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1421,
+      "endLine": 1436,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opDeleteKey",
+      "sslName": "deletekey"
+    },
+    "opRefreshMouse": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1440,
+      "endLine": 1447,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "refreshmouse": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1440,
+      "endLine": 1447,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRefreshMouse"
+    },
+    "refresh_mouse": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1440,
+      "endLine": 1447,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opRefreshMouse",
+      "sslName": "refreshmouse"
+    },
+    "opSetFont": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1451,
+      "endLine": 1458,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "setfont": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1451,
+      "endLine": 1458,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetFont"
+    },
+    "set_font": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1451,
+      "endLine": 1458,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetFont",
+      "sslName": "setfont"
+    },
+    "opSetTextFlags": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1462,
+      "endLine": 1469,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "setflags": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1462,
+      "endLine": 1469,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetTextFlags"
+    },
+    "set_text_flags": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1462,
+      "endLine": 1469,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetTextFlags",
+      "sslName": "setflags"
+    },
+    "opSetTextColor": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1473,
+      "endLine": 1497,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "settextcolor": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1473,
+      "endLine": 1497,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetTextColor"
+    },
+    "set_text_color": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1473,
+      "endLine": 1497,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetTextColor",
+      "sslName": "settextcolor"
+    },
+    "opSayOptionColor": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1501,
+      "endLine": 1525,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayoptioncolor": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1501,
+      "endLine": 1525,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayOptionColor"
+    },
+    "say_option_color": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1501,
+      "endLine": 1525,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayOptionColor",
+      "sslName": "sayoptioncolor"
+    },
+    "opSayReplyColor": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1529,
+      "endLine": 1553,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayreplycolor": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1529,
+      "endLine": 1553,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayReplyColor"
+    },
+    "say_reply_color": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1529,
+      "endLine": 1553,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayReplyColor",
+      "sslName": "sayreplycolor"
+    },
+    "opSetHighlightColor": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1557,
+      "endLine": 1581,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sethighlightcolor": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1557,
+      "endLine": 1581,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetHighlightColor"
+    },
+    "set_highlight_color": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1557,
+      "endLine": 1581,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetHighlightColor",
+      "sslName": "sethighlightcolor"
+    },
+    "opSayReplyWindow": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1585,
+      "endLine": 1607,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayreplywindow": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1585,
+      "endLine": 1607,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayReplyWindow"
+    },
+    "say_reply_window": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1585,
+      "endLine": 1607,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayReplyWindow",
+      "sslName": "sayreplywindow"
+    },
+    "opSayReplyFlags": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1611,
+      "endLine": 1618,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayreplyflags": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1611,
+      "endLine": 1618,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayReplyFlags"
+    },
+    "say_reply_flags": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1611,
+      "endLine": 1618,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayReplyFlags",
+      "sslName": "sayreplyflags"
+    },
+    "opSayOptionFlags": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1622,
+      "endLine": 1629,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayoptionflags": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1622,
+      "endLine": 1629,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayOptionFlags"
+    },
+    "say_option_flags": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1622,
+      "endLine": 1629,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayOptionFlags",
+      "sslName": "sayoptionflags"
+    },
+    "opSayOptionWindow": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1633,
+      "endLine": 1655,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayoptionwindow": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1633,
+      "endLine": 1655,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayOptionWindow"
+    },
+    "say_option_window": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1633,
+      "endLine": 1655,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayOptionWindow",
+      "sslName": "sayoptionwindow"
+    },
+    "opSayBorder": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1659,
+      "endLine": 1667,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayborder": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1659,
+      "endLine": 1667,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayBorder"
+    },
+    "say_border": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1659,
+      "endLine": 1667,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayBorder",
+      "sslName": "sayborder"
+    },
+    "opSayScrollUp": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1671,
+      "endLine": 1739,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayscrollup": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1671,
+      "endLine": 1739,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayScrollUp"
+    },
+    "say_scroll_up": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1671,
+      "endLine": 1739,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayScrollUp",
+      "sslName": "sayscrollup"
+    },
+    "opSayScrollDown": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1743,
+      "endLine": 1813,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayscrolldown": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1743,
+      "endLine": 1813,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayScrollDown"
+    },
+    "say_scroll_down": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1743,
+      "endLine": 1813,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayScrollDown",
+      "sslName": "sayscrolldown"
+    },
+    "opSaySetSpacing": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1817,
+      "endLine": 1824,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "saysetspacing": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1817,
+      "endLine": 1824,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSaySetSpacing"
+    },
+    "say_set_spacing": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1817,
+      "endLine": 1824,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSaySetSpacing",
+      "sslName": "saysetspacing"
+    },
+    "opSayRestart": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1828,
+      "endLine": 1833,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sayrestart": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1828,
+      "endLine": 1833,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayRestart"
+    },
+    "say_restart": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 1828,
+      "endLine": 1833,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSayRestart",
+      "sslName": "sayrestart"
+    },
+    "opSoundPlay": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2071,
+      "endLine": 2080,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "soundplay": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2071,
+      "endLine": 2080,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSoundPlay"
+    },
+    "sound_play": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2071,
+      "endLine": 2080,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSoundPlay",
+      "sslName": "soundplay"
+    },
+    "opSoundPause": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2084,
+      "endLine": 2088,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "soundpause": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2084,
+      "endLine": 2088,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSoundPause"
+    },
+    "sound_pause": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2084,
+      "endLine": 2088,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSoundPause",
+      "sslName": "soundpause"
+    },
+    "opSoundResume": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2092,
+      "endLine": 2096,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "soundresume": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2092,
+      "endLine": 2096,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSoundResume"
+    },
+    "sound_resume": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2092,
+      "endLine": 2096,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSoundResume",
+      "sslName": "soundresume"
+    },
+    "opSoundStop": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2100,
+      "endLine": 2104,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "soundstop": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2100,
+      "endLine": 2104,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSoundStop"
+    },
+    "sound_stop": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2100,
+      "endLine": 2104,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSoundStop",
+      "sslName": "soundstop"
+    },
+    "opSoundRewind": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2108,
+      "endLine": 2112,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "soundrewind": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2108,
+      "endLine": 2112,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSoundRewind"
+    },
+    "sound_rewind": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2108,
+      "endLine": 2112,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSoundRewind",
+      "sslName": "soundrewind"
+    },
+    "opSoundDelete": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2116,
+      "endLine": 2120,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sounddelete": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2116,
+      "endLine": 2120,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSoundDelete"
+    },
+    "sound_delete": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2116,
+      "endLine": 2120,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSoundDelete",
+      "sslName": "sounddelete"
+    },
+    "opSetOneOptPause": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2124,
+      "endLine": 2139,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_one_opt_pause": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 2124,
+      "endLine": 2139,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opSetOneOptPause"
+    },
+    "opPlayMovieRect": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 609,
+      "endLine": 632,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "playmovierect": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 609,
+      "endLine": 632,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPlayMovieRect"
+    },
+    "play_movie_rect": {
+      "file": "src/interpreter_lib.cc",
+      "startLine": 609,
+      "endLine": 632,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "opPlayMovieRect",
+      "sslName": "playmovierect"
+    },
+    "scriptLocateProcs": {
+      "file": "src/scripts.cc",
+      "startLine": 77,
+      "endLine": 147,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptWrite": {
+      "file": "src/scripts.cc",
+      "startLine": 82,
+      "endLine": 147,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptListExtentWrite": {
+      "file": "src/scripts.cc",
+      "startLine": 83,
+      "endLine": 147,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptRead": {
+      "file": "src/scripts.cc",
+      "startLine": 84,
+      "endLine": 147,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptListExtentRead": {
+      "file": "src/scripts.cc",
+      "startLine": 85,
+      "endLine": 147,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptGetNewId": {
+      "file": "src/scripts.cc",
+      "startLine": 86,
+      "endLine": 147,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptGetSid": {
+      "file": "src/scripts.h",
+      "startLine": 164,
+      "endLine": 213,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptSetObjects": {
+      "file": "src/scripts.h",
+      "startLine": 166,
+      "endLine": 215,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptSetFixedParam": {
+      "file": "src/scripts.h",
+      "startLine": 167,
+      "endLine": 216,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptSetActionBeingUsed": {
+      "file": "src/scripts.h",
+      "startLine": 168,
+      "endLine": 217,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptAddTimerEvent": {
+      "file": "src/scripts.h",
+      "startLine": 171,
+      "endLine": 220,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptEventWrite": {
+      "file": "src/scripts.h",
+      "startLine": 172,
+      "endLine": 221,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptEventRead": {
+      "file": "src/scripts.h",
+      "startLine": 173,
+      "endLine": 222,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptEventProcess": {
+      "file": "src/scripts.h",
+      "startLine": 174,
+      "endLine": 223,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptExecProc": {
+      "file": "src/scripts.h",
+      "startLine": 189,
+      "endLine": 235,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptHasProc": {
+      "file": "src/scripts.h",
+      "startLine": 190,
+      "endLine": 235,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptSaveAll": {
+      "file": "src/scripts.h",
+      "startLine": 208,
+      "endLine": 235,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptLoadAll": {
+      "file": "src/scripts.h",
+      "startLine": 209,
+      "endLine": 235,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptGetScript": {
+      "file": "src/scripts.h",
+      "startLine": 210,
+      "endLine": 235,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptAdd": {
+      "file": "src/scripts.h",
+      "startLine": 211,
+      "endLine": 235,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptRemove": {
+      "file": "src/scripts.h",
+      "startLine": 212,
+      "endLine": 235,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptGetLocalVar": {
+      "file": "src/scripts.h",
+      "startLine": 227,
+      "endLine": 235,
+      "kind": "function",
+      "commit": "58b811f"
+    },
+    "scriptSetLocalVar": {
+      "file": "src/scripts.h",
+      "startLine": 228,
+      "endLine": 235,
+      "kind": "function",
+      "commit": "58b811f"
+    }
+  }
+}

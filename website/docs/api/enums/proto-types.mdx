@@ -1,0 +1,205 @@
+---
+sidebar_position: 1
+title: Proto Types
+---
+
+# Prototype Type Enums
+
+Constants for prototype (object) types.
+
+import ImplLink from '@site/src/components/ImplLink';
+
+## Object Types
+
+The high byte of a PID indicates the object type:
+
+| Value | Type | Description |
+|-------|------|-------------|
+| 0x00 | Item | Weapons, armor, consumables, etc. |
+| 0x01 | Critter | NPCs and creatures |
+| 0x02 | Scenery | Interactive environment objects |
+| 0x03 | Wall | Blocking terrain |
+| 0x04 | Tile | Floor/roof graphics |
+| 0x05 | Misc | Exit grids, special objects |
+
+### PID Structure
+
+```c
+// Extract type from PID
+int type = (pid >> 24) & 0xFF;
+
+// Extract proto number from PID
+int proto_num = pid & 0x00FFFFFF;
+
+// Build PID from type and number
+int pid = (type << 24) | proto_num;
+```
+
+## Item Types
+
+| Value | Name | Description |
+|-------|------|-------------|
+| 0 | `ITEM_TYPE_ARMOR` | Wearable protection |
+| 1 | `ITEM_TYPE_CONTAINER` | Storage objects |
+| 2 | `ITEM_TYPE_DRUG` | Consumables (stimpaks, chems) |
+| 3 | `ITEM_TYPE_WEAPON` | Combat items |
+| 4 | `ITEM_TYPE_AMMO` | Ammunition |
+| 5 | `ITEM_TYPE_MISC` | Miscellaneous items |
+| 6 | `ITEM_TYPE_KEY` | Keys |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[27, 35]}
+  label="View item type enum"
+/>
+
+## Scenery Types
+
+| Value | Name | Description |
+|-------|------|-------------|
+| 0 | `SCENERY_TYPE_DOOR` | Openable doors |
+| 1 | `SCENERY_TYPE_STAIRS` | Map transitions |
+| 2 | `SCENERY_TYPE_ELEVATOR` | Elevator controls |
+| 3 | `SCENERY_TYPE_LADDER_UP` | Upward ladders |
+| 4 | `SCENERY_TYPE_LADDER_DOWN` | Downward ladders |
+| 5 | `SCENERY_TYPE_GENERIC` | Decorative/interactive |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[37, 45]}
+  label="View scenery type enum"
+/>
+
+## Material Types
+
+| Value | Name |
+|-------|------|
+| 0 | `MATERIAL_TYPE_GLASS` |
+| 1 | `MATERIAL_TYPE_METAL` |
+| 2 | `MATERIAL_TYPE_PLASTIC` |
+| 3 | `MATERIAL_TYPE_WOOD` |
+| 4 | `MATERIAL_TYPE_DIRT` |
+| 5 | `MATERIAL_TYPE_STONE` |
+| 6 | `MATERIAL_TYPE_CEMENT` |
+| 7 | `MATERIAL_TYPE_LEATHER` |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[47, 57]}
+  label="View material type enum"
+/>
+
+## Damage Types
+
+| Value | Name | Description |
+|-------|------|-------------|
+| 0 | `DAMAGE_TYPE_NORMAL` | Physical/kinetic |
+| 1 | `DAMAGE_TYPE_LASER` | Laser weapons |
+| 2 | `DAMAGE_TYPE_FIRE` | Fire/heat |
+| 3 | `DAMAGE_TYPE_PLASMA` | Plasma weapons |
+| 4 | `DAMAGE_TYPE_ELECTRICAL` | Electrical |
+| 5 | `DAMAGE_TYPE_EMP` | Electromagnetic pulse |
+| 6 | `DAMAGE_TYPE_EXPLOSION` | Explosives |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[59, 68]}
+  label="View damage type enum"
+/>
+
+## Caliber Types
+
+| Value | Name |
+|-------|------|
+| 0 | `CALIBER_TYPE_NONE` |
+| 1 | `CALIBER_TYPE_ROCKET` |
+| 2 | `CALIBER_TYPE_FLAMETHROWER_FUEL` |
+| 3 | `CALIBER_TYPE_C_ENERGY_CELL` |
+| 4 | `CALIBER_TYPE_D_ENERGY_CELL` |
+| 5 | `CALIBER_TYPE_223` |
+| 6 | `CALIBER_TYPE_5_MM` |
+| 7 | `CALIBER_TYPE_40_CAL` |
+| 8 | `CALIBER_TYPE_10_MM` |
+| 9 | `CALIBER_TYPE_44_CAL` |
+| 10 | `CALIBER_TYPE_14_MM` |
+| 11 | `CALIBER_TYPE_12_GAUGE` |
+| 12 | `CALIBER_TYPE_9_MM` |
+| 13 | `CALIBER_TYPE_BB` |
+| 14 | `CALIBER_TYPE_45_CAL` |
+| 15 | `CALIBER_TYPE_2_MM` |
+| 16 | `CALIBER_TYPE_4_7_MM_CASELESS` |
+| 17 | `CALIBER_TYPE_NH_NEEDLER` |
+| 18 | `CALIBER_TYPE_7_62` |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[70, 91]}
+  label="View caliber type enum"
+/>
+
+## Body Types
+
+| Value | Name | Description |
+|-------|------|-------------|
+| 0 | `BODY_TYPE_BIPED` | Two-legged (humans, ghouls) |
+| 1 | `BODY_TYPE_QUADRUPED` | Four-legged (brahmin, dogs) |
+| 2 | `BODY_TYPE_ROBOTIC` | Robots |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[99, 104]}
+  label="View body type enum"
+/>
+
+## Kill Types
+
+Kill types are used for kill statistics tracking:
+
+| Value | Name |
+|-------|------|
+| 0 | `KILL_TYPE_MAN` |
+| 1 | `KILL_TYPE_WOMAN` |
+| 2 | `KILL_TYPE_CHILD` |
+| 3 | `KILL_TYPE_SUPER_MUTANT` |
+| 4 | `KILL_TYPE_GHOUL` |
+| 5 | `KILL_TYPE_BRAHMIN` |
+| 6 | `KILL_TYPE_RADSCORPION` |
+| 7 | `KILL_TYPE_RAT` |
+| 8 | `KILL_TYPE_FLOATER` |
+| 9 | `KILL_TYPE_CENTAUR` |
+| 10 | `KILL_TYPE_ROBOT` |
+| 11 | `KILL_TYPE_DOG` |
+| 12 | `KILL_TYPE_MANTIS` |
+| 13 | `KILL_TYPE_DEATH_CLAW` |
+| 14 | `KILL_TYPE_PLANT` |
+| 15 | `KILL_TYPE_GECKO` |
+| 16 | `KILL_TYPE_ALIEN` |
+| 17 | `KILL_TYPE_GIANT_ANT` |
+| 18 | `KILL_TYPE_BIG_BAD_BOSS` |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[106, 132]}
+  label="View kill type enum"
+/>
+
+## Gender Types
+
+| Value | Name |
+|-------|------|
+| 0 | `GENDER_MALE` |
+| 1 | `GENDER_FEMALE` |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[20, 24]}
+  label="View gender enum"
+/>

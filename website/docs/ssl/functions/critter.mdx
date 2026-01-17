@@ -1,0 +1,439 @@
+---
+sidebar_position: 4
+title: Critter Functions
+description: SSL functions for critter stats, traits, and state management
+tags: [vanilla]
+---
+
+# Critter Functions
+
+Functions for managing critter statistics, traits, injuries, and state.
+
+## get_critter_stat <span class="tag-vanilla">vanilla</span> {#get_critter_stat}
+
+```ssl
+int get_critter_stat(ObjectPtr who, int stat)
+```
+
+Returns the value of a desired attribute/stat in a critter object.
+
+**Parameters:**
+- `who` - Critter object
+- `stat` - Stat constant (STAT_st, STAT_pe, STAT_en, etc.)
+
+**Returns:** `int` - Stat value
+
+**Example:**
+```ssl
+variable strength;
+strength := get_critter_stat(dude_obj, STAT_st);
+```
+
+
+<FnRef fn="get_critter_stat" />
+---
+
+## set_critter_stat <span class="tag-vanilla">vanilla</span> {#set_critter_stat}
+
+```ssl
+int set_critter_stat(ObjectPtr who, int stat, int val)
+```
+
+Sets the value of a desired attribute/stat in a critter.
+
+**Parameters:**
+- `who` - Critter object
+- `stat` - Stat constant
+- `val` - New value
+
+
+<FnRef fn="set_critter_stat" />
+---
+
+## get_pc_stat <span class="tag-vanilla">vanilla</span> {#get_pc_stat}
+
+```ssl
+int get_pc_stat(int pcStat)
+```
+
+Returns the value of a player-only stat from `obj_dude`. These stats are found in define.h starting with "PCSTAT_".
+
+**Parameters:**
+- `pcStat` - PC stat constant
+
+**Returns:** `int` - Stat value
+
+
+<FnRef fn="get_pc_stat" />
+---
+
+## critter_add_trait <span class="tag-vanilla">vanilla</span> {#critter_add_trait}
+
+```ssl
+int critter_add_trait(ObjectPtr who, int trait_type, int trait, int amount)
+```
+
+Adds a particular trait of a given type to a critter. Possible traits under the SPECIAL system include Perks, Traits, and Object-instance information (team numbers, AI packet numbers, etc.).
+
+**Parameters:**
+- `who` - Critter object
+- `trait_type` - Trait type constant
+- `trait` - Specific trait constant
+- `amount` - Amount to add
+
+
+<FnRef fn="critter_add_trait" />
+---
+
+## critter_rm_trait <span class="tag-vanilla">vanilla</span> {#critter_rm_trait}
+
+```ssl
+int critter_rm_trait(ObjectPtr who, int trait_type, int trait, int amount)
+```
+
+Removes a particular trait of a given type from a critter.
+
+**Parameters:**
+- `who` - Critter object
+- `trait_type` - Trait type constant
+- `trait` - Specific trait constant
+- `amount` - Amount to remove
+
+
+<FnRef fn="critter_rm_trait" />
+---
+
+## has_trait <span class="tag-vanilla">vanilla</span> {#has_trait}
+
+```ssl
+int has_trait(int trait_type, ObjectPtr who, int trait)
+```
+
+Returns the value of a critter's trait of a given type. Can determine if the player has a particular Perk, AI Packet, team number, current rotation, or Trait (finesse, bruiser, etc.).
+
+**Parameters:**
+- `trait_type` - Trait type constant
+- `who` - Critter object
+- `trait` - Trait constant
+
+**Returns:** `int` - Trait value
+
+
+<FnRef fn="has_trait" />
+---
+
+## critter_skill_level <span class="tag-vanilla">vanilla</span> {#critter_skill_level}
+
+```ssl
+int critter_skill_level(ObjectPtr who, int skillNum)
+```
+
+Returns the current skill level of a critter's skill.
+
+**Parameters:**
+- `who` - Critter object
+- `skillNum` - Skill constant
+
+**Returns:** `int` - Skill level
+
+---
+
+## critter_mod_skill <span class="tag-vanilla">vanilla</span> {#critter_mod_skill}
+
+```ssl
+int critter_mod_skill(ObjectPtr who, int skill, int amount)
+```
+
+Modifies a given skill in a critter by a given amount.
+
+:::note
+This currently is only valid on the player (obj_dude) object.
+:::
+
+**Parameters:**
+- `who` - Critter object
+- `skill` - Skill constant
+- `amount` - Amount to modify
+
+
+<FnRef fn="critter_mod_skill" />
+---
+
+## critter_heal <span class="tag-vanilla">vanilla</span> {#critter_heal}
+
+```ssl
+void critter_heal(ObjectPtr who, int amount)
+```
+
+Heals a critter for a given amount up to maximum HP.
+
+**Parameters:**
+- `who` - Critter to heal
+- `amount` - Amount to heal
+
+
+<FnRef fn="critter_heal" />
+---
+
+## critter_damage <span class="tag-vanilla">vanilla</span> {#critter_damage}
+
+```ssl
+void critter_damage(ObjectPtr who, int dmg_amount)
+```
+
+Inflicts damage on a critter, killing it if necessary.
+
+**Parameters:**
+- `who` - Critter to damage
+- `dmg_amount` - Amount of damage
+
+
+<FnRef fn="critter_damage" />
+---
+
+## critter_injure <span class="tag-vanilla">vanilla</span> {#critter_injure}
+
+```ssl
+int critter_injure(ObjectPtr who, int how)
+```
+
+Injures a critter by crippling given limbs/body parts (defined by DAM_CRIP_ARM_LEFT, DAM_BLIND, etc. in define.h).
+
+**Parameters:**
+- `who` - Critter to injure
+- `how` - Injury type flags
+
+
+<FnRef fn="critter_injure" />
+---
+
+## critter_state <span class="tag-vanilla">vanilla</span> {#critter_state}
+
+```ssl
+int critter_state(ObjectPtr who)
+```
+
+Returns the state of a critter object (from combat data), used to determine if a critter is dead, unconscious, etc.
+
+**Parameters:**
+- `who` - Critter to check
+
+**Returns:** `int` - State constant
+
+
+<FnRef fn="critter_state" />
+---
+
+## critter_is_fleeing <span class="tag-vanilla">vanilla</span> {#critter_is_fleeing}
+
+```ssl
+int critter_is_fleeing(ObjectPtr who)
+```
+
+Returns True if the critter has its FLEE flag set.
+
+**Parameters:**
+- `who` - Critter to check
+
+**Returns:** `int` - Boolean
+
+
+<FnRef fn="critter_is_fleeing" />
+---
+
+## critter_set_flee_state <span class="tag-vanilla">vanilla</span> {#critter_set_flee_state}
+
+```ssl
+int critter_set_flee_state(ObjectPtr who, int flee_on)
+```
+
+Sets the FLEE flag on or off. Controls whether the critter flees during combat.
+
+**Parameters:**
+- `who` - Critter to modify
+- `flee_on` - Boolean (1 = flee, 0 = don't flee)
+
+
+<FnRef fn="critter_set_flee_state" />
+---
+
+## critter_stop_attacking <span class="tag-vanilla">vanilla</span> {#critter_stop_attacking}
+
+```ssl
+int critter_stop_attacking(ObjectPtr who)
+```
+
+Flags the critter as no longer wishing to be active in combat.
+
+**Parameters:**
+- `who` - Critter to flag
+
+
+<FnRef fn="critter_stop_attacking" />
+---
+
+## critter_attempt_placement <span class="tag-vanilla">vanilla</span> {#critter_attempt_placement}
+
+```ssl
+int critter_attempt_placement(ObjectPtr who, int hex, int elev)
+```
+
+Attempts to place a critter at a given destination hex and elevation. If placement fails, it tries to find a nearby hex as close as possible to the target.
+
+**Parameters:**
+- `who` - Critter to place
+- `hex` - Target hex number
+- `elev` - Target elevation (0-2)
+
+
+<FnRef fn="critter_attempt_placement" />
+---
+
+## kill_critter <span class="tag-vanilla">vanilla</span> {#kill_critter}
+
+```ssl
+void kill_critter(ObjectPtr obj, int death_frame)
+```
+
+Kills a critter outright, placing it in the chosen death frame.
+
+:::warning
+This does NOT animate the critter and does NOT refresh the screen! It is meant to be used in scripts run when entering/exiting a map (map_init/map_exit).
+:::
+
+**Parameters:**
+- `obj` - Critter to kill
+- `death_frame` - Death animation frame
+
+
+<FnRef fn="kill_critter" />
+---
+
+## kill_critter_type <span class="tag-vanilla">vanilla</span> {#kill_critter_type}
+
+```ssl
+void kill_critter_type(int pid)
+```
+
+Kills all critters of a given prototype type outright.
+
+**Parameters:**
+- `pid` - Prototype ID of critter type
+
+
+<FnRef fn="kill_critter_type" />
+---
+
+## poison <span class="tag-vanilla">vanilla</span> {#poison}
+
+```ssl
+void poison(ObjectPtr who, int amount)
+```
+
+Increases a critter's poison level by a given amount.
+
+**Parameters:**
+- `who` - Critter to poison
+- `amount` - Poison amount
+
+
+<FnRef fn="poison" />
+---
+
+## get_poison <span class="tag-vanilla">vanilla</span> {#get_poison}
+
+```ssl
+int get_poison(ObjectPtr who)
+```
+
+Returns the value of a critter's poison level.
+
+**Parameters:**
+- `who` - Critter to check
+
+**Returns:** `int` - Poison level
+
+
+<FnRef fn="get_poison" />
+---
+
+## radiation_inc <span class="tag-vanilla">vanilla</span> {#radiation_inc}
+
+```ssl
+void radiation_inc(ObjectPtr who, int amount)
+```
+
+Increments a critter's radiation counter by a given amount.
+
+:::note
+This should only be done to the player (obj_dude) in Fallout due to design restrictions!
+:::
+
+**Parameters:**
+- `who` - Critter to irradiate
+- `amount` - Radiation amount
+
+
+<FnRef fn="radiation_inc" />
+---
+
+## radiation_dec <span class="tag-vanilla">vanilla</span> {#radiation_dec}
+
+```ssl
+void radiation_dec(ObjectPtr who, int amount)
+```
+
+Decrements a critter's radiation counter by a given amount.
+
+:::note
+This should only be done to the player (obj_dude) in Fallout due to design restrictions!
+:::
+
+**Parameters:**
+- `who` - Critter to heal
+- `amount` - Radiation to remove
+
+
+<FnRef fn="radiation_dec" />
+---
+
+## drug_influence <span class="tag-vanilla">vanilla</span> {#drug_influence}
+
+```ssl
+int drug_influence(ObjectPtr who)
+```
+
+Returns True if a critter is currently under any drug influences.
+
+**Parameters:**
+- `who` - Critter to check
+
+**Returns:** `int` - Boolean
+
+---
+
+## critter_inven_obj <span class="tag-vanilla">vanilla</span> {#critter_inven_obj}
+
+```ssl
+ObjectPtr critter_inven_obj(ObjectPtr who, int where)
+```
+
+Returns a pointer to an object in a given slot (NULL if none). Valid values for `where` are: `INVEN_TYPE_WORN`, `INVEN_TYPE_RIGHT_HAND`, and `INVEN_TYPE_LEFT_HAND`.
+
+**Parameters:**
+- `who` - Critter to check
+- `where` - Inventory slot constant
+
+**Returns:** `ObjectPtr` - Item in slot or NULL
+
+**Example:**
+```ssl
+variable weapon;
+weapon := critter_inven_obj(self_obj, INVEN_TYPE_RIGHT_HAND);
+if (weapon) then begin
+    display_msg("Critter is holding: " + obj_name(weapon));
+end
+```
+
+
+<FnRef fn="critter_inven_obj" />

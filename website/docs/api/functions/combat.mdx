@@ -1,0 +1,291 @@
+---
+sidebar_position: 4
+title: Combat Functions
+---
+
+# Combat Functions
+
+Functions for combat system interactions.
+
+import ImplLink from '@site/src/components/ImplLink';
+
+## opCombatIsInitialized
+
+Check if combat is active.
+
+### SSL Syntax
+
+```ssl
+variable in_combat := combat_is_initialized;
+```
+
+### Returns
+
+`1` if in combat, `0` otherwise.
+
+---
+
+## opAttack
+
+Make a critter attack a target.
+
+### SSL Syntax
+
+```ssl
+attack(attacker, unused1, target, unused2, unused3);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `attacker` | Object | Attacking critter |
+| `unused1` | int | Always 0 |
+| `target` | Object | Target critter |
+| `unused2` | int | Always 0 |
+| `unused3` | int | Always 0 |
+
+### Notes
+
+- Used primarily in AI scripts
+- Triggers a single attack action
+
+---
+
+## opCritterDamage
+
+Deal damage to a critter.
+
+### SSL Syntax
+
+```ssl
+critter_dmg(critter, amount, flags);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | Target critter |
+| `amount` | int | Damage amount |
+| `flags` | int | Damage flags |
+
+### Damage Flags
+
+| Flag | Value | Description |
+|------|-------|-------------|
+| `DMG_normal_dam` | 0 | Normal damage |
+| `DMG_bypass_armor` | 1 | Ignore DR/DT |
+| `DMG_no_animation` | 2 | No damage animation |
+| `DMG_no_sfx` | 4 | No sound effects |
+| `DMG_knockout` | 8 | Knock out critter |
+
+---
+
+## opRollVsSkill
+
+Roll against a skill with modifiers.
+
+### SSL Syntax
+
+```ssl
+variable roll := roll_vs_skill(critter, skill, modifier);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | Critter performing roll |
+| `skill` | int | Skill constant |
+| `modifier` | int | Difficulty modifier |
+
+### Returns
+
+A roll result value (use `is_success`, `is_critical` to check).
+
+---
+
+## opIsSuccess
+
+Check if a roll was successful.
+
+### SSL Syntax
+
+```ssl
+if (is_success(roll)) then begin
+    // success
+end
+```
+
+### Returns
+
+`1` if the roll succeeded, `0` otherwise.
+
+---
+
+## opIsCritical
+
+Check if a roll was a critical success/failure.
+
+### SSL Syntax
+
+```ssl
+if (is_critical(roll)) then begin
+    // critical result
+end
+```
+
+### Returns
+
+`1` if the roll was critical, `0` otherwise.
+
+---
+
+## opHowMuch
+
+Get the margin of success/failure.
+
+### SSL Syntax
+
+```ssl
+variable margin := how_much(roll);
+```
+
+### Returns
+
+The difference between the roll and the target number.
+
+---
+
+## opTerminateCombat
+
+End combat immediately.
+
+### SSL Syntax
+
+```ssl
+terminate_combat;
+```
+
+### Notes
+
+- Forces combat to end
+- All combatants exit combat mode
+
+---
+
+## opCritterSetFleeing
+
+Make a critter flee.
+
+### SSL Syntax
+
+```ssl
+critter_set_fleeing(critter, flee_state);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | Critter to modify |
+| `flee_state` | int | 1 = fleeing, 0 = not |
+
+---
+
+## opGetActionPointCost
+
+Get AP cost for an attack.
+
+### SSL Syntax
+
+```ssl
+variable cost := get_attack_ap_cost(critter, attack_type, aimed);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | Attacking critter |
+| `attack_type` | int | Primary (1) or secondary (2) |
+| `aimed` | int | 1 if aimed shot |
+
+### Returns
+
+AP cost for the specified attack.
+
+---
+
+## opGetCurrentActionPoints
+
+Get a critter's current AP.
+
+### SSL Syntax
+
+```ssl
+variable ap := get_critter_current_ap(critter);
+```
+
+### Returns
+
+Current action points.
+
+---
+
+## opSetCurrentActionPoints
+
+Set a critter's current AP.
+
+### SSL Syntax
+
+```ssl
+set_critter_current_ap(critter, ap);
+```
+
+---
+
+## opGetWeaponAnimCode
+
+Get a weapon's animation code.
+
+### SSL Syntax
+
+```ssl
+variable code := weapon_anim_code(weapon);
+```
+
+### Returns
+
+Animation code used for attack animations.
+
+---
+
+## opGetWeaponDamageType
+
+Get a weapon's damage type.
+
+### SSL Syntax
+
+```ssl
+variable type := weapon_damage_type(weapon);
+```
+
+### Returns
+
+| Value | Type |
+|-------|------|
+| 0 | Normal |
+| 1 | Laser |
+| 2 | Fire |
+| 3 | Plasma |
+| 4 | Electrical |
+| 5 | EMP |
+| 6 | Explosion |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/combat.h"
+  label="View combat.h"
+/>

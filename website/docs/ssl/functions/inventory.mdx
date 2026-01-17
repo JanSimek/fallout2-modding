@@ -1,0 +1,285 @@
+---
+sidebar_position: 5
+title: Inventory Functions
+description: SSL functions for item and inventory manipulation
+tags: [vanilla]
+---
+
+# Inventory Functions
+
+Functions for managing inventories and manipulating items.
+
+## add_obj_to_inven <span class="tag-vanilla">vanilla</span> {#add_obj_to_inven}
+
+```ssl
+void add_obj_to_inven(ObjectPtr who, ObjectPtr item)
+```
+
+Adds an object to another object's inventory.
+
+:::note
+This only works with objects of type Item.
+:::
+
+**Parameters:**
+- `who` - Object to receive the item
+- `item` - Item to add
+
+**Example:**
+```ssl
+variable stimpak;
+stimpak := create_object(PID_STIMPAK, 0, 0);
+add_obj_to_inven(dude_obj, stimpak);
+```
+
+
+<FnRef fn="add_obj_to_inven" />
+---
+
+## add_mult_objs_to_inven <span class="tag-vanilla">vanilla</span> {#add_mult_objs_to_inven}
+
+```ssl
+void add_mult_objs_to_inven(ObjectPtr who, ObjectPtr item, int count)
+```
+
+Adds multiple instances of an object to another object's inventory.
+
+:::note
+This only works with objects of type Item.
+:::
+
+**Parameters:**
+- `who` - Object to receive the items
+- `item` - Item to add
+- `count` - Number of instances to add
+
+
+<FnRef fn="add_mult_objs_to_inven" />
+---
+
+## rm_obj_from_inven <span class="tag-vanilla">vanilla</span> {#rm_obj_from_inven}
+
+```ssl
+void rm_obj_from_inven(ObjectPtr who, ObjectPtr obj)
+```
+
+Removes an object from another object's inventory.
+
+:::warning
+This leaves the removed object at location (0,1) on the map! You must call `move_to()` to place it back on the map.
+:::
+
+**Parameters:**
+- `who` - Object to remove from
+- `obj` - Item to remove
+
+
+<FnRef fn="rm_obj_from_inven" />
+---
+
+## rm_mult_objs_from_inven <span class="tag-vanilla">vanilla</span> {#rm_mult_objs_from_inven}
+
+```ssl
+int rm_mult_objs_from_inven(ObjectPtr who, ObjectPtr obj, int count)
+```
+
+Removes multiple instances of an object from another object's inventory.
+
+:::warning
+This leaves the removed object at location (0,1) on the map! You must call `move_to()` to place it back on the map.
+:::
+
+:::note
+This function returns the actual count that was removed. You **must** store this value in a variable.
+:::
+
+**Parameters:**
+- `who` - Object to remove from
+- `obj` - Item to remove
+- `count` - Number of instances to remove
+
+**Returns:** `int` - Actual count removed
+
+
+<FnRef fn="rm_mult_objs_from_inven" />
+---
+
+## move_obj_inven_to_obj <span class="tag-vanilla">vanilla</span> {#move_obj_inven_to_obj}
+
+```ssl
+int move_obj_inven_to_obj(ObjectPtr srcObj, ObjectPtr destObj)
+```
+
+Moves an object's entire inventory into another object's inventory.
+
+**Parameters:**
+- `srcObj` - Source object
+- `destObj` - Destination object
+
+
+<FnRef fn="move_obj_inven_to_obj" />
+---
+
+## obj_drop_everything <span class="tag-vanilla">vanilla</span> {#obj_drop_everything}
+
+```ssl
+void obj_drop_everything(ObjectPtr who)
+```
+
+Causes a critter object to drop all objects in its inventory onto the ground at its feet.
+
+**Parameters:**
+- `who` - Critter to drop items
+
+---
+
+## drop_obj <span class="tag-vanilla">vanilla</span> {#drop_obj}
+
+```ssl
+void drop_obj(ObjectPtr obj)
+```
+
+Causes the critter `self_obj` to remove a given object from its inventory and place it on the ground at its hex. This animates the self_obj.
+
+**Parameters:**
+- `obj` - Object to drop
+
+
+<FnRef fn="drop_obj" />
+---
+
+## pickup_obj <span class="tag-vanilla">vanilla</span> {#pickup_obj}
+
+```ssl
+void pickup_obj(ObjectPtr obj)
+```
+
+Causes the critter `self_obj` to animate and attempt to pick up a given object.
+
+**Parameters:**
+- `obj` - Object to pick up
+
+
+<FnRef fn="pickup_obj" />
+---
+
+## inven_count <span class="tag-vanilla">vanilla</span> {#inven_count}
+
+```ssl
+int inven_count(ObjectPtr what)
+```
+
+Returns the count of how many inventory slots are filled on a given object.
+
+**Parameters:**
+- `what` - Object to check
+
+**Returns:** `int` - Number of filled slots
+
+---
+
+## inven_ptr <span class="tag-vanilla">vanilla</span> {#inven_ptr}
+
+```ssl
+ObjectPtr inven_ptr(ObjectPtr what, int slotNum)
+```
+
+Returns a pointer to the object in a specific slot number in a given object's inventory.
+
+**Parameters:**
+- `what` - Object to check
+- `slotNum` - Slot index
+
+**Returns:** `ObjectPtr` - Item in slot
+
+**Example:**
+```ssl
+variable i, item_count, item;
+item_count := inven_count(dude_obj);
+for (i := 0; i < item_count; i := i + 1) begin
+    item := inven_ptr(dude_obj, i);
+    display_msg("Item " + i + ": " + obj_name(item));
+end
+```
+
+---
+
+## inven_unwield <span class="tag-vanilla">vanilla</span> {#inven_unwield}
+
+```ssl
+void inven_unwield
+```
+
+Attempts to cause a critter to unwield any wielded weapons/items. If animations are currently disabled, it will just instantly change the art.
+
+---
+
+## wield_obj <span class="tag-vanilla">vanilla</span> {#wield_obj}
+
+```ssl
+void wield_obj(ObjectPtr obj)
+```
+
+Sets up an animation causing `self_obj` to wield an object in its inventory. This puts that object in the critter's hand.
+
+**Parameters:**
+- `obj` - Object to wield
+
+---
+
+## wield_obj_critter <span class="tag-vanilla">vanilla</span> {#wield_obj_critter}
+
+```ssl
+void wield_obj_critter(ObjectPtr who, ObjectPtr obj)
+```
+
+Sets up an animation causing a critter to wield an object in its inventory. This puts that object in the critter's hand.
+
+**Parameters:**
+- `who` - Critter to wield
+- `obj` - Object to wield
+
+
+<FnRef fn="wield_obj_critter" />
+---
+
+## item_caps_total <span class="tag-vanilla">vanilla</span> {#item_caps_total}
+
+```ssl
+int item_caps_total(ObjectPtr obj)
+```
+
+Returns the current bottle caps total in a given object's inventory.
+
+**Parameters:**
+- `obj` - Object to check
+
+**Returns:** `int` - Caps count
+
+
+<FnRef fn="item_caps_total" />
+---
+
+## item_caps_adjust <span class="tag-vanilla">vanilla</span> {#item_caps_adjust}
+
+```ssl
+int item_caps_adjust(ObjectPtr obj, int amount)
+```
+
+Modifies the current caps count in an object by a given amount (positive or negative).
+
+**Parameters:**
+- `obj` - Object to modify
+- `amount` - Amount to add (negative to subtract)
+
+**Example:**
+```ssl
+// Give player 100 caps
+item_caps_adjust(dude_obj, 100);
+
+// Remove 50 caps
+item_caps_adjust(dude_obj, -50);
+```
+
+
+<FnRef fn="item_caps_adjust" />

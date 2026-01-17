@@ -1,0 +1,264 @@
+---
+sidebar_position: 1
+title: Critter Functions
+---
+
+# Critter Functions
+
+Functions for working with critters (NPCs and creatures).
+
+import ImplLink from '@site/src/components/ImplLink';
+
+## opGetCritterStat
+
+Get a critter's stat value.
+
+### SSL Syntax
+
+```ssl
+variable value := critter_stat(critter, stat_id);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | The critter object |
+| `stat_id` | int | Stat constant (see STAT_* constants) |
+
+### Returns
+
+The current value of the specified stat.
+
+### Implementation
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/interpreter_extra.cc"
+  label="View opGetCritterStat"
+/>
+
+---
+
+## opSetCritterStat
+
+Set a critter's stat value.
+
+### SSL Syntax
+
+```ssl
+set_critter_stat(critter, stat_id, value);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | The critter object |
+| `stat_id` | int | Stat constant |
+| `value` | int | New stat value |
+
+### Implementation
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/interpreter_extra.cc"
+  label="View opSetCritterStat"
+/>
+
+---
+
+## opCritterHeal
+
+Heal a critter.
+
+### SSL Syntax
+
+```ssl
+critter_heal(critter, amount);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | The critter to heal |
+| `amount` | int | HP to restore |
+
+### Notes
+
+- Cannot exceed maximum HP
+- Does not affect dead critters
+
+---
+
+## opCritterDamage
+
+Deal damage to a critter.
+
+### SSL Syntax
+
+```ssl
+critter_dmg(critter, amount, damage_type);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | Target critter |
+| `amount` | int | Damage amount |
+| `damage_type` | int | Damage type flags |
+
+### Damage Type Flags
+
+| Flag | Description |
+|------|-------------|
+| `DMG_normal_dam` | Normal damage |
+| `DMG_bypass_armor` | Ignore armor |
+| `DMG_no_animation` | No damage animation |
+| `DMG_knockout` | Knock out critter |
+
+---
+
+## opCritterInjure
+
+Apply an injury to a critter.
+
+### SSL Syntax
+
+```ssl
+critter_injure(critter, injury_flags);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | Target critter |
+| `injury_flags` | int | Injury flags |
+
+### Injury Flags
+
+| Flag | Description |
+|------|-------------|
+| `DAM_CRIP_LEG_LEFT` | Crippled left leg |
+| `DAM_CRIP_LEG_RIGHT` | Crippled right leg |
+| `DAM_CRIP_ARM_LEFT` | Crippled left arm |
+| `DAM_CRIP_ARM_RIGHT` | Crippled right arm |
+| `DAM_BLIND` | Blinded |
+
+---
+
+## opGetCritterState
+
+Get the current state of a critter.
+
+### SSL Syntax
+
+```ssl
+variable state := critter_state(critter);
+```
+
+### Returns
+
+| Value | State |
+|-------|-------|
+| 0 | Normal |
+| 1 | Dead |
+| 2 | Prone/knocked out |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/interpreter_extra.cc"
+  lines={[117, 123]}
+  label="View CritterState enum"
+/>
+
+---
+
+## opCritterAddTrait
+
+Add a trait to a critter.
+
+### SSL Syntax
+
+```ssl
+critter_add_trait(critter, trait_type, trait_id, value);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | Target critter |
+| `trait_type` | int | Type of trait |
+| `trait_id` | int | Specific trait |
+| `value` | int | Trait value |
+
+### Trait Types
+
+| Type | Description |
+|------|-------------|
+| `TRAIT_PERK` | Add a perk |
+| `TRAIT_OBJECT` | Object property |
+| `TRAIT_TRAIT` | Character trait |
+
+---
+
+## opCritterRmTrait
+
+Remove a trait from a critter.
+
+### SSL Syntax
+
+```ssl
+critter_rm_trait(critter, trait_type, trait_id, value);
+```
+
+---
+
+## opGetKillCount
+
+Get the player's kill count for a type.
+
+### SSL Syntax
+
+```ssl
+variable count := critter_kill_count(kill_type);
+```
+
+### Kill Types
+
+| Value | Type |
+|-------|------|
+| 0 | Men |
+| 1 | Women |
+| 2 | Children |
+| 3 | Super Mutants |
+| 4 | Ghouls |
+| 5 | Brahmin |
+| ... | ... |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[106, 132]}
+  label="View kill type enum"
+/>
+
+---
+
+## opCritterKillType
+
+Get the kill type of a critter.
+
+### SSL Syntax
+
+```ssl
+variable type := critter_kill_type(critter);
+```
+
+### Returns
+
+The kill type constant for this critter (used for kill statistics).

@@ -1,0 +1,270 @@
+---
+sidebar_position: 2
+title: Syntax
+---
+
+# SSL Syntax Guide
+
+This guide covers the syntax and language features of SSL.
+
+## Comments
+
+```ssl
+// Single line comment
+
+/* Multi-line
+   comment */
+```
+
+## Variables
+
+### Declaration
+
+```ssl
+variable count;
+variable name;
+variable my_array;
+```
+
+### Types
+
+SSL is dynamically typed. Variables can hold:
+
+- Integers
+- Floating point numbers
+- Strings
+- Object pointers
+- Null (0)
+
+```ssl
+variable x;
+x := 42;           // Integer
+x := 3.14;         // Float
+x := "hello";      // String
+x := dude_obj;     // Object pointer
+x := 0;            // Null
+```
+
+## Operators
+
+### Arithmetic
+
+| Operator | Description |
+|----------|-------------|
+| `+` | Addition |
+| `-` | Subtraction |
+| `*` | Multiplication |
+| `/` | Division |
+| `%` | Modulo |
+
+### Comparison
+
+| Operator | Description |
+|----------|-------------|
+| `==` | Equal |
+| `!=` | Not equal |
+| `<` | Less than |
+| `>` | Greater than |
+| `<=` | Less than or equal |
+| `>=` | Greater than or equal |
+
+### Logical
+
+| Operator | Description |
+|----------|-------------|
+| `and` | Logical AND |
+| `or` | Logical OR |
+| `not` | Logical NOT |
+
+### Bitwise
+
+| Operator | Description |
+|----------|-------------|
+| `bwand` | Bitwise AND |
+| `bwor` | Bitwise OR |
+| `bwxor` | Bitwise XOR |
+| `bwnot` | Bitwise NOT |
+
+## Control Flow
+
+### If Statements
+
+```ssl
+if (condition) then begin
+    // code
+end
+
+if (condition) then begin
+    // code
+end
+else begin
+    // code
+end
+
+if (a == 1) then begin
+    // code
+end
+else if (a == 2) then begin
+    // code
+end
+else begin
+    // default
+end
+```
+
+### While Loops
+
+```ssl
+while (condition) do begin
+    // code
+end
+```
+
+### For Loops
+
+```ssl
+// SSL doesn't have native for loops, use while:
+variable i;
+i := 0;
+while (i < 10) do begin
+    // code
+    i := i + 1;
+end
+```
+
+## Procedures
+
+### Definition
+
+```ssl
+procedure my_procedure begin
+    // code
+end
+
+procedure with_return begin
+    return 42;
+end
+```
+
+### Parameters
+
+```ssl
+procedure add(variable a, variable b) begin
+    return a + b;
+end
+
+// Calling
+variable result;
+result := add(5, 3);
+```
+
+### Forward Declarations
+
+Declare procedures before definition:
+
+```ssl
+procedure helper;
+
+procedure main begin
+    call helper;
+end
+
+procedure helper begin
+    // implementation
+end
+```
+
+## Includes
+
+```ssl
+#include "define.h"
+#include "command.h"
+#include "maps.h"
+```
+
+Common includes:
+
+| File | Contents |
+|------|----------|
+| `define.h` | Constants and macros |
+| `command.h` | Engine function declarations |
+| `maps.h` | Map constants |
+| `scripts.h` | Script-related constants |
+
+## Macros
+
+```ssl
+#define MY_CONSTANT 100
+#define MY_MACRO(x) (x * 2)
+
+variable val;
+val := MY_CONSTANT;      // 100
+val := MY_MACRO(5);      // 10
+```
+
+## Strings
+
+```ssl
+variable msg;
+msg := "Hello, Wasteland!";
+
+// String concatenation (via display functions)
+display_msg("Value: " + x);
+```
+
+## Arrays
+
+Standard SSL has limited array support. Use sfall for full arrays:
+
+```ssl
+// sfall arrays
+variable arr;
+arr := create_array(10, 0);  // 10 elements, init to 0
+arr[0] := "first";
+arr[1] := "second";
+```
+
+## Common Patterns
+
+### Getting the Player
+
+```ssl
+variable player;
+player := dude_obj;
+```
+
+### Getting Self (Current Object)
+
+```ssl
+variable me;
+me := self_obj;
+```
+
+### Displaying Messages
+
+```ssl
+display_msg("Message to display");
+debug_msg("Debug message");
+```
+
+### Setting Timers
+
+```ssl
+add_timer_event(self_obj, game_ticks(10), 1);
+// Fires timed_event_p_proc with fixed_param == 1 after 10 seconds
+
+procedure timed_event_p_proc begin
+    if (fixed_param == 1) then begin
+        // Handle timer
+    end
+end
+```
+
+import ImplLink from '@site/src/components/ImplLink';
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/interpreter.h"
+  lines={[16, 93]}
+  label="View opcodes in interpreter.h"
+/>

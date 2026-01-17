@@ -1,0 +1,371 @@
+---
+sidebar_position: 6
+title: Animation Functions
+description: SSL functions for animation sequences and visual effects
+tags: [vanilla]
+---
+
+# Animation Functions
+
+Functions for controlling animations, movement, and visual effects.
+
+## animate_stand <span class="tag-vanilla">vanilla</span> {#animate_stand}
+
+```ssl
+void animate_stand
+```
+
+Sets up an animation for the currently focused object (`self`) to run its stand animation. Can be used to open doors, open container items, or run a critter's fidget animation.
+
+
+<FnRef fn="animate_stand" />
+---
+
+## animate_stand_obj <span class="tag-vanilla">vanilla</span> {#animate_stand_obj}
+
+```ssl
+void animate_stand_obj(ObjectPtr obj)
+```
+
+Sets up an animation for an object to run its stand animation.
+
+**Parameters:**
+- `obj` - Object to animate
+
+
+<FnRef fn="animate_stand_obj" />
+---
+
+## animate_stand_reverse <span class="tag-vanilla">vanilla</span> {#animate_stand_reverse}
+
+```ssl
+void animate_stand_reverse
+```
+
+Sets up an animation for `self` to run its stand animation in reverse. Used only for non-critters to cause them to close (close doors, containers, etc.).
+
+
+<FnRef fn="animate_stand_reverse" />
+---
+
+## animate_stand_reverse_obj <span class="tag-vanilla">vanilla</span> {#animate_stand_reverse_obj}
+
+```ssl
+void animate_stand_reverse_obj(ObjectPtr obj)
+```
+
+Sets up an animation for an object to run its stand animation in reverse.
+
+**Parameters:**
+- `obj` - Object to animate
+
+
+<FnRef fn="animate_stand_reverse_obj" />
+---
+
+## animate_move_obj_to_tile <span class="tag-vanilla">vanilla</span> {#animate_move_obj_to_tile}
+
+```ssl
+void animate_move_obj_to_tile(ObjectPtr who, int tile, int speed)
+```
+
+Sets up an animation for a critter to walk to a given tile at a given speed. Speed (walk/run) can also have a flag attached to force the object to stop its current animation first.
+
+**Parameters:**
+- `who` - Critter to move
+- `tile` - Destination tile number
+- `speed` - Movement speed (0 = walk, 1 = run)
+
+
+<FnRef fn="animate_move_obj_to_tile" />
+---
+
+## animate_run_to_tile <span class="tag-vanilla">vanilla</span> {#animate_run_to_tile}
+
+```ssl
+void animate_run_to_tile(int tile)
+```
+
+Sets up an animation for `self_obj` to run to a given tile.
+
+**Parameters:**
+- `tile` - Destination tile number
+
+---
+
+## animate_rotation <span class="tag-vanilla">vanilla</span> {#animate_rotation}
+
+```ssl
+void animate_rotation(int direction)
+```
+
+Changes the orientation (facing) of `self_obj` to the given direction.
+
+**Parameters:**
+- `direction` - Direction (0-5)
+
+---
+
+## animate_set_frame <span class="tag-vanilla">vanilla</span> {#animate_set_frame}
+
+```ssl
+void animate_set_frame(int newFrame)
+```
+
+Changes the current animation frame of `self_obj` to the given frame number. Can be used to make lights go to broken lights or alarm/siren lights. Should be used in place of `animate_stand` for 2-frame animations.
+
+**Parameters:**
+- `newFrame` - Frame number
+
+---
+
+## anim <span class="tag-vanilla">vanilla</span> {#anim}
+
+```ssl
+void anim(ObjectPtr who, int anim, int direction)
+```
+
+Sets up a single-frame animation for an object that runs in the given direction.
+
+**Parameters:**
+- `who` - Object to animate
+- `anim` - Animation constant
+- `direction` - Direction (0-5)
+
+
+<FnRef fn="anim" />
+---
+
+## anim_busy <span class="tag-vanilla">vanilla</span> {#anim_busy}
+
+```ssl
+int anim_busy(ObjectPtr who)
+```
+
+Returns True if an object is currently animating. Can be used to determine if a given object has completed an animation.
+
+**Parameters:**
+- `who` - Object to check
+
+**Returns:** `int` - Boolean
+
+
+<FnRef fn="anim_busy" />
+---
+
+## anim_action_frame <span class="tag-vanilla">vanilla</span> {#anim_action_frame}
+
+```ssl
+int anim_action_frame(ObjectPtr who, int frame)
+```
+
+Returns the action frame of the given art frame on a given object. Can be used as the delay in an animation registration sequence.
+
+**Parameters:**
+- `who` - Object to check
+- `frame` - Frame number
+
+**Returns:** `int` - Action frame
+
+---
+
+## art_anim <span class="tag-vanilla">vanilla</span> {#art_anim}
+
+```ssl
+int art_anim(int fid)
+```
+
+Returns the animation type that a FID represents (ANIM_stand, ANIM_pickup, etc.).
+
+**Parameters:**
+- `fid` - Frame ID
+
+**Returns:** `int` - Animation constant
+
+
+<FnRef fn="art_anim" />
+---
+
+## explosion <span class="tag-vanilla">vanilla</span> {#explosion}
+
+```ssl
+int explosion(int where, int elevation, int damage)
+```
+
+Sets up an explosion at a given tile number on a given elevation, causing damage in a radius.
+
+**Parameters:**
+- `where` - Tile number
+- `elevation` - Elevation (0-2)
+- `damage` - Damage amount
+
+
+<FnRef fn="explosion" />
+---
+
+## Registered Animation Functions
+
+The following functions are used to build animation sequences that play in order.
+
+### reg_anim_begin <span class="tag-vanilla">vanilla</span> {#reg_anim_begin}
+
+```ssl
+void reg_anim_begin
+```
+
+Tells the system to start an animation sequence-list.
+
+---
+
+### reg_anim_end <span class="tag-vanilla">vanilla</span> {#reg_anim_end}
+
+```ssl
+void reg_anim_end
+```
+
+Activates the animation sequence-list. Without this call, the animation will never occur.
+
+:::important
+All animation sequences must be registered at ONCE! You cannot let the script end and finish registering the animations later.
+:::
+
+**Example:**
+```ssl
+reg_anim_begin;
+reg_anim_animate(self_obj, ANIM_magic_hands_middle, -1);
+reg_anim_obj_move_to_tile(self_obj, tile_num(dude_obj), -1);
+reg_anim_end;
+```
+
+---
+
+### reg_anim_clear <span class="tag-vanilla">vanilla</span> {#reg_anim_clear}
+
+```ssl
+void reg_anim_clear(ObjectPtr object)
+```
+
+Terminates all animations currently registered for a given object.
+
+**Parameters:**
+- `object` - Object to clear animations
+
+---
+
+### reg_anim_animate <span class="tag-vanilla">vanilla</span> {#reg_anim_animate}
+
+```ssl
+void reg_anim_animate(ObjectPtr what, int anim, int delay)
+```
+
+Adds a single, in-place animation on an object to an animation sequence-list.
+
+**Parameters:**
+- `what` - Object to animate
+- `anim` - Animation constant
+- `delay` - Delay from previous animation (should always be -1)
+
+---
+
+### reg_anim_animate_forever <span class="tag-vanilla">vanilla</span> {#reg_anim_animate_forever}
+
+```ssl
+void reg_anim_animate_forever(ObjectPtr what, int anim, int delay)
+```
+
+Adds a continuous animation that plays until something interrupts it. Use sparingly.
+
+**Parameters:**
+- `what` - Object to animate
+- `anim` - Animation constant
+- `delay` - Delay (should always be -1)
+
+---
+
+### reg_anim_animate_reverse <span class="tag-vanilla">vanilla</span> {#reg_anim_animate_reverse}
+
+```ssl
+void reg_anim_animate_reverse(ObjectPtr what, int anim, int delay)
+```
+
+Adds a single, in-place reversed animation to an animation sequence-list.
+
+**Parameters:**
+- `what` - Object to animate
+- `anim` - Animation constant
+- `delay` - Delay (should always be -1)
+
+---
+
+### reg_anim_obj_move_to_obj <span class="tag-vanilla">vanilla</span> {#reg_anim_obj_move_to_obj}
+
+```ssl
+void reg_anim_obj_move_to_obj(ObjectPtr who, ObjectPtr dest_obj, int delay)
+```
+
+Adds an animation to cause a critter to walk to another object.
+
+**Parameters:**
+- `who` - Critter to move
+- `dest_obj` - Destination object
+- `delay` - Delay (should always be -1)
+
+---
+
+### reg_anim_obj_run_to_obj <span class="tag-vanilla">vanilla</span> {#reg_anim_obj_run_to_obj}
+
+```ssl
+void reg_anim_obj_run_to_obj(ObjectPtr who, ObjectPtr dest_obj, int delay)
+```
+
+Adds an animation to cause a critter to run to another object.
+
+**Parameters:**
+- `who` - Critter to move
+- `dest_obj` - Destination object
+- `delay` - Delay (should always be -1)
+
+---
+
+### reg_anim_obj_move_to_tile <span class="tag-vanilla">vanilla</span> {#reg_anim_obj_move_to_tile}
+
+```ssl
+void reg_anim_obj_move_to_tile(ObjectPtr who, int dest_tile, int delay)
+```
+
+Adds an animation to cause a critter to walk to a destination tile.
+
+**Parameters:**
+- `who` - Critter to move
+- `dest_tile` - Destination tile number
+- `delay` - Delay (should always be -1)
+
+---
+
+### reg_anim_obj_run_to_tile <span class="tag-vanilla">vanilla</span> {#reg_anim_obj_run_to_tile}
+
+```ssl
+void reg_anim_obj_run_to_tile(ObjectPtr who, int dest_tile, int delay)
+```
+
+Adds an animation to cause a critter to run to a destination tile.
+
+**Parameters:**
+- `who` - Critter to move
+- `dest_tile` - Destination tile number
+- `delay` - Delay (should always be -1)
+
+---
+
+### reg_anim_play_sfx <span class="tag-vanilla">vanilla</span> {#reg_anim_play_sfx}
+
+```ssl
+void reg_anim_play_sfx(ObjectPtr who, string sfx_name, int delay)
+```
+
+Adds a sound effect to play during an animation sequence.
+
+**Parameters:**
+- `who` - Object associated with sound
+- `sfx_name` - Sound effect name
+- `delay` - Delay from previous animation

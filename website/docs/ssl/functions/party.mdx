@@ -1,0 +1,96 @@
+---
+sidebar_position: 12
+title: Party Functions
+description: SSL functions for party member management
+tags: [vanilla]
+---
+
+# Party Functions
+
+Functions for managing party members and companions.
+
+## party_add <span class="tag-vanilla">vanilla</span> {#party_add}
+
+```ssl
+void party_add(ObjectPtr who)
+```
+
+Adds a given critter into the list of party members. This will also setup those objects so that they will not be saved in maps, and certain other things.
+
+**Parameters:**
+- `who` - Critter to add to party
+
+**Example:**
+```ssl
+procedure hire_npc begin
+    party_add(self_obj);
+    float_msg(self_obj, "I'll travel with you!", FLOAT_MSG_NORMAL);
+end
+```
+
+
+<FnRef fn="party_add" />
+---
+
+## party_remove <span class="tag-vanilla">vanilla</span> {#party_remove}
+
+```ssl
+void party_remove(ObjectPtr who)
+```
+
+Removes a given critter from the list of party members. This will also change those objects so that certain object- and map-level things will respond differently to them.
+
+**Parameters:**
+- `who` - Critter to remove from party
+
+
+<FnRef fn="party_remove" />
+---
+
+## party_member_obj <span class="tag-vanilla">vanilla</span> {#party_member_obj}
+
+```ssl
+ObjectPtr party_member_obj(int pid)
+```
+
+Returns an ObjectPtr to a party member that matches a given prototype ID. If that critter isn't currently a member of the party, returns NULL.
+
+**Parameters:**
+- `pid` - Prototype ID to search for
+
+**Returns:** `ObjectPtr` - Party member or NULL
+
+**Example:**
+```ssl
+variable sulik;
+sulik := party_member_obj(PID_SULIK);
+if (sulik) then begin
+    display_msg("Sulik is in your party.");
+end else begin
+    display_msg("Sulik is not with you.");
+end
+```
+
+
+<FnRef fn="party_member_obj" />
+---
+
+## party_member_count <span class="tag-vanilla">vanilla</span> {#party_member_count}
+
+```ssl
+int party_member_count(int countHidden)
+```
+
+Returns the count of currently in-party party members.
+
+**Parameters:**
+- `countHidden` - Whether to count hidden members (hangers-on): 0 = no, 1 = yes
+
+**Returns:** `int` - Party member count
+
+**Example:**
+```ssl
+variable count;
+count := party_member_count(0);
+display_msg("You have " + count + " companions.");
+```

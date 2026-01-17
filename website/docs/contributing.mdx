@@ -1,0 +1,223 @@
+---
+sidebar_position: 100
+title: Contributing
+---
+
+# Contributing Guide
+
+Thank you for your interest in contributing to the Fallout 2 Modding Documentation!
+
+## How to Contribute
+
+### Reporting Issues
+
+If you find errors, outdated information, or missing content:
+
+1. Check existing issues on GitHub
+2. Create a new issue describing:
+   - What's wrong or missing
+   - Where in the documentation
+   - Suggested correction (if known)
+
+### Adding Content
+
+#### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+- Git
+
+#### Local Development
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/fallout2-modding.git
+cd fallout2-modding/website
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+```
+
+The site will be available at `http://localhost:3000`.
+
+#### Building
+
+```bash
+npm run build
+```
+
+## Documentation Standards
+
+### File Format Documentation
+
+When documenting a new file format, follow this template:
+
+```markdown
+---
+sidebar_position: X
+title: FORMAT Format
+---
+
+# FORMAT File Format
+
+Brief description.
+
+## Overview
+
+What this format is used for.
+
+## Encoding
+
+- **Byte Order**: Big-endian / Little-endian
+- **Compression**: None / zlib / etc.
+
+## File Layout
+
+Summary diagram or description.
+
+## Field Tables
+
+| Offset | Size | Type | Field | Description |
+|--------|------|------|-------|-------------|
+| 0x00 | 4 | s32 | `field_name` | Description |
+
+## Engine Mapping
+
+Links to relevant source files.
+
+## Notes
+
+Known quirks or differences.
+
+## References
+
+External documentation links.
+```
+
+### SSL Function Documentation
+
+```markdown
+## functionName
+
+Brief description.
+
+### SSL Syntax
+
+\`\`\`ssl
+variable result := function_name(param1, param2);
+\`\`\`
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `param1` | type | Description |
+
+### Returns
+
+What the function returns.
+
+### Example
+
+\`\`\`ssl
+// Example usage
+\`\`\`
+
+### Implementation
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/file.cc"
+  label="View implementation"
+/>
+```
+
+### Type Conventions
+
+Use consistent type names:
+
+| Type | Description |
+|------|-------------|
+| `u8` | Unsigned 8-bit integer |
+| `u16` | Unsigned 16-bit integer |
+| `u32` | Unsigned 32-bit integer |
+| `s8` | Signed 8-bit integer |
+| `s16` | Signed 16-bit integer |
+| `s32` | Signed 32-bit integer |
+| `bytes[n]` | Raw byte array of n bytes |
+| `stringz` | Null-terminated string |
+
+## Adding Implementation Links
+
+Use the `ImplLink` component to link to engine source:
+
+```jsx
+import ImplLink from '@site/src/components/ImplLink';
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[27, 35]}
+  label="View enum definition"
+/>
+```
+
+### Parameters
+
+| Prop | Required | Description |
+|------|----------|-------------|
+| `repo` | Yes | GitHub repository (owner/repo) |
+| `path` | Yes | File path within repository |
+| `lines` | No | Line range [start, end] |
+| `commitOrRef` | No | Specific commit SHA or branch |
+| `label` | No | Link text (default: "View implementation") |
+
+## SSL Syntax Highlighting
+
+SSL code blocks use the custom `ssl` language:
+
+````markdown
+```ssl
+procedure my_proc begin
+    display_msg("Hello!");
+end
+```
+````
+
+If you add new keywords to SSL highlighting, update:
+- `website/src/prism/ssl.js`
+
+## Verifying Changes
+
+Before submitting:
+
+1. Run the build: `npm run build`
+2. Check for broken links
+3. Verify formatting looks correct
+4. Test any code examples
+
+## Pull Request Process
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test locally
+5. Submit a pull request with:
+   - Clear description of changes
+   - Related issue numbers (if any)
+   - Screenshots for UI changes
+
+## Code of Conduct
+
+- Be respectful and constructive
+- Focus on the content, not the person
+- Help others learn and contribute
+
+## Questions?
+
+- Open an issue for documentation questions
+- Check existing issues and discussions
+- Join the Fallout modding community forums

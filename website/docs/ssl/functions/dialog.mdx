@@ -1,0 +1,254 @@
+---
+sidebar_position: 8
+title: Dialog Functions
+description: SSL functions for dialogue system and conversation handling
+tags: [vanilla]
+---
+
+# Dialog Functions
+
+Functions for managing the dialogue system, NPC conversations, and barter.
+
+## start_dialogue <span class="tag-vanilla">vanilla</span> {#start_dialogue}
+
+```ssl
+void start_dialogue(ObjectPtr who, int mood)
+```
+
+Starts the dialogue system focusing on a critter and starting in a given mood. This call sets up the appropriate dialog windows, head art, etc.
+
+:::important
+If this call is not made before the normal dialog calls (`gSay_Reply`, `gSay_Message`, `gSay_Option`, etc.) then the dialog windows will not come up, and only grey boxes will appear with the text.
+:::
+
+**Parameters:**
+- `who` - Critter to talk to
+- `mood` - Starting mood constant
+
+---
+
+## start_gdialog <span class="tag-vanilla">vanilla</span> {#start_gdialog}
+
+```ssl
+void start_gdialog(int msgFileNum, ObjectPtr who, int mood, int headNum, int backgroundIdx)
+```
+
+Extended version of `start_dialogue` with additional parameters for message file and head art.
+
+**Parameters:**
+- `msgFileNum` - Message file number
+- `who` - Critter to talk to
+- `mood` - Starting mood constant
+- `headNum` - Head art number
+- `backgroundIdx` - Background index
+
+
+<FnRef fn="start_gdialog" />
+---
+
+## start_gialog <span class="tag-vanilla">vanilla</span> {#start_gialog}
+
+Alias for `start_gdialog`. See above.
+
+---
+
+## end_dialogue <span class="tag-vanilla">vanilla</span> {#end_dialogue}
+
+```ssl
+void end_dialogue
+```
+
+Terminates the dialogue system.
+
+
+<FnRef fn="end_dialogue" />
+---
+
+## dialogue_system_enter <span class="tag-vanilla">vanilla</span> {#dialogue_system_enter}
+
+```ssl
+void dialogue_system_enter
+```
+
+Tells the dialog system that this object is requesting the talk system. Used when the script wants to start dialog instead of waiting for the player to initiate it. The script will be called back in its `talk_proc` section.
+
+
+<FnRef fn="dialogue_system_enter" />
+---
+
+## dialogue_reaction <span class="tag-vanilla">vanilla</span> {#dialogue_reaction}
+
+```ssl
+void dialogue_reaction(int mood)
+```
+
+Sets up a reaction animation in the dialogue system.
+
+**Parameters:**
+- `mood` - Mood constant
+
+
+<FnRef fn="dialogue_reaction" />
+---
+
+## gSay_Start <span class="tag-vanilla">vanilla</span> {#gSay_Start}
+
+```ssl
+void gSay_Start
+```
+
+Starts a new dialog sequence.
+
+---
+
+## gSay_End <span class="tag-vanilla">vanilla</span> {#gSay_End}
+
+```ssl
+void gSay_End
+```
+
+Ends a dialog sequence, which will bring up the sequence (actually display it).
+
+---
+
+## gSay_Reply <span class="tag-vanilla">vanilla</span> {#gSay_Reply}
+
+```ssl
+void gSay_Reply(int msg_list, int msg_num)
+```
+
+Sets up a reply block (what the NPC says).
+
+**Parameters:**
+- `msg_list` - Message file number
+- `msg_num` - Message number in file
+
+**Example:**
+```ssl
+procedure Node001 begin
+    gSay_Reply(SCRIPT_MYCHAR, 100);
+    gSay_Option(SCRIPT_MYCHAR, 101, Node002, NEUTRAL);
+    gSay_Option(SCRIPT_MYCHAR, 102, Node003, NEUTRAL);
+end
+```
+
+---
+
+## gSay_Option <span class="tag-vanilla">vanilla</span> {#gSay_Option}
+
+```ssl
+void gSay_Option(int msg_list, int msg_num, procedure target, int reaction)
+```
+
+Sets up an option-choice for a reply block. The string comes from the message file and message number, causes a given reaction, and if chosen will jump to the given target procedure.
+
+**Parameters:**
+- `msg_list` - Message file number
+- `msg_num` - Message number
+- `target` - Procedure to call if chosen
+- `reaction` - Reaction constant (GOOD, NEUTRAL, BAD)
+
+---
+
+## gSay_Message <span class="tag-vanilla">vanilla</span> {#gSay_Message}
+
+```ssl
+void gSay_Message(int msg_list, int msg_num, int reaction)
+```
+
+Sets up a sayMessage, which is a reply with just a [Done] option.
+
+**Parameters:**
+- `msg_list` - Message file number
+- `msg_num` - Message number
+- `reaction` - Reaction constant
+
+---
+
+## giQ_Option <span class="tag-vanilla">vanilla</span> {#giQ_Option}
+
+```ssl
+void giQ_Option(int iq_test, int msg_list, int msg_num, procedure target, int reaction)
+```
+
+Sets up an option-choice that only appears if the player's IQ is equal to or greater than the given value.
+
+**Parameters:**
+- `iq_test` - Minimum IQ required
+- `msg_list` - Message file number
+- `msg_num` - Message number
+- `target` - Procedure to call if chosen
+- `reaction` - Reaction constant
+
+**Example:**
+```ssl
+// Only show this option if player has INT >= 6
+giQ_Option(6, SCRIPT_MYCHAR, 105, NodeSmart, NEUTRAL);
+
+// Low INT option for INT <= 3
+giQ_Option(-3, SCRIPT_MYCHAR, 106, NodeDumb, NEUTRAL);
+```
+
+---
+
+## gdialog_barter <span class="tag-vanilla">vanilla</span> {#gdialog_barter}
+
+```ssl
+int gdialog_barter
+```
+
+Tells the dialog system to switch to the barter screen. Sets the barter modifier to 0.
+
+---
+
+## gdialog_mod_barter <span class="tag-vanilla">vanilla</span> {#gdialog_mod_barter}
+
+```ssl
+int gdialog_mod_barter(int modifier)
+```
+
+Tells the dialog system to switch to the barter screen, using a given modifier percentage.
+
+**Parameters:**
+- `modifier` - Percentage modifier (+/-)
+
+---
+
+## gdialog_set_barter_mod <span class="tag-vanilla">vanilla</span> {#gdialog_set_barter_mod}
+
+```ssl
+void gdialog_set_barter_mod(int mod)
+```
+
+Sets the current modifier for barter to a given percentage. Used to make barter easier/harder, even if the player initiates barter.
+
+**Parameters:**
+- `mod` - Percentage modifier
+
+
+<FnRef fn="gdialog_set_barter_mod" />
+---
+
+## message_str <span class="tag-vanilla">vanilla</span> {#message_str}
+
+```ssl
+string message_str(int list, int msg_num)
+```
+
+Returns a string from the message module for a given list and message number.
+
+**Parameters:**
+- `list` - Message file number
+- `msg_num` - Message number
+
+**Returns:** `string` - The message text
+
+**Example:**
+```ssl
+variable greeting;
+greeting := message_str(SCRIPT_MYCHAR, 100);
+float_msg(self_obj, greeting, FLOAT_MSG_NORMAL);
+```
+
+
+<FnRef fn="message_str" />

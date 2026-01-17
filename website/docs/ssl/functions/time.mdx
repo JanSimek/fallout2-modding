@@ -1,0 +1,191 @@
+---
+sidebar_position: 10
+title: Time Functions
+description: SSL functions for game time and timer management
+tags: [vanilla]
+---
+
+# Time Functions
+
+Functions for managing game time, delays, and timed events.
+
+## game_time <span class="tag-vanilla">vanilla</span> {#game_time}
+
+```ssl
+int game_time
+```
+
+Returns the current game time in ticks.
+
+**Returns:** `int` - Time in ticks
+
+
+<FnRef fn="game_time" />
+---
+
+## game_time_hour <span class="tag-vanilla">vanilla</span> {#game_time_hour}
+
+```ssl
+int game_time_hour
+```
+
+Returns the current hour of the day in a normal format without the colon. For example, 721 means 7:21 AM.
+
+**Returns:** `int` - Time (e.g., 721 for 7:21 AM, 1430 for 2:30 PM)
+
+**Example:**
+```ssl
+variable hour;
+hour := game_time_hour;
+if (hour >= 600 and hour < 1800) then begin
+    display_msg("It's daytime.");
+end else begin
+    display_msg("It's nighttime.");
+end
+```
+
+
+<FnRef fn="game_time_hour" />
+---
+
+## game_time_advance <span class="tag-vanilla">vanilla</span> {#game_time_advance}
+
+```ssl
+void game_time_advance(int amount)
+```
+
+Advances the current game time by a given amount of ticks.
+
+**Parameters:**
+- `amount` - Amount of ticks to advance
+
+
+<FnRef fn="game_time_advance" />
+---
+
+## game_ticks <span class="tag-vanilla">vanilla</span> {#game_ticks}
+
+```ssl
+int game_ticks(int seconds)
+```
+
+Returns the number of game ticks equal to a given number of seconds.
+
+**Parameters:**
+- `seconds` - Number of seconds
+
+**Returns:** `int` - Equivalent ticks
+
+**Example:**
+```ssl
+// Wait for 5 game seconds
+variable wait_time;
+wait_time := game_ticks(5);
+```
+
+
+<FnRef fn="game_ticks" />
+---
+
+## get_day <span class="tag-vanilla">vanilla</span> {#get_day}
+
+```ssl
+int get_day
+```
+
+Returns the current day of the month.
+
+**Returns:** `int` - Day (1-31)
+
+
+<FnRef fn="get_day" />
+---
+
+## get_month <span class="tag-vanilla">vanilla</span> {#get_month}
+
+```ssl
+int get_month
+```
+
+Returns the current month of the year.
+
+**Returns:** `int` - Month (1-12)
+
+
+<FnRef fn="get_month" />
+---
+
+## add_timer_event <span class="tag-vanilla">vanilla</span> {#add_timer_event}
+
+```ssl
+void add_timer_event(ObjectPtr obj, int time, int info)
+```
+
+Adds a timed event call to the queue. When the time expires, the object's script will be called in its `timed_event_p_proc` section.
+
+The `info` parameter is used to let scripts differentiate between timed event calls so they can be hooked in multiple times. Info is read back by the script using `fixed_param`.
+
+**Parameters:**
+- `obj` - Object whose script will be called
+- `time` - Time delay in ticks (use `game_ticks()` to convert from seconds)
+- `info` - Info value passed to script via `fixed_param`
+
+**Example:**
+```ssl
+#define TIMER_CHECK_PLAYER  1
+#define TIMER_PATROL        2
+
+procedure start begin
+    // Set up a timer to check player every 10 seconds
+    add_timer_event(self_obj, game_ticks(10), TIMER_CHECK_PLAYER);
+end
+
+procedure timed_event_p_proc begin
+    if (fixed_param == TIMER_CHECK_PLAYER) then begin
+        if (obj_can_see_obj(self_obj, dude_obj)) then begin
+            float_msg(self_obj, "I see you!", FLOAT_MSG_NORMAL);
+        end
+        // Re-schedule the timer
+        add_timer_event(self_obj, game_ticks(10), TIMER_CHECK_PLAYER);
+    end else if (fixed_param == TIMER_PATROL) then begin
+        // Handle patrol behavior
+    end
+end
+```
+
+
+<FnRef fn="add_timer_event" />
+---
+
+## rm_timer_event <span class="tag-vanilla">vanilla</span> {#rm_timer_event}
+
+```ssl
+void rm_timer_event(ObjectPtr obj)
+```
+
+Removes (clears) all timer events hooked to a given object's script.
+
+**Parameters:**
+- `obj` - Object whose timers to remove
+
+
+<FnRef fn="rm_timer_event" />
+---
+
+## rm_fixed_timer_event <span class="tag-vanilla">vanilla</span> {#rm_fixed_timer_event}
+
+```ssl
+void rm_fixed_timer_event(ObjectPtr who, int fixed_val)
+```
+
+Removes (clears) all timer events hooked to a given object's script that have a specific fixed_value.
+
+**Parameters:**
+- `who` - Object whose timers to remove
+- `fixed_val` - Only remove timers with this info value
+
+**Example:**
+```ssl
+// Remove only patrol timers, keep other timers
+rm_fixed_timer_event(self_obj, TIMER_PATROL);
+```

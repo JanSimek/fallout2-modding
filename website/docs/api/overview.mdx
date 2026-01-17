@@ -1,0 +1,88 @@
+---
+sidebar_position: 1
+title: API Overview
+---
+
+# Engine API Overview
+
+This section documents the internal API of the Fallout 2 Community Edition engine, helping modders and contributors understand how the engine works.
+
+## Architecture
+
+The fallout2-ce engine is written in C++ and organized into modules:
+
+| Module | Description |
+|--------|-------------|
+| `interpreter` | SSL bytecode execution |
+| `scripts` | Script management and events |
+| `proto` | Prototype loading and caching |
+| `object` | Game object management |
+| `critter` | Critter-specific logic |
+| `item` | Item handling |
+| `combat` | Combat system |
+| `map` | Map loading and rendering |
+| `tile` | Tile-based positioning |
+| `art` | Graphics and animation |
+| `interface` | UI elements |
+| `dialog` | Dialogue system |
+
+import ImplLink from '@site/src/components/ImplLink';
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src"
+  label="View source directory"
+/>
+
+## Script Opcodes
+
+SSL scripts call engine functions through opcodes. Each opcode has a handler function:
+
+```cpp
+// Example opcode handler signature
+void opGetCritterStat(Program* program);
+```
+
+The interpreter maps opcode numbers to handler functions:
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/interpreter.h"
+  lines={[16, 93]}
+  label="View Opcode enum"
+/>
+
+## Object System
+
+All game entities (items, critters, scenery, etc.) are represented as `Object` structures:
+
+```cpp
+typedef struct Object {
+    int id;
+    int tile;
+    int elevation;
+    // ... many more fields
+} Object;
+```
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/object.h"
+  label="View object.h"
+/>
+
+## Prototype System
+
+Prototypes define the base properties of object types. The `Proto` union can represent any prototype type:
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[443, 462]}
+  label="View Proto union"
+/>
+
+## Navigation
+
+- [Functions](/api/functions/critter) - Engine function documentation
+- [Enums & Constants](/api/enums/proto-types) - Important enumerations

@@ -1,0 +1,326 @@
+---
+sidebar_position: 2
+title: PRO Format
+---
+
+# PRO File Format
+
+PRO (Prototype) files define the properties of game objects including items, critters, scenery, walls, tiles, and miscellaneous objects.
+
+## Overview
+
+Each prototype type has its own subdirectory and corresponding `.lst` file that indexes the prototypes:
+
+| Type | Directory | List File |
+|------|-----------|-----------|
+| Items | `proto/items/` | `proto/items/items.lst` |
+| Critters | `proto/critters/` | `proto/critters/critters.lst` |
+| Scenery | `proto/scenery/` | `proto/scenery/scenery.lst` |
+| Walls | `proto/walls/` | `proto/walls/walls.lst` |
+| Tiles | `proto/tiles/` | `proto/tiles/tiles.lst` |
+| Misc | `proto/misc/` | `proto/misc/misc.lst` |
+
+## Encoding
+
+- **Byte Order**: Big-endian
+- **Compression**: None
+
+## Common Header
+
+All prototype types share a common header structure:
+
+| Offset | Size | Type | Field | Description |
+|--------|------|------|-------|-------------|
+| 0x00 | 4 | s32 | `pid` | Prototype ID (encodes type + number) |
+| 0x04 | 4 | s32 | `messageId` | Index into message file for name/description |
+| 0x08 | 4 | s32 | `fid` | Frame ID for graphics |
+
+import ImplLink from '@site/src/components/ImplLink';
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[443, 462]}
+  label="View Proto union in proto_types.h"
+/>
+
+## Object Types
+
+### Items (Type 0x00)
+
+Items include weapons, armor, containers, drugs, ammo, miscellaneous items, and keys.
+
+#### Item Header
+
+| Offset | Size | Type | Field | Description |
+|--------|------|------|-------|-------------|
+| 0x00 | 4 | s32 | `pid` | Prototype ID |
+| 0x04 | 4 | s32 | `messageId` | Message number |
+| 0x08 | 4 | s32 | `fid` | Frame ID |
+| 0x0C | 4 | s32 | `lightDistance` | Light emission distance |
+| 0x10 | 4 | s32 | `lightIntensity` | Light emission intensity |
+| 0x14 | 4 | u32 | `flags` | Item flags |
+| 0x18 | 4 | u32 | `extendedFlags` | Extended flags |
+| 0x1C | 4 | s32 | `sid` | Script ID (-1 if none) |
+| 0x20 | 4 | s32 | `type` | Item subtype |
+| 0x24 | var | ... | `data` | Type-specific data |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[316, 333]}
+  label="View ItemProto struct"
+/>
+
+#### Item Types
+
+| Value | Type | Description |
+|-------|------|-------------|
+| 0 | Armor | Wearable protection |
+| 1 | Container | Storage objects |
+| 2 | Drug | Consumables with stat effects |
+| 3 | Weapon | Combat items |
+| 4 | Ammo | Ammunition |
+| 5 | Misc | Miscellaneous items |
+| 6 | Key | Door/container keys |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[27, 35]}
+  label="View item type enum"
+/>
+
+#### Armor Data
+
+| Offset | Size | Type | Field | Description |
+|--------|------|------|-------|-------------|
+| 0x00 | 4 | s32 | `armorClass` | AC bonus |
+| 0x04 | 28 | s32[7] | `damageResistance` | DR for each damage type |
+| 0x20 | 28 | s32[7] | `damageThreshold` | DT for each damage type |
+| 0x3C | 4 | s32 | `perk` | Associated perk (-1 if none) |
+| 0x40 | 4 | s32 | `maleFid` | Male appearance FID |
+| 0x44 | 4 | s32 | `femaleFid` | Female appearance FID |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[230, 237]}
+  label="View ProtoItemArmorData"
+/>
+
+#### Weapon Data
+
+| Offset | Size | Type | Field | Description |
+|--------|------|------|-------|-------------|
+| 0x00 | 4 | s32 | `animationCode` | Attack animation |
+| 0x04 | 4 | s32 | `minDamage` | Minimum damage |
+| 0x08 | 4 | s32 | `maxDamage` | Maximum damage |
+| 0x0C | 4 | s32 | `damageType` | Damage type index |
+| 0x10 | 4 | s32 | `maxRange1` | Primary attack range |
+| 0x14 | 4 | s32 | `maxRange2` | Secondary attack range |
+| 0x18 | 4 | s32 | `projectilePid` | Projectile prototype ID |
+| 0x1C | 4 | s32 | `minStrength` | Minimum strength requirement |
+| 0x20 | 4 | s32 | `actionPointCost1` | AP cost for primary attack |
+| 0x24 | 4 | s32 | `actionPointCost2` | AP cost for secondary attack |
+| 0x28 | 4 | s32 | `criticalFailureType` | Critical failure table index |
+| 0x2C | 4 | s32 | `perk` | Required perk (-1 if none) |
+| 0x30 | 4 | s32 | `rounds` | Burst rounds |
+| 0x34 | 4 | s32 | `caliber` | Ammo caliber type |
+| 0x38 | 4 | s32 | `ammoTypePid` | Default ammo prototype |
+| 0x3C | 4 | s32 | `ammoCapacity` | Magazine capacity |
+| 0x40 | 1 | u8 | `soundCode` | Sound effect code |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[256, 274]}
+  label="View ProtoItemWeaponData"
+/>
+
+### Critters (Type 0x01)
+
+Critter prototypes define NPCs and creatures.
+
+#### Critter Header
+
+| Offset | Size | Type | Field | Description |
+|--------|------|------|-------|-------------|
+| 0x00 | 4 | s32 | `pid` | Prototype ID |
+| 0x04 | 4 | s32 | `messageId` | Message number |
+| 0x08 | 4 | s32 | `fid` | Frame ID |
+| 0x0C | 4 | s32 | `lightDistance` | Light emission distance |
+| 0x10 | 4 | s32 | `lightIntensity` | Light emission intensity |
+| 0x14 | 4 | u32 | `flags` | Object flags |
+| 0x18 | 4 | u32 | `extendedFlags` | Extended flags |
+| 0x1C | 4 | s32 | `sid` | Script ID |
+| 0x20 | var | ... | `data` | Critter-specific data |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[347, 360]}
+  label="View CritterProto struct"
+/>
+
+#### Critter Data
+
+| Offset | Size | Type | Field | Description |
+|--------|------|------|-------|-------------|
+| 0x00 | 4 | u32 | `flags` | Critter flags |
+| 0x04 | 140 | s32[35] | `baseStats` | Base stat values |
+| 0x90 | 140 | s32[35] | `bonusStats` | Stat bonuses |
+| 0x11C | 72 | s32[18] | `skills` | Skill point allocations |
+| 0x164 | 4 | s32 | `bodyType` | Body type (biped/quadruped/robotic) |
+| 0x168 | 4 | s32 | `experience` | XP reward on kill |
+| 0x16C | 4 | s32 | `killType` | Kill counter category |
+| 0x170 | 4 | s32 | `damageType` | Unarmed damage type |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[335, 345]}
+  label="View CritterProtoData"
+/>
+
+### Scenery (Type 0x02)
+
+Scenery objects include doors, stairs, elevators, ladders, and generic objects.
+
+#### Scenery Types
+
+| Value | Type | Description |
+|-------|------|-------------|
+| 0 | Door | Openable barriers |
+| 1 | Stairs | Map transitions |
+| 2 | Elevator | Elevator controls |
+| 3 | Ladder Up | Upward ladders |
+| 4 | Ladder Down | Downward ladders |
+| 5 | Generic | Decorative objects |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[37, 45]}
+  label="View scenery type enum"
+/>
+
+### Walls (Type 0x03)
+
+Wall prototypes define blocking terrain features.
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[411, 421]}
+  label="View WallProto struct"
+/>
+
+### Tiles (Type 0x04)
+
+Tile prototypes define floor and roof graphics.
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[423, 431]}
+  label="View TileProto struct"
+/>
+
+### Misc (Type 0x05)
+
+Miscellaneous prototypes include exit grids and special objects.
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[433, 441]}
+  label="View MiscProto struct"
+/>
+
+## Enums and Constants
+
+### Damage Types
+
+| Value | Name | Description |
+|-------|------|-------------|
+| 0 | Normal | Physical/kinetic damage |
+| 1 | Laser | Laser damage |
+| 2 | Fire | Fire/heat damage |
+| 3 | Plasma | Plasma damage |
+| 4 | Electrical | Electrical damage |
+| 5 | EMP | Electromagnetic pulse |
+| 6 | Explosion | Explosive damage |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[59, 68]}
+  label="View damage type enum"
+/>
+
+### Material Types
+
+| Value | Name |
+|-------|------|
+| 0 | Glass |
+| 1 | Metal |
+| 2 | Plastic |
+| 3 | Wood |
+| 4 | Dirt |
+| 5 | Stone |
+| 6 | Cement |
+| 7 | Leather |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[47, 57]}
+  label="View material type enum"
+/>
+
+### Caliber Types
+
+| Value | Name |
+|-------|------|
+| 0 | None |
+| 1 | Rocket |
+| 2 | Flamethrower Fuel |
+| 3 | C Energy Cell |
+| 4 | D Energy Cell |
+| 5 | .223 |
+| 6 | 5mm |
+| 7 | .40 |
+| 8 | 10mm |
+| 9 | .44 |
+| 10 | 14mm |
+| 11 | 12 gauge |
+| 12 | 9mm |
+| 13 | BB |
+| 14 | .45 |
+| 15 | 2mm EC |
+| 16 | 4.7mm caseless |
+| 17 | HN Needler |
+| 18 | 7.62mm |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[70, 91]}
+  label="View caliber type enum"
+/>
+
+## Known Differences
+
+The in-memory struct representation may differ slightly from the on-disk format due to:
+
+- Struct padding/alignment
+- Fields computed at load time
+- Version-specific variations
+
+Treat the offset tables in this document as authoritative for the file format. The engine source links show how the data is used after loading.
+
+## References
+
+- [fallout2-ce proto.cc](https://github.com/alexbatalov/fallout2-ce/blob/main/src/proto.cc) - Prototype loading code
+- [TeamX PRO Format](http://falloutmods.wikia.com/wiki/PRO_File_Format) - Community documentation

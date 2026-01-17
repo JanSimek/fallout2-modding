@@ -1,0 +1,59 @@
+---
+slug: /
+sidebar_position: 1
+title: Introduction
+---
+
+# Fallout 2 Modding Documentation
+
+Welcome to the comprehensive documentation for Fallout 2 modding, specifically focused on the [Fallout 2 Community Edition (fallout2-ce)](https://github.com/alexbatalov/fallout2-ce) engine.
+
+## What is this documentation?
+
+This documentation covers:
+
+- **File Formats** - Binary data formats used by Fallout 2 (`.PRO`, `.MAP`, `.FRM`, etc.)
+- **SSL Scripting** - The scripting language used for game logic
+- **Engine API** - Functions and data structures from the fallout2-ce source code
+
+## Getting Started
+
+### For Modders
+
+If you're new to Fallout 2 modding, start with:
+
+1. [Formats Overview](/formats/overview) - Understanding the game's data files
+2. [SSL Overview](/ssl/overview) - Introduction to scripting
+3. [Basic Examples](/ssl/examples/basic) - Simple script examples
+
+### For Engine Developers
+
+If you're contributing to fallout2-ce or want to understand the engine internals:
+
+1. [API Overview](/api/overview) - Engine architecture
+2. [Function Reference](/api/functions/critter) - Detailed function documentation
+
+## Implementation References
+
+Throughout this documentation, you'll find links to the actual implementation in the fallout2-ce source code. These links point to specific files and line numbers in the GitHub repository, helping you understand how features work at the code level.
+
+import ImplLink from '@site/src/components/ImplLink';
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  label="Example: View proto_types.h"
+/>
+
+## Contributing
+
+This documentation is open source. If you find errors or want to add content, please contribute!
+
+- [View on GitHub](https://github.com/your-username/fallout2-modding)
+- [Contributing Guide](/contributing)
+
+## Resources
+
+- [fallout2-ce GitHub](https://github.com/alexbatalov/fallout2-ce) - The open-source engine
+- [NMA Fallout Modding Forum](https://www.nma-fallout.com/forums/fallout-modding.12/) - Community discussions
+- [sfall](https://github.com/sfall-team/sfall) - Extended scripting features

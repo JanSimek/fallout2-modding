@@ -1,0 +1,301 @@
+---
+sidebar_position: 2
+title: Item Functions
+---
+
+# Item Functions
+
+Functions for working with items and inventories.
+
+import ImplLink from '@site/src/components/ImplLink';
+
+## opObjCarryingPidObj
+
+Check if an object is carrying an item with a specific prototype ID.
+
+### SSL Syntax
+
+```ssl
+variable item := obj_carrying_pid_obj(container, pid);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `container` | Object | Container or critter to search |
+| `pid` | int | Prototype ID to find |
+
+### Returns
+
+The item object if found, `0` otherwise.
+
+### Example
+
+```ssl
+if (obj_carrying_pid_obj(dude_obj, PID_STIMPAK)) then begin
+    display_msg("Player has a stimpak");
+end
+```
+
+---
+
+## opAddObjToInven
+
+Add an item to a container/critter's inventory.
+
+### SSL Syntax
+
+```ssl
+add_obj_to_inven(container, item);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `container` | Object | Target inventory |
+| `item` | Object | Item to add |
+
+### Notes
+
+- Item is moved from the world into the inventory
+- Stacks with existing items of same PID if applicable
+
+---
+
+## opRmObjFromInven
+
+Remove an item from inventory.
+
+### SSL Syntax
+
+```ssl
+rm_obj_from_inven(container, item);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `container` | Object | Inventory to remove from |
+| `item` | Object | Item to remove |
+
+### Notes
+
+- Item remains in memory but not in any inventory
+- Usually followed by `destroy_object` or `move_to`
+
+---
+
+## opInvenPtr
+
+Get the item in a specific equipment slot.
+
+### SSL Syntax
+
+```ssl
+variable item := inven_ptr(critter, slot);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | Critter to check |
+| `slot` | int | Equipment slot |
+
+### Slot Constants
+
+| Constant | Value | Description |
+|----------|-------|-------------|
+| `INVEN_TYPE_WORN` | 0 | Armor slot |
+| `INVEN_TYPE_RIGHT_HAND` | 1 | Right hand (weapon) |
+| `INVEN_TYPE_LEFT_HAND` | 2 | Left hand |
+| `INVEN_TYPE_INV_COUNT` | -2 | Total item count |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/interpreter_extra.cc"
+  lines={[124, 129]}
+  label="View inventory type enum"
+/>
+
+---
+
+## opItemCapsTotal
+
+Get total caps (money) a critter has.
+
+### SSL Syntax
+
+```ssl
+variable caps := item_caps_total(critter);
+```
+
+### Returns
+
+Total number of bottle caps in inventory.
+
+---
+
+## opItemCapsAdjust
+
+Add or remove caps from a critter.
+
+### SSL Syntax
+
+```ssl
+variable success := item_caps_adjust(critter, amount);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | Target critter |
+| `amount` | int | Caps to add (negative to remove) |
+
+### Returns
+
+`1` if successful, `0` if failed (not enough caps to remove).
+
+---
+
+## opGetItemType
+
+Get the type of an item.
+
+### SSL Syntax
+
+```ssl
+variable type := obj_item_subtype(item);
+```
+
+### Returns
+
+| Value | Type |
+|-------|------|
+| 0 | Armor |
+| 1 | Container |
+| 2 | Drug |
+| 3 | Weapon |
+| 4 | Ammo |
+| 5 | Misc |
+| 6 | Key |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto_types.h"
+  lines={[27, 35]}
+  label="View item type enum"
+/>
+
+---
+
+## opWieldObjCritter
+
+Make a critter equip an item.
+
+### SSL Syntax
+
+```ssl
+wield_obj_critter(critter, item);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `critter` | Object | Critter to equip |
+| `item` | Object | Item to equip |
+
+### Notes
+
+- Item must be in critter's inventory
+- Automatically determines correct slot based on item type
+
+---
+
+## opUseObj
+
+Use an item.
+
+### SSL Syntax
+
+```ssl
+use_obj(item);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `item` | Object | Item to use |
+
+### Notes
+
+- Triggers the item's use script
+- Effects depend on item type
+
+---
+
+## opObjPid
+
+Get the prototype ID of an object.
+
+### SSL Syntax
+
+```ssl
+variable pid := obj_pid(object);
+```
+
+### Returns
+
+The prototype ID (PID) of the object.
+
+### PID Structure
+
+```
+PID = (type << 24) | proto_number
+
+Types:
+  0x00 = Items
+  0x01 = Critters
+  0x02 = Scenery
+  0x03 = Walls
+  0x04 = Tiles
+  0x05 = Misc
+```
+
+---
+
+## opItemWeight
+
+Get the weight of an item.
+
+### SSL Syntax
+
+```ssl
+variable weight := obj_weight(item);
+```
+
+### Returns
+
+Weight of the item in pounds.
+
+---
+
+## opItemCost
+
+Get the base cost of an item.
+
+### SSL Syntax
+
+```ssl
+variable cost := obj_cost(item);
+```
+
+### Returns
+
+Base value of the item in caps.

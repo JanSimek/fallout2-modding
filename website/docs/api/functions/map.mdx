@@ -1,0 +1,333 @@
+---
+sidebar_position: 3
+title: Map Functions
+---
+
+# Map Functions
+
+Functions for map and positioning operations.
+
+import ImplLink from '@site/src/components/ImplLink';
+
+## opMoveTo
+
+Move an object to a tile position.
+
+### SSL Syntax
+
+```ssl
+move_to(object, tile, elevation);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `object` | Object | Object to move |
+| `tile` | int | Target tile number |
+| `elevation` | int | Target elevation (0-2) |
+
+### Notes
+
+- Does not trigger movement animations
+- Use `animate_move_obj_to_tile` for animated movement
+
+---
+
+## opCreateObject
+
+Create a new object at a position.
+
+### SSL Syntax
+
+```ssl
+variable obj := create_object(pid, tile, elevation);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `pid` | int | Prototype ID |
+| `tile` | int | Tile number |
+| `elevation` | int | Elevation (0-2) |
+
+### Returns
+
+The created object, or `0` if failed.
+
+### Example
+
+```ssl
+variable stimpak := create_object(PID_STIMPAK, tile_num(dude_obj), 0);
+```
+
+---
+
+## opDestroyObject
+
+Destroy an object.
+
+### SSL Syntax
+
+```ssl
+destroy_object(object);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `object` | Object | Object to destroy |
+
+### Notes
+
+- Object is removed from the game
+- Cannot destroy `dude_obj`
+
+---
+
+## opTileNum
+
+Get an object's tile number.
+
+### SSL Syntax
+
+```ssl
+variable tile := tile_num(object);
+```
+
+### Returns
+
+The tile number (position) of the object.
+
+---
+
+## opElevation
+
+Get an object's elevation.
+
+### SSL Syntax
+
+```ssl
+variable elev := elevation(object);
+```
+
+### Returns
+
+Elevation level (0, 1, or 2).
+
+---
+
+## opCurMapIndex
+
+Get the current map index.
+
+### SSL Syntax
+
+```ssl
+variable map := cur_map_index;
+```
+
+### Returns
+
+The index of the currently loaded map.
+
+---
+
+## opTileDistance
+
+Calculate distance between two tiles.
+
+### SSL Syntax
+
+```ssl
+variable dist := tile_distance(tile1, tile2);
+```
+
+### Returns
+
+Distance in tiles (hexes).
+
+---
+
+## opTileDistanceObjs
+
+Calculate distance between two objects.
+
+### SSL Syntax
+
+```ssl
+variable dist := tile_distance_objs(obj1, obj2);
+```
+
+### Returns
+
+Distance in tiles between the objects.
+
+---
+
+## opTileContainsObj
+
+Check if a tile contains a specific object.
+
+### SSL Syntax
+
+```ssl
+variable found := tile_contains_obj_pid(tile, elevation, pid);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `tile` | int | Tile to check |
+| `elevation` | int | Elevation to check |
+| `pid` | int | Prototype ID to find |
+
+### Returns
+
+`1` if found, `0` otherwise.
+
+---
+
+## opTileInTileRect
+
+Check if a tile is within a rectangular area.
+
+### SSL Syntax
+
+```ssl
+variable inside := tile_in_tile_rect(ul_tile, br_tile, test_tile);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `ul_tile` | int | Upper-left corner tile |
+| `br_tile` | int | Bottom-right corner tile |
+| `test_tile` | int | Tile to test |
+
+### Returns
+
+`1` if tile is inside rectangle, `0` otherwise.
+
+---
+
+## opTileNumInDirection
+
+Get adjacent tile in a direction.
+
+### SSL Syntax
+
+```ssl
+variable adj_tile := tile_num_in_direction(tile, direction, distance);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `tile` | int | Starting tile |
+| `direction` | int | Direction (0-5) |
+| `distance` | int | Number of tiles |
+
+### Direction Values
+
+| Value | Direction |
+|-------|-----------|
+| 0 | Northeast |
+| 1 | East |
+| 2 | Southeast |
+| 3 | Southwest |
+| 4 | West |
+| 5 | Northwest |
+
+---
+
+## opSetLightLevel
+
+Set the global light level.
+
+### SSL Syntax
+
+```ssl
+set_light_level(level);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `level` | int | Light level (0-100) |
+
+### Notes
+
+- 0 = darkest
+- 100 = brightest
+
+---
+
+## opObjSetLightLevel
+
+Set an object's emitted light.
+
+### SSL Syntax
+
+```ssl
+obj_set_light_level(object, intensity, distance);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `object` | Object | Object to modify |
+| `intensity` | int | Light intensity |
+| `distance` | int | Light radius |
+
+---
+
+## opAnimateMoveObjToTile
+
+Animate an object moving to a tile.
+
+### SSL Syntax
+
+```ssl
+animate_move_obj_to_tile(object, tile, blocking);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `object` | Object | Object to move |
+| `tile` | int | Destination tile |
+| `blocking` | int | 1 = wait for completion |
+
+---
+
+## opLoadMap
+
+Load a different map.
+
+### SSL Syntax
+
+```ssl
+load_map(map_name, start_location);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `map_name` | string | Map filename |
+| `start_location` | int | Starting position index |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/map.h"
+  label="View map.h"
+/>

@@ -1,0 +1,509 @@
+---
+sidebar_position: 9
+title: Map Functions
+description: SSL functions for map loading, tiles, and spatial operations
+tags: [vanilla]
+---
+
+# Map Functions
+
+Functions for map manipulation, tile operations, and spatial queries.
+
+## cur_map_index <span class="tag-vanilla">vanilla</span> {#cur_map_index}
+
+```ssl
+int cur_map_index
+```
+
+Returns the index number of the current map, to be matched with the define constant in define.h.
+
+**Returns:** `int` - Map index
+
+
+<FnRef fn="cur_map_index" />
+---
+
+## cur_town <span class="tag-vanilla">vanilla</span> {#cur_town}
+
+```ssl
+int cur_town
+```
+
+Returns the index number of the current town, to be matched with the define constant in define.h.
+
+**Returns:** `int` - Town index
+
+---
+
+## load_map <span class="tag-vanilla">vanilla</span> {#load_map}
+
+```ssl
+void load_map(string map_name, int start_location)
+```
+
+Loads a new map, removing all scripts currently running and passing on the entrance location to the new map's map_init script.
+
+**Parameters:**
+- `map_name` - Map filename
+- `start_location` - Entrance location number
+
+
+<FnRef fn="load_map" />
+---
+
+## elevation <span class="tag-vanilla">vanilla</span> {#elevation}
+
+```ssl
+int elevation(ObjectPtr obj)
+```
+
+Returns the current elevation of an object.
+
+**Parameters:**
+- `obj` - Object to check
+
+**Returns:** `int` - Elevation (0-2)
+
+
+<FnRef fn="elevation" />
+---
+
+## tile_num <span class="tag-vanilla">vanilla</span> {#tile_num}
+
+```ssl
+int tile_num(ObjectPtr obj)
+```
+
+Returns the tile number of an object.
+
+**Parameters:**
+- `obj` - Object to check
+
+**Returns:** `int` - Tile number
+
+
+<FnRef fn="tile_num" />
+---
+
+## move_to <span class="tag-vanilla">vanilla</span> {#move_to}
+
+```ssl
+int move_to(ObjectPtr obj, int tile_num, int elev)
+```
+
+Immediately moves an object to the given tile number and elevation on the current map.
+
+**Parameters:**
+- `obj` - Object to move
+- `tile_num` - Destination tile
+- `elev` - Destination elevation (0-2)
+
+
+<FnRef fn="move_to" />
+---
+
+## tile_distance <span class="tag-vanilla">vanilla</span> {#tile_distance}
+
+```ssl
+int tile_distance(int tile1, int tile2)
+```
+
+Returns the tile distance between two tile numbers.
+
+**Parameters:**
+- `tile1` - First tile
+- `tile2` - Second tile
+
+**Returns:** `int` - Distance in tiles
+
+
+<FnRef fn="tile_distance" />
+---
+
+## tile_distance_objs <span class="tag-vanilla">vanilla</span> {#tile_distance_objs}
+
+```ssl
+int tile_distance_objs(ObjectPtr obj1, ObjectPtr obj2)
+```
+
+Returns the tile distance between two objects.
+
+**Parameters:**
+- `obj1` - First object
+- `obj2` - Second object
+
+**Returns:** `int` - Distance in tiles
+
+
+<FnRef fn="tile_distance_objs" />
+---
+
+## tile_num_in_direction <span class="tag-vanilla">vanilla</span> {#tile_num_in_direction}
+
+```ssl
+int tile_num_in_direction(int start_tile, int dir, int distance)
+```
+
+Returns the tile number of a tile offset from a starting tile in a given direction.
+
+**Parameters:**
+- `start_tile` - Starting tile number
+- `dir` - Direction (0-5)
+- `distance` - Distance in tiles
+
+**Returns:** `int` - Destination tile number
+
+
+<FnRef fn="tile_num_in_direction" />
+---
+
+## tile_is_visible <span class="tag-vanilla">vanilla</span> {#tile_is_visible}
+
+```ssl
+int tile_is_visible(int tile)
+```
+
+Returns True if a given hex is currently visible on-screen.
+
+**Parameters:**
+- `tile` - Tile number
+
+**Returns:** `int` - Boolean
+
+
+<FnRef fn="tile_is_visible" />
+---
+
+## tile_contains_obj_pid <span class="tag-vanilla">vanilla</span> {#tile_contains_obj_pid}
+
+```ssl
+int tile_contains_obj_pid(int tile, int elev, int pid)
+```
+
+Returns True if a particular tile contains an object with a matching prototype ID.
+
+**Parameters:**
+- `tile` - Tile number
+- `elev` - Elevation (0-2)
+- `pid` - Prototype ID
+
+**Returns:** `int` - Boolean
+
+
+<FnRef fn="tile_contains_obj_pid" />
+---
+
+## tile_contains_pid_obj <span class="tag-vanilla">vanilla</span> {#tile_contains_pid_obj}
+
+```ssl
+ObjectPtr tile_contains_pid_obj(int tile, int elev, int pid)
+```
+
+Returns a pointer to the first object matching a particular pid on a specific tile and elevation.
+
+**Parameters:**
+- `tile` - Tile number
+- `elev` - Elevation (0-2)
+- `pid` - Prototype ID
+
+**Returns:** `ObjectPtr` - Found object or NULL
+
+
+<FnRef fn="tile_contains_pid_obj" />
+---
+
+## rotation_to_tile <span class="tag-vanilla">vanilla</span> {#rotation_to_tile}
+
+```ssl
+int rotation_to_tile(int srcTile, int destTile)
+```
+
+Returns the rotation (0-5) to face a particular tile from another tile.
+
+**Parameters:**
+- `srcTile` - Source tile
+- `destTile` - Destination tile
+
+**Returns:** `int` - Rotation (0-5)
+
+
+<FnRef fn="rotation_to_tile" />
+---
+
+## obj_can_see_obj <span class="tag-vanilla">vanilla</span> {#obj_can_see_obj}
+
+```ssl
+int obj_can_see_obj(ObjectPtr src_obj, ObjectPtr dst_obj)
+```
+
+Returns True if the source object has line-of-sight (LOS) with the destination object. Takes into account perception and stealth rolls if the objects are critters.
+
+**Parameters:**
+- `src_obj` - Source object
+- `dst_obj` - Target object
+
+**Returns:** `int` - Boolean
+
+
+<FnRef fn="obj_can_see_obj" />
+---
+
+## obj_can_hear_obj <span class="tag-vanilla">vanilla</span> {#obj_can_hear_obj}
+
+```ssl
+int obj_can_hear_obj(ObjectPtr src_obj, ObjectPtr dst_obj)
+```
+
+Returns True if the source object is capable of hearing the destination object. Includes distance factors, current activity (standing/walking/running), and skill use (stealth, etc.).
+
+**Parameters:**
+- `src_obj` - Source object
+- `dst_obj` - Target object
+
+**Returns:** `int` - Boolean
+
+
+<FnRef fn="obj_can_hear_obj" />
+---
+
+## set_light_level <span class="tag-vanilla">vanilla</span> {#set_light_level}
+
+```ssl
+void set_light_level(int level)
+```
+
+Sets the ambient light level. Range is 1 (Full Darkness) to 100 (Full Daylight).
+
+**Parameters:**
+- `level` - Light level (1-100)
+
+
+<FnRef fn="set_light_level" />
+---
+
+## override_map_start <span class="tag-vanilla">vanilla</span> {#override_map_start}
+
+```ssl
+void override_map_start(int x, int y, int elev, int rot)
+```
+
+Used when loading a new map, forces the player to start at a particular location and rotation.
+
+**Parameters:**
+- `x` - X coordinate
+- `y` - Y coordinate
+- `elev` - Elevation (0-2)
+- `rot` - Rotation (0-5)
+
+
+<FnRef fn="override_map_start" />
+---
+
+## set_map_start <span class="tag-vanilla">vanilla</span> {#set_map_start}
+
+```ssl
+void set_map_start(int x, int y, int elev, int rot)
+```
+
+Sets the start location and rotation for the next time this map is entered.
+
+**Parameters:**
+- `x` - X coordinate
+- `y` - Y coordinate
+- `elev` - Elevation (0-2)
+- `rot` - Rotation (0-5)
+
+
+<FnRef fn="set_map_start" />
+---
+
+## set_exit_grids <span class="tag-vanilla">vanilla</span> {#set_exit_grids}
+
+```ssl
+void set_exit_grids(int markElev, int mapID, int elevation, int tileNum, int rotation)
+```
+
+Sets all exit grids on a given elevation to point to a destination. `mapID` may be -1 to stay on the current map.
+
+**Parameters:**
+- `markElev` - Elevation to modify
+- `mapID` - Destination map (-1 for current)
+- `elevation` - Destination elevation
+- `tileNum` - Destination tile
+- `rotation` - Destination rotation
+
+
+<FnRef fn="set_exit_grids" />
+---
+
+## map_first_run <span class="tag-vanilla">vanilla</span> {#map_first_run}
+
+```ssl
+int map_first_run
+```
+
+Returns True if the current map is being run for the first time (not loaded from a save-game).
+
+**Returns:** `int` - Boolean
+
+---
+
+## is_loading_game <span class="tag-vanilla">vanilla</span> {#is_loading_game}
+
+```ssl
+int is_loading_game
+```
+
+Returns True if the game is currently loading. Used to prevent bad things from happening on game load when a script is doing map_enter setup.
+
+**Returns:** `int` - Boolean
+
+---
+
+## days_since_visited <span class="tag-vanilla">vanilla</span> {#days_since_visited}
+
+```ssl
+int days_since_visited
+```
+
+Returns the number of days since this map was last visited, or -1 if never visited before.
+
+**Returns:** `int` - Days or -1
+
+
+<FnRef fn="days_since_visited" />
+---
+
+## map_is_known <span class="tag-vanilla">vanilla</span> {#map_is_known}
+
+```ssl
+int map_is_known(int mapNum)
+```
+
+Returns True if a given map index is known to the player.
+
+**Parameters:**
+- `mapNum` - Map index
+
+**Returns:** `int` - Boolean
+
+---
+
+## map_known <span class="tag-vanilla">vanilla</span> {#map_known}
+
+```ssl
+int map_known(int mapNum)
+```
+
+Alias for `map_is_known`.
+
+---
+
+## town_known <span class="tag-vanilla">vanilla</span> {#town_known}
+
+```ssl
+int town_known(int townArea)
+```
+
+Returns True if a given town area is known to the player.
+
+**Parameters:**
+- `townArea` - Town area index
+
+**Returns:** `int` - Boolean
+
+---
+
+## town_map <span class="tag-vanilla">vanilla</span> {#town_map}
+
+```ssl
+void town_map
+```
+
+Sends a request for the game engine to bring up the Town Map screen.
+
+---
+
+## world_map <span class="tag-vanilla">vanilla</span> {#world_map}
+
+```ssl
+void world_map
+```
+
+Sends a request for the game engine to bring up the World Map screen.
+
+---
+
+## world_map_x_pos <span class="tag-vanilla">vanilla</span> {#world_map_x_pos}
+
+```ssl
+int world_map_x_pos
+```
+
+Returns the current X position of the party on the World Map.
+
+**Returns:** `int` - X coordinate
+
+---
+
+## world_map_y_pos <span class="tag-vanilla">vanilla</span> {#world_map_y_pos}
+
+```ssl
+int world_map_y_pos
+```
+
+Returns the current Y position of the party on the World Map.
+
+**Returns:** `int` - Y coordinate
+
+---
+
+## wm_area_set_pos <span class="tag-vanilla">vanilla</span> {#wm_area_set_pos}
+
+```ssl
+void wm_area_set_pos(int areaIdx, int xPos, int yPos)
+```
+
+Sets the World Map coordinates for a given area/town to a specific position.
+
+**Parameters:**
+- `areaIdx` - Area index
+- `xPos` - X coordinate
+- `yPos` - Y coordinate
+
+
+<FnRef fn="wm_area_set_pos" />
+---
+
+## car_current_town <span class="tag-vanilla">vanilla</span> {#car_current_town}
+
+```ssl
+int car_current_town
+```
+
+Returns the current town area where the car can be found. Area numbers are in scripts/headers/maps.h.
+
+**Returns:** `int` - Town area index
+
+---
+
+## car_give_to_party <span class="tag-vanilla">vanilla</span> {#car_give_to_party}
+
+```ssl
+int car_give_to_party
+```
+
+Gives the car to the party and takes them to the worldmap.
+
+---
+
+## car_give_gas <span class="tag-vanilla">vanilla</span> {#car_give_gas}
+
+```ssl
+int car_give_gas(int amount)
+```
+
+Gives the car a given amount of gas.
+
+**Parameters:**
+- `amount` - Amount of fuel

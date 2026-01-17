@@ -1,0 +1,88 @@
+---
+sidebar_position: 1
+title: Formats Overview
+---
+
+# File Formats Overview
+
+Fallout 2 uses a variety of binary file formats to store game data. Understanding these formats is essential for modding.
+
+## Common Conventions
+
+### Endianness
+
+Most Fallout 2 data files use **big-endian** byte order for multi-byte integers. This is unusual for x86 platforms and reflects the game's original cross-platform development.
+
+```
+// Example: 32-bit integer 0x12345678
+Big-endian bytes: 12 34 56 78
+Little-endian bytes: 78 56 34 12
+```
+
+### Path Conventions
+
+Game data is organized in subdirectories under the main data folder:
+
+| Path | Contents |
+|------|----------|
+| `proto/items/` | Item prototype files (`.PRO`) |
+| `proto/critters/` | Critter prototype files (`.PRO`) |
+| `proto/scenery/` | Scenery prototype files (`.PRO`) |
+| `proto/walls/` | Wall prototype files (`.PRO`) |
+| `proto/tiles/` | Tile prototype files (`.PRO`) |
+| `proto/misc/` | Miscellaneous prototype files (`.PRO`) |
+| `maps/` | Map files (`.MAP`) |
+| `art/` | Graphics files (`.FRM`) |
+| `scripts/` | Compiled scripts (`.INT`) |
+| `text/` | Message files (`.MSG`) |
+
+### Prototype IDs (PIDs)
+
+Objects in Fallout 2 are identified by Prototype IDs, which encode both the object type and the specific prototype number:
+
+```
+PID = (type << 24) | proto_number
+
+Types:
+  0x00 = Items
+  0x01 = Critters
+  0x02 = Scenery
+  0x03 = Walls
+  0x04 = Tiles
+  0x05 = Misc
+```
+
+import ImplLink from '@site/src/components/ImplLink';
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/proto.h"
+  label="View proto.h for PID handling"
+/>
+
+## File Format Index
+
+| Format | Extension | Description | Status |
+|--------|-----------|-------------|--------|
+| [PRO](/formats/pro) | `.PRO` | Prototype definitions | Documented |
+| MAP | `.MAP` | Map layouts | Planned |
+| FRM | `.FRM` | Frame animations | Planned |
+| LST | `.LST` | List files | Planned |
+| MSG | `.MSG` | Text messages | Planned |
+| GAM | `.GAM` | Save games | Planned |
+| DAT | `.DAT` | Archives | Planned |
+
+## Type Conventions
+
+Throughout this documentation, we use consistent type names:
+
+| Type | Size | Description |
+|------|------|-------------|
+| `u8` | 1 byte | Unsigned 8-bit integer |
+| `u16` | 2 bytes | Unsigned 16-bit integer (big-endian) |
+| `u32` | 4 bytes | Unsigned 32-bit integer (big-endian) |
+| `s8` | 1 byte | Signed 8-bit integer |
+| `s16` | 2 bytes | Signed 16-bit integer (big-endian) |
+| `s32` | 4 bytes | Signed 32-bit integer (big-endian) |
+| `bytes[n]` | n bytes | Raw byte array |
+| `stringz` | variable | Null-terminated string |

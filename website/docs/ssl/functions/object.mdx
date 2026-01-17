@@ -1,0 +1,443 @@
+---
+sidebar_position: 3
+title: Object Functions
+description: SSL object creation, manipulation and query functions
+tags: [vanilla]
+---
+
+# Object Functions
+
+Functions for creating, destroying, and manipulating game objects.
+
+## create_object <span class="tag-vanilla">vanilla</span> {#create_object}
+
+```ssl
+ObjectPtr create_object(int pid, int tile_num, int elev)
+```
+
+Creates a new object of prototype (pid), placing it at a given tile number and elevation. If the prototype indicates a script should be attached, it will be.
+
+**Parameters:**
+- `pid` - Prototype ID of the object to create
+- `tile_num` - Tile number to place the object
+- `elev` - Elevation (0-2)
+
+**Returns:** `ObjectPtr` - Pointer to the created object
+
+**Example:**
+```ssl
+variable new_item;
+new_item := create_object(PID_STIMPAK, tile_num(dude_obj), elevation(dude_obj));
+```
+
+
+<FnRef fn="create_object" />
+---
+
+## create_object_sid <span class="tag-vanilla">vanilla</span> {#create_object_sid}
+
+```ssl
+ObjectPtr create_object_sid(int pid, int tile_num, int elev, int sid)
+```
+
+Creates a new object with an optional script override. If `sid` is not -1, it overrides the default script.
+
+**Parameters:**
+- `pid` - Prototype ID
+- `tile_num` - Tile number
+- `elev` - Elevation (0-2)
+- `sid` - Script ID (-1 for default script)
+
+**Returns:** `ObjectPtr` - Pointer to the created object
+
+
+<FnRef fn="create_object_sid" />
+---
+
+## destroy_object <span class="tag-vanilla">vanilla</span> {#destroy_object}
+
+```ssl
+int destroy_object(ObjectPtr obj)
+```
+
+Destroys an object. If the object is not the calling object, its script's `destroy_proc` section will be called.
+
+**Parameters:**
+- `obj` - Object to destroy
+
+
+<FnRef fn="destroy_object" />
+---
+
+## destroy_mult_objs <span class="tag-vanilla">vanilla</span> {#destroy_mult_objs}
+
+```ssl
+int destroy_mult_objs(ObjectPtr item, int count)
+```
+
+Destroys a specified count of instances of an item object. Works with items in inventories or on the ground.
+
+**Parameters:**
+- `item` - Item object to destroy
+- `count` - Number of instances to destroy
+
+
+<FnRef fn="destroy_mult_objs" />
+---
+
+## obj_pid <span class="tag-vanilla">vanilla</span> {#obj_pid}
+
+```ssl
+int obj_pid(ObjectPtr obj)
+```
+
+Returns the prototype ID (pid) of an object.
+
+**Parameters:**
+- `obj` - Object to query
+
+**Returns:** `int` - Prototype ID
+
+
+<FnRef fn="obj_pid" />
+---
+
+## obj_type <span class="tag-vanilla">vanilla</span> {#obj_type}
+
+```ssl
+int obj_type(ObjectPtr obj)
+```
+
+Returns the type of an object (Item, Wall, Scenery, Critter, etc.).
+
+**Parameters:**
+- `obj` - Object to query
+
+**Returns:** `int` - Object type constant
+
+
+<FnRef fn="obj_type" />
+---
+
+## obj_name <span class="tag-vanilla">vanilla</span> {#obj_name}
+
+```ssl
+string obj_name(ObjectPtr what)
+```
+
+Returns a string representing the name of the given object.
+
+**Parameters:**
+- `what` - Object to query
+
+**Returns:** `string` - Object name
+
+
+<FnRef fn="obj_name" />
+---
+
+## obj_item_subtype <span class="tag-vanilla">vanilla</span> {#obj_item_subtype}
+
+```ssl
+int obj_item_subtype(ObjectPtr obj)
+```
+
+Returns the subtype of an item object (food, armor, weapon, etc.).
+
+**Parameters:**
+- `obj` - Item object to query
+
+**Returns:** `int` - Item subtype constant
+
+
+<FnRef fn="obj_item_subtype" />
+---
+
+## obj_art_fid <span class="tag-vanilla">vanilla</span> {#obj_art_fid}
+
+```ssl
+int obj_art_fid(ObjectPtr obj)
+```
+
+Returns the FID (Frame ID) used to index art for a given object.
+
+**Parameters:**
+- `obj` - Object to query
+
+**Returns:** `int` - Frame ID
+
+
+<FnRef fn="obj_art_fid" />
+---
+
+## obj_on_screen <span class="tag-vanilla">vanilla</span> {#obj_on_screen}
+
+```ssl
+int obj_on_screen(ObjectPtr what)
+```
+
+Returns True if an object is currently being drawn on-screen.
+
+**Parameters:**
+- `what` - Object to check
+
+**Returns:** `int` - Boolean (1 = on screen, 0 = off screen)
+
+
+<FnRef fn="obj_on_screen" />
+---
+
+## obj_is_visible_flag <span class="tag-vanilla">vanilla</span> {#obj_is_visible_flag}
+
+```ssl
+int obj_is_visible_flag(ObjectPtr who)
+```
+
+Returns True if an object is turned on (visible).
+
+**Parameters:**
+- `who` - Object to check
+
+**Returns:** `int` - Boolean
+
+---
+
+## set_obj_visibility <span class="tag-vanilla">vanilla</span> {#set_obj_visibility}
+
+```ssl
+void set_obj_visibility(ObjectPtr obj, int visibility)
+```
+
+Sets the OBJ_OFF flag for an object (makes it not drawn/invisible).
+
+**Parameters:**
+- `obj` - Object to modify
+- `visibility` - 0 = visible, 1 = invisible
+
+
+<FnRef fn="set_obj_visibility" />
+---
+
+## obj_carrying_pid_obj <span class="tag-vanilla">vanilla</span> {#obj_carrying_pid_obj}
+
+```ssl
+ObjectPtr obj_carrying_pid_obj(ObjectPtr who, int pid)
+```
+
+Returns a pointer to an object of type `pid` if the object is carrying one.
+
+**Parameters:**
+- `who` - Object to check inventory
+- `pid` - Prototype ID to search for
+
+**Returns:** `ObjectPtr` - Found object or 0
+
+
+<FnRef fn="obj_carrying_pid_obj" />
+---
+
+## obj_is_carrying_obj_pid <span class="tag-vanilla">vanilla</span> {#obj_is_carrying_obj_pid}
+
+```ssl
+int obj_is_carrying_obj_pid(ObjectPtr obj, int pid)
+```
+
+Returns the quantity of objects with matching prototype ID in an object's inventory.
+
+**Parameters:**
+- `obj` - Object to check
+- `pid` - Prototype ID to count
+
+**Returns:** `int` - Count of matching items
+
+
+<FnRef fn="obj_is_carrying_obj_pid" />
+---
+
+## obj_being_used_with <span class="tag-vanilla">vanilla</span> {#obj_being_used_with}
+
+```ssl
+ObjectPtr obj_being_used_with
+```
+
+Returns a pointer to the object being used on another object.
+
+**Returns:** `ObjectPtr` - The object being used
+
+
+<FnRef fn="obj_being_used_with" />
+---
+
+## obj_lock <span class="tag-vanilla">vanilla</span> {#obj_lock}
+
+```ssl
+void obj_lock(ObjectPtr what)
+```
+
+Attempts to lock an object if it is of a lockable type.
+
+**Parameters:**
+- `what` - Object to lock
+
+
+<FnRef fn="obj_lock" />
+---
+
+## obj_unlock <span class="tag-vanilla">vanilla</span> {#obj_unlock}
+
+```ssl
+void obj_unlock(ObjectPtr what)
+```
+
+Attempts to unlock an object if it is of a lockable type.
+
+**Parameters:**
+- `what` - Object to unlock
+
+
+<FnRef fn="obj_unlock" />
+---
+
+## obj_is_locked <span class="tag-vanilla">vanilla</span> {#obj_is_locked}
+
+```ssl
+int obj_is_locked(ObjectPtr what)
+```
+
+Returns True if an object is locked.
+
+**Parameters:**
+- `what` - Object to check
+
+**Returns:** `int` - Boolean
+
+
+<FnRef fn="obj_is_locked" />
+---
+
+## jam_lock <span class="tag-vanilla">vanilla</span> {#jam_lock}
+
+```ssl
+int jam_lock(ObjectPtr lockableObj)
+```
+
+Jams a lock, preventing the player from picking it for approximately 24 hours. Used when a player critically fails to pick a lock.
+
+**Parameters:**
+- `lockableObj` - Lock to jam
+
+
+<FnRef fn="jam_lock" />
+---
+
+## obj_open <span class="tag-vanilla">vanilla</span> {#obj_open}
+
+```ssl
+void obj_open(ObjectPtr what)
+```
+
+Attempts to open an object if it is of an openable type.
+
+**Parameters:**
+- `what` - Object to open
+
+
+<FnRef fn="obj_open" />
+---
+
+## obj_close <span class="tag-vanilla">vanilla</span> {#obj_close}
+
+```ssl
+void obj_close(ObjectPtr what)
+```
+
+Attempts to close an object if it is of an openable type.
+
+**Parameters:**
+- `what` - Object to close
+
+
+<FnRef fn="obj_close" />
+---
+
+## obj_is_open <span class="tag-vanilla">vanilla</span> {#obj_is_open}
+
+```ssl
+int obj_is_open(ObjectPtr what)
+```
+
+Returns True if an object is open.
+
+**Parameters:**
+- `what` - Object to check
+
+**Returns:** `int` - Boolean
+
+
+<FnRef fn="obj_is_open" />
+---
+
+## obj_set_light_level <span class="tag-vanilla">vanilla</span> {#obj_set_light_level}
+
+```ssl
+void obj_set_light_level(ObjectPtr obj, int intensity, int distance)
+```
+
+Sets the light level for an object.
+
+**Parameters:**
+- `obj` - Object to modify
+- `intensity` - Light intensity (1-100, percentage of maximum)
+- `distance` - Light distance in hexes (0-8)
+
+
+<FnRef fn="obj_set_light_level" />
+---
+
+## proto_data <span class="tag-vanilla">vanilla</span> {#proto_data}
+
+```ssl
+int|string proto_data(int pid, int data_member)
+```
+
+Returns the value of a data member from a given prototype.
+
+**Parameters:**
+- `pid` - Prototype ID
+- `data_member` - Data member constant
+
+**Returns:** `int` or `string` - The requested data
+
+
+<FnRef fn="proto_data" />
+---
+
+## use_obj <span class="tag-vanilla">vanilla</span> {#use_obj}
+
+```ssl
+ObjectPtr use_obj(ObjectPtr obj)
+```
+
+Uses an object.
+
+**Parameters:**
+- `obj` - Object to use
+
+
+<FnRef fn="use_obj" />
+---
+
+## use_obj_on_obj <span class="tag-vanilla">vanilla</span> {#use_obj_on_obj}
+
+```ssl
+ObjectPtr use_obj_on_obj(ObjectPtr item, ObjectPtr targetObj)
+```
+
+Attempts to use an item object on a target object. Can be used to have a critter use a Stimpack on the player, or use a key on a door.
+
+**Parameters:**
+- `item` - Item to use
+- `targetObj` - Target object
+
+
+<FnRef fn="use_obj_on_obj" />

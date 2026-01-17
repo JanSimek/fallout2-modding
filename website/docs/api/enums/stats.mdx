@@ -1,0 +1,144 @@
+---
+sidebar_position: 3
+title: Stats
+---
+
+# Stat Constants
+
+Constants for character statistics.
+
+import ImplLink from '@site/src/components/ImplLink';
+
+## Primary Stats (SPECIAL)
+
+| Value | Constant | Description |
+|-------|----------|-------------|
+| 0 | `STAT_strength` | Physical power |
+| 1 | `STAT_perception` | Awareness |
+| 2 | `STAT_endurance` | Stamina and health |
+| 3 | `STAT_charisma` | Social ability |
+| 4 | `STAT_intelligence` | Mental capacity |
+| 5 | `STAT_agility` | Speed and dexterity |
+| 6 | `STAT_luck` | Fortune |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/stat.h"
+  label="View stat.h"
+/>
+
+## Derived Stats
+
+| Value | Constant | Description |
+|-------|----------|-------------|
+| 7 | `STAT_max_hit_points` | Maximum HP |
+| 8 | `STAT_max_action_points` | Maximum AP |
+| 9 | `STAT_armor_class` | AC value |
+| 10 | `STAT_unarmed_damage` | Bonus unarmed damage |
+| 11 | `STAT_melee_damage` | Bonus melee damage |
+| 12 | `STAT_carry_weight` | Maximum carry capacity |
+| 13 | `STAT_sequence` | Combat initiative |
+| 14 | `STAT_healing_rate` | HP healed per rest |
+| 15 | `STAT_critical_chance` | Critical hit chance |
+| 16 | `STAT_better_criticals` | Critical damage bonus |
+| 17 | `STAT_damage_threshold` | Base DT |
+| 18 | `STAT_damage_threshold_laser` | Laser DT |
+| 19 | `STAT_damage_threshold_fire` | Fire DT |
+| 20 | `STAT_damage_threshold_plasma` | Plasma DT |
+| 21 | `STAT_damage_threshold_electrical` | Electrical DT |
+| 22 | `STAT_damage_threshold_emp` | EMP DT |
+| 23 | `STAT_damage_threshold_explosion` | Explosion DT |
+| 24 | `STAT_damage_resistance` | Base DR % |
+| 25 | `STAT_damage_resistance_laser` | Laser DR % |
+| 26 | `STAT_damage_resistance_fire` | Fire DR % |
+| 27 | `STAT_damage_resistance_plasma` | Plasma DR % |
+| 28 | `STAT_damage_resistance_electrical` | Electrical DR % |
+| 29 | `STAT_damage_resistance_emp` | EMP DR % |
+| 30 | `STAT_damage_resistance_explosion` | Explosion DR % |
+| 31 | `STAT_radiation_resistance` | Radiation resistance % |
+| 32 | `STAT_poison_resistance` | Poison resistance % |
+| 33 | `STAT_age` | Character age |
+| 34 | `STAT_gender` | Gender |
+
+## Current Stats
+
+| Value | Constant | Description |
+|-------|----------|-------------|
+| 35 | `STAT_current_hp` | Current hit points |
+| 36 | `STAT_current_poison` | Current poison level |
+| 37 | `STAT_current_rad` | Current radiation level |
+
+## Usage in SSL
+
+### Getting Stats
+
+```ssl
+variable strength := critter_stat(dude_obj, STAT_strength);
+variable current_hp := critter_stat(dude_obj, STAT_current_hp);
+variable max_hp := critter_stat(dude_obj, STAT_max_hit_points);
+
+display_msg("Strength: " + strength);
+display_msg("HP: " + current_hp + "/" + max_hp);
+```
+
+### Setting Stats
+
+```ssl
+// Heal to full
+set_critter_stat(dude_obj, STAT_current_hp,
+    critter_stat(dude_obj, STAT_max_hit_points));
+
+// Cure radiation
+set_critter_stat(dude_obj, STAT_current_rad, 0);
+```
+
+### Checking Requirements
+
+```ssl
+// Strength check for heavy weapon
+if (critter_stat(dude_obj, STAT_strength) < 7) then begin
+    display_msg("You're not strong enough to use this weapon effectively.");
+end
+
+// Perception check
+if (critter_stat(dude_obj, STAT_perception) >= 6) then begin
+    display_msg("You notice something hidden...");
+end
+```
+
+### Derived Stat Calculations
+
+The engine calculates derived stats from primary stats:
+
+- **Max HP**: 15 + (Strength + Endurance × 2) + (Level × Endurance / 2)
+- **Max AP**: 5 + (Agility / 2)
+- **AC**: Agility
+- **Melee Damage**: max(1, Strength - 5)
+- **Carry Weight**: 25 + (Strength × 25)
+- **Sequence**: 2 × Perception
+- **Healing Rate**: max(1, Endurance / 3)
+- **Critical Chance**: Luck
+
+## Experience and Level
+
+| Constant | Description |
+|----------|-------------|
+| `STAT_exp` | Experience points |
+| `STAT_level` | Character level |
+
+```ssl
+variable xp := critter_stat(dude_obj, STAT_exp);
+variable level := critter_stat(dude_obj, STAT_level);
+```
+
+## Perk and Trait Stats
+
+Some stats are affected by perks and traits:
+
+```ssl
+// Check if critter has a perk
+variable has_awareness := critter_has_perk(dude_obj, PERK_awareness);
+
+// Add a perk
+critter_add_trait(dude_obj, TRAIT_PERK, PERK_bonus_hth_attacks, 1);
+```

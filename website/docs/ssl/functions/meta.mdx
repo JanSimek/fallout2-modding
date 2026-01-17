@@ -1,0 +1,374 @@
+---
+sidebar_position: 13
+title: Meta Functions
+description: SSL functions for UI, settings, and game system control
+tags: [vanilla]
+---
+
+# Meta Functions
+
+Functions for controlling the game UI, settings, movies, and system-level operations.
+
+## display_msg <span class="tag-vanilla">vanilla</span> {#display_msg}
+
+```ssl
+void display_msg(string message)
+```
+
+Displays a string on the in-game PDA display (lower-left hand corner).
+
+**Parameters:**
+- `message` - Text to display
+
+
+<FnRef fn="display_msg" />
+---
+
+## debug_msg <span class="tag-vanilla">vanilla</span> {#debug_msg}
+
+```ssl
+void debug_msg(string text)
+```
+
+Prints a string to the debug monitor. Should be used exclusively for debug information instead of `display_msg`.
+
+**Parameters:**
+- `text` - Debug text
+
+
+<FnRef fn="debug_msg" />
+---
+
+## float_msg <span class="tag-vanilla">vanilla</span> {#float_msg}
+
+```ssl
+void float_msg(ObjectPtr who, string msg, int type)
+```
+
+Attempts to create a floating-text message attached to an object using colors dictated by type.
+
+Special types:
+- `FLOAT_MSG_WARNING` - Prints a message centered on the screen (for end-of-quest notifications)
+- `FLOAT_MSG_SEQUENTIAL` - Cycles through colors to give critters different-colored messages
+
+**Parameters:**
+- `who` - Object to attach message to
+- `msg` - Message text
+- `type` - Float message type constant
+
+**Example:**
+```ssl
+float_msg(self_obj, "Hello there!", FLOAT_MSG_NORMAL);
+float_msg(dude_obj, "Quest Complete!", FLOAT_MSG_WARNING);
+```
+
+
+<FnRef fn="float_msg" />
+---
+
+## give_exp_points <span class="tag-vanilla">vanilla</span> {#give_exp_points}
+
+```ssl
+void give_exp_points(int points)
+```
+
+Adds experience points to the player's total. These points may then be used by the player to enhance skills, etc.
+
+**Parameters:**
+- `points` - XP to award
+
+
+<FnRef fn="give_exp_points" />
+---
+
+## game_ui_disable <span class="tag-vanilla">vanilla</span> {#game_ui_disable}
+
+```ssl
+void game_ui_disable
+```
+
+Disables game user-interface input from the player (to 'lock-out' the player).
+
+:::warning
+You **must** make sure to re-enable the UI at some point afterwards!
+:::
+
+
+<FnRef fn="game_ui_disable" />
+---
+
+## game_ui_enable <span class="tag-vanilla">vanilla</span> {#game_ui_enable}
+
+```ssl
+void game_ui_enable
+```
+
+Re-enables game user-interface input from the player.
+
+:::important
+This **must** be called relatively soon after disabling the UI or the player will be stuck, unable to do anything.
+:::
+
+
+<FnRef fn="game_ui_enable" />
+---
+
+## game_ui_is_disabled <span class="tag-vanilla">vanilla</span> {#game_ui_is_disabled}
+
+```ssl
+int game_ui_is_disabled
+```
+
+Returns True if the game UI is currently disabled.
+
+**Returns:** `int` - Boolean
+
+
+<FnRef fn="game_ui_is_disabled" />
+---
+
+## gfade_out <span class="tag-vanilla">vanilla</span> {#gfade_out}
+
+```ssl
+void gfade_out(int time)
+```
+
+Does a palette fade to black.
+
+:::note
+The time parameter is currently not actually used.
+:::
+
+**Parameters:**
+- `time` - Fade duration (unused)
+
+
+<FnRef fn="gfade_out" />
+---
+
+## gfade_in <span class="tag-vanilla">vanilla</span> {#gfade_in}
+
+```ssl
+void gfade_in(int time)
+```
+
+Does a palette fade from black to the game palette.
+
+:::note
+The time parameter is currently not actually used.
+:::
+
+**Parameters:**
+- `time` - Fade duration (unused)
+
+
+<FnRef fn="gfade_in" />
+---
+
+## play_gmovie <span class="tag-vanilla">vanilla</span> {#play_gmovie}
+
+```ssl
+void play_gmovie
+```
+
+Plays one of the Fallout movies (full-screen, compressed, etc.).
+
+
+<FnRef fn="play_gmovie" />
+---
+
+## play_sfx <span class="tag-vanilla">vanilla</span> {#play_sfx}
+
+```ssl
+void play_sfx
+```
+
+Starts a new sound effect to be played on the queue.
+
+
+<FnRef fn="play_sfx" />
+---
+
+## endgame_movie <span class="tag-vanilla">vanilla</span> {#endgame_movie}
+
+```ssl
+void endgame_movie
+```
+
+Plays the endgame movie.
+
+
+<FnRef fn="endgame_movie" />
+---
+
+## endgame_slideshow <span class="tag-vanilla">vanilla</span> {#endgame_slideshow}
+
+```ssl
+void endgame_slideshow
+```
+
+Plays the endgame slideshow. The slideshow will fade in to its palette, so it is proper to call `gfade_out(1)` before this command.
+
+
+<FnRef fn="endgame_slideshow" />
+---
+
+## signal_end_game <span class="tag-vanilla">vanilla</span> {#signal_end_game}
+
+```ssl
+void signal_end_game
+```
+
+Tells the system that a script is indicating the game should be ended. This will return the player to the main menu.
+
+---
+
+## difficulty_level <span class="tag-vanilla">vanilla</span> {#difficulty_level}
+
+```ssl
+int difficulty_level
+```
+
+Returns the current Game difficulty level (defined in the options screen).
+
+**Returns:** `int` - Difficulty constant
+
+
+<FnRef fn="difficulty_level" />
+---
+
+## violence_level_setting <span class="tag-vanilla">vanilla</span> {#violence_level_setting}
+
+```ssl
+int violence_level_setting
+```
+
+Returns the current setting of the violence level. See define.h for values.
+
+**Returns:** `int` - Violence level constant
+
+---
+
+## running_burning_guy <span class="tag-vanilla">vanilla</span> {#running_burning_guy}
+
+```ssl
+int running_burning_guy
+```
+
+Returns the setting for the running-burning-guy in the game (defined in the options screen).
+
+**Returns:** `int` - Setting value
+
+
+<FnRef fn="running_burning_guy" />
+---
+
+## language_filter_is_on <span class="tag-vanilla">vanilla</span> {#language_filter_is_on}
+
+```ssl
+int language_filter_is_on
+```
+
+Returns True if the language filter is currently filtering harsh language.
+
+**Returns:** `int` - Boolean
+
+---
+
+## global_var <span class="tag-vanilla">vanilla</span> {#global_var}
+
+```ssl
+int global_var(int var_index)
+```
+
+Returns the value of a global variable.
+
+**Parameters:**
+- `var_index` - Global variable index
+
+**Returns:** `int` - Variable value
+
+
+<FnRef fn="global_var" />
+---
+
+## set_global_var <span class="tag-vanilla">vanilla</span> {#set_global_var}
+
+```ssl
+void set_global_var(int var_index, int value)
+```
+
+Sets the value of a global variable.
+
+**Parameters:**
+- `var_index` - Global variable index
+- `value` - New value
+
+
+<FnRef fn="set_global_var" />
+---
+
+## local_var <span class="tag-vanilla">vanilla</span> {#local_var}
+
+```ssl
+int local_var(int var_index)
+```
+
+Returns the value of a local variable.
+
+**Parameters:**
+- `var_index` - Local variable index
+
+**Returns:** `int` - Variable value
+
+
+<FnRef fn="local_var" />
+---
+
+## set_local_var <span class="tag-vanilla">vanilla</span> {#set_local_var}
+
+```ssl
+void set_local_var(int var_index, int value)
+```
+
+Sets the value of a local variable.
+
+**Parameters:**
+- `var_index` - Local variable index
+- `value` - New value
+
+
+<FnRef fn="set_local_var" />
+---
+
+## map_var <span class="tag-vanilla">vanilla</span> {#map_var}
+
+```ssl
+int map_var(int var_index)
+```
+
+Returns the value of a map-global variable.
+
+**Parameters:**
+- `var_index` - Map variable index
+
+**Returns:** `int` - Variable value
+
+
+<FnRef fn="map_var" />
+---
+
+## set_map_var <span class="tag-vanilla">vanilla</span> {#set_map_var}
+
+```ssl
+void set_map_var(int var_index, int value)
+```
+
+Sets the value of a map-global variable.
+
+**Parameters:**
+- `var_index` - Map variable index
+- `value` - New value
+
+
+<FnRef fn="set_map_var" />

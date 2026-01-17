@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Vault Boy Head Favicon -->
+  <ellipse cx="100" cy="65" rx="55" ry="35" fill="#D4A017"/>
+  <ellipse cx="100" cy="105" rx="50" ry="55" fill="#F5D5A8"/>
+  <path d="M50 75 Q55 45 75 40 Q90 35 100 38 Q110 35 125 40 Q145 45 150 75 Q140 55 100 55 Q60 55 50 75" fill="#D4A017"/>
+  <path d="M95 38 Q90 25 100 20 Q110 25 105 38" fill="#D4A017"/>
+  <path d="M65 78 Q75 72 88 78" stroke="#3D2314" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M112 78 Q125 72 135 78" stroke="#3D2314" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M68 92 Q78 88 88 92" stroke="#3D2314" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <ellipse cx="123" cy="92" rx="10" ry="8" fill="#FFFFFF"/>
+  <ellipse cx="125" cy="92" rx="6" ry="6" fill="#3D2314"/>
+  <path d="M75 125 Q100 155 125 125" stroke="#3D2314" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M80 128 Q100 145 120 128" fill="#FFFFFF"/>
+</svg>

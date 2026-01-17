@@ -1,0 +1,51 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Vault Boy Head - Fallout 2 Modding -->
+
+  <!-- Hair (back) -->
+  <ellipse cx="100" cy="65" rx="55" ry="35" fill="#D4A017"/>
+
+  <!-- Face -->
+  <ellipse cx="100" cy="105" rx="50" ry="55" fill="#F5D5A8"/>
+
+  <!-- Hair (front/top) -->
+  <path d="M50 75 Q55 45 75 40 Q90 35 100 38 Q110 35 125 40 Q145 45 150 75 Q140 55 100 55 Q60 55 50 75" fill="#D4A017"/>
+
+  <!-- Hair curl -->
+  <path d="M95 38 Q90 25 100 20 Q110 25 105 38" fill="#D4A017"/>
+
+  <!-- Left eyebrow -->
+  <path d="M65 78 Q75 72 88 78" stroke="#3D2314" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Right eyebrow -->
+  <path d="M112 78 Q125 72 135 78" stroke="#3D2314" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Left eye (winking) -->
+  <path d="M68 92 Q78 88 88 92" stroke="#3D2314" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Right eye -->
+  <ellipse cx="123" cy="92" rx="10" ry="8" fill="#FFFFFF"/>
+  <ellipse cx="125" cy="92" rx="5" ry="5" fill="#3D2314"/>
+  <circle cx="127" cy="90" r="2" fill="#FFFFFF"/>
+
+  <!-- Nose -->
+  <path d="M100 100 Q96 110 100 115 Q104 110 100 100" fill="#E5C598"/>
+
+  <!-- Smile -->
+  <path d="M75 125 Q100 155 125 125" stroke="#3D2314" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Teeth -->
+  <path d="M80 128 Q100 145 120 128" fill="#FFFFFF"/>
+
+  <!-- Mouth line -->
+  <path d="M80 128 Q100 145 120 128" stroke="#3D2314" stroke-width="2" fill="none"/>
+
+  <!-- Cheek blush left -->
+  <ellipse cx="65" cy="115" rx="8" ry="5" fill="#F5A8A8" opacity="0.5"/>
+
+  <!-- Cheek blush right -->
+  <ellipse cx="135" cy="115" rx="8" ry="5" fill="#F5A8A8" opacity="0.5"/>
+
+  <!-- Vault suit collar hint -->
+  <path d="M60 155 Q100 170 140 155" stroke="#1E5AA8" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M60 155 Q100 170 140 155" stroke="#FFD700" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>

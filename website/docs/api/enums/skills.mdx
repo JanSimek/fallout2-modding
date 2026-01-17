@@ -1,0 +1,120 @@
+---
+sidebar_position: 2
+title: Skills
+---
+
+# Skill Constants
+
+Constants for character skills.
+
+import ImplLink from '@site/src/components/ImplLink';
+
+## Skill List
+
+| Value | Constant | Description |
+|-------|----------|-------------|
+| 0 | `SKILL_SMALL_GUNS` | Pistols, SMGs, rifles |
+| 1 | `SKILL_BIG_GUNS` | Miniguns, rocket launchers, flamethrowers |
+| 2 | `SKILL_ENERGY_WEAPONS` | Laser and plasma weapons |
+| 3 | `SKILL_UNARMED` | Punching and kicking |
+| 4 | `SKILL_MELEE_WEAPONS` | Knives, clubs, spears |
+| 5 | `SKILL_THROWING` | Grenades, throwing knives |
+| 6 | `SKILL_FIRST_AID` | Minor healing |
+| 7 | `SKILL_DOCTOR` | Major healing, crippled limbs |
+| 8 | `SKILL_SNEAK` | Moving undetected |
+| 9 | `SKILL_LOCKPICK` | Opening locks |
+| 10 | `SKILL_STEAL` | Pickpocketing |
+| 11 | `SKILL_TRAPS` | Setting and disarming traps |
+| 12 | `SKILL_SCIENCE` | Using technology |
+| 13 | `SKILL_REPAIR` | Fixing items |
+| 14 | `SKILL_SPEECH` | Dialogue options |
+| 15 | `SKILL_BARTER` | Trading prices |
+| 16 | `SKILL_GAMBLING` | Games of chance |
+| 17 | `SKILL_OUTDOORSMAN` | Wilderness survival, random encounters |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/skill.h"
+  label="View skill.h"
+/>
+
+## Usage in SSL
+
+### Checking Skill Level
+
+```ssl
+variable lockpick := has_skill(dude_obj, SKILL_LOCKPICK);
+display_msg("Lockpick skill: " + lockpick);
+```
+
+### Rolling Against a Skill
+
+```ssl
+variable roll := roll_vs_skill(dude_obj, SKILL_SCIENCE, -20);
+
+if (is_success(roll)) then begin
+    display_msg("Success!");
+    if (is_critical(roll)) then begin
+        display_msg("Critical success!");
+    end
+end
+else begin
+    display_msg("Failure.");
+    if (is_critical(roll)) then begin
+        display_msg("Critical failure!");
+    end
+end
+```
+
+### Checking Active Skill (in use_skill_on_p_proc)
+
+```ssl
+procedure use_skill_on_p_proc begin
+    if (using_skill == SKILL_LOCKPICK) then begin
+        // Handle lockpick attempt
+    end
+    else if (using_skill == SKILL_TRAPS) then begin
+        // Handle trap disarm attempt
+    end
+    else if (using_skill == SKILL_REPAIR) then begin
+        // Handle repair attempt
+    end
+end
+```
+
+## Skill Modifiers
+
+When using `roll_vs_skill`, positive modifiers make the roll easier, negative modifiers make it harder:
+
+```ssl
+// Very easy: +40
+variable roll := roll_vs_skill(dude_obj, SKILL_LOCKPICK, 40);
+
+// Average: 0
+variable roll := roll_vs_skill(dude_obj, SKILL_LOCKPICK, 0);
+
+// Hard: -30
+variable roll := roll_vs_skill(dude_obj, SKILL_LOCKPICK, -30);
+
+// Very hard: -50
+variable roll := roll_vs_skill(dude_obj, SKILL_LOCKPICK, -50);
+```
+
+## Roll Results
+
+The roll result can be checked with these functions:
+
+| Function | Returns |
+|----------|---------|
+| `is_success(roll)` | 1 if roll succeeded |
+| `is_critical(roll)` | 1 if critical success/failure |
+| `how_much(roll)` | Margin of success/failure |
+
+### Roll Result Constants
+
+| Value | Meaning |
+|-------|---------|
+| 0 | Critical failure |
+| 1 | Failure |
+| 2 | Success |
+| 3 | Critical success |

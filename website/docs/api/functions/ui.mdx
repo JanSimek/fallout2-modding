@@ -1,0 +1,317 @@
+---
+sidebar_position: 5
+title: UI Functions
+---
+
+# UI Functions
+
+Functions for user interface and display operations.
+
+import ImplLink from '@site/src/components/ImplLink';
+
+## opDisplayMsg
+
+Display a message in the message window.
+
+### SSL Syntax
+
+```ssl
+display_msg(message);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `message` | string | Message to display |
+
+### Example
+
+```ssl
+display_msg("Hello, Wasteland!");
+```
+
+---
+
+## opDebugMsg
+
+Display a debug message (when debug mode is enabled).
+
+### SSL Syntax
+
+```ssl
+debug_msg(message);
+```
+
+### Notes
+
+- Only visible if debug mode is enabled
+- Useful for script debugging
+
+---
+
+## opFloatMsg
+
+Display floating text above an object.
+
+### SSL Syntax
+
+```ssl
+float_msg(object, message, color);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `object` | Object | Object to display text above |
+| `message` | string | Text to display |
+| `color` | int | Message color type |
+
+### Color Constants
+
+| Constant | Value | Color |
+|----------|-------|-------|
+| `FLOAT_MSG_WARNING` | -2 | Warning style |
+| `FLOAT_MSG_SEQUENTIAL` | -1 | Sequential colors |
+| `FLOAT_MSG_NORMAL` | 0 | Normal (white) |
+| `FLOAT_MSG_BLACK` | 1 | Black |
+| `FLOAT_MSG_RED` | 2 | Red |
+| `FLOAT_MSG_GREEN` | 3 | Green |
+| `FLOAT_MSG_BLUE` | 4 | Blue |
+| `FLOAT_MSG_PURPLE` | 5 | Purple |
+| `FLOAT_MSG_NEAR_WHITE` | 6 | Near white |
+| `FLOAT_MSG_LIGHT_RED` | 7 | Light red |
+| `FLOAT_MSG_YELLOW` | 8 | Yellow |
+| `FLOAT_MSG_WHITE` | 9 | White |
+| `FLOAT_MSG_GREY` | 10 | Grey |
+| `FLOAT_MSG_DARK_GREY` | 11 | Dark grey |
+| `FLOAT_MSG_LIGHT_GREY` | 12 | Light grey |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/interpreter_extra.cc"
+  lines={[131, 148]}
+  label="View FloatingMessageType enum"
+/>
+
+---
+
+## opMessageStr
+
+Get a message string from a message file.
+
+### SSL Syntax
+
+```ssl
+variable text := message_str(msg_file, msg_num);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `msg_file` | int | Message file constant |
+| `msg_num` | int | Message number |
+
+### Returns
+
+The message string.
+
+### Example
+
+```ssl
+variable greeting := message_str(SCRIPT_MYOBJ, 100);
+display_msg(greeting);
+```
+
+---
+
+## opGSayStart / opGSayEnd
+
+Begin and end a GDialog dialogue session.
+
+### SSL Syntax
+
+```ssl
+gsay_start;
+// dialogue nodes here
+gsay_end;
+```
+
+---
+
+## opGSayReply
+
+Display an NPC reply in dialogue.
+
+### SSL Syntax
+
+```ssl
+gsay_reply(msg_num);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `msg_num` | int | Message number for the reply |
+
+---
+
+## opGSayOption
+
+Add a dialogue option.
+
+### SSL Syntax
+
+```ssl
+gsay_option(msg_num, target_proc, reaction);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `msg_num` | int | Message number for option text |
+| `target_proc` | procedure | Procedure to call when selected |
+| `reaction` | int | Reaction level |
+
+### Reaction Constants
+
+| Constant | Value | Description |
+|----------|-------|-------------|
+| `GOOD` | 49 | Good reaction |
+| `NEUTRAL` | 50 | Neutral reaction |
+| `BAD` | 51 | Bad reaction |
+
+---
+
+## opGSayMessage
+
+Display a simple message in dialogue.
+
+### SSL Syntax
+
+```ssl
+gsay_message(msg_num);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `msg_num` | int | Message number to display |
+
+---
+
+## opStartGDialog
+
+Initialize a GDialog conversation.
+
+### SSL Syntax
+
+```ssl
+start_gdialog(msg_file, target, mood, head_num, background);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `msg_file` | int | Message file constant |
+| `target` | Object | NPC being talked to |
+| `mood` | int | Mood/expression setting |
+| `head_num` | int | Head animation (-1 for none) |
+| `background` | int | Background index (-1 for default) |
+
+---
+
+## opEndDialogue
+
+End the current dialogue.
+
+### SSL Syntax
+
+```ssl
+end_dialogue;
+```
+
+---
+
+## opPlayMovie
+
+Play a movie/cutscene.
+
+### SSL Syntax
+
+```ssl
+play_gmovie(movie_id);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `movie_id` | int | Movie constant |
+
+---
+
+## opPlaySound
+
+Play a sound effect.
+
+### SSL Syntax
+
+```ssl
+play_sfx(sound_name);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `sound_name` | string | Sound filename (without extension) |
+
+---
+
+## opFadeIn / opFadeOut
+
+Screen fade effects.
+
+### SSL Syntax
+
+```ssl
+fade_out(time);
+fade_in(time);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `time` | int | Fade duration in ticks |
+
+---
+
+## opGameDialogReaction
+
+Set the NPC's reaction in dialogue.
+
+### SSL Syntax
+
+```ssl
+game_dialog_reaction(level);
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `level` | int | Reaction level |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/game_dialog.h"
+  label="View game_dialog.h"
+/>

@@ -1,0 +1,132 @@
+---
+sidebar_position: 1
+title: SSL Overview
+---
+
+# SSL Scripting Language
+
+SSL (Script Source Language) is the scripting language used in Fallout 2 for game logic, dialogue, and world interactions.
+
+## What is SSL?
+
+SSL scripts control virtually every interactive aspect of the game:
+
+- NPC behavior and AI
+- Dialogue trees and reactions
+- Item usage effects
+- Map triggers and events
+- Quest logic
+- Combat modifiers
+
+Scripts are written in `.ssl` files, compiled to `.int` (interpreted) bytecode, and executed by the game engine.
+
+## Script Types
+
+| Type | Purpose | Location |
+|------|---------|----------|
+| Object Scripts | Attached to specific objects/NPCs | `scripts/` |
+| Map Scripts | Run when entering/leaving maps | `scripts/` |
+| Global Scripts | Always running | `scripts/` |
+| Spatial Scripts | Triggered by tile proximity | `scripts/` |
+
+import ImplLink from '@site/src/components/ImplLink';
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/interpreter.h"
+  label="View interpreter.h"
+/>
+
+## Basic Structure
+
+Every SSL script follows this structure:
+
+```ssl
+/* Script header with includes */
+#include "define.h"
+#include "command.h"
+
+/* Variable declarations */
+variable my_var;
+
+/* Procedures */
+procedure start;
+procedure talk_p_proc;
+
+procedure start begin
+    // Script initialization
+end
+
+procedure talk_p_proc begin
+    // Called when player talks to this object
+end
+```
+
+## Event Procedures
+
+The engine calls specific procedures in response to game events:
+
+| Procedure | When Called |
+|-----------|-------------|
+| `start` | Script initialization |
+| `map_enter_p_proc` | Player enters map |
+| `map_exit_p_proc` | Player exits map |
+| `map_update_p_proc` | Periodic map update |
+| `talk_p_proc` | Player initiates dialogue |
+| `look_at_p_proc` | Player examines object |
+| `description_p_proc` | Detailed examination |
+| `use_p_proc` | Player uses object |
+| `use_obj_on_p_proc` | Item used on object |
+| `use_skill_on_p_proc` | Skill used on object |
+| `damage_p_proc` | Object takes damage |
+| `destroy_p_proc` | Object destroyed |
+| `critter_p_proc` | Critter AI update |
+| `pickup_p_proc` | Item picked up |
+| `drop_p_proc` | Item dropped |
+| `combat_p_proc` | Combat round |
+| `timed_event_p_proc` | Timed event fires |
+| `spatial_p_proc` | Spatial trigger activated |
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/scripts.h"
+  label="View scripts.h for procedure constants"
+/>
+
+## Compilation
+
+SSL source files are compiled using the Fallout script compiler (usually `compile.exe` or `int2ssl`):
+
+```bash
+compile myscript.ssl -o myscript.int
+```
+
+The resulting `.int` file contains bytecode that the engine's interpreter executes.
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/interpreter.cc"
+  label="View interpreter.cc"
+/>
+
+## Getting Started
+
+1. Read the [Syntax Guide](/ssl/syntax) to learn the language
+2. Check the [Standard Library](/ssl/stdlib) for available functions
+3. Try the [Basic Examples](/ssl/examples/basic)
+
+## Extending with sfall
+
+[sfall](https://github.com/sfall-team/sfall) extends SSL with additional opcodes and features:
+
+- New scripting functions
+- Hook scripts for engine events
+- Global scripts with custom timing
+- Extended array support
+- And much more
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/sfall_opcodes.cc"
+  label="View sfall_opcodes.cc"
+/>

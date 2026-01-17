@@ -1,0 +1,345 @@
+---
+sidebar_position: 1
+title: Basic Examples
+---
+
+# Basic SSL Examples
+
+These examples demonstrate common scripting patterns in Fallout 2.
+
+## Simple Object Script
+
+A basic script attached to an interactive object:
+
+```ssl
+#include "define.h"
+#include "command.h"
+
+procedure start;
+procedure look_at_p_proc;
+procedure use_p_proc;
+
+procedure start begin
+end
+
+procedure look_at_p_proc begin
+    script_overrides;
+    display_msg("You see a strange device.");
+end
+
+procedure use_p_proc begin
+    script_overrides;
+    display_msg("You activate the device.");
+    // Do something
+end
+```
+
+## Talking NPC
+
+An NPC that can be spoken to:
+
+```ssl
+#include "define.h"
+#include "command.h"
+
+#define NAME SCRIPT_MYNPC
+
+procedure start;
+procedure talk_p_proc;
+procedure Node001;
+procedure Node002;
+
+procedure start begin
+end
+
+procedure talk_p_proc begin
+    start_gdialog(NAME, self_obj, 4, -1, -1);
+    gsay_start;
+    call Node001;
+    gsay_end;
+    end_dialogue;
+end
+
+procedure Node001 begin
+    gsay_reply(100);  // "Hello, traveler."
+    gsay_option(101, Node002, NEUTRAL);  // "Hello."
+    gsay_option(102, Node999, NEUTRAL);  // "Goodbye."
+end
+
+procedure Node002 begin
+    gsay_reply(103);  // "What brings you here?"
+    gsay_option(104, Node999, NEUTRAL);  // "Just passing through."
+end
+
+procedure Node999 begin
+    // End dialogue
+end
+```
+
+## Item with Use Effect
+
+An item that does something when used:
+
+```ssl
+#include "define.h"
+#include "command.h"
+
+procedure start;
+procedure use_p_proc;
+
+procedure start begin
+end
+
+procedure use_p_proc begin
+    variable user := source_obj;
+    variable item := self_obj;
+
+    script_overrides;
+
+    // Heal the user
+    critter_heal(user, 10);
+    display_msg("You feel better.");
+
+    // Destroy the item after use
+    destroy_object(item);
+end
+```
+
+## Timed Event
+
+Using timers for delayed actions:
+
+```ssl
+#include "define.h"
+#include "command.h"
+
+#define TIMER_EXPLODE 1
+#define TIMER_RESET   2
+
+procedure start;
+procedure use_p_proc;
+procedure timed_event_p_proc;
+
+procedure start begin
+end
+
+procedure use_p_proc begin
+    script_overrides;
+    display_msg("Timer started...");
+
+    // Set timer for 5 seconds
+    add_timer_event(self_obj, game_ticks(5), TIMER_EXPLODE);
+end
+
+procedure timed_event_p_proc begin
+    if (fixed_param == TIMER_EXPLODE) then begin
+        display_msg("BOOM!");
+        // Damage nearby critters, etc.
+    end
+end
+```
+
+## Map Script
+
+A script that runs when entering a map:
+
+```ssl
+#include "define.h"
+#include "command.h"
+
+procedure start;
+procedure map_enter_p_proc;
+procedure map_update_p_proc;
+
+variable first_time := 1;
+
+procedure start begin
+end
+
+procedure map_enter_p_proc begin
+    if (first_time) then begin
+        first_time := 0;
+        display_msg("You enter the abandoned vault...");
+    end
+end
+
+procedure map_update_p_proc begin
+    // Called periodically while on this map
+    // Check for environmental effects, etc.
+end
+```
+
+## Skill Check
+
+Handling skill usage on an object:
+
+```ssl
+#include "define.h"
+#include "command.h"
+
+#define LOCKPICK_DIFFICULTY -20
+
+variable is_locked := 1;
+
+procedure start;
+procedure use_skill_on_p_proc;
+procedure use_p_proc;
+
+procedure start begin
+end
+
+procedure use_skill_on_p_proc begin
+    script_overrides;
+
+    if (using_skill == SKILL_LOCKPICK) then begin
+        if (is_locked == 0) then begin
+            display_msg("It's already unlocked.");
+        end
+        else begin
+            variable roll := roll_vs_skill(source_obj, SKILL_LOCKPICK, LOCKPICK_DIFFICULTY);
+
+            if (is_success(roll)) then begin
+                is_locked := 0;
+                display_msg("You pick the lock.");
+                give_xp(25);
+            end
+            else if (is_critical(roll)) then begin
+                display_msg("You broke your lockpick!");
+            end
+            else begin
+                display_msg("You failed to pick the lock.");
+            end
+        end
+    end
+end
+
+procedure use_p_proc begin
+    if (is_locked) then begin
+        display_msg("It's locked.");
+    end
+    else begin
+        display_msg("You open the container.");
+        // Show inventory, etc.
+    end
+end
+```
+
+## Spatial Script
+
+A trigger that activates when the player enters an area:
+
+```ssl
+#include "define.h"
+#include "command.h"
+
+variable triggered := 0;
+
+procedure start;
+procedure spatial_p_proc;
+
+procedure start begin
+end
+
+procedure spatial_p_proc begin
+    if (triggered == 0) then begin
+        if (source_obj == dude_obj) then begin
+            triggered := 1;
+            display_msg("You stepped on a trap!");
+            critter_dmg(dude_obj, random(5, 15), DMG_normal_dam);
+        end
+    end
+end
+```
+
+## Combat Script
+
+Critter AI behavior:
+
+```ssl
+#include "define.h"
+#include "command.h"
+
+procedure start;
+procedure critter_p_proc;
+procedure combat_p_proc;
+procedure damage_p_proc;
+procedure destroy_p_proc;
+
+procedure start begin
+end
+
+procedure critter_p_proc begin
+    // Called during exploration, handle patrol routes, etc.
+end
+
+procedure combat_p_proc begin
+    // Called each combat turn
+    // AI decisions happen here
+end
+
+procedure damage_p_proc begin
+    // Called when this critter takes damage
+    variable attacker := source_obj;
+
+    if (attacker == dude_obj) then begin
+        float_msg(self_obj, "You'll pay for that!", FLOAT_MSG_RED);
+    end
+end
+
+procedure destroy_p_proc begin
+    // Called when this critter dies
+    give_xp(critter_stat(self_obj, STAT_exp));
+
+    // Drop special items, trigger quests, etc.
+end
+```
+
+## Global Variable Check
+
+Checking and setting global quest state:
+
+```ssl
+#include "define.h"
+#include "command.h"
+
+procedure talk_p_proc;
+procedure Node001;
+
+procedure talk_p_proc begin
+    start_gdialog(NAME, self_obj, 4, -1, -1);
+    gsay_start;
+
+    if (global_var(GVAR_QUEST_STATUS) == 0) then begin
+        call Node001;  // Quest not started
+    end
+    else if (global_var(GVAR_QUEST_STATUS) == 1) then begin
+        call Node010;  // Quest in progress
+    end
+    else begin
+        call Node020;  // Quest complete
+    end
+
+    gsay_end;
+    end_dialogue;
+end
+
+procedure Node001 begin
+    gsay_reply(100);  // "I need your help..."
+    gsay_option(101, NodeAccept, NEUTRAL);
+    gsay_option(102, Node999, NEUTRAL);
+end
+
+procedure NodeAccept begin
+    set_global_var(GVAR_QUEST_STATUS, 1);
+    gsay_reply(103);  // "Thank you!"
+    gsay_option(104, Node999, NEUTRAL);
+end
+```
+
+import ImplLink from '@site/src/components/ImplLink';
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/scripts.cc"
+  label="View scripts.cc for script execution"
+/>

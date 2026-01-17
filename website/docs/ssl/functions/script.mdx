@@ -1,0 +1,151 @@
+---
+sidebar_position: 2
+title: Script Functions
+description: SSL script control and context functions
+tags: [vanilla]
+---
+
+# Script Functions
+
+Functions for script control, context retrieval, and script execution.
+
+## self_obj <span class="tag-vanilla">vanilla</span> {#self_obj}
+
+```ssl
+(ObjectPtr) self_obj
+```
+
+Returns a pointer to the object connected to this script.
+
+**Returns:** `ObjectPtr` - The script's owner object
+
+<FnRef fn="self_obj" />
+
+---
+
+## dude_obj <span class="tag-vanilla">vanilla</span> {#dude_obj}
+
+```ssl
+(ObjectPtr) dude_obj
+```
+
+Returns a pointer to the player (dude) object.
+
+**Returns:** `ObjectPtr` - The player object
+
+<FnRef fn="dude_obj" />
+
+---
+
+## source_obj <span class="tag-vanilla">vanilla</span> {#source_obj}
+
+```ssl
+(ObjectPtr) source_obj
+```
+
+Returns a pointer to the source object (activator) for this action. For example, the source object for a `pickup_proc` would be the critter picking the object up.
+
+**Returns:** `ObjectPtr` - The activating object
+
+<FnRef fn="source_obj" />
+
+---
+
+## target_obj <span class="tag-vanilla">vanilla</span> {#target_obj}
+
+```ssl
+(ObjectPtr) target_obj
+```
+
+Returns a pointer to the target object for this action. The target object is what is being acted upon.
+
+**Returns:** `ObjectPtr` - The target object
+
+<FnRef fn="target_obj" />
+
+---
+
+## action_being_used <span class="tag-vanilla">vanilla</span> {#action_being_used}
+
+```ssl
+int action_being_used
+```
+
+Returns the current skill being used on a script object.
+
+**Returns:** `int` - The skill constant being used
+
+<FnRef fn="action_being_used" />
+
+---
+
+## script_action <span class="tag-vanilla">vanilla</span> {#script_action}
+
+```ssl
+int script_action
+```
+
+Returns the action that has activated this script. Examples include requests for the description of an object (`description_proc`), notifications of a spatial script being activated (`spatial_proc`), or a critter being given its heartbeat (`critter_proc`).
+
+**Returns:** `int` - The action constant
+
+<FnRef fn="script_action" />
+
+---
+
+## script_overrides <span class="tag-vanilla">vanilla</span> {#script_overrides}
+
+```ssl
+void script_overrides
+```
+
+Tells the C-engine that the script will override default behavior for the object. The engine will not attempt to do things it would normally do, expecting the script to handle them.
+
+This is commonly used for player actions upon objects, such as looking at them, using them, or using items on them.
+
+**Example:**
+```ssl
+procedure use_p_proc begin
+    script_overrides;
+    display_msg("You use the object in a special way.");
+end
+```
+
+<FnRef fn="script_overrides" />
+
+---
+
+## scr_return <span class="tag-vanilla">vanilla</span> {#scr_return}
+
+```ssl
+void scr_return
+```
+
+Sets the return value for a script's C-engine node, to be used by C code.
+
+<FnRef fn="scr_return" />
+
+---
+
+## fixed_param <span class="tag-vanilla">vanilla</span> {#fixed_param}
+
+```ssl
+int fixed_param
+```
+
+Returns the value of the script's fixed parameter. This is used with `add_timer_event` to pass the info parameter back to the script.
+
+**Returns:** `int` - The fixed parameter value
+
+**Example:**
+```ssl
+procedure timed_event_p_proc begin
+    variable event_type;
+    event_type := fixed_param;
+    if (event_type == 1) then begin
+        display_msg("Timer event 1 triggered!");
+    end
+end
+```
+
+<FnRef fn="fixed_param" />

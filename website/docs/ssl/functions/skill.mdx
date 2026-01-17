@@ -1,0 +1,220 @@
+---
+sidebar_position: 11
+title: Skill Functions
+description: SSL functions for skill checks and dice rolls
+tags: [vanilla]
+---
+
+# Skill Functions
+
+Functions for skill checks, dice rolls, and stat tests.
+
+## has_skill <span class="tag-vanilla">vanilla</span> {#has_skill}
+
+```ssl
+int has_skill(ObjectPtr who, int skill)
+```
+
+Determines if a critter 'knows' a particular skill. Actually returns the level of the skill, which includes defaults.
+
+**Parameters:**
+- `who` - Critter to check
+- `skill` - Skill constant
+
+**Returns:** `int` - Skill level
+
+
+<FnRef fn="has_skill" />
+---
+
+## roll_vs_skill <span class="tag-vanilla">vanilla</span> {#roll_vs_skill}
+
+```ssl
+int roll_vs_skill(ObjectPtr who, int skill, int modifier)
+```
+
+Returns the value of a completed skill roll made upon a critter's skill level with a given modifier (may be zero).
+
+This value may then be passed to `is_success` and `is_critical` to determine the appropriate states, and `how_much` can be used to determine the difference succeeded or failed by.
+
+**Parameters:**
+- `who` - Critter rolling
+- `skill` - Skill constant
+- `modifier` - Roll modifier (+/-)
+
+**Returns:** `int` - Roll result
+
+**Example:**
+```ssl
+variable roll_result;
+roll_result := roll_vs_skill(dude_obj, SKILL_LOCKPICK, 0);
+
+if (is_success(roll_result)) then begin
+    if (is_critical(roll_result)) then begin
+        display_msg("Critical success!");
+    end else begin
+        display_msg("Success!");
+    end
+end else begin
+    display_msg("Failed by " + how_much(roll_result) + " points.");
+end
+```
+
+
+<FnRef fn="roll_vs_skill" />
+---
+
+## do_check <span class="tag-vanilla">vanilla</span> {#do_check}
+
+```ssl
+int do_check(ObjectPtr who, int check, int modifier)
+```
+
+Does a check/test-roll versus one of the various basic traits (strength, perception, etc.).
+
+**Parameters:**
+- `who` - Critter to test
+- `check` - Stat constant
+- `modifier` - Roll modifier
+
+**Returns:** `int` - Roll result
+
+
+<FnRef fn="do_check" />
+---
+
+## skill_contest <span class="tag-vanilla">vanilla</span> {#skill_contest}
+
+```ssl
+int skill_contest
+```
+
+Returns the value of a completed skill vs skill contest (to run through `is_success` and `is_critical`).
+
+**Returns:** `int` - Contest result
+
+
+<FnRef fn="skill_contest" />
+---
+
+## is_success <span class="tag-vanilla">vanilla</span> {#is_success}
+
+```ssl
+int is_success(int val)
+```
+
+Returns True if a given contest roll result value is a success, otherwise False.
+
+**Parameters:**
+- `val` - Roll result
+
+**Returns:** `int` - Boolean
+
+---
+
+## is_critical <span class="tag-vanilla">vanilla</span> {#is_critical}
+
+```ssl
+int is_critical(int val)
+```
+
+Returns True if a given contest roll result is a critical result, otherwise False.
+
+**Parameters:**
+- `val` - Roll result
+
+**Returns:** `int` - Boolean
+
+---
+
+## how_much <span class="tag-vanilla">vanilla</span> {#how_much}
+
+```ssl
+int how_much(int val)
+```
+
+Returns the value of a completed skill vs skill contest (how much the rolls differed by). Requires that you first call one of the contest roll commands.
+
+**Parameters:**
+- `val` - Roll result
+
+**Returns:** `int` - Difference value
+
+
+<FnRef fn="how_much" />
+---
+
+## is_skill_tagged <span class="tag-vanilla">vanilla</span> {#is_skill_tagged}
+
+```ssl
+int is_skill_tagged(int skillNum)
+```
+
+Returns True if a given skill is tagged by the player.
+
+**Parameters:**
+- `skillNum` - Skill constant
+
+**Returns:** `int` - Boolean
+
+---
+
+## using_skill <span class="tag-vanilla">vanilla</span> {#using_skill}
+
+```ssl
+int using_skill(ObjectPtr who, int skill)
+```
+
+Returns True if an active skill is being used, False otherwise. Examples of active skills are Stealth and First Aid.
+
+**Parameters:**
+- `who` - Critter to check
+- `skill` - Skill constant
+
+**Returns:** `int` - Boolean
+
+
+<FnRef fn="using_skill" />
+---
+
+## roll_dice <span class="tag-vanilla">vanilla</span> {#roll_dice}
+
+```ssl
+int roll_dice
+```
+
+Returns the value of the completed dice roll.
+
+:::warning
+This function is unimplemented in vanilla Fallout 2!
+:::
+
+**Returns:** `int` - Dice result
+
+
+<FnRef fn="roll_dice" />
+---
+
+## random <span class="tag-vanilla">vanilla</span> {#random}
+
+```ssl
+int random(int min, int max)
+```
+
+Returns a random value between min and max, inclusive.
+
+**Parameters:**
+- `min` - Minimum value
+- `max` - Maximum value
+
+**Returns:** `int` - Random number
+
+**Example:**
+```ssl
+variable damage;
+damage := random(5, 15);
+display_msg("You deal " + damage + " damage!");
+```
+
+
+<FnRef fn="random" />

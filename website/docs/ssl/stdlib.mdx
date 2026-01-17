@@ -1,0 +1,431 @@
+---
+sidebar_position: 3
+title: Standard Library
+---
+
+# SSL Standard Library
+
+This page documents the built-in functions available in SSL scripts.
+
+## Object Functions
+
+### self_obj
+
+Returns the object this script is attached to.
+
+```ssl
+variable me := self_obj;
+```
+
+### dude_obj
+
+Returns the player character object.
+
+```ssl
+variable player := dude_obj;
+```
+
+### obj_pid
+
+Get the prototype ID of an object.
+
+```ssl
+variable pid := obj_pid(some_object);
+```
+
+### obj_name
+
+Get the name of an object.
+
+```ssl
+variable name := obj_name(some_object);
+```
+
+import ImplLink from '@site/src/components/ImplLink';
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/interpreter_extra.cc"
+  label="View interpreter_extra.cc"
+/>
+
+## Critter Functions
+
+### critter_stat
+
+Get a critter's stat value.
+
+```ssl
+variable hp := critter_stat(dude_obj, STAT_current_hp);
+variable str := critter_stat(dude_obj, STAT_strength);
+```
+
+### critter_add_trait / critter_rm_trait
+
+Add or remove traits from a critter.
+
+```ssl
+critter_add_trait(obj, TRAIT_OBJECT, OBJECT_TEAM_NUM, 1);
+critter_rm_trait(obj, TRAIT_OBJECT, OBJECT_TEAM_NUM, 1);
+```
+
+### critter_heal
+
+Heal a critter.
+
+```ssl
+critter_heal(dude_obj, 50);  // Heal 50 HP
+```
+
+### critter_injure / critter_uninjure
+
+Apply or remove injuries.
+
+```ssl
+critter_injure(obj, DAM_CRIP_LEG_LEFT);
+critter_uninjure(obj, DAM_CRIP_LEG_LEFT);
+```
+
+### get_critter_stat
+
+Alias for `critter_stat`.
+
+### set_critter_stat
+
+Set a critter's stat value.
+
+```ssl
+set_critter_stat(dude_obj, STAT_current_hp, 100);
+```
+
+## Item Functions
+
+### item_caps_total
+
+Get total caps (money) a critter has.
+
+```ssl
+variable caps := item_caps_total(dude_obj);
+```
+
+### item_caps_adjust
+
+Add or remove caps.
+
+```ssl
+item_caps_adjust(dude_obj, 100);   // Give 100 caps
+item_caps_adjust(dude_obj, -50);   // Remove 50 caps
+```
+
+### obj_carrying_pid_obj
+
+Check if object is carrying item with specific PID.
+
+```ssl
+if (obj_carrying_pid_obj(dude_obj, PID_STIMPAK)) then begin
+    display_msg("Player has a stimpak");
+end
+```
+
+### add_obj_to_inven
+
+Add item to inventory.
+
+```ssl
+variable item := create_object(PID_STIMPAK, 0, 0);
+add_obj_to_inven(dude_obj, item);
+```
+
+### rm_obj_from_inven
+
+Remove item from inventory.
+
+```ssl
+variable item := obj_carrying_pid_obj(dude_obj, PID_STIMPAK);
+rm_obj_from_inven(dude_obj, item);
+```
+
+### inven_ptr
+
+Get equipped item in a slot.
+
+```ssl
+variable armor := inven_ptr(dude_obj, INVEN_TYPE_WORN);
+variable weapon := inven_ptr(dude_obj, INVEN_TYPE_RIGHT_HAND);
+```
+
+## Skill Functions
+
+### has_skill
+
+Check if critter has skill points.
+
+```ssl
+variable skill_level := has_skill(dude_obj, SKILL_LOCKPICK);
+```
+
+### using_skill
+
+Get the skill currently being used.
+
+```ssl
+procedure use_skill_on_p_proc begin
+    if (using_skill == SKILL_LOCKPICK) then begin
+        // Handle lockpick attempt
+    end
+end
+```
+
+### roll_vs_skill
+
+Roll against a skill with modifiers.
+
+```ssl
+variable roll := roll_vs_skill(dude_obj, SKILL_LOCKPICK, -20);
+if (is_success(roll)) then begin
+    display_msg("Lock picked!");
+end
+```
+
+## Combat Functions
+
+### critter_dmg
+
+Deal damage to a critter.
+
+```ssl
+critter_dmg(target, 25, DMG_normal_dam);
+```
+
+### critter_kill_type
+
+Get the kill type of a critter.
+
+```ssl
+variable kill_type := critter_kill_type(obj);
+```
+
+### attack
+
+Make a critter attack a target.
+
+```ssl
+attack(attacker, 0, target, 0, 0);
+```
+
+## Map Functions
+
+### cur_map_index
+
+Get the current map index.
+
+```ssl
+variable map := cur_map_index;
+```
+
+### move_to
+
+Move an object to a position.
+
+```ssl
+move_to(obj, tile_num, elevation);
+```
+
+### create_object
+
+Create a new object.
+
+```ssl
+variable obj := create_object(PID_STIMPAK, tile_num, elevation);
+```
+
+### destroy_object
+
+Destroy an object.
+
+```ssl
+destroy_object(obj);
+```
+
+### tile_num
+
+Get an object's tile number.
+
+```ssl
+variable tile := tile_num(some_object);
+```
+
+### elevation
+
+Get an object's elevation.
+
+```ssl
+variable elev := elevation(some_object);
+```
+
+## Dialogue Functions
+
+### start_gdialog
+
+Start a dialogue with GDialog system.
+
+```ssl
+start_gdialog(NAME, self_obj, 4, -1, -1);
+```
+
+### end_dialogue
+
+End the current dialogue.
+
+```ssl
+end_dialogue;
+```
+
+### gsay_message / gsay_reply / gsay_option
+
+Display dialogue text and options.
+
+```ssl
+gsay_message(100);                           // Display message 100
+gsay_reply(101);                             // Display reply 101
+gsay_option(102, dialog_proc, NEUTRAL);      // Option leading to procedure
+```
+
+### message_str
+
+Get a message string from a .msg file.
+
+```ssl
+variable text := message_str(SCRIPT_MYOBJ, 100);
+display_msg(text);
+```
+
+## Time Functions
+
+### game_time
+
+Get the current game time.
+
+```ssl
+variable time := game_time;
+```
+
+### game_time_hour
+
+Get current hour (0-23).
+
+```ssl
+variable hour := game_time_hour;
+```
+
+### add_timer_event
+
+Schedule a timed event.
+
+```ssl
+add_timer_event(self_obj, game_ticks(10), 1);
+```
+
+### rm_timer_event
+
+Remove a timed event.
+
+```ssl
+rm_timer_event(self_obj);
+```
+
+### game_ticks
+
+Convert real seconds to game ticks.
+
+```ssl
+variable ticks := game_ticks(60);  // 1 minute
+```
+
+## Display Functions
+
+### display_msg
+
+Show message in the display window.
+
+```ssl
+display_msg("Hello!");
+```
+
+### debug_msg
+
+Show debug message (requires debug mode).
+
+```ssl
+debug_msg("Debug: variable = " + x);
+```
+
+### float_msg
+
+Show floating text above an object.
+
+```ssl
+float_msg(self_obj, "Hello!", FLOAT_MSG_NORMAL);
+```
+
+## Random Functions
+
+### random
+
+Generate random number in range.
+
+```ssl
+variable roll := random(1, 100);
+```
+
+### roll_dice
+
+Roll dice (DnD style).
+
+```ssl
+variable damage := roll_dice(2, 6);  // 2d6
+```
+
+## Script Functions
+
+### script_overrides
+
+Override default behavior for current script action.
+
+```ssl
+script_overrides;
+```
+
+### set_global_var / get_global_var
+
+Access global variables (GVAR).
+
+```ssl
+set_global_var(GVAR_QUEST_STATUS, 1);
+variable status := get_global_var(GVAR_QUEST_STATUS);
+```
+
+### set_local_var / get_local_var
+
+Access local variables (LVAR).
+
+```ssl
+set_local_var(LVAR_COUNT, 5);
+variable count := get_local_var(LVAR_COUNT);
+```
+
+### set_map_var / get_map_var
+
+Access map-local variables (MVAR).
+
+```ssl
+set_map_var(MVAR_DOOR_UNLOCKED, 1);
+variable unlocked := get_map_var(MVAR_DOOR_UNLOCKED);
+```
+
+<ImplLink
+  repo="alexbatalov/fallout2-ce"
+  path="src/interpreter_extra.cc"
+  lines={[160, 200]}
+  label="View opcode handlers"
+/>

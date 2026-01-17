@@ -1,0 +1,121 @@
+---
+sidebar_position: 7
+title: Combat Functions
+description: SSL functions for combat system interaction
+tags: [vanilla]
+---
+
+# Combat Functions
+
+Functions for initiating combat, attacking, and managing combat state.
+
+## combat_is_initialized <span class="tag-vanilla">vanilla</span> {#combat_is_initialized}
+
+```ssl
+int combat_is_initialized
+```
+
+Returns True if the system is currently in combat mode, False otherwise.
+
+**Returns:** `int` - Boolean
+
+**Example:**
+```ssl
+if (combat_is_initialized) then begin
+    display_msg("Combat is active!");
+end
+```
+
+
+<FnRef fn="combat_is_initialized" />
+---
+
+## attack <span class="tag-vanilla">vanilla</span> {#attack}
+
+```ssl
+void attack(ObjectPtr who)
+```
+
+Causes the focused object (`self`) to attempt to attack an object.
+
+:::note
+This is a macro for `attack_complex()`.
+:::
+
+**Parameters:**
+- `who` - Target to attack
+
+---
+
+## attack_complex <span class="tag-vanilla">vanilla</span> {#attack_complex}
+
+```ssl
+void attack_complex(ObjectPtr who, int called_shot, int num_attacks, int bonus, int min_damage, int max_damage, int attacker_results, int target_results)
+```
+
+Causes the current object (`self` - must be a critter) to attempt to attack a critter with various parameters modifying the combat.
+
+**Parameters:**
+- `who` - Target critter
+- `called_shot` - 0 = none, 1 = random, or specific body part
+- `num_attacks` - Extra attacks before target can respond
+- `bonus` - Bonus to hit on first turn only
+- `min_damage` - Minimum damage on first attack
+- `max_damage` - Maximum damage on first attack
+- `attacker_results` - State attacker ends in after first attack
+- `target_results` - State target ends in after first attack
+
+**Example:**
+```ssl
+// Attack with +20% to hit and guaranteed 10-20 damage
+attack_complex(target_obj, 0, 0, 20, 10, 20, 0, 0);
+```
+
+
+<FnRef fn="attack_complex" />
+---
+
+## attack_setup <span class="tag-vanilla">vanilla</span> {#attack_setup}
+
+```ssl
+void attack_setup(ObjectPtr who, ObjectPtr victim)
+```
+
+Sets up an attack from one object on another, without expecting this script to be involved. Can be used to setup attacks on critters from the map script.
+
+**Parameters:**
+- `who` - Attacker
+- `victim` - Target
+
+
+<FnRef fn="attack_setup" />
+---
+
+## terminate_combat <span class="tag-vanilla">vanilla</span> {#terminate_combat}
+
+```ssl
+void terminate_combat
+```
+
+Tells the combat system to terminate prematurely.
+
+:::warning
+Use with caution! This doesn't prevent another (or even the same) script from re-starting combat. Make sure you turn off any hostile flags, etc.
+:::
+
+
+<FnRef fn="terminate_combat" />
+---
+
+## combat_difficulty <span class="tag-vanilla">vanilla</span> {#combat_difficulty}
+
+```ssl
+int combat_difficulty
+```
+
+Returns the current Combat difficulty level of the game (defined in the options screen).
+
+**Returns:** `int` - Difficulty level constant
+
+
+<FnRef fn="combat_difficulty" />
