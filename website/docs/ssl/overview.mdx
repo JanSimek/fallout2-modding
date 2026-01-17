@@ -5,7 +5,7 @@ title: SSL Overview
 
 # SSL Scripting Language
 
-SSL (Script Source Language) is the scripting language used in Fallout 2 for game logic, dialogue, and world interactions.
+SSL (Star Trek Scripting Language) is the scripting language used in Fallout 2 for game logic, dialogue, and world interactions.
 
 ## What is SSL?
 
@@ -32,7 +32,7 @@ Scripts are written in `.ssl` files, compiled to `.int` (interpreted) bytecode, 
 import ImplLink from '@site/src/components/ImplLink';
 
 <ImplLink
-  repo="alexbatalov/fallout2-ce"
+  repo="fallout2-ce/fallout2-ce"
   path="src/interpreter.h"
   label="View interpreter.h"
 />
@@ -88,23 +88,31 @@ The engine calls specific procedures in response to game events:
 | `spatial_p_proc` | Spatial trigger activated |
 
 <ImplLink
-  repo="alexbatalov/fallout2-ce"
+  repo="fallout2-ce/fallout2-ce"
   path="src/scripts.h"
   label="View scripts.h for procedure constants"
 />
 
 ## Compilation
 
-SSL source files are compiled using the Fallout script compiler (usually `compile.exe` or `int2ssl`):
+SSL source files are compiled using [sslc](https://github.com/sfall-team/sslc) (Star-Trek Scripting Language Compiler):
 
 ```bash
-compile myscript.ssl -o myscript.int
+sslc -o myscript.int myscript.ssl
 ```
 
 The resulting `.int` file contains bytecode that the engine's interpreter executes.
 
+### Decompilation
+
+To decompile `.int` files back to SSL source, use [int2ssl](https://github.com/falltergeist/int2ssl):
+
+```bash
+int2ssl myscript.int
+```
+
 <ImplLink
-  repo="alexbatalov/fallout2-ce"
+  repo="fallout2-ce/fallout2-ce"
   path="src/interpreter.cc"
   label="View interpreter.cc"
 />
@@ -126,7 +134,7 @@ The resulting `.int` file contains bytecode that the engine's interpreter execut
 - And much more
 
 <ImplLink
-  repo="alexbatalov/fallout2-ce"
+  repo="fallout2-ce/fallout2-ce"
   path="src/sfall_opcodes.cc"
   label="View sfall_opcodes.cc"
 />

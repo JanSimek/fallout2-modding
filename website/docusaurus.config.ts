@@ -50,6 +50,18 @@ const config: Config = {
     ],
   ],
 
+  themes: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        docsRouteBasePath: '/',
+        indexBlog: false,
+        highlightSearchTermsOnTargetPage: true,
+      },
+    ],
+  ],
+
   themeConfig: {
     image: 'img/social-card.jpg',
     colorMode: {
@@ -82,7 +94,7 @@ const config: Config = {
           label: 'API',
         },
         {
-          href: 'https://github.com/alexbatalov/fallout2-ce',
+          href: 'https://github.com/fallout2-ce/fallout2-ce',
           label: 'fallout2-ce',
           position: 'right',
         },
@@ -122,7 +134,7 @@ const config: Config = {
             },
             {
               label: 'fallout2-ce GitHub',
-              href: 'https://github.com/alexbatalov/fallout2-ce',
+              href: 'https://github.com/fallout2-ce/fallout2-ce',
             },
           ],
         },

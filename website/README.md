@@ -63,7 +63,7 @@ Links directly to a file/lines in a GitHub repository.
 
 ```mdx
 <ImplLink
-  repo="alexbatalov/fallout2-ce"
+  repo="fallout2-ce/fallout2-ce"
   path="src/proto_types.h"
   lines={[27, 35]}
   label="View item type enum"
@@ -108,7 +108,7 @@ npm run generate-index:yes
 ```json
 {
   "_meta": {
-    "repo": "alexbatalov/fallout2-ce",
+    "repo": "fallout2-ce/fallout2-ce",
     "commit": "abc123...",
     "shortCommit": "abc123",
     "generatedAt": "2024-01-01T00:00:00.000Z"

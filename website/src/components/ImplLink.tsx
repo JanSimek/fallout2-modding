@@ -19,7 +19,7 @@ interface ImplLinkProps {
  *
  * @example
  * <ImplLink
- *   repo="alexbatalov/fallout2-ce"
+ *   repo="fallout2-ce/fallout2-ce"
  *   path="src/proto_types.h"
  *   lines={[27, 35]}
  *   label="View item type enum"

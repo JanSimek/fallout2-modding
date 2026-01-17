@@ -1,5 +1,5 @@
 /**
- * Prism syntax highlighting for SSL (Script Source Language)
+ * Prism syntax highlighting for SSL (Star Trek Scripting Language)
  * Used in Fallout 2 modding.
  */
 
