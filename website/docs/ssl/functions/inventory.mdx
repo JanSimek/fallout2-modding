@@ -131,6 +131,8 @@ Causes a critter object to drop all objects in its inventory onto the ground at 
 **Parameters:**
 - `who` - Critter to drop items
 
+<FnRef fn="obj_drop_everything" />
+
 ---
 
 ## drop_obj <span class="tag-vanilla">vanilla</span> {#drop_obj}
@@ -176,6 +178,8 @@ Returns the count of how many inventory slots are filled on a given object.
 
 **Returns:** `int` - Number of filled slots
 
+<FnRef fn="inven_count" />
+
 ---
 
 ## inven_ptr <span class="tag-vanilla">vanilla</span> {#inven_ptr}
@@ -202,6 +206,8 @@ for (i := 0; i < item_count; i := i + 1) begin
 end
 ```
 
+<FnRef fn="inven_ptr" />
+
 ---
 
 ## inven_unwield <span class="tag-vanilla">vanilla</span> {#inven_unwield}
@@ -211,6 +217,8 @@ void inven_unwield
 ```
 
 Attempts to cause a critter to unwield any wielded weapons/items. If animations are currently disabled, it will just instantly change the art.
+
+<FnRef fn="inven_unwield" />
 
 ---
 
@@ -224,6 +232,8 @@ Sets up an animation causing `self_obj` to wield an object in its inventory. Thi
 
 **Parameters:**
 - `obj` - Object to wield
+
+<FnRef fn="wield_obj" />
 
 ---
 

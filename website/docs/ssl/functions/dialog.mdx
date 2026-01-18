@@ -25,6 +25,8 @@ If this call is not made before the normal dialog calls (`gSay_Reply`, `gSay_Mes
 - `who` - Critter to talk to
 - `mood` - Starting mood constant
 
+<FnRef fn="start_dialogue" />
+
 ---
 
 ## start_gdialog <span class="tag-vanilla">vanilla</span> {#start_gdialog}
@@ -49,6 +51,8 @@ Extended version of `start_dialogue` with additional parameters for message file
 ## start_gialog <span class="tag-vanilla">vanilla</span> {#start_gialog}
 
 Alias for `start_gdialog`. See above.
+
+<FnRef fn="start_gialog" />
 
 ---
 
@@ -99,6 +103,8 @@ void gSay_Start
 
 Starts a new dialog sequence.
 
+<FnRef fn="gSay_Start" />
+
 ---
 
 ## gSay_End <span class="tag-vanilla">vanilla</span> {#gSay_End}
@@ -108,6 +114,8 @@ void gSay_End
 ```
 
 Ends a dialog sequence, which will bring up the sequence (actually display it).
+
+<FnRef fn="gSay_End" />
 
 ---
 
@@ -132,6 +140,8 @@ procedure Node001 begin
 end
 ```
 
+<FnRef fn="gSay_Reply" />
+
 ---
 
 ## gSay_Option <span class="tag-vanilla">vanilla</span> {#gSay_Option}
@@ -148,6 +158,8 @@ Sets up an option-choice for a reply block. The string comes from the message fi
 - `target` - Procedure to call if chosen
 - `reaction` - Reaction constant (GOOD, NEUTRAL, BAD)
 
+<FnRef fn="gSay_Option" />
+
 ---
 
 ## gSay_Message <span class="tag-vanilla">vanilla</span> {#gSay_Message}
@@ -162,6 +174,8 @@ Sets up a sayMessage, which is a reply with just a [Done] option.
 - `msg_list` - Message file number
 - `msg_num` - Message number
 - `reaction` - Reaction constant
+
+<FnRef fn="gSay_Message" />
 
 ---
 
@@ -189,6 +203,8 @@ giQ_Option(6, SCRIPT_MYCHAR, 105, NodeSmart, NEUTRAL);
 giQ_Option(-3, SCRIPT_MYCHAR, 106, NodeDumb, NEUTRAL);
 ```
 
+<FnRef fn="giQ_Option" />
+
 ---
 
 ## gdialog_barter <span class="tag-vanilla">vanilla</span> {#gdialog_barter}
@@ -198,6 +214,8 @@ int gdialog_barter
 ```
 
 Tells the dialog system to switch to the barter screen. Sets the barter modifier to 0.
+
+<FnRef fn="gdialog_barter" />
 
 ---
 
@@ -211,6 +229,8 @@ Tells the dialog system to switch to the barter screen, using a given modifier p
 
 **Parameters:**
 - `modifier` - Percentage modifier (+/-)
+
+<FnRef fn="gdialog_mod_barter" />
 
 ---
 

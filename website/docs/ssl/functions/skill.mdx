@@ -86,13 +86,21 @@ Does a check/test-roll versus one of the various basic traits (strength, percept
 ## skill_contest <span class="tag-vanilla">vanilla</span> {#skill_contest}
 
 ```ssl
-int skill_contest
+int skill_contest(ObjectPtr who1, ObjectPtr who2, int skill)
 ```
 
-Returns the value of a completed skill vs skill contest (to run through `is_success` and `is_critical`).
+Performs a skill vs skill contest between two critters.
 
-**Returns:** `int` - Contest result
+:::warning
+This function is unimplemented in vanilla Fallout 2! It will log an error and return 0.
+:::
 
+**Parameters:**
+- `who1` - First critter
+- `who2` - Second critter
+- `skill` - Skill constant to contest
+
+**Returns:** `int` - Contest result (always 0 - unimplemented)
 
 <FnRef fn="skill_contest" />
 ---
@@ -110,6 +118,8 @@ Returns True if a given contest roll result value is a success, otherwise False.
 
 **Returns:** `int` - Boolean
 
+<FnRef fn="is_success" />
+
 ---
 
 ## is_critical <span class="tag-vanilla">vanilla</span> {#is_critical}
@@ -124,6 +134,8 @@ Returns True if a given contest roll result is a critical result, otherwise Fals
 - `val` - Roll result
 
 **Returns:** `int` - Boolean
+
+<FnRef fn="is_critical" />
 
 ---
 
@@ -157,6 +169,8 @@ Returns True if a given skill is tagged by the player.
 
 **Returns:** `int` - Boolean
 
+<FnRef fn="is_skill_tagged" />
+
 ---
 
 ## using_skill <span class="tag-vanilla">vanilla</span> {#using_skill}
@@ -180,17 +194,20 @@ Returns True if an active skill is being used, False otherwise. Examples of acti
 ## roll_dice <span class="tag-vanilla">vanilla</span> {#roll_dice}
 
 ```ssl
-int roll_dice
+int roll_dice(int num_dice, int num_sides)
 ```
 
-Returns the value of the completed dice roll.
+Rolls dice and returns the total.
 
 :::warning
-This function is unimplemented in vanilla Fallout 2!
+This function is unimplemented in vanilla Fallout 2! It will log an error and return 0.
 :::
 
-**Returns:** `int` - Dice result
+**Parameters:**
+- `num_dice` - Number of dice to roll
+- `num_sides` - Number of sides per die
 
+**Returns:** `int` - Dice result (always 0 - unimplemented)
 
 <FnRef fn="roll_dice" />
 ---
