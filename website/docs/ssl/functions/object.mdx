@@ -9,6 +9,23 @@ tags: [vanilla]
 
 Functions for creating, destroying, and manipulating game objects.
 
+## art_exists <span class="tag-sfall">sfall</span> {#art_exists}
+
+```ssl
+int art_exists(int fid)
+```
+
+Checks if an art asset exists.
+
+**Parameters:**
+- `fid` - The FID (Frame ID) to check
+
+**Returns:** `int` - 1 if the art exists, 0 otherwise
+
+<FnRef fn="art_exists" />
+
+---
+
 ## create_object <span class="tag-vanilla">vanilla</span> {#create_object}
 
 ```ssl
@@ -54,21 +71,6 @@ Creates a new object with an optional script override. If `sid` is not -1, it ov
 <FnRef fn="create_object_sid" />
 ---
 
-## destroy_object <span class="tag-vanilla">vanilla</span> {#destroy_object}
-
-```ssl
-int destroy_object(ObjectPtr obj)
-```
-
-Destroys an object. If the object is not the calling object, its script's `destroy_proc` section will be called.
-
-**Parameters:**
-- `obj` - Object to destroy
-
-
-<FnRef fn="destroy_object" />
----
-
 ## destroy_mult_objs <span class="tag-vanilla">vanilla</span> {#destroy_mult_objs}
 
 ```ssl
@@ -85,72 +87,69 @@ Destroys a specified count of instances of an item object. Works with items in i
 <FnRef fn="destroy_mult_objs" />
 ---
 
-## obj_pid <span class="tag-vanilla">vanilla</span> {#obj_pid}
+## destroy_object <span class="tag-vanilla">vanilla</span> {#destroy_object}
 
 ```ssl
-int obj_pid(ObjectPtr obj)
+int destroy_object(ObjectPtr obj)
 ```
 
-Returns the prototype ID (pid) of an object.
+Destroys an object. If the object is not the calling object, its script's `destroy_proc` section will be called.
 
 **Parameters:**
-- `obj` - Object to query
-
-**Returns:** `int` - Prototype ID
+- `obj` - Object to destroy
 
 
-<FnRef fn="obj_pid" />
+<FnRef fn="destroy_object" />
 ---
 
-## obj_type <span class="tag-vanilla">vanilla</span> {#obj_type}
+## get_proto_data <span class="tag-sfall">sfall</span> {#get_proto_data}
 
 ```ssl
-int obj_type(ObjectPtr obj)
+int get_proto_data(int pid, int offset)
 ```
 
-Returns the type of an object (Item, Wall, Scenery, Critter, etc.).
+Reads a value from a prototype at the specified byte offset.
 
 **Parameters:**
-- `obj` - Object to query
+- `pid` - The prototype ID
+- `offset` - The byte offset in the proto structure
 
-**Returns:** `int` - Object type constant
+**Returns:** `int` - The value at that offset, or -1 on error
 
+<FnRef fn="get_proto_data" />
 
-<FnRef fn="obj_type" />
 ---
 
-## obj_name <span class="tag-vanilla">vanilla</span> {#obj_name}
+## get_script <span class="tag-sfall">sfall</span> {#get_script}
 
 ```ssl
-string obj_name(ObjectPtr what)
+int get_script(ObjectPtr obj)
 ```
 
-Returns a string representing the name of the given object.
+Gets the script ID attached to an object.
 
 **Parameters:**
-- `what` - Object to query
+- `obj` - The object to query
 
-**Returns:** `string` - Object name
+**Returns:** `int` - The script index + 1
 
+<FnRef fn="get_script" />
 
-<FnRef fn="obj_name" />
 ---
 
-## obj_item_subtype <span class="tag-vanilla">vanilla</span> {#obj_item_subtype}
+## jam_lock <span class="tag-vanilla">vanilla</span> {#jam_lock}
 
 ```ssl
-int obj_item_subtype(ObjectPtr obj)
+int jam_lock(ObjectPtr lockableObj)
 ```
 
-Returns the subtype of an item object (food, armor, weapon, etc.).
+Jams a lock, preventing the player from picking it for approximately 24 hours. Used when a player critically fails to pick a lock.
 
 **Parameters:**
-- `obj` - Item object to query
-
-**Returns:** `int` - Item subtype constant
+- `lockableObj` - Lock to jam
 
 
-<FnRef fn="obj_item_subtype" />
+<FnRef fn="jam_lock" />
 ---
 
 ## obj_art_fid <span class="tag-vanilla">vanilla</span> {#obj_art_fid}
@@ -170,52 +169,56 @@ Returns the FID (Frame ID) used to index art for a given object.
 <FnRef fn="obj_art_fid" />
 ---
 
-## obj_on_screen <span class="tag-vanilla">vanilla</span> {#obj_on_screen}
+## obj_being_used_with <span class="tag-vanilla">vanilla</span> {#obj_being_used_with}
 
 ```ssl
-int obj_on_screen(ObjectPtr what)
+ObjectPtr obj_being_used_with
 ```
 
-Returns True if an object is currently being drawn on-screen.
+Returns a pointer to the object being used on another object.
 
-**Parameters:**
-- `what` - Object to check
-
-**Returns:** `int` - Boolean (1 = on screen, 0 = off screen)
+**Returns:** `ObjectPtr` - The object being used
 
 
-<FnRef fn="obj_on_screen" />
+<FnRef fn="obj_being_used_with" />
 ---
 
-## obj_is_visible_flag <span class="tag-vanilla">vanilla</span> {#obj_is_visible_flag}
+## obj_blocking_line <span class="tag-sfall">sfall</span> {#obj_blocking_line}
 
 ```ssl
-int obj_is_visible_flag(ObjectPtr who)
+ObjectPtr obj_blocking_line(ObjectPtr objFrom, int tileTo, int blockingType)
 ```
 
-Returns True if an object is turned on (visible).
+Finds the first object blocking a straight line from an object to a destination tile.
 
 **Parameters:**
-- `who` - Object to check
+- `objFrom` - The starting object
+- `tileTo` - The destination tile
+- `blockingType` - The type of blocking to check (0=block, 1=shoot, 2=AI, 3=sight)
 
-**Returns:** `int` - Boolean
+**Returns:** `ObjectPtr` - The blocking object, or 0 if none
+
+<FnRef fn="obj_blocking_line" />
 
 ---
 
-## set_obj_visibility <span class="tag-vanilla">vanilla</span> {#set_obj_visibility}
+## obj_blocking_tile <span class="tag-sfall">sfall</span> {#obj_blocking_tile}
 
 ```ssl
-void set_obj_visibility(ObjectPtr obj, int visibility)
+ObjectPtr obj_blocking_tile(int tile, int elevation, int blockingType)
 ```
 
-Sets the OBJ_OFF flag for an object (makes it not drawn/invisible).
+Finds an object blocking a specific tile.
 
 **Parameters:**
-- `obj` - Object to modify
-- `visibility` - 0 = visible, 1 = invisible
+- `tile` - The tile number
+- `elevation` - The elevation level
+- `blockingType` - The type of blocking to check
 
+**Returns:** `ObjectPtr` - The blocking object, or 0 if none
 
-<FnRef fn="set_obj_visibility" />
+<FnRef fn="obj_blocking_tile" />
+
 ---
 
 ## obj_carrying_pid_obj <span class="tag-vanilla">vanilla</span> {#obj_carrying_pid_obj}
@@ -236,6 +239,21 @@ Returns a pointer to an object of type `pid` if the object is carrying one.
 <FnRef fn="obj_carrying_pid_obj" />
 ---
 
+## obj_close <span class="tag-vanilla">vanilla</span> {#obj_close}
+
+```ssl
+void obj_close(ObjectPtr what)
+```
+
+Attempts to close an object if it is of an openable type.
+
+**Parameters:**
+- `what` - Object to close
+
+
+<FnRef fn="obj_close" />
+---
+
 ## obj_is_carrying_obj_pid <span class="tag-vanilla">vanilla</span> {#obj_is_carrying_obj_pid}
 
 ```ssl
@@ -252,50 +270,6 @@ Returns the quantity of objects with matching prototype ID in an object's invent
 
 
 <FnRef fn="obj_is_carrying_obj_pid" />
----
-
-## obj_being_used_with <span class="tag-vanilla">vanilla</span> {#obj_being_used_with}
-
-```ssl
-ObjectPtr obj_being_used_with
-```
-
-Returns a pointer to the object being used on another object.
-
-**Returns:** `ObjectPtr` - The object being used
-
-
-<FnRef fn="obj_being_used_with" />
----
-
-## obj_lock <span class="tag-vanilla">vanilla</span> {#obj_lock}
-
-```ssl
-void obj_lock(ObjectPtr what)
-```
-
-Attempts to lock an object if it is of a lockable type.
-
-**Parameters:**
-- `what` - Object to lock
-
-
-<FnRef fn="obj_lock" />
----
-
-## obj_unlock <span class="tag-vanilla">vanilla</span> {#obj_unlock}
-
-```ssl
-void obj_unlock(ObjectPtr what)
-```
-
-Attempts to unlock an object if it is of a lockable type.
-
-**Parameters:**
-- `what` - Object to unlock
-
-
-<FnRef fn="obj_unlock" />
 ---
 
 ## obj_is_locked <span class="tag-vanilla">vanilla</span> {#obj_is_locked}
@@ -315,19 +289,102 @@ Returns True if an object is locked.
 <FnRef fn="obj_is_locked" />
 ---
 
-## jam_lock <span class="tag-vanilla">vanilla</span> {#jam_lock}
+## obj_is_open <span class="tag-vanilla">vanilla</span> {#obj_is_open}
 
 ```ssl
-int jam_lock(ObjectPtr lockableObj)
+int obj_is_open(ObjectPtr what)
 ```
 
-Jams a lock, preventing the player from picking it for approximately 24 hours. Used when a player critically fails to pick a lock.
+Returns True if an object is open.
 
 **Parameters:**
-- `lockableObj` - Lock to jam
+- `what` - Object to check
+
+**Returns:** `int` - Boolean
 
 
-<FnRef fn="jam_lock" />
+<FnRef fn="obj_is_open" />
+---
+
+## obj_is_visible_flag <span class="tag-vanilla">vanilla</span> {#obj_is_visible_flag}
+
+```ssl
+int obj_is_visible_flag(ObjectPtr who)
+```
+
+Returns True if an object is turned on (visible).
+
+**Parameters:**
+- `who` - Object to check
+
+**Returns:** `int` - Boolean
+
+---
+
+## obj_item_subtype <span class="tag-vanilla">vanilla</span> {#obj_item_subtype}
+
+```ssl
+int obj_item_subtype(ObjectPtr obj)
+```
+
+Returns the subtype of an item object (food, armor, weapon, etc.).
+
+**Parameters:**
+- `obj` - Item object to query
+
+**Returns:** `int` - Item subtype constant
+
+
+<FnRef fn="obj_item_subtype" />
+---
+
+## obj_lock <span class="tag-vanilla">vanilla</span> {#obj_lock}
+
+```ssl
+void obj_lock(ObjectPtr what)
+```
+
+Attempts to lock an object if it is of a lockable type.
+
+**Parameters:**
+- `what` - Object to lock
+
+
+<FnRef fn="obj_lock" />
+---
+
+## obj_name <span class="tag-vanilla">vanilla</span> {#obj_name}
+
+```ssl
+string obj_name(ObjectPtr what)
+```
+
+Returns a string representing the name of the given object.
+
+**Parameters:**
+- `what` - Object to query
+
+**Returns:** `string` - Object name
+
+
+<FnRef fn="obj_name" />
+---
+
+## obj_on_screen <span class="tag-vanilla">vanilla</span> {#obj_on_screen}
+
+```ssl
+int obj_on_screen(ObjectPtr what)
+```
+
+Returns True if an object is currently being drawn on-screen.
+
+**Parameters:**
+- `what` - Object to check
+
+**Returns:** `int` - Boolean (1 = on screen, 0 = off screen)
+
+
+<FnRef fn="obj_on_screen" />
 ---
 
 ## obj_open <span class="tag-vanilla">vanilla</span> {#obj_open}
@@ -345,36 +402,21 @@ Attempts to open an object if it is of an openable type.
 <FnRef fn="obj_open" />
 ---
 
-## obj_close <span class="tag-vanilla">vanilla</span> {#obj_close}
+## obj_pid <span class="tag-vanilla">vanilla</span> {#obj_pid}
 
 ```ssl
-void obj_close(ObjectPtr what)
+int obj_pid(ObjectPtr obj)
 ```
 
-Attempts to close an object if it is of an openable type.
+Returns the prototype ID (pid) of an object.
 
 **Parameters:**
-- `what` - Object to close
+- `obj` - Object to query
+
+**Returns:** `int` - Prototype ID
 
 
-<FnRef fn="obj_close" />
----
-
-## obj_is_open <span class="tag-vanilla">vanilla</span> {#obj_is_open}
-
-```ssl
-int obj_is_open(ObjectPtr what)
-```
-
-Returns True if an object is open.
-
-**Parameters:**
-- `what` - Object to check
-
-**Returns:** `int` - Boolean
-
-
-<FnRef fn="obj_is_open" />
+<FnRef fn="obj_pid" />
 ---
 
 ## obj_set_light_level <span class="tag-vanilla">vanilla</span> {#obj_set_light_level}
@@ -394,6 +436,38 @@ Sets the light level for an object.
 <FnRef fn="obj_set_light_level" />
 ---
 
+## obj_type <span class="tag-vanilla">vanilla</span> {#obj_type}
+
+```ssl
+int obj_type(ObjectPtr obj)
+```
+
+Returns the type of an object (Item, Wall, Scenery, Critter, etc.).
+
+**Parameters:**
+- `obj` - Object to query
+
+**Returns:** `int` - Object type constant
+
+
+<FnRef fn="obj_type" />
+---
+
+## obj_unlock <span class="tag-vanilla">vanilla</span> {#obj_unlock}
+
+```ssl
+void obj_unlock(ObjectPtr what)
+```
+
+Attempts to unlock an object if it is of a lockable type.
+
+**Parameters:**
+- `what` - Object to unlock
+
+
+<FnRef fn="obj_unlock" />
+---
+
 ## proto_data <span class="tag-vanilla">vanilla</span> {#proto_data}
 
 ```ssl
@@ -410,6 +484,85 @@ Returns the value of a data member from a given prototype.
 
 
 <FnRef fn="proto_data" />
+---
+
+## set_obj_visibility <span class="tag-vanilla">vanilla</span> {#set_obj_visibility}
+
+```ssl
+void set_obj_visibility(ObjectPtr obj, int visibility)
+```
+
+Sets the OBJ_OFF flag for an object (makes it not drawn/invisible).
+
+**Parameters:**
+- `obj` - Object to modify
+- `visibility` - 0 = visible, 1 = invisible
+
+
+<FnRef fn="set_obj_visibility" />
+---
+
+## set_proto_data <span class="tag-sfall">sfall</span> {#set_proto_data}
+
+```ssl
+void set_proto_data(int pid, int offset, int value)
+```
+
+Writes a value to a prototype at the specified byte offset.
+
+**Parameters:**
+- `pid` - The prototype ID
+- `offset` - The byte offset in the proto structure
+- `value` - The value to write
+
+<FnRef fn="set_proto_data" />
+
+---
+
+## set_self <span class="tag-sfall">sfall</span> {#set_self}
+
+```ssl
+void set_self(ObjectPtr obj)
+```
+
+Overrides the `self_obj` value for this script, allowing scripts to act on behalf of other objects.
+
+**Parameters:**
+- `obj` - The object to set as self
+
+<FnRef fn="set_self" />
+
+---
+
+## tile_under_cursor <span class="tag-sfall">sfall</span> {#tile_under_cursor}
+
+```ssl
+int tile_under_cursor
+```
+
+Returns the tile number under the mouse cursor.
+
+**Returns:** `int` - The tile number
+
+<FnRef fn="tile_under_cursor" />
+
+---
+
+## typeof <span class="tag-sfall">sfall</span> {#typeof}
+
+```ssl
+int typeof(any value)
+```
+
+Returns the type of a value.
+
+**Parameters:**
+- `value` - The value to check
+
+**Returns:** `int` - 1 for int, 2 for float, 3 for string
+
+<FnRef fn="typeof" />
+
 ---
 
 ## use_obj <span class="tag-vanilla">vanilla</span> {#use_obj}

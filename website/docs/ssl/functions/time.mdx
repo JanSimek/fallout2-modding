@@ -9,112 +9,6 @@ tags: [vanilla]
 
 Functions for managing game time, delays, and timed events.
 
-## game_time <span class="tag-vanilla">vanilla</span> {#game_time}
-
-```ssl
-int game_time
-```
-
-Returns the current game time in ticks.
-
-**Returns:** `int` - Time in ticks
-
-
-<FnRef fn="game_time" />
----
-
-## game_time_hour <span class="tag-vanilla">vanilla</span> {#game_time_hour}
-
-```ssl
-int game_time_hour
-```
-
-Returns the current hour of the day in a normal format without the colon. For example, 721 means 7:21 AM.
-
-**Returns:** `int` - Time (e.g., 721 for 7:21 AM, 1430 for 2:30 PM)
-
-**Example:**
-```ssl
-variable hour;
-hour := game_time_hour;
-if (hour >= 600 and hour < 1800) then begin
-    display_msg("It's daytime.");
-end else begin
-    display_msg("It's nighttime.");
-end
-```
-
-
-<FnRef fn="game_time_hour" />
----
-
-## game_time_advance <span class="tag-vanilla">vanilla</span> {#game_time_advance}
-
-```ssl
-void game_time_advance(int amount)
-```
-
-Advances the current game time by a given amount of ticks.
-
-**Parameters:**
-- `amount` - Amount of ticks to advance
-
-
-<FnRef fn="game_time_advance" />
----
-
-## game_ticks <span class="tag-vanilla">vanilla</span> {#game_ticks}
-
-```ssl
-int game_ticks(int seconds)
-```
-
-Returns the number of game ticks equal to a given number of seconds.
-
-**Parameters:**
-- `seconds` - Number of seconds
-
-**Returns:** `int` - Equivalent ticks
-
-**Example:**
-```ssl
-// Wait for 5 game seconds
-variable wait_time;
-wait_time := game_ticks(5);
-```
-
-
-<FnRef fn="game_ticks" />
----
-
-## get_day <span class="tag-vanilla">vanilla</span> {#get_day}
-
-```ssl
-int get_day
-```
-
-Returns the current day of the month.
-
-**Returns:** `int` - Day (1-31)
-
-
-<FnRef fn="get_day" />
----
-
-## get_month <span class="tag-vanilla">vanilla</span> {#get_month}
-
-```ssl
-int get_month
-```
-
-Returns the current month of the year.
-
-**Returns:** `int` - Month (1-12)
-
-
-<FnRef fn="get_month" />
----
-
 ## add_timer_event <span class="tag-vanilla">vanilla</span> {#add_timer_event}
 
 ```ssl
@@ -157,19 +51,166 @@ end
 <FnRef fn="add_timer_event" />
 ---
 
-## rm_timer_event <span class="tag-vanilla">vanilla</span> {#rm_timer_event}
+## game_loaded <span class="tag-sfall">sfall</span> {#game_loaded}
 
 ```ssl
-void rm_timer_event(ObjectPtr obj)
+int game_loaded
 ```
 
-Removes (clears) all timer events hooked to a given object's script.
+Checks if a game has just been loaded. Returns 1 once per load, then 0 until the next load.
+
+**Returns:** `int` - 1 if the game was just loaded, 0 otherwise
+
+<FnRef fn="game_loaded" />
+
+---
+
+## game_ticks <span class="tag-vanilla">vanilla</span> {#game_ticks}
+
+```ssl
+int game_ticks(int seconds)
+```
+
+Returns the number of game ticks equal to a given number of seconds.
 
 **Parameters:**
-- `obj` - Object whose timers to remove
+- `seconds` - Number of seconds
+
+**Returns:** `int` - Equivalent ticks
+
+**Example:**
+```ssl
+// Wait for 5 game seconds
+variable wait_time;
+wait_time := game_ticks(5);
+```
 
 
-<FnRef fn="rm_timer_event" />
+<FnRef fn="game_ticks" />
+---
+
+## game_time <span class="tag-vanilla">vanilla</span> {#game_time}
+
+```ssl
+int game_time
+```
+
+Returns the current game time in ticks.
+
+**Returns:** `int` - Time in ticks
+
+
+<FnRef fn="game_time" />
+---
+
+## game_time_advance <span class="tag-vanilla">vanilla</span> {#game_time_advance}
+
+```ssl
+void game_time_advance(int amount)
+```
+
+Advances the current game time by a given amount of ticks.
+
+**Parameters:**
+- `amount` - Amount of ticks to advance
+
+
+<FnRef fn="game_time_advance" />
+---
+
+## game_time_hour <span class="tag-vanilla">vanilla</span> {#game_time_hour}
+
+```ssl
+int game_time_hour
+```
+
+Returns the current hour of the day in a normal format without the colon. For example, 721 means 7:21 AM.
+
+**Returns:** `int` - Time (e.g., 721 for 7:21 AM, 1430 for 2:30 PM)
+
+**Example:**
+```ssl
+variable hour;
+hour := game_time_hour;
+if (hour >= 600 and hour < 1800) then begin
+    display_msg("It's daytime.");
+end else begin
+    display_msg("It's nighttime.");
+end
+```
+
+
+<FnRef fn="game_time_hour" />
+---
+
+## get_day <span class="tag-vanilla">vanilla</span> {#get_day}
+
+```ssl
+int get_day
+```
+
+Returns the current day of the month.
+
+**Returns:** `int` - Day (1-31)
+
+
+<FnRef fn="get_day" />
+---
+
+## get_game_mode <span class="tag-sfall">sfall</span> {#get_game_mode}
+
+```ssl
+int get_game_mode
+```
+
+Returns the current game mode as a bitmask.
+
+**Returns:** `int` - The current game mode flags
+
+<FnRef fn="get_game_mode" />
+
+---
+
+## get_month <span class="tag-vanilla">vanilla</span> {#get_month}
+
+```ssl
+int get_month
+```
+
+Returns the current month of the year.
+
+**Returns:** `int` - Month (1-12)
+
+
+<FnRef fn="get_month" />
+---
+
+## get_uptime <span class="tag-sfall">sfall</span> {#get_uptime}
+
+```ssl
+int get_uptime
+```
+
+Returns the number of milliseconds since the game started.
+
+**Returns:** `int` - The uptime in milliseconds
+
+<FnRef fn="get_uptime" />
+
+---
+
+## get_year <span class="tag-sfall">sfall</span> {#get_year}
+
+```ssl
+int get_year
+```
+
+Returns the current in-game year.
+
+**Returns:** `int` - The current year
+
+<FnRef fn="get_year" />
+
 ---
 
 ## rm_fixed_timer_event <span class="tag-vanilla">vanilla</span> {#rm_fixed_timer_event}
@@ -189,3 +230,19 @@ Removes (clears) all timer events hooked to a given object's script that have a 
 // Remove only patrol timers, keep other timers
 rm_fixed_timer_event(self_obj, TIMER_PATROL);
 ```
+
+---
+
+## rm_timer_event <span class="tag-vanilla">vanilla</span> {#rm_timer_event}
+
+```ssl
+void rm_timer_event(ObjectPtr obj)
+```
+
+Removes (clears) all timer events hooked to a given object's script.
+
+**Parameters:**
+- `obj` - Object whose timers to remove
+
+
+<FnRef fn="rm_timer_event" />

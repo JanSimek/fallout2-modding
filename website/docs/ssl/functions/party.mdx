@@ -32,19 +32,42 @@ end
 <FnRef fn="party_add" />
 ---
 
-## party_remove <span class="tag-vanilla">vanilla</span> {#party_remove}
+## party_member_count <span class="tag-vanilla">vanilla</span> {#party_member_count}
 
 ```ssl
-void party_remove(ObjectPtr who)
+int party_member_count(int countHidden)
 ```
 
-Removes a given critter from the list of party members. This will also change those objects so that certain object- and map-level things will respond differently to them.
+Returns the count of currently in-party party members.
 
 **Parameters:**
-- `who` - Critter to remove from party
+- `countHidden` - Whether to count hidden members (hangers-on): 0 = no, 1 = yes
 
+**Returns:** `int` - Party member count
 
-<FnRef fn="party_remove" />
+**Example:**
+```ssl
+variable count;
+count := party_member_count(0);
+display_msg("You have " + count + " companions.");
+```
+
+---
+
+## party_member_list <span class="tag-sfall">sfall</span> {#party_member_list}
+
+```ssl
+int party_member_list(int includeHidden)
+```
+
+Returns an array of all current party members.
+
+**Parameters:**
+- `includeHidden` - Whether to include hidden party members (1 = yes, 0 = no)
+
+**Returns:** `int` - Array ID containing party member objects
+
+<FnRef fn="party_member_list" />
 ---
 
 ## party_member_obj <span class="tag-vanilla">vanilla</span> {#party_member_obj}
@@ -75,22 +98,16 @@ end
 <FnRef fn="party_member_obj" />
 ---
 
-## party_member_count <span class="tag-vanilla">vanilla</span> {#party_member_count}
+## party_remove <span class="tag-vanilla">vanilla</span> {#party_remove}
 
 ```ssl
-int party_member_count(int countHidden)
+void party_remove(ObjectPtr who)
 ```
 
-Returns the count of currently in-party party members.
+Removes a given critter from the list of party members. This will also change those objects so that certain object- and map-level things will respond differently to them.
 
 **Parameters:**
-- `countHidden` - Whether to count hidden members (hangers-on): 0 = no, 1 = yes
+- `who` - Critter to remove from party
 
-**Returns:** `int` - Party member count
 
-**Example:**
-```ssl
-variable count;
-count := party_member_count(0);
-display_msg("You have " + count + " companions.");
-```
+<FnRef fn="party_remove" />

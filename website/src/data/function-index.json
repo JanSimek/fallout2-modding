@@ -3,8 +3,8 @@
     "repo": "fallout2-ce/fallout2-ce",
     "commit": "58b811f2ae9402bb613726ed56a886c3151e9b24",
     "shortCommit": "58b811f",
-    "generatedAt": "2026-01-17T16:29:22.583Z",
-    "functionCount": 352
+    "generatedAt": "2026-01-17T20:56:17.300Z",
+    "functionCount": 454
   },
   "functions": {
     "opNoop": {
@@ -3016,13 +3016,12 @@
       "cppName": "opGetProtoData"
     },
     "get_proto_data": {
-      "file": "src/interpreter_extra.cc",
-      "startLine": 2962,
-      "endLine": 2981,
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 411,
+      "endLine": 433,
       "kind": "opcode",
       "commit": "58b811f",
-      "cppName": "opGetProtoData",
-      "sslName": "proto_data"
+      "cppName": "op_get_proto_data"
     },
     "opGetMessageString": {
       "file": "src/interpreter_extra.cc",
@@ -6571,6 +6570,1656 @@
       "endLine": 235,
       "kind": "function",
       "commit": "58b811f"
+    },
+    "op_get_ini_setting": {
+      "file": "src/sfall_ini.h",
+      "startLine": 30,
+      "endLine": 36,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_ini_setting": {
+      "file": "src/sfall_ini.h",
+      "startLine": 30,
+      "endLine": 36,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_ini_setting"
+    },
+    "op_get_ini_string": {
+      "file": "src/sfall_ini.h",
+      "startLine": 31,
+      "endLine": 36,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_ini_string": {
+      "file": "src/sfall_ini.h",
+      "startLine": 31,
+      "endLine": 36,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_ini_string"
+    },
+    "op_read_byte": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 56,
+      "endLine": 71,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "read_byte": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 56,
+      "endLine": 71,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_read_byte"
+    },
+    "op_set_pc_base_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 74,
+      "endLine": 82,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_pc_base_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 74,
+      "endLine": 82,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_pc_base_stat"
+    },
+    "op_set_critter_base_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 84,
+      "endLine": 93,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_critter_base_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 84,
+      "endLine": 93,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_critter_base_stat"
+    },
+    "op_set_pc_bonus_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 96,
+      "endLine": 104,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_pc_extra_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 96,
+      "endLine": 104,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_pc_bonus_stat"
+    },
+    "set_pc_bonus_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 96,
+      "endLine": 104,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_pc_bonus_stat",
+      "sslName": "set_pc_extra_stat"
+    },
+    "op_set_critter_extra_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 106,
+      "endLine": 115,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_critter_extra_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 106,
+      "endLine": 115,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_critter_extra_stat"
+    },
+    "op_get_pc_base_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 118,
+      "endLine": 125,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_pc_base_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 118,
+      "endLine": 125,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_pc_base_stat"
+    },
+    "op_get_critter_base_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 127,
+      "endLine": 135,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_critter_base_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 127,
+      "endLine": 135,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_critter_base_stat"
+    },
+    "op_get_pc_bonus_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 138,
+      "endLine": 143,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_pc_extra_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 138,
+      "endLine": 143,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_pc_bonus_stat"
+    },
+    "get_pc_bonus_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 138,
+      "endLine": 143,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_pc_bonus_stat",
+      "sslName": "get_pc_extra_stat"
+    },
+    "op_get_critter_extra_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 145,
+      "endLine": 151,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_critter_extra_stat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 145,
+      "endLine": 151,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_critter_extra_stat"
+    },
+    "op_tap_key": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 154,
+      "endLine": 158,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "tap_key": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 154,
+      "endLine": 158,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_tap_key"
+    },
+    "op_get_year": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 161,
+      "endLine": 166,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_year": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 161,
+      "endLine": 166,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_year"
+    },
+    "op_game_loaded": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 169,
+      "endLine": 173,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "game_loaded": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 169,
+      "endLine": 173,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_game_loaded"
+    },
+    "op_set_global_script_repeat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 176,
+      "endLine": 180,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_global_script_repeat": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 176,
+      "endLine": 180,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_global_script_repeat"
+    },
+    "op_key_pressed": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 183,
+      "endLine": 188,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "key_pressed": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 183,
+      "endLine": 188,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_key_pressed"
+    },
+    "op_in_world_map": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 191,
+      "endLine": 194,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "in_world_map": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 191,
+      "endLine": 194,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_in_world_map"
+    },
+    "op_force_encounter": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 197,
+      "endLine": 201,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "force_encounter": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 197,
+      "endLine": 201,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_force_encounter"
+    },
+    "op_set_world_map_pos": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 204,
+      "endLine": 209,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_world_map_pos": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 204,
+      "endLine": 209,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_world_map_pos"
+    },
+    "op_get_world_map_x_pos": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 212,
+      "endLine": 217,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_world_map_x_pos": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 212,
+      "endLine": 217,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_world_map_x_pos"
+    },
+    "op_get_world_map_y_pos": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 220,
+      "endLine": 225,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_world_map_y_pos": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 220,
+      "endLine": 225,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_world_map_y_pos"
+    },
+    "op_set_map_time_multi": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 228,
+      "endLine": 232,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_map_time_multi": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 228,
+      "endLine": 232,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_map_time_multi"
+    },
+    "op_active_hand": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 235,
+      "endLine": 238,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "active_hand": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 235,
+      "endLine": 238,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_active_hand"
+    },
+    "op_toggle_active_hand": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 241,
+      "endLine": 244,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "toggle_active_hand": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 241,
+      "endLine": 244,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_toggle_active_hand"
+    },
+    "op_set_global_script_type": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 247,
+      "endLine": 251,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_global_script_type": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 247,
+      "endLine": 251,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_global_script_type"
+    },
+    "op_set_sfall_global": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 254,
+      "endLine": 265,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_sfall_global": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 254,
+      "endLine": 265,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_sfall_global"
+    },
+    "op_get_sfall_global_int": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 268,
+      "endLine": 281,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_sfall_global_int": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 268,
+      "endLine": 281,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_sfall_global_int"
+    },
+    "op_get_game_mode": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 284,
+      "endLine": 287,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_game_mode": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 284,
+      "endLine": 287,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_game_mode"
+    },
+    "op_get_uptime": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 290,
+      "endLine": 293,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_uptime": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 290,
+      "endLine": 293,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_uptime"
+    },
+    "op_set_car_current_town": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 296,
+      "endLine": 300,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_car_current_town": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 296,
+      "endLine": 300,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_car_current_town"
+    },
+    "op_get_bodypart_hit_modifier": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 303,
+      "endLine": 307,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_bodypart_hit_modifier": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 303,
+      "endLine": 307,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_bodypart_hit_modifier"
+    },
+    "op_set_bodypart_hit_modifier": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 310,
+      "endLine": 315,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_bodypart_hit_modifier": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 310,
+      "endLine": 315,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_bodypart_hit_modifier"
+    },
+    "op_sqrt": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 318,
+      "endLine": 322,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sqrt": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 318,
+      "endLine": 322,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_sqrt"
+    },
+    "op_abs": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 325,
+      "endLine": 334,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "abs": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 325,
+      "endLine": 334,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_abs"
+    },
+    "op_sin": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 337,
+      "endLine": 341,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sin": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 337,
+      "endLine": 341,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_sin"
+    },
+    "op_cos": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 344,
+      "endLine": 348,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "cos": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 344,
+      "endLine": 348,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_cos"
+    },
+    "op_tan": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 351,
+      "endLine": 355,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "tan": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 351,
+      "endLine": 355,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_tan"
+    },
+    "op_arctan": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 358,
+      "endLine": 363,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "arctan": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 358,
+      "endLine": 363,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_arctan"
+    },
+    "op_power": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 366,
+      "endLine": 380,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "power": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 366,
+      "endLine": 380,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_power"
+    },
+    "op_log": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 383,
+      "endLine": 387,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "log": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 383,
+      "endLine": 387,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_log"
+    },
+    "op_ceil": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 390,
+      "endLine": 394,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "ceil": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 390,
+      "endLine": 394,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_ceil"
+    },
+    "op_exponent": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 397,
+      "endLine": 401,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "exp": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 397,
+      "endLine": 401,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_exponent"
+    },
+    "exponent": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 397,
+      "endLine": 401,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_exponent",
+      "sslName": "exp"
+    },
+    "op_get_script": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 404,
+      "endLine": 408,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_script": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 404,
+      "endLine": 408,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_script"
+    },
+    "op_get_proto_data": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 411,
+      "endLine": 433,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "op_set_proto_data": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 436,
+      "endLine": 458,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_proto_data": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 436,
+      "endLine": 458,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_proto_data"
+    },
+    "op_set_self": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 461,
+      "endLine": 471,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_self": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 461,
+      "endLine": 471,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_self"
+    },
+    "op_list_begin": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 474,
+      "endLine": 479,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "list_begin": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 474,
+      "endLine": 479,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_list_begin"
+    },
+    "op_list_next": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 482,
+      "endLine": 487,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "list_next": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 482,
+      "endLine": 487,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_list_next"
+    },
+    "op_list_end": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 490,
+      "endLine": 494,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "list_end": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 490,
+      "endLine": 494,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_list_end"
+    },
+    "op_get_version_major": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 497,
+      "endLine": 500,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfall_ver_major": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 497,
+      "endLine": 500,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_version_major"
+    },
+    "get_version_major": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 497,
+      "endLine": 500,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_version_major",
+      "sslName": "sfall_ver_major"
+    },
+    "op_get_version_minor": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 503,
+      "endLine": 506,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfall_ver_minor": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 503,
+      "endLine": 506,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_version_minor"
+    },
+    "get_version_minor": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 503,
+      "endLine": 506,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_version_minor",
+      "sslName": "sfall_ver_minor"
+    },
+    "op_get_version_patch": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 509,
+      "endLine": 512,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfall_ver_build": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 509,
+      "endLine": 512,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_version_patch"
+    },
+    "get_version_patch": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 509,
+      "endLine": 512,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_version_patch",
+      "sslName": "sfall_ver_build"
+    },
+    "op_get_weapon_ammo_pid": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 515,
+      "endLine": 534,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_weapon_ammo_pid": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 515,
+      "endLine": 534,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_weapon_ammo_pid"
+    },
+    "op_set_weapon_ammo_pid": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 544,
+      "endLine": 558,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_weapon_ammo_pid": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 544,
+      "endLine": 558,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_weapon_ammo_pid"
+    },
+    "op_get_weapon_ammo_count": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 561,
+      "endLine": 582,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_weapon_ammo_count": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 561,
+      "endLine": 582,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_weapon_ammo_count"
+    },
+    "op_set_weapon_ammo_count": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 585,
+      "endLine": 604,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_weapon_ammo_count": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 585,
+      "endLine": 604,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_weapon_ammo_count"
+    },
+    "op_get_mouse_x": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 607,
+      "endLine": 613,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_mouse_x": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 607,
+      "endLine": 613,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_mouse_x"
+    },
+    "op_get_mouse_y": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 616,
+      "endLine": 622,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_mouse_y": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 616,
+      "endLine": 622,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_mouse_y"
+    },
+    "op_get_mouse_buttons": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 625,
+      "endLine": 630,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_mouse_buttons": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 625,
+      "endLine": 630,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_mouse_buttons"
+    },
+    "op_get_screen_width": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 633,
+      "endLine": 636,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_screen_width": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 633,
+      "endLine": 636,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_screen_width"
+    },
+    "op_get_screen_height": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 639,
+      "endLine": 642,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_screen_height": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 639,
+      "endLine": 642,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_screen_height"
+    },
+    "op_create_message_window": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 645,
+      "endLine": 683,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "create_message_window": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 645,
+      "endLine": 683,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_create_message_window"
+    },
+    "op_get_attack_type": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 686,
+      "endLine": 694,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_attack_type": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 686,
+      "endLine": 694,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_attack_type"
+    },
+    "op_force_encounter_with_flags": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 697,
+      "endLine": 702,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "force_encounter_with_flags": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 697,
+      "endLine": 702,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_force_encounter_with_flags"
+    },
+    "op_list_as_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 705,
+      "endLine": 710,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "list_as_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 705,
+      "endLine": 710,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_list_as_array"
+    },
+    "op_parse_int": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 713,
+      "endLine": 717,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "atoi": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 713,
+      "endLine": 717,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_parse_int"
+    },
+    "parse_int": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 713,
+      "endLine": 717,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_parse_int",
+      "sslName": "atoi"
+    },
+    "op_atof": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 720,
+      "endLine": 724,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "atof": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 720,
+      "endLine": 724,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_atof"
+    },
+    "op_tile_under_cursor": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 727,
+      "endLine": 735,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "tile_under_cursor": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 727,
+      "endLine": 735,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_tile_under_cursor"
+    },
+    "op_substr": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 738,
+      "endLine": 782,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "substr": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 738,
+      "endLine": 782,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_substr"
+    },
+    "op_get_string_length": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 785,
+      "endLine": 789,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "strlen": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 785,
+      "endLine": 789,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_string_length"
+    },
+    "get_string_length": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 785,
+      "endLine": 789,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_string_length",
+      "sslName": "strlen"
+    },
+    "op_explosions_metarule": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 792,
+      "endLine": 847,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "metarule2_explosions": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 792,
+      "endLine": 847,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_explosions_metarule"
+    },
+    "explosions_metarule": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 792,
+      "endLine": 847,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_explosions_metarule",
+      "sslName": "metarule2_explosions"
+    },
+    "op_get_message": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 850,
+      "endLine": 856,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "message_str_game": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 850,
+      "endLine": 856,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_message"
+    },
+    "get_message": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 850,
+      "endLine": 856,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_message",
+      "sslName": "message_str_game"
+    },
+    "op_get_array_key": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 859,
+      "endLine": 865,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "array_key": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 859,
+      "endLine": 865,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_array_key"
+    },
+    "get_array_key": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 859,
+      "endLine": 865,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_array_key",
+      "sslName": "array_key"
+    },
+    "op_create_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 868,
+      "endLine": 874,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "create_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 868,
+      "endLine": 874,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_create_array"
+    },
+    "op_temp_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 877,
+      "endLine": 883,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "temp_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 877,
+      "endLine": 883,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_temp_array"
+    },
+    "op_fix_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 886,
+      "endLine": 890,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "fix_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 886,
+      "endLine": 890,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_fix_array"
+    },
+    "op_string_split": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 893,
+      "endLine": 899,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "string_split": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 893,
+      "endLine": 899,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_string_split"
+    },
+    "op_set_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 902,
+      "endLine": 908,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "set_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 902,
+      "endLine": 908,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_set_array"
+    },
+    "op_stack_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 911,
+      "endLine": 917,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "arrayexpr": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 911,
+      "endLine": 917,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_stack_array"
+    },
+    "stack_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 911,
+      "endLine": 917,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_stack_array",
+      "sslName": "arrayexpr"
+    },
+    "op_scan_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 920,
+      "endLine": 926,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "scan_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 920,
+      "endLine": 926,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_scan_array"
+    },
+    "op_get_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 929,
+      "endLine": 949,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "get_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 929,
+      "endLine": 949,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_get_array"
+    },
+    "op_free_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 952,
+      "endLine": 956,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "free_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 952,
+      "endLine": 956,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_free_array"
+    },
+    "op_len_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 959,
+      "endLine": 963,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "len_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 959,
+      "endLine": 963,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_len_array"
+    },
+    "op_resize_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 966,
+      "endLine": 971,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "resize_array": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 966,
+      "endLine": 971,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_resize_array"
+    },
+    "op_party_member_list": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 974,
+      "endLine": 983,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "party_member_list": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 974,
+      "endLine": 983,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_party_member_list"
+    },
+    "op_type_of": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 986,
+      "endLine": 996,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "type_of": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 986,
+      "endLine": 996,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_type_of"
+    },
+    "op_round": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 999,
+      "endLine": 1003,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "round": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 999,
+      "endLine": 1003,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_round"
+    },
+    "op_make_straight_path": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1028,
+      "endLine": 1039,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_blocking_line": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1028,
+      "endLine": 1039,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_make_straight_path"
+    },
+    "make_straight_path": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1028,
+      "endLine": 1039,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_make_straight_path",
+      "sslName": "obj_blocking_line"
+    },
+    "op_obj_blocking_at": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1042,
+      "endLine": 1058,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "obj_blocking_tile": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1042,
+      "endLine": 1058,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_obj_blocking_at"
+    },
+    "obj_blocking_at": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1042,
+      "endLine": 1058,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_obj_blocking_at",
+      "sslName": "obj_blocking_tile"
+    },
+    "op_art_exists": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1061,
+      "endLine": 1065,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "art_exists": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1061,
+      "endLine": 1065,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_art_exists"
+    },
+    "op_sfall_func0": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1068,
+      "endLine": 1071,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfall_func0": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1068,
+      "endLine": 1071,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_sfall_func0"
+    },
+    "op_sfall_func1": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1074,
+      "endLine": 1077,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfall_func1": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1074,
+      "endLine": 1077,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_sfall_func1"
+    },
+    "op_sfall_func2": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1080,
+      "endLine": 1083,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfall_func2": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1080,
+      "endLine": 1083,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_sfall_func2"
+    },
+    "op_sfall_func3": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1086,
+      "endLine": 1089,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfall_func3": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1086,
+      "endLine": 1089,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_sfall_func3"
+    },
+    "op_sfall_func4": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1092,
+      "endLine": 1095,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfall_func4": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1092,
+      "endLine": 1095,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_sfall_func4"
+    },
+    "op_sfall_func5": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1098,
+      "endLine": 1101,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfall_func5": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1098,
+      "endLine": 1101,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_sfall_func5"
+    },
+    "op_sfall_func6": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1104,
+      "endLine": 1107,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfall_func6": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1116,
+      "endLine": 1119,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_sfall_func8"
+    },
+    "op_sfall_func7": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1110,
+      "endLine": 1113,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfall_func7": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1110,
+      "endLine": 1113,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_sfall_func7",
+      "sslName": "sfall_func6"
+    },
+    "op_sfall_func8": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1116,
+      "endLine": 1119,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sfall_func8": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1116,
+      "endLine": 1119,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_sfall_func8",
+      "sslName": "sfall_func6"
+    },
+    "op_div": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1122,
+      "endLine": 1141,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "div": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1122,
+      "endLine": 1141,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_div"
+    },
+    "op_sprintf": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1143,
+      "endLine": 1150,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "sprintf": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1143,
+      "endLine": 1150,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_sprintf"
+    },
+    "op_charcode": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1152,
+      "endLine": 1160,
+      "kind": "opcode",
+      "commit": "58b811f"
+    },
+    "charcode": {
+      "file": "src/sfall_opcodes.cc",
+      "startLine": 1152,
+      "endLine": 1160,
+      "kind": "opcode",
+      "commit": "58b811f",
+      "cppName": "op_charcode"
     }
   }
 }

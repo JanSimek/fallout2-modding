@@ -9,27 +9,6 @@ tags: [vanilla]
 
 Functions for initiating combat, attacking, and managing combat state.
 
-## combat_is_initialized <span class="tag-vanilla">vanilla</span> {#combat_is_initialized}
-
-```ssl
-int combat_is_initialized
-```
-
-Returns True if the system is currently in combat mode, False otherwise.
-
-**Returns:** `int` - Boolean
-
-**Example:**
-```ssl
-if (combat_is_initialized) then begin
-    display_msg("Combat is active!");
-end
-```
-
-
-<FnRef fn="combat_is_initialized" />
----
-
 ## attack <span class="tag-vanilla">vanilla</span> {#attack}
 
 ```ssl
@@ -91,6 +70,183 @@ Sets up an attack from one object on another, without expecting this script to b
 <FnRef fn="attack_setup" />
 ---
 
+## combat_difficulty <span class="tag-vanilla">vanilla</span> {#combat_difficulty}
+
+```ssl
+int combat_difficulty
+```
+
+Returns the current Combat difficulty level of the game (defined in the options screen).
+
+**Returns:** `int` - Difficulty level constant
+
+
+<FnRef fn="combat_difficulty" />
+
+---
+
+## combat_is_initialized <span class="tag-vanilla">vanilla</span> {#combat_is_initialized}
+
+```ssl
+int combat_is_initialized
+```
+
+Returns True if the system is currently in combat mode, False otherwise.
+
+**Returns:** `int` - Boolean
+
+**Example:**
+```ssl
+if (combat_is_initialized) then begin
+    display_msg("Combat is active!");
+end
+```
+
+
+<FnRef fn="combat_is_initialized" />
+---
+
+## get_attack_type <span class="tag-sfall">sfall</span> {#get_attack_type}
+
+```ssl
+int get_attack_type
+```
+
+Returns the current attack type/mode.
+
+**Returns:** `int` - The attack type, or -1 if not in combat
+
+<FnRef fn="get_attack_type" />
+
+---
+
+## get_bodypart_hit_modifier <span class="tag-sfall">sfall</span> {#get_bodypart_hit_modifier}
+
+```ssl
+int get_bodypart_hit_modifier(int bodypart)
+```
+
+Gets the hit chance penalty for targeting a specific body part.
+
+**Parameters:**
+- `bodypart` - The body part constant
+
+**Returns:** `int` - The hit chance penalty
+
+<FnRef fn="get_bodypart_hit_modifier" />
+
+---
+
+## get_weapon_ammo_count <span class="tag-sfall">sfall</span> {#get_weapon_ammo_count}
+
+```ssl
+int get_weapon_ammo_count(ObjectPtr weapon)
+```
+
+Gets the current ammo count in a weapon.
+
+**Parameters:**
+- `weapon` - The weapon object
+
+**Returns:** `int` - The ammo count
+
+<FnRef fn="get_weapon_ammo_count" />
+
+---
+
+## get_weapon_ammo_pid <span class="tag-sfall">sfall</span> {#get_weapon_ammo_pid}
+
+```ssl
+int get_weapon_ammo_pid(ObjectPtr weapon)
+```
+
+Gets the PID of the ammo type currently loaded in a weapon.
+
+**Parameters:**
+- `weapon` - The weapon object
+
+**Returns:** `int` - The ammo PID, or -1 if invalid
+
+<FnRef fn="get_weapon_ammo_pid" />
+
+---
+
+## metarule2_explosions <span class="tag-sfall">sfall</span> {#metarule2_explosions}
+
+```ssl
+any metarule2_explosions(int metarule, int param1, int param2)
+```
+
+Controls various explosion-related settings.
+
+**Parameters:**
+- `metarule` - The explosion metarule constant:
+  - 1: EXPL_FORCE_EXPLOSION_PATTERN - Set explosion pattern
+  - 2: EXPL_FORCE_EXPLOSION_ART - Set explosion art FID
+  - 3: EXPL_FORCE_EXPLOSION_RADIUS - Set explosion radius
+  - 4: EXPL_FORCE_EXPLOSION_DMGTYPE - Set explosion damage type
+  - 5: EXPL_STATIC_EXPLOSION_RADIUS - Set grenade/rocket radius
+  - 6: EXPL_GET_EXPLOSION_DAMAGE - Get dynamite/plastic explosive damage
+  - 7: EXPL_SET_DYNAMITE_EXPLOSION_DAMAGE - Set dynamite damage
+  - 8: EXPL_SET_PLASTIC_EXPLOSION_DAMAGE - Set plastic explosive damage
+  - 9: EXPL_SET_EXPLOSION_MAX_TARGET - Set max targets for explosions
+- `param1` - First parameter (meaning depends on metarule)
+- `param2` - Second parameter (meaning depends on metarule)
+
+**Returns:** `any` - Result depends on the metarule used
+
+<FnRef fn="metarule2_explosions" />
+
+---
+
+## set_bodypart_hit_modifier <span class="tag-sfall">sfall</span> {#set_bodypart_hit_modifier}
+
+```ssl
+void set_bodypart_hit_modifier(int bodypart, int penalty)
+```
+
+Sets the hit chance penalty for targeting a specific body part.
+
+**Parameters:**
+- `bodypart` - The body part constant
+- `penalty` - The new hit chance penalty
+
+<FnRef fn="set_bodypart_hit_modifier" />
+
+---
+
+## set_weapon_ammo_count <span class="tag-sfall">sfall</span> {#set_weapon_ammo_count}
+
+```ssl
+void set_weapon_ammo_count(ObjectPtr weapon, int count)
+```
+
+Sets the ammo count in a weapon.
+
+**Parameters:**
+- `weapon` - The weapon object
+- `count` - The new ammo count
+
+<FnRef fn="set_weapon_ammo_count" />
+
+---
+
+## set_weapon_ammo_pid <span class="tag-sfall">sfall</span> {#set_weapon_ammo_pid}
+
+```ssl
+void set_weapon_ammo_pid(ObjectPtr weapon, int ammoPID)
+```
+
+Sets the PID of the ammo type loaded in a weapon.
+
+**Parameters:**
+- `weapon` - The weapon object
+- `ammoPID` - The new ammo PID
+
+<FnRef fn="set_weapon_ammo_pid" />
+
+---
+
 ## terminate_combat <span class="tag-vanilla">vanilla</span> {#terminate_combat}
 
 ```ssl
@@ -105,17 +261,3 @@ Use with caution! This doesn't prevent another (or even the same) script from re
 
 
 <FnRef fn="terminate_combat" />
----
-
-## combat_difficulty <span class="tag-vanilla">vanilla</span> {#combat_difficulty}
-
-```ssl
-int combat_difficulty
-```
-
-Returns the current Combat difficulty level of the game (defined in the options screen).
-
-**Returns:** `int` - Difficulty level constant
-
-
-<FnRef fn="combat_difficulty" />

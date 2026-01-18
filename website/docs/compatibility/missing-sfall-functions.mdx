@@ -1,0 +1,425 @@
+---
+sidebar_position: 1
+title: Missing Sfall Functions
+description: Sfall functions not yet implemented in fallout2-ce
+---
+
+# Missing Sfall Functions
+
+This page lists sfall functions that are **not yet implemented** in fallout2-ce but are used by mods like the [Fallout 2 Unofficial Patch](https://github.com/BGforgeNet/Fallout2_Unofficial_Patch).
+
+## Status Legend
+
+- **Used in UP** - Function is used by the Unofficial Patch
+- **Not Implemented** - Function exists in sfall but not in fallout2-ce
+
+---
+
+## Hooks System
+
+The hooks system allows scripts to intercept and modify game events. This is a major missing feature that blocks many mods.
+
+### register_hook_proc <span class="tag-missing">Not Implemented</span> <span class="tag-used">Used in UP</span> {#register_hook_proc}
+
+```ssl
+void register_hook_proc(int hook, procedure proc)
+```
+
+Registers a procedure to handle a specific hook event. When the procedure is 0, it unregisters the hook.
+
+**Used in:**
+- `gl_k_8ball.ssl` - Inventory move hook for magic 8-ball fix
+- `gl_k_dogmeat_fix.ssl` - Game mode change hook for Dogmeat AI fix
+
+---
+
+### register_hook <span class="tag-missing">Not Implemented</span> {#register_hook}
+
+```ssl
+void register_hook(int hook)
+```
+
+Registers the current script's `start` procedure to handle a specific hook event.
+
+---
+
+### get_sfall_arg <span class="tag-missing">Not Implemented</span> <span class="tag-used">Used in UP</span> {#get_sfall_arg}
+
+```ssl
+any get_sfall_arg
+```
+
+Gets the next argument passed to a hook procedure. Must be called in the order arguments were passed.
+
+**Used in:**
+- `gl_k_8ball.ssl` - To get slot and item from HOOK_INVENTORYMOVE
+
+---
+
+### get_sfall_arg_at <span class="tag-missing">Not Implemented</span> <span class="tag-used">Used in UP</span> {#get_sfall_arg_at}
+
+```ssl
+any get_sfall_arg_at(int index)
+```
+
+Gets a specific argument by index from a hook procedure.
+
+**Used in:**
+- `gl_k_dogmeat_fix.ssl` - To get previous game mode from HOOK_GAMEMODECHANGE
+
+**Workaround:** Available via metarule but the metarule is also not implemented.
+
+---
+
+### get_sfall_args <span class="tag-missing">Not Implemented</span> {#get_sfall_args}
+
+```ssl
+array get_sfall_args
+```
+
+Gets all arguments passed to a hook procedure as an array.
+
+---
+
+### set_sfall_return <span class="tag-missing">Not Implemented</span> {#set_sfall_return}
+
+```ssl
+void set_sfall_return(any value)
+```
+
+Sets the return value for a hook, allowing scripts to modify game behavior.
+
+---
+
+### set_sfall_arg <span class="tag-missing">Not Implemented</span> {#set_sfall_arg}
+
+```ssl
+void set_sfall_arg(int argnum, int value)
+```
+
+Modifies a hook argument value (for hooks that support it).
+
+---
+
+### init_hook <span class="tag-missing">Not Implemented</span> {#init_hook}
+
+```ssl
+int init_hook
+```
+
+Returns 1 if the script was started as a hook handler, 0 otherwise.
+
+---
+
+### Hook Constants {#hook_constants}
+
+The following hook constants are used but not supported:
+
+| Hook | Opcode | Description |
+|------|--------|-------------|
+| `HOOK_INVENTORYMOVE` | | Triggered when items are moved in inventory |
+| `HOOK_GAMEMODECHANGE` | | Triggered when game mode changes (combat, dialog, etc.) |
+
+---
+
+## Filesystem Functions
+
+These functions allow scripts to read and modify game files at runtime.
+
+### fs_copy <span class="tag-missing">Not Implemented</span> <span class="tag-used">Used in UP</span> {#fs_copy}
+
+```ssl
+int fs_copy(string path, string source)
+```
+
+Creates a virtual copy of a file for modification.
+
+**Used in:**
+- `gl_k_walking_speed.ssl` - To modify FRM animation files
+- `gl_k_goris_derobing.ssl` - To modify Goris transformation FRMs
+- `vccasidy.ssl` - To modify Cassidy's head FRM
+
+---
+
+### fs_seek <span class="tag-missing">Not Implemented</span> <span class="tag-used">Used in UP</span> {#fs_seek}
+
+```ssl
+void fs_seek(int id, int pos)
+```
+
+Seeks to a position in a virtual file.
+
+---
+
+### fs_read_short <span class="tag-missing">Not Implemented</span> <span class="tag-used">Used in UP</span> {#fs_read_short}
+
+```ssl
+int fs_read_short(int id)
+```
+
+Reads a 16-bit integer from a virtual file.
+
+---
+
+### fs_write_short <span class="tag-missing">Not Implemented</span> <span class="tag-used">Used in UP</span> {#fs_write_short}
+
+```ssl
+void fs_write_short(int id, int data)
+```
+
+Writes a 16-bit integer to a virtual file.
+
+---
+
+### Other Filesystem Functions <span class="tag-missing">Not Implemented</span> {#other_fs}
+
+| Function | Description |
+|----------|-------------|
+| `fs_create(path, size)` | Creates a new virtual file |
+| `fs_find(path)` | Finds an existing virtual file |
+| `fs_write_byte(id, data)` | Writes a byte |
+| `fs_write_int(id, data)` | Writes a 32-bit integer |
+| `fs_write_float(id, data)` | Writes a float |
+| `fs_write_string(id, data)` | Writes a string |
+| `fs_write_bstring(id, data)` | Writes a byte-prefixed string |
+| `fs_read_byte(id)` | Reads a byte |
+| `fs_read_int(id)` | Reads a 32-bit integer |
+| `fs_read_float(id)` | Reads a float |
+| `fs_delete(id)` | Deletes a virtual file |
+| `fs_size(id)` | Gets file size |
+| `fs_pos(id)` | Gets current position |
+| `fs_resize(id, size)` | Resizes a file |
+
+---
+
+## Array Functions
+
+Some array manipulation functions are missing.
+
+### array_push <span class="tag-missing">Not Implemented</span> <span class="tag-used">Used in UP</span> {#array_push}
+
+```ssl
+void array_push(int arrayID, any value)
+```
+
+Appends a value to the end of an array.
+
+**Used in:**
+- `wsterm4b.ssl` - Sierra Army Depot terminal script
+
+**Workaround:** Can be implemented as:
+```ssl
+procedure array_push(variable arr, variable val) begin
+    resize_array(arr, len_array(arr) + 1);
+    set_array(arr, len_array(arr) - 1, val);
+end
+```
+
+---
+
+### is_in_array <span class="tag-missing">Not Implemented</span> <span class="tag-used">Used in UP</span> {#is_in_array}
+
+```ssl
+int is_in_array(any value, int arrayID)
+```
+
+Checks if a value exists in an array.
+
+**Used in:**
+- `upu.h` - To check if a script name is in a list of evil critters
+
+**Workaround:** Can be implemented using `scan_array`:
+```ssl
+#define is_in_array(val, arr) (scan_array(arr, val) != -1)
+```
+
+---
+
+### save_array <span class="tag-missing">Not Implemented</span> {#save_array}
+
+```ssl
+void save_array(any key, int arrayID)
+```
+
+Saves an array to persistent storage.
+
+---
+
+### load_array <span class="tag-missing">Not Implemented</span> {#load_array}
+
+```ssl
+int load_array(any key)
+```
+
+Loads an array from persistent storage.
+
+---
+
+## Party Functions
+
+### party_member_list_critters <span class="tag-missing">Not Implemented</span> <span class="tag-used">Used in UP</span> {#party_member_list_critters}
+
+This appears to be a macro or sfall language construct that returns party members as an array for use with `foreach`.
+
+**Used in:**
+- `upu.h` - Various party-related utilities
+- `rcjosh.ssl` - Redding Josh script
+- `broken2.ssl` - Broken Hills map script
+- `qipzltrm.ssl` - Enclave map script
+- `command.h` - Global commands header
+- `party2.h` - Party utilities header
+
+**Note:** The `party_member_list(includeHidden)` function IS implemented and returns an array, but `party_member_list_critters` appears to be a different construct.
+
+---
+
+## Language Constructs
+
+### foreach <span class="tag-missing">Not Implemented</span> <span class="tag-used">Used in UP</span> {#foreach}
+
+```ssl
+foreach (variable in array) begin
+    // loop body
+end
+```
+
+Iterates over elements in an array. This is a sfall compiler feature, not a runtime function.
+
+**Used extensively in:**
+- `gl_k_walking_speed.ssl`
+- `gl_k_goris_derobing.ssl`
+- `wsterm4b.ssl`
+- `upu.h`
+- Many other scripts
+
+**Note:** This requires sfall compiler support, not just runtime support.
+
+---
+
+## Script Functions
+
+### set_script <span class="tag-missing">Partially Implemented</span> <span class="tag-used">Used in UP</span> {#set_script}
+
+```ssl
+void set_script(ObjectPtr obj, int scriptID)
+```
+
+Attaches a script to an object.
+
+**Used in:**
+- `gl_k_8ball.ssl` - To fix unscripted magic 8-ball
+
+**Note:** Check current implementation status - may have limited functionality.
+
+---
+
+### remove_script <span class="tag-missing">Not Implemented</span> {#remove_script}
+
+```ssl
+void remove_script(ObjectPtr obj)
+```
+
+Removes a script from an object.
+
+---
+
+## Metarule Functions
+
+Some metarule functions (called via `sfall_func`) are not implemented:
+
+### get_sfall_arg_at (metarule) <span class="tag-missing">Not Implemented</span> {#mf_get_sfall_arg_at}
+
+The metarule version of `get_sfall_arg_at` is also not implemented.
+
+---
+
+## Impact on Unofficial Patch
+
+The Unofficial Patch uses these missing functions for:
+
+1. **Magic 8-Ball Fix** (`gl_k_8ball.ssl`)
+   - Requires: `register_hook_proc`, `get_sfall_arg`, `set_script`, `HOOK_INVENTORYMOVE`
+
+2. **Dogmeat AI Fix** (`gl_k_dogmeat_fix.ssl`)
+   - Requires: `register_hook_proc`, `get_sfall_arg_at`, `get_game_mode`, `HOOK_GAMEMODECHANGE`
+
+3. **Walking Speed Enhancement** (`gl_k_walking_speed.ssl`)
+   - Requires: `fs_copy`, `fs_seek`, `fs_read_short`, `fs_write_short`, `foreach`
+
+4. **Goris Derobing Speed** (`gl_k_goris_derobing.ssl`)
+   - Requires: `fs_copy`, `fs_seek`, `fs_read_short`, `fs_write_short`, `foreach`
+
+5. **Various Utility Functions** (`upu.h`)
+   - Requires: `is_in_array`, `party_member_list_critters`, `foreach`, `abs` (implemented)
+
+---
+
+## Workarounds
+
+Some missing functions can be worked around:
+
+### For `array_push`:
+```ssl
+procedure array_push(variable arr, variable val) begin
+    resize_array(arr, len_array(arr) + 1);
+    set_array(arr, len_array(arr) - 1, val);
+end
+```
+
+### For `is_in_array`:
+```ssl
+procedure is_in_array(variable val, variable arr) begin
+    return scan_array(arr, val) != -1;
+end
+```
+
+### For `foreach`:
+Use traditional `list_begin`/`list_next`/`list_end` pattern:
+```ssl
+variable list, item;
+list := list_begin(LIST_CRITTERS);
+item := list_next(list);
+while (item) do begin
+    // process item
+    item := list_next(list);
+end
+list_end(list);
+```
+
+Or with arrays:
+```ssl
+variable i, arr, len;
+len := len_array(arr);
+i := 0;
+while (i < len) do begin
+    variable item := get_array(arr, i);
+    // process item
+    i := i + 1;
+end
+```
+
+---
+
+## Implementation Priority
+
+Based on usage in the Unofficial Patch, suggested implementation priority:
+
+### High Priority
+1. **Hooks System** - `register_hook_proc`, `get_sfall_arg`, `get_sfall_arg_at`, hook constants
+2. **Filesystem Functions** - `fs_copy`, `fs_seek`, `fs_read_short`, `fs_write_short`
+
+### Medium Priority
+3. **Array Helpers** - `array_push`, `is_in_array` (can be worked around)
+4. **`set_script`** - Verify full implementation
+
+### Lower Priority (Compiler Features)
+5. **`foreach`** - Requires sfall compiler support
+6. **`party_member_list_critters`** - May be a compiler macro
+
+---
+
+## See Also
+
+- [All Functions Reference](../ssl/functions/all) - Complete function reference including implemented sfall functions
+- [Sfall GitHub Repository](https://github.com/sfall-team/sfall) - Original sfall source
+- [Fallout 2 Unofficial Patch](https://github.com/BGforgeNet/Fallout2_Unofficial_Patch) - Uses these functions

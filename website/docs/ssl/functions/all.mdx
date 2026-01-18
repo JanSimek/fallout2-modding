@@ -12,7 +12,9 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 
 | Function | Category | Description |
 |----------|----------|-------------|
+| [`abs`](./meta#abs) | Meta | Returns absolute value of a number |
 | [`action_being_used`](./script#action_being_used) | Script | Returns the current skill being used on a script object |
+| [`active_hand`](./meta#active_hand) | Meta | Returns the currently active hand slot |
 | [`add_mult_objs_to_inven`](./inventory#add_mult_objs_to_inven) | Inventory | Adds multiple instances of an item to inventory |
 | [`add_obj_to_inven`](./inventory#add_obj_to_inven) | Inventory | Adds an object to another object's inventory |
 | [`add_timer_event`](./time#add_timer_event) | Time | Adds a timed event call to the queue |
@@ -27,7 +29,13 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`animate_stand_obj`](./animation#animate_stand_obj) | Animation | Runs the stand animation for an object |
 | [`animate_stand_reverse`](./animation#animate_stand_reverse) | Animation | Runs the stand animation in reverse |
 | [`animate_stand_reverse_obj`](./animation#animate_stand_reverse_obj) | Animation | Runs the stand animation in reverse for an object |
+| [`arctan`](./meta#arctan) | Meta | Returns arctangent of a value |
+| [`array_key`](./meta#array_key) | Meta | Returns key at index in an associative array |
+| [`arrayexpr`](./meta#arrayexpr) | Meta | Creates array from expression |
 | [`art_anim`](./animation#art_anim) | Animation | Returns the animation type for a FID |
+| [`art_exists`](./object#art_exists) | Object | Checks if an art asset exists |
+| [`atof`](./meta#atof) | Meta | Converts string to float |
+| [`atoi`](./meta#atoi) | Meta | Converts string to integer |
 | [`attack`](./combat#attack) | Combat | Causes self to attack a target |
 | [`attack_complex`](./combat#attack_complex) | Combat | Attacks with various modifying parameters |
 | [`attack_setup`](./combat#attack_setup) | Combat | Sets up an attack between two objects |
@@ -39,8 +47,13 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`car_current_town`](./map#car_current_town) | Map | Returns the current town area of the car |
 | [`car_give_gas`](./map#car_give_gas) | Map | Gives the car fuel |
 | [`car_give_to_party`](./map#car_give_to_party) | Map | Gives the car to the party |
+| [`ceil`](./meta#ceil) | Meta | Rounds a float up to the nearest integer |
+| [`charcode`](./meta#charcode) | Meta | Returns ASCII code of first character |
 | [`combat_difficulty`](./combat#combat_difficulty) | Combat | Returns the combat difficulty setting |
 | [`combat_is_initialized`](./combat#combat_is_initialized) | Combat | Returns True if in combat mode |
+| [`cos`](./meta#cos) | Meta | Returns cosine of an angle |
+| [`create_array`](./meta#create_array) | Meta | Creates a new array |
+| [`create_message_window`](./meta#create_message_window) | Meta | Creates a message window |
 | [`create_object`](./object#create_object) | Object | Creates a new object |
 | [`create_object_sid`](./object#create_object_sid) | Object | Creates a new object with script override |
 | [`critter_add_trait`](./critter#critter_add_trait) | Critter | Adds a trait to a critter |
@@ -71,6 +84,7 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`dialogue_system_enter`](./dialog#dialogue_system_enter) | Dialog | Requests the talk system |
 | [`difficulty_level`](./meta#difficulty_level) | Meta | Returns the game difficulty setting |
 | [`display_msg`](./meta#display_msg) | Meta | Displays text on the PDA |
+| [`div`](./meta#div) | Meta | Integer division |
 | [`do_check`](./skill#do_check) | Skill | Does a check vs a basic trait |
 | [`drop_obj`](./inventory#drop_obj) | Inventory | Drops an object from self's inventory |
 | [`drug_influence`](./critter#drug_influence) | Critter | Returns True if critter is under drug influence |
@@ -84,19 +98,25 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`end_dialogue`](./dialog#end_dialogue) | Dialog | Terminates the dialogue system |
 | [`endgame_movie`](./meta#endgame_movie) | Meta | Plays the endgame movie |
 | [`endgame_slideshow`](./meta#endgame_slideshow) | Meta | Plays the endgame slideshow |
+| [`exp`](./meta#exp) | Meta | Returns e raised to the power of a value |
 | [`explosion`](./animation#explosion) | Animation | Creates an explosion at a tile |
 
 ## F
 
 | Function | Category | Description |
 |----------|----------|-------------|
+| [`fix_array`](./meta#fix_array) | Meta | Makes a temporary array permanent |
 | [`fixed_param`](./script#fixed_param) | Script | Returns the script's fixed parameter |
 | [`float_msg`](./meta#float_msg) | Meta | Creates floating text above an object |
+| [`force_encounter`](./map#force_encounter) | Map | Forces an encounter on the world map |
+| [`force_encounter_with_flags`](./map#force_encounter_with_flags) | Map | Forces an encounter with additional flags |
+| [`free_array`](./meta#free_array) | Meta | Frees a permanent array |
 
 ## G
 
 | Function | Category | Description |
 |----------|----------|-------------|
+| [`game_loaded`](./time#game_loaded) | Time | Returns 1 when a saved game has just been loaded |
 | [`game_ticks`](./time#game_ticks) | Time | Converts seconds to game ticks |
 | [`game_time`](./time#game_time) | Time | Returns the current game time in ticks |
 | [`game_time_advance`](./time#game_time_advance) | Time | Advances game time |
@@ -107,11 +127,36 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`gdialog_barter`](./dialog#gdialog_barter) | Dialog | Switches to the barter screen |
 | [`gdialog_mod_barter`](./dialog#gdialog_mod_barter) | Dialog | Switches to barter with modifier |
 | [`gdialog_set_barter_mod`](./dialog#gdialog_set_barter_mod) | Dialog | Sets the barter modifier |
+| [`get_array`](./meta#get_array) | Meta | Gets value from an array |
+| [`get_attack_type`](./combat#get_attack_type) | Combat | Returns the current attack type/mode |
+| [`get_bodypart_hit_modifier`](./combat#get_bodypart_hit_modifier) | Combat | Gets hit chance penalty for a body part |
+| [`get_critter_base_stat`](./critter#get_critter_base_stat) | Critter | Gets a critter's base stat value |
+| [`get_critter_extra_stat`](./critter#get_critter_extra_stat) | Critter | Gets a critter's extra stat value |
 | [`get_critter_stat`](./critter#get_critter_stat) | Critter | Returns a critter's stat value |
 | [`get_day`](./time#get_day) | Time | Returns the current day of month |
+| [`get_game_mode`](./time#get_game_mode) | Time | Returns the current game mode flags |
+| [`get_ini_section`](./meta#get_ini_section) | Meta | Returns all key-value pairs from an INI section |
+| [`get_ini_setting`](./meta#get_ini_setting) | Meta | Reads an integer from an INI file |
+| [`get_ini_string`](./meta#get_ini_string) | Meta | Reads a string from an INI file |
 | [`get_month`](./time#get_month) | Time | Returns the current month |
+| [`get_mouse_buttons`](./meta#get_mouse_buttons) | Meta | Returns mouse button state |
+| [`get_mouse_x`](./meta#get_mouse_x) | Meta | Returns mouse X coordinate |
+| [`get_mouse_y`](./meta#get_mouse_y) | Meta | Returns mouse Y coordinate |
+| [`get_pc_base_stat`](./critter#get_pc_base_stat) | Critter | Gets the player's base stat value |
+| [`get_pc_extra_stat`](./critter#get_pc_extra_stat) | Critter | Gets the player's extra stat value |
 | [`get_pc_stat`](./critter#get_pc_stat) | Critter | Returns a player-only stat |
 | [`get_poison`](./critter#get_poison) | Critter | Returns a critter's poison level |
+| [`get_proto_data`](./object#get_proto_data) | Object | Reads a value from a prototype |
+| [`get_screen_height`](./meta#get_screen_height) | Meta | Returns the screen height |
+| [`get_screen_width`](./meta#get_screen_width) | Meta | Returns the screen width |
+| [`get_script`](./object#get_script) | Object | Gets the script ID attached to an object |
+| [`get_sfall_global_int`](./script#get_sfall_global_int) | Script | Gets integer value of sfall global |
+| [`get_uptime`](./time#get_uptime) | Time | Returns sfall engine uptime in milliseconds |
+| [`get_weapon_ammo_count`](./combat#get_weapon_ammo_count) | Combat | Gets current ammo count in a weapon |
+| [`get_weapon_ammo_pid`](./combat#get_weapon_ammo_pid) | Combat | Gets PID of ammo loaded in a weapon |
+| [`get_world_map_x_pos`](./map#get_world_map_x_pos) | Map | Returns player's X position on world map |
+| [`get_world_map_y_pos`](./map#get_world_map_y_pos) | Map | Returns player's Y position on world map |
+| [`get_year`](./time#get_year) | Time | Returns the current year |
 | [`gfade_in`](./meta#gfade_in) | Meta | Fades from black to game |
 | [`gfade_out`](./meta#gfade_out) | Meta | Fades to black |
 | [`giQ_Option`](./dialog#giQ_Option) | Dialog | IQ-gated dialog option |
@@ -129,16 +174,19 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 |----------|----------|-------------|
 | [`has_skill`](./skill#has_skill) | Skill | Returns a critter's skill level |
 | [`has_trait`](./critter#has_trait) | Critter | Returns a critter's trait value |
+| [`hide_iface_tag`](./meta#hide_iface_tag) | Meta | Hides an interface tag |
 | [`how_much`](./skill#how_much) | Skill | Returns difference in a skill roll |
 
 ## I
 
 | Function | Category | Description |
 |----------|----------|-------------|
+| [`in_world_map`](./map#in_world_map) | Map | Checks if player is on the world map |
 | [`inven_count`](./inventory#inven_count) | Inventory | Returns count of inventory slots filled |
 | [`inven_ptr`](./inventory#inven_ptr) | Inventory | Returns object in inventory slot |
 | [`inven_unwield`](./inventory#inven_unwield) | Inventory | Unwields any wielded items |
 | [`is_critical`](./skill#is_critical) | Skill | Returns True if roll was critical |
+| [`is_iface_tag_active`](./meta#is_iface_tag_active) | Meta | Checks if an interface tag is active |
 | [`is_loading_game`](./map#is_loading_game) | Map | Returns True if game is loading |
 | [`is_skill_tagged`](./skill#is_skill_tagged) | Skill | Returns True if skill is tagged |
 | [`is_success`](./skill#is_success) | Skill | Returns True if roll was successful |
@@ -155,6 +203,7 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 
 | Function | Category | Description |
 |----------|----------|-------------|
+| [`key_pressed`](./meta#key_pressed) | Meta | Checks if a key is currently pressed |
 | [`kill_critter`](./critter#kill_critter) | Critter | Kills a critter instantly |
 | [`kill_critter_type`](./critter#kill_critter_type) | Critter | Kills all critters of a type |
 
@@ -163,8 +212,14 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | Function | Category | Description |
 |----------|----------|-------------|
 | [`language_filter_is_on`](./meta#language_filter_is_on) | Meta | Returns True if language filter is on |
+| [`len_array`](./meta#len_array) | Meta | Returns the length of an array |
+| [`list_as_array`](./meta#list_as_array) | Meta | Returns a list as an array |
+| [`list_begin`](./meta#list_begin) | Meta | Starts iterating over a list |
+| [`list_end`](./meta#list_end) | Meta | Ends list iteration |
+| [`list_next`](./meta#list_next) | Meta | Gets next item in a list |
 | [`load_map`](./map#load_map) | Map | Loads a new map |
 | [`local_var`](./meta#local_var) | Meta | Returns a local variable value |
+| [`log`](./meta#log) | Meta | Returns natural logarithm of a value |
 
 ## M
 
@@ -175,6 +230,8 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`map_known`](./map#map_known) | Map | Returns True if map is known |
 | [`map_var`](./meta#map_var) | Meta | Returns a map variable value |
 | [`message_str`](./dialog#message_str) | Dialog | Returns a string from message file |
+| [`message_str_game`](./meta#message_str_game) | Meta | Returns a string from game message files |
+| [`metarule2_explosions`](./combat#metarule2_explosions) | Combat | Controls explosion-related settings |
 | [`move_obj_inven_to_obj`](./inventory#move_obj_inven_to_obj) | Inventory | Moves entire inventory to another object |
 | [`move_to`](./map#move_to) | Map | Moves an object to a tile |
 
@@ -184,6 +241,8 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 |----------|----------|-------------|
 | [`obj_art_fid`](./object#obj_art_fid) | Object | Returns the FID of an object |
 | [`obj_being_used_with`](./object#obj_being_used_with) | Object | Returns object being used on another |
+| [`obj_blocking_line`](./object#obj_blocking_line) | Object | Finds object blocking a line |
+| [`obj_blocking_tile`](./object#obj_blocking_tile) | Object | Finds object blocking a tile |
 | [`obj_can_hear_obj`](./map#obj_can_hear_obj) | Map | Returns True if object can hear another |
 | [`obj_can_see_obj`](./map#obj_can_see_obj) | Map | Returns True if object has LOS to another |
 | [`obj_carrying_pid_obj`](./object#obj_carrying_pid_obj) | Object | Returns carried object by PID |
@@ -210,12 +269,14 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 |----------|----------|-------------|
 | [`party_add`](./party#party_add) | Party | Adds a critter to the party |
 | [`party_member_count`](./party#party_member_count) | Party | Returns party member count |
+| [`party_member_list`](./party#party_member_list) | Party | Returns array of party member objects |
 | [`party_member_obj`](./party#party_member_obj) | Party | Returns party member by PID |
 | [`party_remove`](./party#party_remove) | Party | Removes a critter from the party |
 | [`pickup_obj`](./inventory#pickup_obj) | Inventory | Picks up an object |
 | [`play_gmovie`](./meta#play_gmovie) | Meta | Plays a Fallout movie |
 | [`play_sfx`](./meta#play_sfx) | Meta | Plays a sound effect |
 | [`poison`](./critter#poison) | Critter | Poisons a critter |
+| [`pow`](./meta#pow) | Meta | Returns base raised to the power of exponent |
 | [`proto_data`](./object#proto_data) | Object | Returns prototype data |
 
 ## R
@@ -225,6 +286,7 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`radiation_dec`](./critter#radiation_dec) | Critter | Decreases radiation level |
 | [`radiation_inc`](./critter#radiation_inc) | Critter | Increases radiation level |
 | [`random`](./skill#random) | Skill | Returns a random number |
+| [`read_byte`](./meta#read_byte) | Meta | Reads a byte from memory |
 | [`reg_anim_animate`](./animation#reg_anim_animate) | Animation | Registers an animation |
 | [`reg_anim_animate_forever`](./animation#reg_anim_animate_forever) | Animation | Registers a continuous animation |
 | [`reg_anim_animate_reverse`](./animation#reg_anim_animate_reverse) | Animation | Registers a reverse animation |
@@ -236,6 +298,7 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`reg_anim_obj_run_to_obj`](./animation#reg_anim_obj_run_to_obj) | Animation | Registers run to object |
 | [`reg_anim_obj_run_to_tile`](./animation#reg_anim_obj_run_to_tile) | Animation | Registers run to tile |
 | [`reg_anim_play_sfx`](./animation#reg_anim_play_sfx) | Animation | Registers sound effect |
+| [`resize_array`](./meta#resize_array) | Meta | Resizes an array |
 | [`rm_fixed_timer_event`](./time#rm_fixed_timer_event) | Time | Removes specific timer events |
 | [`rm_mult_objs_from_inven`](./inventory#rm_mult_objs_from_inven) | Inventory | Removes multiple items from inventory |
 | [`rm_obj_from_inven`](./inventory#rm_obj_from_inven) | Inventory | Removes an item from inventory |
@@ -243,35 +306,75 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`roll_dice`](./skill#roll_dice) | Skill | Returns dice roll result (unimplemented) |
 | [`roll_vs_skill`](./skill#roll_vs_skill) | Skill | Performs a skill roll |
 | [`rotation_to_tile`](./map#rotation_to_tile) | Map | Returns rotation to face a tile |
+| [`round`](./meta#round) | Meta | Rounds a float to the nearest integer |
 | [`running_burning_guy`](./meta#running_burning_guy) | Meta | Returns burning guy setting |
 
 ## S
 
 | Function | Category | Description |
 |----------|----------|-------------|
+| [`scan_array`](./meta#scan_array) | Meta | Searches an array for a value |
 | [`scr_return`](./script#scr_return) | Script | Sets script return value |
 | [`script_action`](./script#script_action) | Script | Returns the activating action |
 | [`script_overrides`](./script#script_overrides) | Script | Overrides default engine behavior |
 | [`self_obj`](./script#self_obj) | Script | Returns the script's owner object |
+| [`set_array`](./meta#set_array) | Meta | Sets a value in an array |
+| [`set_bodypart_hit_modifier`](./combat#set_bodypart_hit_modifier) | Combat | Sets hit chance penalty for a body part |
+| [`set_car_current_town`](./map#set_car_current_town) | Map | Sets the car's current town/area |
+| [`set_critter_base_stat`](./critter#set_critter_base_stat) | Critter | Sets a critter's base stat value |
+| [`set_critter_extra_stat`](./critter#set_critter_extra_stat) | Critter | Sets a critter's extra stat value |
 | [`set_critter_stat`](./critter#set_critter_stat) | Critter | Sets a critter's stat |
 | [`set_exit_grids`](./map#set_exit_grids) | Map | Sets exit grid destinations |
+| [`set_global_script_repeat`](./script#set_global_script_repeat) | Script | Sets how often a global script runs |
+| [`set_global_script_type`](./script#set_global_script_type) | Script | Sets the type/mode of a global script |
 | [`set_global_var`](./meta#set_global_var) | Meta | Sets a global variable |
 | [`set_light_level`](./map#set_light_level) | Map | Sets ambient light level |
 | [`set_local_var`](./meta#set_local_var) | Meta | Sets a local variable |
 | [`set_map_start`](./map#set_map_start) | Map | Sets map start position |
+| [`set_map_time_multi`](./map#set_map_time_multi) | Map | Sets time multiplier for world map travel |
 | [`set_map_var`](./meta#set_map_var) | Meta | Sets a map variable |
 | [`set_obj_visibility`](./object#set_obj_visibility) | Object | Sets object visibility |
+| [`set_pc_base_stat`](./critter#set_pc_base_stat) | Critter | Sets the player's base stat value |
+| [`set_pc_extra_stat`](./critter#set_pc_extra_stat) | Critter | Sets the player's extra stat value |
+| [`set_proto_data`](./object#set_proto_data) | Object | Writes a value to a prototype |
+| [`set_self`](./object#set_self) | Object | Overrides the self_obj value for a script |
+| [`set_sfall_global`](./script#set_sfall_global) | Script | Sets a sfall global variable |
+| [`set_weapon_ammo_count`](./combat#set_weapon_ammo_count) | Combat | Sets ammo count in a weapon |
+| [`set_weapon_ammo_pid`](./combat#set_weapon_ammo_pid) | Combat | Sets PID of ammo in a weapon |
+| [`set_world_map_pos`](./map#set_world_map_pos) | Map | Sets player's position on world map |
+| [`sfall_func0`](./meta#sfall_func0) | Meta | Calls sfall function with 0 arguments |
+| [`sfall_func1`](./meta#sfall_func1) | Meta | Calls sfall function with 1 argument |
+| [`sfall_func2`](./meta#sfall_func2) | Meta | Calls sfall function with 2 arguments |
+| [`sfall_func3`](./meta#sfall_func3) | Meta | Calls sfall function with 3 arguments |
+| [`sfall_func4`](./meta#sfall_func4) | Meta | Calls sfall function with 4 arguments |
+| [`sfall_func5`](./meta#sfall_func5) | Meta | Calls sfall function with 5 arguments |
+| [`sfall_func6`](./meta#sfall_func6) | Meta | Calls sfall function with 6 arguments |
+| [`sfall_func7`](./meta#sfall_func7) | Meta | Calls sfall function with 7 arguments |
+| [`sfall_func8`](./meta#sfall_func8) | Meta | Calls sfall function with 8 arguments |
+| [`sfall_ver_build`](./meta#sfall_ver_build) | Meta | Returns sfall build version number |
+| [`sfall_ver_major`](./meta#sfall_ver_major) | Meta | Returns sfall major version number |
+| [`sfall_ver_minor`](./meta#sfall_ver_minor) | Meta | Returns sfall minor version number |
+| [`show_iface_tag`](./meta#show_iface_tag) | Meta | Shows an interface tag |
 | [`signal_end_game`](./meta#signal_end_game) | Meta | Signals game end |
+| [`sin`](./meta#sin) | Meta | Returns sine of an angle |
 | [`skill_contest`](./skill#skill_contest) | Skill | Returns skill contest result |
 | [`source_obj`](./script#source_obj) | Script | Returns the activating object |
+| [`sprintf`](./meta#sprintf) | Meta | Formats a string with arguments |
+| [`sqrt`](./meta#sqrt) | Meta | Returns square root of a value |
 | [`start_dialogue`](./dialog#start_dialogue) | Dialog | Starts the dialogue system |
 | [`start_gdialog`](./dialog#start_gdialog) | Dialog | Starts dialogue with parameters |
+| [`string_split`](./meta#string_split) | Meta | Splits a string into an array |
+| [`strlen`](./meta#strlen) | Meta | Returns length of a string |
+| [`substr`](./meta#substr) | Meta | Returns a substring |
 
 ## T
 
 | Function | Category | Description |
 |----------|----------|-------------|
+| [`tan`](./meta#tan) | Meta | Returns tangent of an angle |
+| [`tap_key`](./meta#tap_key) | Meta | Simulates a key press |
 | [`target_obj`](./script#target_obj) | Script | Returns the target object |
+| [`temp_array`](./meta#temp_array) | Meta | Creates a temporary array |
 | [`terminate_combat`](./combat#terminate_combat) | Combat | Ends combat prematurely |
 | [`tile_contains_obj_pid`](./map#tile_contains_obj_pid) | Map | Returns True if tile contains PID |
 | [`tile_contains_pid_obj`](./map#tile_contains_pid_obj) | Map | Returns object on tile by PID |
@@ -280,8 +383,11 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`tile_is_visible`](./map#tile_is_visible) | Map | Returns True if tile is visible |
 | [`tile_num`](./map#tile_num) | Map | Returns tile number of object |
 | [`tile_num_in_direction`](./map#tile_num_in_direction) | Map | Returns tile in a direction |
+| [`tile_under_cursor`](./object#tile_under_cursor) | Object | Returns tile number under cursor |
+| [`toggle_active_hand`](./meta#toggle_active_hand) | Meta | Toggles active hand slot |
 | [`town_known`](./map#town_known) | Map | Returns True if town is known |
 | [`town_map`](./map#town_map) | Map | Opens the town map |
+| [`typeof`](./object#typeof) | Object | Returns the type of a value |
 
 ## U
 

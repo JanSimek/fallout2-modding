@@ -27,15 +27,20 @@ const OUTPUT_FILE = path.join(__dirname, '..', 'src', 'data', 'function-index.js
 
 // Patterns for finding SSL opcode implementations
 const OPCODE_PATTERNS = [
-  // Pattern: static void opFunctionName(Program* program)
+  // Pattern: static void opFunctionName(Program* program) - vanilla CamelCase style
   /^static\s+void\s+(op[A-Z][a-zA-Z0-9_]*)\s*\(\s*Program\s*\*\s*\w+\s*\)/,
-  // Pattern: void opFunctionName(Program* program)
+  // Pattern: void opFunctionName(Program* program) - vanilla CamelCase style
   /^void\s+(op[A-Z][a-zA-Z0-9_]*)\s*\(\s*Program\s*\*\s*\w+\s*\)/,
+  // Pattern: static void op_function_name(Program* program) - sfall snake_case style
+  /^static\s+void\s+(op_[a-z][a-z0-9_]*)\s*\(\s*Program\s*\*\s*\w+\s*\)/,
+  // Pattern: void op_function_name(Program* program) - sfall snake_case style
+  /^void\s+(op_[a-z][a-z0-9_]*)\s*\(\s*Program\s*\*\s*\w+\s*\)/,
 ];
 
 // Pattern for finding opcode name to function mapping with optional SSL name in comment
 // interpreterRegisterOpcode(OPCODE_NAME, opFunctionName); // op_ssl_name
-const OPCODE_REGISTER_PATTERN = /interpreterRegisterOpcode\s*\(\s*(\w+)\s*,\s*(op[A-Z][a-zA-Z0-9_]*)\s*\).*?(?:\/\/\s*(op_\w+))?/g;
+// Matches both CamelCase (opFunctionName) and snake_case (op_function_name) styles
+const OPCODE_REGISTER_PATTERN = /interpreterRegisterOpcode\s*\(\s*(\w+)\s*,\s*(op[A-Z_][a-zA-Z0-9_]*)\s*\).*?(?:\/\/\s*(op_\w+))?/g;
 
 // Pattern for SSL name comment above function definition
 // Matches: // self_obj, // obj_can_see_obj, etc.
@@ -241,12 +246,17 @@ function parseOpcodeRegistrations(filePath, repoPath) {
 /**
  * Create SSL function name from opcode function
  * e.g., opObjCanSeeObj -> obj_can_see_obj
+ * e.g., op_sqrt -> sqrt
  */
 function opcodeToSSLName(opcodeName) {
+  // Handle sfall-style snake_case: op_sqrt -> sqrt
+  if (opcodeName.startsWith('op_')) {
+    return opcodeName.slice(3); // Remove 'op_' prefix
+  }
+
+  // Handle vanilla CamelCase: opObjCanSeeObj -> obj_can_see_obj
   // Remove 'op' prefix and convert CamelCase to snake_case
   let name = opcodeName.replace(/^op/, '');
-
-  // Handle special cases
   name = name.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
 
   return name;

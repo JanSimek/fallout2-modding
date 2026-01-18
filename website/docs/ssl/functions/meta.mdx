@@ -9,19 +9,236 @@ tags: [vanilla]
 
 Functions for controlling the game UI, settings, movies, and system-level operations.
 
-## display_msg <span class="tag-vanilla">vanilla</span> {#display_msg}
+## abs <span class="tag-sfall">sfall</span> {#abs}
 
 ```ssl
-void display_msg(string message)
+int/float abs(int/float value)
 ```
 
-Displays a string on the in-game PDA display (lower-left hand corner).
+Returns the absolute value of a number.
 
 **Parameters:**
-- `message` - Text to display
+- `value` - The number (int or float)
 
+**Returns:** `int/float` - The absolute value (same type as input)
 
-<FnRef fn="display_msg" />
+**Example:**
+```ssl
+variable result;
+result := abs(-5);  // result is 5
+```
+
+<FnRef fn="abs" />
+
+---
+
+## active_hand <span class="tag-sfall">sfall</span> {#active_hand}
+
+```ssl
+int active_hand
+```
+
+Returns which hand slot is currently active (0 = primary, 1 = secondary).
+
+**Returns:** `int` - The active hand index
+
+<FnRef fn="active_hand" />
+
+---
+
+## arctan <span class="tag-sfall">sfall</span> {#arctan}
+
+```ssl
+float arctan(float y, float x)
+```
+
+Returns the arctangent (atan2) of y/x in radians.
+
+**Parameters:**
+- `y` - The Y coordinate
+- `x` - The X coordinate
+
+**Returns:** `float` - The angle in radians
+
+<FnRef fn="arctan" />
+
+---
+
+## array_key <span class="tag-sfall">sfall</span> {#array_key}
+
+```ssl
+any array_key(int arrayID, int index)
+```
+
+Returns the key at the specified index in an associative array.
+
+**Parameters:**
+- `arrayID` - The array ID
+- `index` - The index
+
+**Returns:** `any` - The key at that index
+
+<FnRef fn="array_key" />
+
+---
+
+## arrayexpr <span class="tag-sfall">sfall</span> {#arrayexpr}
+
+```ssl
+int arrayexpr(any key, any value)
+```
+
+Used for building arrays in expressions. Pushes a key-value pair onto the array stack.
+
+**Parameters:**
+- `key` - The key
+- `value` - The value
+
+**Returns:** `int` - Status
+
+<FnRef fn="arrayexpr" />
+
+---
+
+## atof <span class="tag-sfall">sfall</span> {#atof}
+
+```ssl
+float atof(string str)
+```
+
+Converts a string to a floating-point number.
+
+**Parameters:**
+- `str` - The string to convert
+
+**Returns:** `float` - The float value
+
+<FnRef fn="atof" />
+
+---
+
+## atoi <span class="tag-sfall">sfall</span> {#atoi}
+
+```ssl
+int atoi(string str)
+```
+
+Converts a string to an integer.
+
+**Parameters:**
+- `str` - The string to convert
+
+**Returns:** `int` - The integer value
+
+**Example:**
+```ssl
+variable num;
+num := atoi("42");  // num is 42
+```
+
+<FnRef fn="atoi" />
+
+---
+
+## ceil <span class="tag-sfall">sfall</span> {#ceil}
+
+```ssl
+int ceil(float value)
+```
+
+Returns the smallest integer greater than or equal to the value (ceiling).
+
+**Parameters:**
+- `value` - The float value to round up
+
+**Returns:** `int` - The ceiling value
+
+**Example:**
+```ssl
+variable result;
+result := ceil(2.3);  // result is 3
+```
+
+<FnRef fn="ceil" />
+
+---
+
+## charcode <span class="tag-sfall">sfall</span> {#charcode}
+
+```ssl
+int charcode(string str)
+```
+
+Returns the ASCII code of the first character of a string.
+
+**Parameters:**
+- `str` - The string
+
+**Returns:** `int` - The ASCII code, or 0 if the string is empty
+
+<FnRef fn="charcode" />
+
+---
+
+## cos <span class="tag-sfall">sfall</span> {#cos}
+
+```ssl
+float cos(float angle)
+```
+
+Returns the cosine of an angle in radians.
+
+**Parameters:**
+- `angle` - The angle in radians
+
+**Returns:** `float` - The cosine value
+
+<FnRef fn="cos" />
+
+---
+
+## create_array <span class="tag-sfall">sfall</span> {#create_array}
+
+```ssl
+int create_array(int size, int flags)
+```
+
+Creates a new permanent array.
+
+**Parameters:**
+- `size` - The initial size of the array (use -1 for associative arrays/maps)
+- `flags` - Array flags
+
+**Returns:** `int` - The array ID
+
+**Example:**
+```ssl
+variable arr;
+arr := create_array(10, 0);  // Create array with 10 elements
+```
+
+<FnRef fn="create_array" />
+
+---
+
+## create_message_window <span class="tag-sfall">sfall</span> {#create_message_window}
+
+```ssl
+void create_message_window(string message)
+```
+
+Creates a popup message window with the specified text. Use `\n` to separate lines.
+
+**Parameters:**
+- `message` - The message text to display
+
+**Example:**
+```ssl
+create_message_window("Hello!\nThis is a message.");
+```
+
+<FnRef fn="create_message_window" />
+
 ---
 
 ## debug_msg <span class="tag-vanilla">vanilla</span> {#debug_msg}
@@ -37,6 +254,109 @@ Prints a string to the debug monitor. Should be used exclusively for debug infor
 
 
 <FnRef fn="debug_msg" />
+---
+
+## difficulty_level <span class="tag-vanilla">vanilla</span> {#difficulty_level}
+
+```ssl
+int difficulty_level
+```
+
+Returns the current Game difficulty level (defined in the options screen).
+
+**Returns:** `int` - Difficulty constant
+
+
+<FnRef fn="difficulty_level" />
+---
+
+## display_msg <span class="tag-vanilla">vanilla</span> {#display_msg}
+
+```ssl
+void display_msg(string message)
+```
+
+Displays a string on the in-game PDA display (lower-left hand corner).
+
+**Parameters:**
+- `message` - Text to display
+
+
+<FnRef fn="display_msg" />
+---
+
+## div <span class="tag-sfall">sfall</span> {#div}
+
+```ssl
+int/float div(int/float dividend, int/float divisor)
+```
+
+Performs unsigned integer division. Uses the `div` operator in SSL.
+
+**Parameters:**
+- `dividend` - The number to divide
+- `divisor` - The number to divide by
+
+**Returns:** `int/float` - The result of division
+
+<FnRef fn="div" />
+
+---
+
+## endgame_movie <span class="tag-vanilla">vanilla</span> {#endgame_movie}
+
+```ssl
+void endgame_movie
+```
+
+Plays the endgame movie.
+
+
+<FnRef fn="endgame_movie" />
+---
+
+## endgame_slideshow <span class="tag-vanilla">vanilla</span> {#endgame_slideshow}
+
+```ssl
+void endgame_slideshow
+```
+
+Plays the endgame slideshow. The slideshow will fade in to its palette, so it is proper to call `gfade_out(1)` before this command.
+
+
+<FnRef fn="endgame_slideshow" />
+---
+
+## exp <span class="tag-sfall">sfall</span> {#exp}
+
+```ssl
+float exp(float value)
+```
+
+Returns e raised to the specified power.
+
+**Parameters:**
+- `value` - The exponent
+
+**Returns:** `float` - e^value
+
+<FnRef fn="exp" />
+
+---
+
+## fix_array <span class="tag-sfall">sfall</span> {#fix_array}
+
+```ssl
+void fix_array(int arrayID)
+```
+
+Converts a temporary array to a permanent array.
+
+**Parameters:**
+- `arrayID` - The array to convert
+
+<FnRef fn="fix_array" />
+
 ---
 
 ## float_msg <span class="tag-vanilla">vanilla</span> {#float_msg}
@@ -66,19 +386,19 @@ float_msg(dude_obj, "Quest Complete!", FLOAT_MSG_WARNING);
 <FnRef fn="float_msg" />
 ---
 
-## give_exp_points <span class="tag-vanilla">vanilla</span> {#give_exp_points}
+## free_array <span class="tag-sfall">sfall</span> {#free_array}
 
 ```ssl
-void give_exp_points(int points)
+void free_array(int arrayID)
 ```
 
-Adds experience points to the player's total. These points may then be used by the player to enhance skills, etc.
+Frees an array and releases its memory.
 
 **Parameters:**
-- `points` - XP to award
+- `arrayID` - The array to free
 
+<FnRef fn="free_array" />
 
-<FnRef fn="give_exp_points" />
 ---
 
 ## game_ui_disable <span class="tag-vanilla">vanilla</span> {#game_ui_disable}
@@ -127,23 +447,132 @@ Returns True if the game UI is currently disabled.
 <FnRef fn="game_ui_is_disabled" />
 ---
 
-## gfade_out <span class="tag-vanilla">vanilla</span> {#gfade_out}
+## get_array <span class="tag-sfall">sfall</span> {#get_array}
 
 ```ssl
-void gfade_out(int time)
+any get_array(int arrayID, any key)
 ```
 
-Does a palette fade to black.
-
-:::note
-The time parameter is currently not actually used.
-:::
+Gets a value from an array at the specified key/index.
 
 **Parameters:**
-- `time` - Fade duration (unused)
+- `arrayID` - The array ID
+- `key` - The key or index
 
+**Returns:** `any` - The stored value
 
-<FnRef fn="gfade_out" />
+<FnRef fn="get_array" />
+
+---
+
+## get_ini_setting <span class="tag-sfall">sfall</span> {#get_ini_setting}
+
+```ssl
+int get_ini_setting(string setting)
+```
+
+Gets an integer value from an INI file.
+
+**Parameters:**
+- `setting` - The setting path in format "filename|section|key"
+
+**Returns:** `int` - The value, or 0 if not found
+
+**Example:**
+```ssl
+variable value;
+value := get_ini_setting("ddraw.ini|Main|GlobalScripts");
+```
+
+<FnRef fn="get_ini_setting" />
+
+---
+
+## get_ini_string <span class="tag-sfall">sfall</span> {#get_ini_string}
+
+```ssl
+string get_ini_string(string setting)
+```
+
+Gets a string value from an INI file.
+
+**Parameters:**
+- `setting` - The setting path in format "filename|section|key"
+
+**Returns:** `string` - The value, or empty string if not found
+
+<FnRef fn="get_ini_string" />
+
+---
+
+## get_mouse_buttons <span class="tag-sfall">sfall</span> {#get_mouse_buttons}
+
+```ssl
+int get_mouse_buttons
+```
+
+Returns the state of mouse buttons.
+
+**Returns:** `int` - A bitmask of pressed mouse buttons
+
+<FnRef fn="get_mouse_buttons" />
+
+---
+
+## get_mouse_x <span class="tag-sfall">sfall</span> {#get_mouse_x}
+
+```ssl
+int get_mouse_x
+```
+
+Returns the current X position of the mouse cursor.
+
+**Returns:** `int` - The X coordinate of the mouse cursor
+
+<FnRef fn="get_mouse_x" />
+
+---
+
+## get_mouse_y <span class="tag-sfall">sfall</span> {#get_mouse_y}
+
+```ssl
+int get_mouse_y
+```
+
+Returns the current Y position of the mouse cursor.
+
+**Returns:** `int` - The Y coordinate of the mouse cursor
+
+<FnRef fn="get_mouse_y" />
+
+---
+
+## get_screen_height <span class="tag-sfall">sfall</span> {#get_screen_height}
+
+```ssl
+int get_screen_height
+```
+
+Returns the current screen height in pixels.
+
+**Returns:** `int` - The screen height
+
+<FnRef fn="get_screen_height" />
+
+---
+
+## get_screen_width <span class="tag-sfall">sfall</span> {#get_screen_width}
+
+```ssl
+int get_screen_width
+```
+
+Returns the current screen width in pixels.
+
+**Returns:** `int` - The screen width
+
+<FnRef fn="get_screen_width" />
+
 ---
 
 ## gfade_in <span class="tag-vanilla">vanilla</span> {#gfade_in}
@@ -163,6 +592,282 @@ The time parameter is currently not actually used.
 
 
 <FnRef fn="gfade_in" />
+---
+
+## gfade_out <span class="tag-vanilla">vanilla</span> {#gfade_out}
+
+```ssl
+void gfade_out(int time)
+```
+
+Does a palette fade to black.
+
+:::note
+The time parameter is currently not actually used.
+:::
+
+**Parameters:**
+- `time` - Fade duration (unused)
+
+
+<FnRef fn="gfade_out" />
+---
+
+## give_exp_points <span class="tag-vanilla">vanilla</span> {#give_exp_points}
+
+```ssl
+void give_exp_points(int points)
+```
+
+Adds experience points to the player's total. These points may then be used by the player to enhance skills, etc.
+
+**Parameters:**
+- `points` - XP to award
+
+
+<FnRef fn="give_exp_points" />
+---
+
+## global_var <span class="tag-vanilla">vanilla</span> {#global_var}
+
+```ssl
+int global_var(int var_index)
+```
+
+Returns the value of a global variable.
+
+**Parameters:**
+- `var_index` - Global variable index
+
+**Returns:** `int` - Variable value
+
+
+<FnRef fn="global_var" />
+---
+
+## hide_iface_tag <span class="tag-sfall">sfall</span> {#hide_iface_tag}
+
+```ssl
+void hide_iface_tag(int tag)
+```
+
+Hides an interface tag.
+
+**Parameters:**
+- `tag` - The tag constant
+
+<FnRef fn="hide_iface_tag" />
+
+---
+
+## is_iface_tag_active <span class="tag-sfall">sfall</span> {#is_iface_tag_active}
+
+```ssl
+int is_iface_tag_active(int tag)
+```
+
+Checks if an interface tag is currently active.
+
+**Parameters:**
+- `tag` - The tag constant
+
+**Returns:** `int` - 1 if active, 0 otherwise
+
+<FnRef fn="is_iface_tag_active" />
+
+---
+
+## key_pressed <span class="tag-sfall">sfall</span> {#key_pressed}
+
+```ssl
+int key_pressed(int dxScancode)
+```
+
+Checks if a key is currently pressed.
+
+**Parameters:**
+- `dxScancode` - The DirectX scancode of the key to check
+
+**Returns:** `int` - 1 if the key is pressed, 0 otherwise
+
+<FnRef fn="key_pressed" />
+
+---
+
+## language_filter_is_on <span class="tag-vanilla">vanilla</span> {#language_filter_is_on}
+
+```ssl
+int language_filter_is_on
+```
+
+Returns True if the language filter is currently filtering harsh language.
+
+**Returns:** `int` - Boolean
+
+---
+
+## len_array <span class="tag-sfall">sfall</span> {#len_array}
+
+```ssl
+int len_array(int arrayID)
+```
+
+Returns the number of elements in an array.
+
+**Parameters:**
+- `arrayID` - The array ID
+
+**Returns:** `int` - The number of elements
+
+<FnRef fn="len_array" />
+
+---
+
+## list_as_array <span class="tag-sfall">sfall</span> {#list_as_array}
+
+```ssl
+int list_as_array(int listType)
+```
+
+Returns all objects of a given type as a temporary array.
+
+**Parameters:**
+- `listType` - The type of objects to list (LIST_CRITTERS, LIST_ITEMS, etc.)
+
+**Returns:** `int` - Array ID containing the objects
+
+<FnRef fn="list_as_array" />
+
+---
+
+## list_begin <span class="tag-sfall">sfall</span> {#list_begin}
+
+```ssl
+int list_begin(int listType)
+```
+
+Creates a new list for iterating over objects of a certain type.
+
+**Parameters:**
+- `listType` - The type of objects (LIST_CRITTERS, LIST_ITEMS, etc.)
+
+**Returns:** `int` - The list ID
+
+**Example:**
+```ssl
+variable list, critter;
+list := list_begin(LIST_CRITTERS);
+critter := list_next(list);
+while (critter) do begin
+    // Process critter
+    critter := list_next(list);
+end
+list_end(list);
+```
+
+<FnRef fn="list_begin" />
+
+---
+
+## list_end <span class="tag-sfall">sfall</span> {#list_end}
+
+```ssl
+void list_end(int listID)
+```
+
+Destroys a list and frees its memory. Always call this when done iterating.
+
+**Parameters:**
+- `listID` - The list ID to destroy
+
+<FnRef fn="list_end" />
+
+---
+
+## list_next <span class="tag-sfall">sfall</span> {#list_next}
+
+```ssl
+ObjectPtr list_next(int listID)
+```
+
+Gets the next object in a list.
+
+**Parameters:**
+- `listID` - The list ID
+
+**Returns:** `ObjectPtr` - The next object, or 0 if no more objects
+
+<FnRef fn="list_next" />
+
+---
+
+## local_var <span class="tag-vanilla">vanilla</span> {#local_var}
+
+```ssl
+int local_var(int var_index)
+```
+
+Returns the value of a local variable.
+
+**Parameters:**
+- `var_index` - Local variable index
+
+**Returns:** `int` - Variable value
+
+
+<FnRef fn="local_var" />
+---
+
+## log <span class="tag-sfall">sfall</span> {#log}
+
+```ssl
+float log(float value)
+```
+
+Returns the natural logarithm (base e) of a number.
+
+**Parameters:**
+- `value` - The number
+
+**Returns:** `float` - The natural logarithm
+
+<FnRef fn="log" />
+
+---
+
+## map_var <span class="tag-vanilla">vanilla</span> {#map_var}
+
+```ssl
+int map_var(int var_index)
+```
+
+Returns the value of a map-global variable.
+
+**Parameters:**
+- `var_index` - Map variable index
+
+**Returns:** `int` - Variable value
+
+
+<FnRef fn="map_var" />
+---
+
+## message_str_game <span class="tag-sfall">sfall</span> {#message_str_game}
+
+```ssl
+string message_str_game(int fileId, int messageId)
+```
+
+Gets a message string from a game message file.
+
+**Parameters:**
+- `fileId` - The message file ID
+- `messageId` - The message number
+
+**Returns:** `string` - The message text
+
+<FnRef fn="message_str_game" />
+
 ---
 
 ## play_gmovie <span class="tag-vanilla">vanilla</span> {#play_gmovie}
@@ -189,63 +894,84 @@ Starts a new sound effect to be played on the queue.
 <FnRef fn="play_sfx" />
 ---
 
-## endgame_movie <span class="tag-vanilla">vanilla</span> {#endgame_movie}
+## pow <span class="tag-sfall">sfall</span> {#pow}
 
 ```ssl
-void endgame_movie
+int/float pow(int/float base, int/float exponent)
 ```
 
-Plays the endgame movie.
+Returns the base raised to the power of the exponent. Uses the `^` operator in SSL.
 
+**Parameters:**
+- `base` - The base value
+- `exponent` - The exponent value
 
-<FnRef fn="endgame_movie" />
----
+**Returns:** `int/float` - The result (int if both inputs are int, otherwise float)
 
-## endgame_slideshow <span class="tag-vanilla">vanilla</span> {#endgame_slideshow}
-
+**Example:**
 ```ssl
-void endgame_slideshow
+variable result;
+result := 2 ^ 3;  // result is 8
 ```
 
-Plays the endgame slideshow. The slideshow will fade in to its palette, so it is proper to call `gfade_out(1)` before this command.
-
-
-<FnRef fn="endgame_slideshow" />
----
-
-## signal_end_game <span class="tag-vanilla">vanilla</span> {#signal_end_game}
-
-```ssl
-void signal_end_game
-```
-
-Tells the system that a script is indicating the game should be ended. This will return the player to the main menu.
+<FnRef fn="pow" />
 
 ---
 
-## difficulty_level <span class="tag-vanilla">vanilla</span> {#difficulty_level}
+## read_byte <span class="tag-sfall">sfall</span> {#read_byte}
 
 ```ssl
-int difficulty_level
+int read_byte(int address)
 ```
 
-Returns the current Game difficulty level (defined in the options screen).
+Reads a byte from a memory address. Limited functionality in CE - only specific addresses are supported.
 
-**Returns:** `int` - Difficulty constant
+**Parameters:**
+- `address` - The memory address to read
 
+**Returns:** `int` - The byte value at that address
 
-<FnRef fn="difficulty_level" />
+<FnRef fn="read_byte" />
+
 ---
 
-## violence_level_setting <span class="tag-vanilla">vanilla</span> {#violence_level_setting}
+## resize_array <span class="tag-sfall">sfall</span> {#resize_array}
 
 ```ssl
-int violence_level_setting
+void resize_array(int arrayID, int newSize)
 ```
 
-Returns the current setting of the violence level. See define.h for values.
+Resizes an array to the specified size.
 
-**Returns:** `int` - Violence level constant
+**Parameters:**
+- `arrayID` - The array ID
+- `newSize` - The new size
+
+<FnRef fn="resize_array" />
+
+---
+
+## round <span class="tag-sfall">sfall</span> {#round}
+
+```ssl
+int round(float value)
+```
+
+Returns the nearest integer to the value (standard rounding).
+
+**Parameters:**
+- `value` - The float value to round
+
+**Returns:** `int` - The rounded value
+
+**Example:**
+```ssl
+variable result;
+result := round(2.5);  // result is 3
+result := round(2.4);  // result is 2
+```
+
+<FnRef fn="round" />
 
 ---
 
@@ -263,33 +989,47 @@ Returns the setting for the running-burning-guy in the game (defined in the opti
 <FnRef fn="running_burning_guy" />
 ---
 
-## language_filter_is_on <span class="tag-vanilla">vanilla</span> {#language_filter_is_on}
+## scan_array <span class="tag-sfall">sfall</span> {#scan_array}
 
 ```ssl
-int language_filter_is_on
+any scan_array(int arrayID, any value)
 ```
 
-Returns True if the language filter is currently filtering harsh language.
+Searches for a value in an array and returns its key/index.
 
-**Returns:** `int` - Boolean
+**Parameters:**
+- `arrayID` - The array ID
+- `value` - The value to search for
+
+**Returns:** `any` - The key/index of the value, or -1 if not found
+
+<FnRef fn="scan_array" />
 
 ---
 
-## global_var <span class="tag-vanilla">vanilla</span> {#global_var}
+## set_array <span class="tag-sfall">sfall</span> {#set_array}
 
 ```ssl
-int global_var(int var_index)
+void set_array(int arrayID, any key, any value)
 ```
 
-Returns the value of a global variable.
+Sets a value in an array at the specified key/index.
 
 **Parameters:**
-- `var_index` - Global variable index
+- `arrayID` - The array ID
+- `key` - The key or index
+- `value` - The value to store
 
-**Returns:** `int` - Variable value
+**Example:**
+```ssl
+variable arr;
+arr := create_array(5, 0);
+set_array(arr, 0, 100);      // Set index 0 to 100
+set_array(arr, "name", "test"); // For associative arrays
+```
 
+<FnRef fn="set_array" />
 
-<FnRef fn="global_var" />
 ---
 
 ## set_global_var <span class="tag-vanilla">vanilla</span> {#set_global_var}
@@ -308,23 +1048,6 @@ Sets the value of a global variable.
 <FnRef fn="set_global_var" />
 ---
 
-## local_var <span class="tag-vanilla">vanilla</span> {#local_var}
-
-```ssl
-int local_var(int var_index)
-```
-
-Returns the value of a local variable.
-
-**Parameters:**
-- `var_index` - Local variable index
-
-**Returns:** `int` - Variable value
-
-
-<FnRef fn="local_var" />
----
-
 ## set_local_var <span class="tag-vanilla">vanilla</span> {#set_local_var}
 
 ```ssl
@@ -341,23 +1064,6 @@ Sets the value of a local variable.
 <FnRef fn="set_local_var" />
 ---
 
-## map_var <span class="tag-vanilla">vanilla</span> {#map_var}
-
-```ssl
-int map_var(int var_index)
-```
-
-Returns the value of a map-global variable.
-
-**Parameters:**
-- `var_index` - Map variable index
-
-**Returns:** `int` - Variable value
-
-
-<FnRef fn="map_var" />
----
-
 ## set_map_var <span class="tag-vanilla">vanilla</span> {#set_map_var}
 
 ```ssl
@@ -372,3 +1078,445 @@ Sets the value of a map-global variable.
 
 
 <FnRef fn="set_map_var" />
+
+---
+
+## sfall_func0 <span class="tag-sfall">sfall</span> {#sfall_func0}
+
+```ssl
+any sfall_func0(string funcName)
+```
+
+Calls a sfall metarule function with no arguments.
+
+**Parameters:**
+- `funcName` - The metarule function name
+
+**Returns:** `any` - The function result
+
+<FnRef fn="sfall_func0" />
+
+---
+
+## sfall_func1 <span class="tag-sfall">sfall</span> {#sfall_func1}
+
+```ssl
+any sfall_func1(string funcName, any arg1)
+```
+
+Calls a sfall metarule function with one argument.
+
+**Parameters:**
+- `funcName` - The metarule function name
+- `arg1` - The first argument
+
+**Returns:** `any` - The function result
+
+<FnRef fn="sfall_func1" />
+
+---
+
+## sfall_func2 <span class="tag-sfall">sfall</span> {#sfall_func2}
+
+```ssl
+any sfall_func2(string funcName, any arg1, any arg2)
+```
+
+Calls a sfall metarule function with two arguments.
+
+**Parameters:**
+- `funcName` - The metarule function name
+- `arg1` - The first argument
+- `arg2` - The second argument
+
+**Returns:** `any` - The function result
+
+<FnRef fn="sfall_func2" />
+
+---
+
+## sfall_func3 <span class="tag-sfall">sfall</span> {#sfall_func3}
+
+```ssl
+any sfall_func3(string funcName, any arg1, any arg2, any arg3)
+```
+
+Calls a sfall metarule function with three arguments.
+
+**Parameters:**
+- `funcName` - The metarule function name
+- `arg1` - The first argument
+- `arg2` - The second argument
+- `arg3` - The third argument
+
+**Returns:** `any` - The function result
+
+<FnRef fn="sfall_func3" />
+
+---
+
+## sfall_func4 <span class="tag-sfall">sfall</span> {#sfall_func4}
+
+```ssl
+any sfall_func4(string funcName, any arg1, any arg2, any arg3, any arg4)
+```
+
+Calls a sfall metarule function with four arguments.
+
+**Parameters:**
+- `funcName` - The metarule function name
+- `arg1` - The first argument
+- `arg2` - The second argument
+- `arg3` - The third argument
+- `arg4` - The fourth argument
+
+**Returns:** `any` - The function result
+
+<FnRef fn="sfall_func4" />
+
+---
+
+## sfall_func5 <span class="tag-sfall">sfall</span> {#sfall_func5}
+
+```ssl
+any sfall_func5(string funcName, any arg1, any arg2, any arg3, any arg4, any arg5)
+```
+
+Calls a sfall metarule function with five arguments.
+
+**Parameters:**
+- `funcName` - The metarule function name
+- `arg1` through `arg5` - The arguments
+
+**Returns:** `any` - The function result
+
+<FnRef fn="sfall_func5" />
+
+---
+
+## sfall_func6 <span class="tag-sfall">sfall</span> {#sfall_func6}
+
+```ssl
+any sfall_func6(string funcName, any arg1, any arg2, any arg3, any arg4, any arg5, any arg6)
+```
+
+Calls a sfall metarule function with six arguments.
+
+**Parameters:**
+- `funcName` - The metarule function name
+- `arg1` through `arg6` - The arguments
+
+**Returns:** `any` - The function result
+
+<FnRef fn="sfall_func6" />
+
+---
+
+## sfall_func7 <span class="tag-sfall">sfall</span> {#sfall_func7}
+
+```ssl
+any sfall_func7(string funcName, any arg1, any arg2, any arg3, any arg4, any arg5, any arg6, any arg7)
+```
+
+Calls a sfall metarule function with seven arguments.
+
+**Parameters:**
+- `funcName` - The metarule function name
+- `arg1` through `arg7` - The arguments
+
+**Returns:** `any` - The function result
+
+<FnRef fn="sfall_func7" />
+
+---
+
+## sfall_func8 <span class="tag-sfall">sfall</span> {#sfall_func8}
+
+```ssl
+any sfall_func8(string funcName, any arg1, any arg2, any arg3, any arg4, any arg5, any arg6, any arg7, any arg8)
+```
+
+Calls a sfall metarule function with eight arguments.
+
+**Parameters:**
+- `funcName` - The metarule function name
+- `arg1` through `arg8` - The arguments
+
+**Returns:** `any` - The function result
+
+<FnRef fn="sfall_func8" />
+
+---
+
+## sfall_ver_build <span class="tag-sfall">sfall</span> {#sfall_ver_build}
+
+```ssl
+int sfall_ver_build
+```
+
+Returns the build/patch version number of sfall.
+
+**Returns:** `int` - The build version (e.g., 4)
+
+<FnRef fn="sfall_ver_build" />
+
+---
+
+## sfall_ver_major <span class="tag-sfall">sfall</span> {#sfall_ver_major}
+
+```ssl
+int sfall_ver_major
+```
+
+Returns the major version number of sfall.
+
+**Returns:** `int` - The major version (e.g., 4)
+
+<FnRef fn="sfall_ver_major" />
+
+---
+
+## sfall_ver_minor <span class="tag-sfall">sfall</span> {#sfall_ver_minor}
+
+```ssl
+int sfall_ver_minor
+```
+
+Returns the minor version number of sfall.
+
+**Returns:** `int` - The minor version (e.g., 3)
+
+<FnRef fn="sfall_ver_minor" />
+
+---
+
+## show_iface_tag <span class="tag-sfall">sfall</span> {#show_iface_tag}
+
+```ssl
+void show_iface_tag(int tag)
+```
+
+Shows an interface tag (like the sneak indicator).
+
+**Parameters:**
+- `tag` - The tag constant (DUDE_STATE_SNEAKING, DUDE_STATE_LEVEL_UP_AVAILABLE, DUDE_STATE_ADDICTED)
+
+<FnRef fn="show_iface_tag" />
+
+---
+
+## signal_end_game <span class="tag-vanilla">vanilla</span> {#signal_end_game}
+
+```ssl
+void signal_end_game
+```
+
+Tells the system that a script is indicating the game should be ended. This will return the player to the main menu.
+
+---
+
+## sin <span class="tag-sfall">sfall</span> {#sin}
+
+```ssl
+float sin(float angle)
+```
+
+Returns the sine of an angle in radians.
+
+**Parameters:**
+- `angle` - The angle in radians
+
+**Returns:** `float` - The sine value
+
+<FnRef fn="sin" />
+
+---
+
+## sprintf <span class="tag-sfall">sfall</span> {#sprintf}
+
+```ssl
+string sprintf(string format, any value)
+```
+
+Formats a string using printf-style formatting.
+
+**Parameters:**
+- `format` - The format string
+- `value` - The value to format
+
+**Returns:** `string` - The formatted string
+
+**Example:**
+```ssl
+variable s;
+s := sprintf("Value: %d", 42);  // s is "Value: 42"
+```
+
+<FnRef fn="sprintf" />
+
+---
+
+## sqrt <span class="tag-sfall">sfall</span> {#sqrt}
+
+```ssl
+float sqrt(float value)
+```
+
+Returns the square root of a number.
+
+**Parameters:**
+- `value` - The number to get the square root of
+
+**Returns:** `float` - The square root
+
+**Example:**
+```ssl
+variable result;
+result := sqrt(16.0);  // result is 4.0
+```
+
+<FnRef fn="sqrt" />
+
+---
+
+## string_split <span class="tag-sfall">sfall</span> {#string_split}
+
+```ssl
+int string_split(string str, string delimiter)
+```
+
+Splits a string into an array using the specified delimiter.
+
+**Parameters:**
+- `str` - The string to split
+- `delimiter` - The delimiter string
+
+**Returns:** `int` - Array ID containing the split strings
+
+**Example:**
+```ssl
+variable arr;
+arr := string_split("one,two,three", ",");
+// arr[0] = "one", arr[1] = "two", arr[2] = "three"
+```
+
+<FnRef fn="string_split" />
+
+---
+
+## strlen <span class="tag-sfall">sfall</span> {#strlen}
+
+```ssl
+int strlen(string str)
+```
+
+Returns the length of a string.
+
+**Parameters:**
+- `str` - The string
+
+**Returns:** `int` - The length of the string
+
+<FnRef fn="strlen" />
+
+---
+
+## substr <span class="tag-sfall">sfall</span> {#substr}
+
+```ssl
+string substr(string str, int start, int length)
+```
+
+Returns a substring of a string.
+
+**Parameters:**
+- `str` - The source string
+- `start` - The starting position (0-indexed, negative values count from end)
+- `length` - The number of characters (0 or negative for to-end)
+
+**Returns:** `string` - The substring
+
+**Example:**
+```ssl
+variable s;
+s := substr("Hello World", 0, 5);  // s is "Hello"
+s := substr("Hello World", -5, 5); // s is "World"
+```
+
+<FnRef fn="substr" />
+
+---
+
+## tan <span class="tag-sfall">sfall</span> {#tan}
+
+```ssl
+float tan(float angle)
+```
+
+Returns the tangent of an angle in radians.
+
+**Parameters:**
+- `angle` - The angle in radians
+
+**Returns:** `float` - The tangent value
+
+<FnRef fn="tan" />
+
+---
+
+## tap_key <span class="tag-sfall">sfall</span> {#tap_key}
+
+```ssl
+void tap_key(int dxScancode)
+```
+
+Simulates a key press and release.
+
+**Parameters:**
+- `dxScancode` - The DirectX scancode of the key to tap
+
+<FnRef fn="tap_key" />
+
+---
+
+## temp_array <span class="tag-sfall">sfall</span> {#temp_array}
+
+```ssl
+int temp_array(int size, int flags)
+```
+
+Creates a temporary array that is automatically freed at the end of the frame.
+
+**Parameters:**
+- `size` - The initial size of the array (use -1 for associative arrays/maps)
+- `flags` - Array flags
+
+**Returns:** `int` - The array ID
+
+<FnRef fn="temp_array" />
+
+---
+
+## toggle_active_hand <span class="tag-sfall">sfall</span> {#toggle_active_hand}
+
+```ssl
+void toggle_active_hand
+```
+
+Toggles between primary and secondary hand slots.
+
+<FnRef fn="toggle_active_hand" />
+
+---
+
+## violence_level_setting <span class="tag-vanilla">vanilla</span> {#violence_level_setting}
+
+```ssl
+int violence_level_setting
+```
+
+Returns the current setting of the violence level. See define.h for values.
+
+**Returns:** `int` - Violence level constant
+
+---

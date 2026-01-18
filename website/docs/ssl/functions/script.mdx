@@ -9,17 +9,17 @@ tags: [vanilla]
 
 Functions for script control, context retrieval, and script execution.
 
-## self_obj <span class="tag-vanilla">vanilla</span> {#self_obj}
+## action_being_used <span class="tag-vanilla">vanilla</span> {#action_being_used}
 
 ```ssl
-(ObjectPtr) self_obj
+int action_being_used
 ```
 
-Returns a pointer to the object connected to this script.
+Returns the current skill being used on a script object.
 
-**Returns:** `ObjectPtr` - The script's owner object
+**Returns:** `int` - The skill constant being used
 
-<FnRef fn="self_obj" />
+<FnRef fn="action_being_used" />
 
 ---
 
@@ -37,45 +37,57 @@ Returns a pointer to the player (dude) object.
 
 ---
 
-## source_obj <span class="tag-vanilla">vanilla</span> {#source_obj}
+## fixed_param <span class="tag-vanilla">vanilla</span> {#fixed_param}
 
 ```ssl
-(ObjectPtr) source_obj
+int fixed_param
 ```
 
-Returns a pointer to the source object (activator) for this action. For example, the source object for a `pickup_proc` would be the critter picking the object up.
+Returns the value of the script's fixed parameter. This is used with `add_timer_event` to pass the info parameter back to the script.
 
-**Returns:** `ObjectPtr` - The activating object
+**Returns:** `int` - The fixed parameter value
 
-<FnRef fn="source_obj" />
+**Example:**
+```ssl
+procedure timed_event_p_proc begin
+    variable event_type;
+    event_type := fixed_param;
+    if (event_type == 1) then begin
+        display_msg("Timer event 1 triggered!");
+    end
+end
+```
+
+<FnRef fn="fixed_param" />
 
 ---
 
-## target_obj <span class="tag-vanilla">vanilla</span> {#target_obj}
+## get_sfall_global_int <span class="tag-sfall">sfall</span> {#get_sfall_global_int}
 
 ```ssl
-(ObjectPtr) target_obj
+int get_sfall_global_int(string/int varname)
 ```
 
-Returns a pointer to the target object for this action. The target object is what is being acted upon.
+Gets the integer value of a sfall global variable.
 
-**Returns:** `ObjectPtr` - The target object
+**Parameters:**
+- `varname` - The variable name (string) or ID (int)
 
-<FnRef fn="target_obj" />
+**Returns:** `int` - The stored value, or 0 if not found
+
+<FnRef fn="get_sfall_global_int" />
 
 ---
 
-## action_being_used <span class="tag-vanilla">vanilla</span> {#action_being_used}
+## scr_return <span class="tag-vanilla">vanilla</span> {#scr_return}
 
 ```ssl
-int action_being_used
+void scr_return
 ```
 
-Returns the current skill being used on a script object.
+Sets the return value for a script's C-engine node, to be used by C code.
 
-**Returns:** `int` - The skill constant being used
-
-<FnRef fn="action_being_used" />
+<FnRef fn="scr_return" />
 
 ---
 
@@ -115,37 +127,88 @@ end
 
 ---
 
-## scr_return <span class="tag-vanilla">vanilla</span> {#scr_return}
+## self_obj <span class="tag-vanilla">vanilla</span> {#self_obj}
 
 ```ssl
-void scr_return
+(ObjectPtr) self_obj
 ```
 
-Sets the return value for a script's C-engine node, to be used by C code.
+Returns a pointer to the object connected to this script.
 
-<FnRef fn="scr_return" />
+**Returns:** `ObjectPtr` - The script's owner object
+
+<FnRef fn="self_obj" />
 
 ---
 
-## fixed_param <span class="tag-vanilla">vanilla</span> {#fixed_param}
+## set_global_script_repeat <span class="tag-sfall">sfall</span> {#set_global_script_repeat}
 
 ```ssl
-int fixed_param
+void set_global_script_repeat(int frames)
 ```
 
-Returns the value of the script's fixed parameter. This is used with `add_timer_event` to pass the info parameter back to the script.
+Sets how often a global script's `start` procedure runs.
 
-**Returns:** `int` - The fixed parameter value
+**Parameters:**
+- `frames` - The number of frames between each execution (0 to disable)
 
-**Example:**
+<FnRef fn="set_global_script_repeat" />
+
+---
+
+## set_global_script_type <span class="tag-sfall">sfall</span> {#set_global_script_type}
+
 ```ssl
-procedure timed_event_p_proc begin
-    variable event_type;
-    event_type := fixed_param;
-    if (event_type == 1) then begin
-        display_msg("Timer event 1 triggered!");
-    end
-end
+void set_global_script_type(int type)
 ```
 
-<FnRef fn="fixed_param" />
+Sets the type/mode of a global script.
+
+**Parameters:**
+- `type` - The script type value
+
+<FnRef fn="set_global_script_type" />
+
+---
+
+## set_sfall_global <span class="tag-sfall">sfall</span> {#set_sfall_global}
+
+```ssl
+void set_sfall_global(string/int varname, int/float value)
+```
+
+Sets a sfall global variable.
+
+**Parameters:**
+- `varname` - The variable name (string) or ID (int)
+- `value` - The value to store
+
+<FnRef fn="set_sfall_global" />
+
+---
+
+## source_obj <span class="tag-vanilla">vanilla</span> {#source_obj}
+
+```ssl
+(ObjectPtr) source_obj
+```
+
+Returns a pointer to the source object (activator) for this action. For example, the source object for a `pickup_proc` would be the critter picking the object up.
+
+**Returns:** `ObjectPtr` - The activating object
+
+<FnRef fn="source_obj" />
+
+---
+
+## target_obj <span class="tag-vanilla">vanilla</span> {#target_obj}
+
+```ssl
+(ObjectPtr) target_obj
+```
+
+Returns a pointer to the target object for this action. The target object is what is being acted upon.
+
+**Returns:** `ObjectPtr` - The target object
+
+<FnRef fn="target_obj" />
