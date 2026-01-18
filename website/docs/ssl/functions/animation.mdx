@@ -17,8 +17,10 @@ void animate_stand
 
 Sets up an animation for the currently focused object (`self`) to run its stand animation. Can be used to open doors, open container items, or run a critter's fidget animation.
 
+Macro alias for [`animate_stand_obj`](#animate_stand_obj)`(self_obj)`.
 
-<FnRef fn="animate_stand" />
+<FnRef fn="animate_stand_obj" />
+
 ---
 
 ## animate_stand_obj <span class="tag-vanilla">vanilla</span> {#animate_stand_obj}
@@ -44,8 +46,10 @@ void animate_stand_reverse
 
 Sets up an animation for `self` to run its stand animation in reverse. Used only for non-critters to cause them to close (close doors, containers, etc.).
 
+Macro alias for [`animate_stand_reverse_obj`](#animate_stand_reverse_obj)`(self_obj)`.
 
-<FnRef fn="animate_stand_reverse" />
+<FnRef fn="animate_stand_reverse_obj" />
+
 ---
 
 ## animate_stand_reverse_obj <span class="tag-vanilla">vanilla</span> {#animate_stand_reverse_obj}
@@ -78,6 +82,7 @@ Sets up an animation for a critter to walk to a given tile at a given speed. Spe
 
 
 <FnRef fn="animate_move_obj_to_tile" />
+
 ---
 
 ## animate_run_to_tile <span class="tag-vanilla">vanilla</span> {#animate_run_to_tile}
@@ -88,10 +93,12 @@ void animate_run_to_tile(int tile)
 
 Sets up an animation for `self_obj` to run to a given tile.
 
+Macro alias for [`animate_move_obj_to_tile`](#animate_move_obj_to_tile)`(self_obj, tile, ANIMATE_RUN)`.
+
 **Parameters:**
 - `tile` - Destination tile number
 
-<FnRef fn="animate_run_to_tile" />
+<FnRef fn="animate_move_obj_to_tile" />
 
 ---
 
@@ -103,10 +110,12 @@ void animate_rotation(int direction)
 
 Changes the orientation (facing) of `self_obj` to the given direction.
 
+Macro alias for [`anim`](#anim)`(self_obj, ANIMATE_ROTATION, direction)`.
+
 **Parameters:**
 - `direction` - Direction (0-5)
 
-<FnRef fn="animate_rotation" />
+<FnRef fn="anim" />
 
 ---
 
@@ -116,12 +125,14 @@ Changes the orientation (facing) of `self_obj` to the given direction.
 void animate_set_frame(int newFrame)
 ```
 
-Changes the current animation frame of `self_obj` to the given frame number. Can be used to make lights go to broken lights or alarm/siren lights. Should be used in place of `animate_stand` for 2-frame animations.
+Changes the current animation frame of `self_obj` to the given frame number. Can be used to make lights go to broken lights or alarm/siren lights.
+
+Macro alias for [`anim`](#anim)`(self_obj, ANIMATE_SET_FRAME, newFrame)`.
 
 **Parameters:**
 - `newFrame` - Frame number
 
-<FnRef fn="animate_set_frame" />
+<FnRef fn="anim" />
 
 ---
 
@@ -223,7 +234,9 @@ void reg_anim_begin
 
 Tells the system to start an animation sequence-list.
 
-<FnRef fn="reg_anim_begin" />
+Macro alias for `REG_ANIM_FUNC(ANIM_BEGIN)`.
+
+<FnRef fn="reg_anim_func" />
 
 ---
 
@@ -234,6 +247,8 @@ void reg_anim_end
 ```
 
 Activates the animation sequence-list. Without this call, the animation will never occur.
+
+Macro alias for `REG_ANIM_FUNC(ANIM_END)`.
 
 :::important
 All animation sequences must be registered at ONCE! You cannot let the script end and finish registering the animations later.
@@ -247,7 +262,7 @@ reg_anim_obj_move_to_tile(self_obj, tile_num(dude_obj), -1);
 reg_anim_end;
 ```
 
-<FnRef fn="reg_anim_end" />
+<FnRef fn="reg_anim_func" />
 
 ---
 
@@ -259,10 +274,12 @@ void reg_anim_clear(ObjectPtr object)
 
 Terminates all animations currently registered for a given object.
 
+Macro alias for `REG_ANIM_FUNC(ANIM_CLEAR, object)`.
+
 **Parameters:**
 - `object` - Object to clear animations
 
-<FnRef fn="reg_anim_clear" />
+<FnRef fn="reg_anim_func" />
 
 ---
 

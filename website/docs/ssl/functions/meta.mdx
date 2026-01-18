@@ -505,6 +505,55 @@ Gets a string value from an INI file.
 
 ---
 
+## get_ini_section <span class="tag-sfall">sfall</span> {#get_ini_section}
+
+```ssl
+array get_ini_section(string file_path, string section_name)
+```
+
+Gets all key-value pairs from a section in an INI file as an associative array.
+
+**Parameters:**
+- `file_path` - Path to the INI file
+- `section_name` - Name of the section to read
+
+**Returns:** `array` - A temporary associative array containing all key-value pairs from the section. Returns an empty array if the file or section doesn't exist.
+
+**Example:**
+```ssl
+variable settings;
+settings := get_ini_section("mymod.ini", "Options");
+// Access values like: settings["SomeKey"]
+```
+
+<FnRef fn="get_ini_section" />
+
+---
+
+## get_ini_sections <span class="tag-sfall">sfall</span> {#get_ini_sections}
+
+```ssl
+array get_ini_sections(string file_path)
+```
+
+Gets all section names from an INI file as an array.
+
+**Parameters:**
+- `file_path` - Path to the INI file
+
+**Returns:** `array` - A temporary array containing all section names. Returns -1 if the file doesn't exist or has no sections.
+
+**Example:**
+```ssl
+variable sections;
+sections := get_ini_sections("mymod.ini");
+// sections[0], sections[1], etc. contain section names
+```
+
+<FnRef fn="get_ini_sections" />
+
+---
+
 ## get_mouse_buttons <span class="tag-sfall">sfall</span> {#get_mouse_buttons}
 
 ```ssl

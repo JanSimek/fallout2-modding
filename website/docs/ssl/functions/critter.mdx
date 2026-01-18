@@ -44,10 +44,10 @@ Attempts to place a critter at a given destination hex and elevation. If placeme
 <FnRef fn="critter_attempt_placement" />
 ---
 
-## critter_damage <span class="tag-vanilla">vanilla</span> {#critter_damage}
+## critter_dmg <span class="tag-vanilla">vanilla</span> {#critter_dmg}
 
 ```ssl
-void critter_damage(ObjectPtr who, int dmg_amount)
+void critter_dmg(ObjectPtr who, int dmg_amount)
 ```
 
 Inflicts damage on a critter, killing it if necessary.
@@ -57,7 +57,7 @@ Inflicts damage on a critter, killing it if necessary.
 - `dmg_amount` - Amount of damage
 
 
-<FnRef fn="critter_damage" />
+<FnRef fn="critter_dmg" />
 ---
 
 ## critter_heal <span class="tag-vanilla">vanilla</span> {#critter_heal}
@@ -199,13 +199,15 @@ int critter_skill_level(ObjectPtr who, int skillNum)
 
 Returns the current skill level of a critter's skill.
 
+Macro alias for [`has_skill`](./skill#has_skill).
+
 **Parameters:**
 - `who` - Critter object
 - `skillNum` - Skill constant
 
 **Returns:** `int` - Skill level
 
-<FnRef fn="critter_skill_level" />
+<FnRef fn="has_skill" />
 
 ---
 

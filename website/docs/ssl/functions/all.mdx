@@ -22,9 +22,9 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`anim_action_frame`](./animation#anim_action_frame) | Animation | Returns the action frame of the given art frame |
 | [`anim_busy`](./animation#anim_busy) | Animation | Returns True if object is currently animating |
 | [`animate_move_obj_to_tile`](./animation#animate_move_obj_to_tile) | Animation | Sets up walk animation to a tile |
-| [`animate_rotation`](./animation#animate_rotation) | Animation | Changes the orientation of self_obj |
+| [`animate_rotation`](./animation#animate_rotation) | Animation | Changes orientation of self |
 | [`animate_run_to_tile`](./animation#animate_run_to_tile) | Animation | Sets up run animation to a tile |
-| [`animate_set_frame`](./animation#animate_set_frame) | Animation | Changes the current animation frame |
+| [`animate_set_frame`](./animation#animate_set_frame) | Animation | Changes current animation frame of self |
 | [`animate_stand`](./animation#animate_stand) | Animation | Runs the stand animation for self |
 | [`animate_stand_obj`](./animation#animate_stand_obj) | Animation | Runs the stand animation for an object |
 | [`animate_stand_reverse`](./animation#animate_stand_reverse) | Animation | Runs the stand animation in reverse |
@@ -58,7 +58,7 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`create_object_sid`](./object#create_object_sid) | Object | Creates a new object with script override |
 | [`critter_add_trait`](./critter#critter_add_trait) | Critter | Adds a trait to a critter |
 | [`critter_attempt_placement`](./critter#critter_attempt_placement) | Critter | Attempts to place a critter at a location |
-| [`critter_damage`](./critter#critter_damage) | Critter | Inflicts damage on a critter |
+| [`critter_dmg`](./critter#critter_dmg) | Critter | Inflicts damage on a critter |
 | [`critter_heal`](./critter#critter_heal) | Critter | Heals a critter |
 | [`critter_injure`](./critter#critter_injure) | Critter | Injures a critter's limbs |
 | [`critter_inven_obj`](./critter#critter_inven_obj) | Critter | Returns object in a critter's equipment slot |
@@ -136,6 +136,7 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`get_day`](./time#get_day) | Time | Returns the current day of month |
 | [`get_game_mode`](./time#get_game_mode) | Time | Returns the current game mode flags |
 | [`get_ini_section`](./meta#get_ini_section) | Meta | Returns all key-value pairs from an INI section |
+| [`get_ini_sections`](./meta#get_ini_sections) | Meta | Returns all section names from an INI file |
 | [`get_ini_setting`](./meta#get_ini_setting) | Meta | Reads an integer from an INI file |
 | [`get_ini_string`](./meta#get_ini_string) | Meta | Reads a string from an INI file |
 | [`get_month`](./time#get_month) | Time | Returns the current month |
@@ -159,14 +160,14 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`get_year`](./time#get_year) | Time | Returns the current year |
 | [`gfade_in`](./meta#gfade_in) | Meta | Fades from black to game |
 | [`gfade_out`](./meta#gfade_out) | Meta | Fades to black |
-| [`giQ_Option`](./dialog#giQ_Option) | Dialog | IQ-gated dialog option |
+| [`giq_option`](./dialog#giq_option) | Dialog | IQ-gated dialog option |
 | [`give_exp_points`](./meta#give_exp_points) | Meta | Awards experience points |
 | [`global_var`](./meta#global_var) | Meta | Returns a global variable value |
-| [`gSay_End`](./dialog#gSay_End) | Dialog | Ends a dialog sequence |
-| [`gSay_Message`](./dialog#gSay_Message) | Dialog | Sets up a message with [Done] option |
-| [`gSay_Option`](./dialog#gSay_Option) | Dialog | Sets up a dialog option |
-| [`gSay_Reply`](./dialog#gSay_Reply) | Dialog | Sets up what the NPC says |
-| [`gSay_Start`](./dialog#gSay_Start) | Dialog | Starts a dialog sequence |
+| [`gsay_end`](./dialog#gsay_end) | Dialog | Ends a dialog sequence |
+| [`gsay_message`](./dialog#gsay_message) | Dialog | Sets up a message with [Done] option |
+| [`gsay_option`](./dialog#gsay_option) | Dialog | Sets up a dialog option |
+| [`gsay_reply`](./dialog#gsay_reply) | Dialog | Sets up what the NPC says |
+| [`gsay_start`](./dialog#gsay_start) | Dialog | Starts a dialog sequence |
 
 ## H
 
@@ -227,7 +228,6 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 |----------|----------|-------------|
 | [`map_first_run`](./map#map_first_run) | Map | Returns True if map is running first time |
 | [`map_is_known`](./map#map_is_known) | Map | Returns True if map is known |
-| [`map_known`](./map#map_known) | Map | Returns True if map is known |
 | [`map_var`](./meta#map_var) | Meta | Returns a map variable value |
 | [`message_str`](./dialog#message_str) | Dialog | Returns a string from message file |
 | [`message_str_game`](./meta#message_str_game) | Meta | Returns a string from game message files |
@@ -386,7 +386,6 @@ Complete alphabetical listing of all SSL functions with links to their documenta
 | [`tile_under_cursor`](./object#tile_under_cursor) | Object | Returns tile number under cursor |
 | [`toggle_active_hand`](./meta#toggle_active_hand) | Meta | Toggles active hand slot |
 | [`town_known`](./map#town_known) | Map | Returns True if town is known |
-| [`town_map`](./map#town_map) | Map | Opens the town map |
 | [`typeof`](./object#typeof) | Object | Returns the type of a value |
 
 ## U

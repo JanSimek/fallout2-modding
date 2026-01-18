@@ -48,7 +48,8 @@ new_item := create_object(PID_STIMPAK, tile_num(dude_obj), elevation(dude_obj));
 ```
 
 
-<FnRef fn="create_object" />
+<FnRef fn="create_object_sid" />
+
 ---
 
 ## create_object_sid <span class="tag-vanilla">vanilla</span> {#create_object_sid}
@@ -314,12 +315,18 @@ int obj_is_visible_flag(ObjectPtr who)
 
 Returns True if an object is turned on (visible).
 
+Macro alias for [`has_trait`](./critter#has_trait)`(TRAIT_OBJECT, who, OBJECT_VISIBILITY)`.
+
+:::tip
+See [this forum thread](https://www.nma-fallout.com/threads/scripting-issue-checking-invisibility.222380/) for more information about checking object visibility.
+:::
+
 **Parameters:**
 - `who` - Object to check
 
 **Returns:** `int` - Boolean
 
-<FnRef fn="obj_is_visible_flag" />
+<FnRef fn="has_trait" />
 
 ---
 

@@ -7,6 +7,7 @@ const sidebars: SidebarsConfig = {
       label: 'File Formats',
       collapsed: false,
       items: [
+        'formats/architecture',
         'formats/overview',
         {
           type: 'category',

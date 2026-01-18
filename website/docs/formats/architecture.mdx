@@ -1,0 +1,269 @@
+---
+sidebar_position: 0
+title: Engine Architecture
+description: Overview of Fallout 2's data architecture and object system
+---
+
+# Engine Architecture
+
+This page provides a high-level overview of how Fallout 2's engine organizes game data and the relationships between different systems.
+
+## Core Concepts
+
+```mermaid
+flowchart TB
+    subgraph GameWorld["Game World (Maps)"]
+        Object1["Object Instance"]
+        Object2["Object Instance"]
+        Object3["Object Instance"]
+    end
+
+    subgraph IDs["ID References"]
+        PID["PID<br/>(Prototype ID)"]
+        FID["FID<br/>(Frame ID)"]
+        SID["SID<br/>(Script ID)"]
+    end
+
+    subgraph DataFiles["Data Files"]
+        PRO["PRO Files<br/>(Prototypes)"]
+        FRM["FRM Files<br/>(Graphics)"]
+        INT["INT Files<br/>(Scripts)"]
+        MSG["MSG Files<br/>(Text)"]
+    end
+
+    Object1 --> PID
+    Object1 --> FID
+    Object1 --> SID
+
+    PID --> PRO
+    FID --> FRM
+    SID --> INT
+    PRO --> MSG
+```
+
+### Objects
+
+**Objects** are instances that exist in the game world on maps. Each object has:
+
+- **Position**: tile hex, x/y offset, elevation (0-2)
+- **State**: current frame, rotation, flags
+- **References**: PID, FID, SID linking to data files
+- **Instance data**: current HP, inventory, combat state
+
+### Prototype ID (PID)
+
+The **PID** encodes both the object type and prototype number:
+
+```
+PID = (type << 24) | proto_number
+
+Example: PID 0x01000004
+  Type: 0x01 (Critter)
+  Proto: 0x000004 (4th critter prototype)
+```
+
+### Frame ID (FID)
+
+The **FID** identifies which graphics to display. Objects can override their prototype's default FID (e.g., when wearing different armor).
+
+### Script ID (SID)
+
+The **SID** links to compiled SSL scripts (`.INT` files) that control behavior.
+
+## Prototype Hierarchy
+
+```mermaid
+flowchart TB
+    subgraph ProtoTypes["Prototype Types"]
+        direction TB
+        Proto["Proto<br/>(Base)"]
+
+        Proto --> ItemProto
+        Proto --> CritterProto
+        Proto --> SceneryProto
+        Proto --> WallProto
+        Proto --> TileProto
+        Proto --> MiscProto
+    end
+
+    subgraph ItemSub["Item Subtypes"]
+        ItemProto --> Armor
+        ItemProto --> Weapon
+        ItemProto --> Container
+        ItemProto --> Drug
+        ItemProto --> Ammo
+        ItemProto --> MiscItem["Misc Item"]
+        ItemProto --> Key
+    end
+
+    subgraph ScenerySub["Scenery Subtypes"]
+        SceneryProto --> Door
+        SceneryProto --> Stairs
+        SceneryProto --> Elevator
+        SceneryProto --> LadderUp["Ladder Up"]
+        SceneryProto --> LadderDown["Ladder Down"]
+        SceneryProto --> Generic
+    end
+```
+
+## Object Types
+
+| Type ID | Name | Description | Proto Directory |
+|---------|------|-------------|-----------------|
+| `0x00` | Item | Weapons, armor, consumables | `proto/items/` |
+| `0x01` | Critter | NPCs, creatures, player | `proto/critters/` |
+| `0x02` | Scenery | Doors, stairs, decorations | `proto/scenery/` |
+| `0x03` | Wall | Blocking terrain features | `proto/walls/` |
+| `0x04` | Tile | Floor and roof tiles | `proto/tiles/` |
+| `0x05` | Misc | Exit grids, special objects | `proto/misc/` |
+
+## Data Flow
+
+```mermaid
+flowchart LR
+    subgraph Files["Game Files"]
+        DAT["master.dat<br/>critter.dat"]
+        MAP[".MAP Files"]
+        PRO[".PRO Files"]
+        FRM[".FRM Files"]
+        INT[".INT Files"]
+    end
+
+    subgraph Loading["Load Process"]
+        Proto["Load Prototypes"]
+        Art["Load Art"]
+        Script["Load Scripts"]
+        MapLoad["Load Map"]
+    end
+
+    subgraph Runtime["Runtime"]
+        Object["Object Instances"]
+        Combat["Combat System"]
+        Dialog["Dialog System"]
+        AI["AI System"]
+    end
+
+    DAT --> PRO
+    DAT --> FRM
+    DAT --> INT
+    DAT --> MAP
+
+    PRO --> Proto
+    FRM --> Art
+    INT --> Script
+    MAP --> MapLoad
+
+    Proto --> Object
+    Art --> Object
+    Script --> Object
+    MapLoad --> Object
+
+    Object --> Combat
+    Object --> Dialog
+    Object --> AI
+```
+
+## Object Instance Structure
+
+When an object exists in the game world, it contains:
+
+```mermaid
+classDiagram
+    class Object {
+        +int id
+        +int tile
+        +int x, y
+        +int frame
+        +int rotation
+        +int fid
+        +int flags
+        +int elevation
+        +int pid
+        +int sid
+        +int lightDistance
+        +int lightIntensity
+        +ObjectData data
+        +Object* owner
+    }
+
+    class ObjectData {
+        +Inventory inventory
+        +CritterData critter
+        +int charges
+    }
+
+    class Inventory {
+        +int length
+        +int capacity
+        +InventoryItem* items
+    }
+
+    class CritterData {
+        +int flags
+        +int currentHp
+        +int radiation
+        +int poison
+        +int combatState
+        +int whoHitMe
+        +int aiPacket
+        +int teamNum
+    }
+
+    Object --> ObjectData
+    ObjectData --> Inventory
+    ObjectData --> CritterData
+```
+
+## Script Integration
+
+Scripts interact with objects through the SSL scripting language:
+
+```mermaid
+flowchart TB
+    subgraph Scripts["Script Types"]
+        MapScript["Map Scripts<br/>(map_init, map_exit)"]
+        ObjScript["Object Scripts<br/>(talk_p_proc, combat_p_proc)"]
+        GlobalScript["Global Scripts<br/>(always running)"]
+    end
+
+    subgraph Procedures["Common Procedures"]
+        start["start"]
+        talk["talk_p_proc"]
+        combat["combat_p_proc"]
+        damage["damage_p_proc"]
+        critter["critter_p_proc"]
+        timed["timed_event_p_proc"]
+    end
+
+    subgraph Objects["Game Objects"]
+        self["self_obj<br/>(script owner)"]
+        dude["dude_obj<br/>(player)"]
+        target["target objects"]
+    end
+
+    MapScript --> start
+    ObjScript --> talk
+    ObjScript --> combat
+    ObjScript --> damage
+    ObjScript --> critter
+    ObjScript --> timed
+
+    talk --> self
+    talk --> dude
+    combat --> target
+```
+
+## ID Encoding Summary
+
+| ID Type | Encoding | Example | File Location |
+|---------|----------|---------|---------------|
+| **PID** | `(type << 24) \| number` | `0x01000004` = Critter #4 | `proto/critters/` |
+| **FID** | `(type << 24) \| anim \| id` | Complex encoding | `art/critters/`, etc. |
+| **SID** | Script table index | `0x00000001` | `scripts/` |
+| **MID** | Message table index | Plain integer | `text/english/` |
+
+## See Also
+
+- [PRO File Format](./pro) - Detailed prototype file structure
+- [SSL Overview](/ssl/overview) - Scripting language documentation
+- [Function Reference](/ssl/functions) - Available script functions

@@ -17,15 +17,17 @@ void start_dialogue(ObjectPtr who, int mood)
 
 Starts the dialogue system focusing on a critter and starting in a given mood. This call sets up the appropriate dialog windows, head art, etc.
 
+Macro alias for [`start_gdialog`](#start_gdialog)`(-1, who, mood, -1, -1)`.
+
 :::important
-If this call is not made before the normal dialog calls (`gSay_Reply`, `gSay_Message`, `gSay_Option`, etc.) then the dialog windows will not come up, and only grey boxes will appear with the text.
+If this call is not made before the normal dialog calls (`gsay_reply`, `gsay_message`, `gsay_option`, etc.) then the dialog windows will not come up, and only grey boxes will appear with the text.
 :::
 
 **Parameters:**
 - `who` - Critter to talk to
 - `mood` - Starting mood constant
 
-<FnRef fn="start_dialogue" />
+<FnRef fn="start_gdialog" />
 
 ---
 
@@ -50,9 +52,9 @@ Extended version of `start_dialogue` with additional parameters for message file
 
 ## start_gialog <span class="tag-vanilla">vanilla</span> {#start_gialog}
 
-Alias for `start_gdialog`. See above.
+Alias for [`start_gdialog`](#start_gdialog). See above.
 
-<FnRef fn="start_gialog" />
+<FnRef fn="start_gdialog" />
 
 ---
 
@@ -95,34 +97,34 @@ Sets up a reaction animation in the dialogue system.
 <FnRef fn="dialogue_reaction" />
 ---
 
-## gSay_Start <span class="tag-vanilla">vanilla</span> {#gSay_Start}
+## gsay_start <span class="tag-vanilla">vanilla</span> {#gsay_start}
 
 ```ssl
-void gSay_Start
+void gsay_start
 ```
 
 Starts a new dialog sequence.
 
-<FnRef fn="gSay_Start" />
+<FnRef fn="gsay_start" />
 
 ---
 
-## gSay_End <span class="tag-vanilla">vanilla</span> {#gSay_End}
+## gsay_end <span class="tag-vanilla">vanilla</span> {#gsay_end}
 
 ```ssl
-void gSay_End
+void gsay_end
 ```
 
 Ends a dialog sequence, which will bring up the sequence (actually display it).
 
-<FnRef fn="gSay_End" />
+<FnRef fn="gsay_end" />
 
 ---
 
-## gSay_Reply <span class="tag-vanilla">vanilla</span> {#gSay_Reply}
+## gsay_reply <span class="tag-vanilla">vanilla</span> {#gsay_reply}
 
 ```ssl
-void gSay_Reply(int msg_list, int msg_num)
+void gsay_reply(int msg_list, int msg_num)
 ```
 
 Sets up a reply block (what the NPC says).
@@ -134,20 +136,20 @@ Sets up a reply block (what the NPC says).
 **Example:**
 ```ssl
 procedure Node001 begin
-    gSay_Reply(SCRIPT_MYCHAR, 100);
-    gSay_Option(SCRIPT_MYCHAR, 101, Node002, NEUTRAL);
-    gSay_Option(SCRIPT_MYCHAR, 102, Node003, NEUTRAL);
+    gsay_reply(SCRIPT_MYCHAR, 100);
+    gsay_option(SCRIPT_MYCHAR, 101, Node002, NEUTRAL);
+    gsay_option(SCRIPT_MYCHAR, 102, Node003, NEUTRAL);
 end
 ```
 
-<FnRef fn="gSay_Reply" />
+<FnRef fn="gsay_reply" />
 
 ---
 
-## gSay_Option <span class="tag-vanilla">vanilla</span> {#gSay_Option}
+## gsay_option <span class="tag-vanilla">vanilla</span> {#gsay_option}
 
 ```ssl
-void gSay_Option(int msg_list, int msg_num, procedure target, int reaction)
+void gsay_option(int msg_list, int msg_num, procedure target, int reaction)
 ```
 
 Sets up an option-choice for a reply block. The string comes from the message file and message number, causes a given reaction, and if chosen will jump to the given target procedure.
@@ -158,14 +160,14 @@ Sets up an option-choice for a reply block. The string comes from the message fi
 - `target` - Procedure to call if chosen
 - `reaction` - Reaction constant (GOOD, NEUTRAL, BAD)
 
-<FnRef fn="gSay_Option" />
+<FnRef fn="gsay_option" />
 
 ---
 
-## gSay_Message <span class="tag-vanilla">vanilla</span> {#gSay_Message}
+## gsay_message <span class="tag-vanilla">vanilla</span> {#gsay_message}
 
 ```ssl
-void gSay_Message(int msg_list, int msg_num, int reaction)
+void gsay_message(int msg_list, int msg_num, int reaction)
 ```
 
 Sets up a sayMessage, which is a reply with just a [Done] option.
@@ -175,14 +177,14 @@ Sets up a sayMessage, which is a reply with just a [Done] option.
 - `msg_num` - Message number
 - `reaction` - Reaction constant
 
-<FnRef fn="gSay_Message" />
+<FnRef fn="gsay_message" />
 
 ---
 
-## giQ_Option <span class="tag-vanilla">vanilla</span> {#giQ_Option}
+## giq_option <span class="tag-vanilla">vanilla</span> {#giq_option}
 
 ```ssl
-void giQ_Option(int iq_test, int msg_list, int msg_num, procedure target, int reaction)
+void giq_option(int iq_test, int msg_list, int msg_num, procedure target, int reaction)
 ```
 
 Sets up an option-choice that only appears if the player's IQ is equal to or greater than the given value.
@@ -197,13 +199,13 @@ Sets up an option-choice that only appears if the player's IQ is equal to or gre
 **Example:**
 ```ssl
 // Only show this option if player has INT >= 6
-giQ_Option(6, SCRIPT_MYCHAR, 105, NodeSmart, NEUTRAL);
+giq_option(6, SCRIPT_MYCHAR, 105, NodeSmart, NEUTRAL);
 
 // Low INT option for INT <= 3
-giQ_Option(-3, SCRIPT_MYCHAR, 106, NodeDumb, NEUTRAL);
+giq_option(-3, SCRIPT_MYCHAR, 106, NodeDumb, NEUTRAL);
 ```
 
-<FnRef fn="giQ_Option" />
+<FnRef fn="giq_option" />
 
 ---
 
@@ -215,7 +217,9 @@ int gdialog_barter
 
 Tells the dialog system to switch to the barter screen. Sets the barter modifier to 0.
 
-<FnRef fn="gdialog_barter" />
+This is a macro defined in `define_lite.h` that expands to [`gdialog_mod_barter(0)`](#gdialog_mod_barter).
+
+<FnRef fn="gdialog_mod_barter" />
 
 ---
 

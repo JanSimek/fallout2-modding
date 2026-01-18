@@ -173,12 +173,14 @@ int inven_count(ObjectPtr what)
 
 Returns the count of how many inventory slots are filled on a given object.
 
+Macro alias for [`critter_inven_obj`](#critter_inven_obj)`(what, INVEN_TYPE_INV_COUNT)`.
+
 **Parameters:**
 - `what` - Object to check
 
 **Returns:** `int` - Number of filled slots
 
-<FnRef fn="inven_count" />
+<FnRef fn="critter_inven_obj" />
 
 ---
 
@@ -189,6 +191,8 @@ ObjectPtr inven_ptr(ObjectPtr what, int slotNum)
 ```
 
 Returns a pointer to the object in a specific slot number in a given object's inventory.
+
+Macro alias for [`inven_cmds`](#inven_cmds)`(what, INVEN_CMD_INDEX_PTR, slotNum)`.
 
 **Parameters:**
 - `what` - Object to check
@@ -206,7 +210,7 @@ for (i := 0; i < item_count; i := i + 1) begin
 end
 ```
 
-<FnRef fn="inven_ptr" />
+<FnRef fn="inven_cmds" />
 
 ---
 
@@ -230,10 +234,12 @@ void wield_obj(ObjectPtr obj)
 
 Sets up an animation causing `self_obj` to wield an object in its inventory. This puts that object in the critter's hand.
 
+Macro alias for [`wield_obj_critter`](#wield_obj_critter)`(self_obj, obj)`.
+
 **Parameters:**
 - `obj` - Object to wield
 
-<FnRef fn="wield_obj" />
+<FnRef fn="wield_obj_critter" />
 
 ---
 
