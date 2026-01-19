@@ -33,7 +33,6 @@ const sidebars: SidebarsConfig = {
         'ssl/overview',
         'ssl/syntax',
         'ssl/procedures',
-        'ssl/hooks',
         {
           type: 'category',
           label: 'Function Reference',
@@ -65,18 +64,13 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
-        {
-          type: 'category',
-          label: 'Standard Library',
-          items: [
-            'ssl/stdlib',
-          ],
-        },
+        'ssl/hooks',
         {
           type: 'category',
           label: 'Examples',
           items: [
             'ssl/examples/basic',
+            'ssl/stdlib',
           ],
         },
       ],

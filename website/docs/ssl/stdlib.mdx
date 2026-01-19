@@ -1,11 +1,13 @@
 ---
 sidebar_position: 3
-title: Standard Library
+title: Quick Reference
 ---
 
-# SSL Standard Library
+import DefineRef from '@site/src/components/DefineRef';
 
-This page documents the built-in functions available in SSL scripts.
+# SSL Quick Reference
+
+A quick reference for commonly used SSL functions and patterns.
 
 ## Object Functions
 
@@ -51,18 +53,18 @@ import ImplLink from '@site/src/components/ImplLink';
 
 ## Critter Functions
 
-### critter_stat
+### get_critter_stat
 
-Get a critter's stat value.
+Get a critter's stat value. See <DefineRef name="STAT_current_hp" inline /> and other `STAT_*` constants.
 
 ```ssl
-variable hp := critter_stat(dude_obj, STAT_current_hp);
-variable str := critter_stat(dude_obj, STAT_strength);
+variable hp := get_critter_stat(dude_obj, STAT_current_hp);
+variable str := get_critter_stat(dude_obj, STAT_st);
 ```
 
 ### critter_add_trait / critter_rm_trait
 
-Add or remove traits from a critter.
+Add or remove traits from a critter. See <DefineRef name="OBJECT_TEAM_NUM" inline /> and other trait constants.
 
 ```ssl
 critter_add_trait(obj, TRAIT_OBJECT, OBJECT_TEAM_NUM, 1);
@@ -79,16 +81,12 @@ critter_heal(dude_obj, 50);  // Heal 50 HP
 
 ### critter_injure / critter_uninjure
 
-Apply or remove injuries.
+Apply or remove injuries. See <DefineRef name="DAM_CRIP_LEG_LEFT" inline /> and other `DAM_*` constants.
 
 ```ssl
 critter_injure(obj, DAM_CRIP_LEG_LEFT);
 critter_uninjure(obj, DAM_CRIP_LEG_LEFT);
 ```
-
-### get_critter_stat
-
-Alias for `critter_stat`.
 
 ### set_critter_stat
 
@@ -147,7 +145,7 @@ rm_obj_from_inven(dude_obj, item);
 
 ### inven_ptr
 
-Get equipped item in a slot.
+Get equipped item in a slot. See <DefineRef name="INVEN_TYPE_WORN" inline />, <DefineRef name="INVEN_TYPE_RIGHT_HAND" inline />, <DefineRef name="INVEN_TYPE_LEFT_HAND" inline />.
 
 ```ssl
 variable armor := inven_ptr(dude_obj, INVEN_TYPE_WORN);
@@ -158,7 +156,7 @@ variable weapon := inven_ptr(dude_obj, INVEN_TYPE_RIGHT_HAND);
 
 ### has_skill
 
-Check if critter has skill points.
+Check if critter has skill points. See <DefineRef name="SKILL_LOCKPICK" inline /> and other `SKILL_*` constants.
 
 ```ssl
 variable skill_level := has_skill(dude_obj, SKILL_LOCKPICK);
@@ -191,7 +189,7 @@ end
 
 ### critter_dmg
 
-Deal damage to a critter.
+Deal damage to a critter. See <DefineRef name="DMG_normal_dam" inline /> and other `DMG_*` damage types.
 
 ```ssl
 critter_dmg(target, 25, DMG_normal_dam);
@@ -362,7 +360,7 @@ debug_msg("Debug: variable = " + x);
 
 ### float_msg
 
-Show floating text above an object.
+Show floating text above an object. See <DefineRef name="FLOAT_MSG_NORMAL" inline /> and other `FLOAT_MSG_*` colors.
 
 ```ssl
 float_msg(self_obj, "Hello!", FLOAT_MSG_NORMAL);

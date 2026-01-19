@@ -6,6 +6,7 @@ import FnRef, { FnInfo } from '@site/src/components/FnRef';
 import ImplLink from '@site/src/components/ImplLink';
 import ImplRef from '@site/src/components/ImplRef';
 import FunctionTag from '@site/src/components/FunctionTag';
+import DefineRef, { DefineInfo } from '@site/src/components/DefineRef';
 
 export default {
   // Re-use the default mapping
@@ -16,4 +17,6 @@ export default {
   ImplLink,
   ImplRef,
   FunctionTag,
+  DefineRef,
+  DefineInfo,
 };

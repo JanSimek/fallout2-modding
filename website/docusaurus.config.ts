@@ -40,7 +40,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/your-username/fallout2-modding/tree/main/website/',
+          editUrl: 'https://github.com/JanSimek/fallout2-modding/tree/main/website/',
           routeBasePath: '/', // Docs-only mode - docs at root
         },
         blog: false, // Disable blog
@@ -162,7 +162,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/your-username/fallout2-modding',
+              href: 'https://github.com/JanSimek/fallout2-modding',
             },
           ],
         },

@@ -1,0 +1,2882 @@
+{
+  "_meta": {
+    "repo": "BGforgeNet/Fallout2_Restoration_Project",
+    "file": "scripts_src/headers/define.h",
+    "commit": "31ae549cb107ffb02526977cd353920dc7db032b",
+    "shortCommit": "31ae549",
+    "generatedAt": "2026-01-19T09:34:15.318Z",
+    "defineCount": 574
+  },
+  "defines": {
+    "no_proc": {
+      "line": 32,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "start_proc": {
+      "line": 33,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "spatial_proc": {
+      "line": 34,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "description_proc": {
+      "line": 35,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "pickup_proc": {
+      "line": 36,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "drop_proc": {
+      "line": 37,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "use_proc": {
+      "line": 38,
+      "value": "(6)",
+      "prefix": "OTHER"
+    },
+    "use_obj_on_proc": {
+      "line": 39,
+      "value": "(7)",
+      "prefix": "OTHER"
+    },
+    "use_skill_on_proc": {
+      "line": 40,
+      "value": "(8)",
+      "prefix": "OTHER"
+    },
+    "use_ad_on_proc": {
+      "line": 41,
+      "value": "(9)",
+      "prefix": "OTHER"
+    },
+    "use_disad_on_proc": {
+      "line": 42,
+      "value": "(10)",
+      "prefix": "OTHER"
+    },
+    "talk_proc": {
+      "line": 43,
+      "value": "(11)",
+      "prefix": "OTHER"
+    },
+    "critter_proc": {
+      "line": 44,
+      "value": "(12)",
+      "prefix": "OTHER"
+    },
+    "combat_proc": {
+      "line": 45,
+      "value": "(13)",
+      "prefix": "OTHER"
+    },
+    "damage_proc": {
+      "line": 46,
+      "value": "(14)",
+      "prefix": "OTHER"
+    },
+    "map_enter_proc": {
+      "line": 47,
+      "value": "(15)",
+      "prefix": "OTHER"
+    },
+    "map_exit_proc": {
+      "line": 48,
+      "value": "(16)",
+      "prefix": "OTHER"
+    },
+    "create_proc": {
+      "line": 49,
+      "value": "(17)",
+      "prefix": "OTHER"
+    },
+    "destroy_proc": {
+      "line": 50,
+      "value": "(18)",
+      "prefix": "OTHER"
+    },
+    "barter_init_proc": {
+      "line": 51,
+      "value": "(19)",
+      "prefix": "OTHER"
+    },
+    "barter_proc": {
+      "line": 52,
+      "value": "(20)",
+      "prefix": "OTHER"
+    },
+    "look_at_proc": {
+      "line": 53,
+      "value": "(21)",
+      "prefix": "OTHER"
+    },
+    "timed_event_proc": {
+      "line": 54,
+      "value": "(22)",
+      "prefix": "OTHER"
+    },
+    "map_update_proc": {
+      "line": 55,
+      "value": "(23)",
+      "prefix": "OTHER"
+    },
+    "METARULE_TEST_FIRSTRUN": {
+      "line": 60,
+      "value": "14",
+      "prefix": "METARULE"
+    },
+    "map_first_run": {
+      "line": 61,
+      "value": "metarule(METARULE_TEST_FIRSTRUN, 0)",
+      "prefix": "OTHER"
+    },
+    "METARULE_IS_LOADGAME": {
+      "line": 62,
+      "value": "22",
+      "prefix": "METARULE"
+    },
+    "is_loading_game": {
+      "line": 63,
+      "value": "metarule(METARULE_IS_LOADGAME, 0)",
+      "prefix": "OTHER"
+    },
+    "COMBAT_SUBTYPE_WEAPON_USED": {
+      "line": 66,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "COMBAT_SUBTYPE_HIT_SUCCEEDED": {
+      "line": 67,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "COMBAT_SUBTYPE_SEQUENCING": {
+      "line": 68,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "COMBAT_SUBTYPE_TURN": {
+      "line": 69,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "COMBAT_SUBTYPE_NONCOM_TURN": {
+      "line": 70,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "gdialog_barter": {
+      "line": 89,
+      "value": "gdialog_mod_barter(0)",
+      "prefix": "OTHER"
+    },
+    "VSUIT_MOVIE": {
+      "line": 96,
+      "value": "3",
+      "prefix": "OTHER"
+    },
+    "AFAILED_MOVIE": {
+      "line": 97,
+      "value": "4",
+      "prefix": "OTHER"
+    },
+    "ADESTROY_MOVIE": {
+      "line": 98,
+      "value": "5",
+      "prefix": "OTHER"
+    },
+    "CAR_MOVIE": {
+      "line": 99,
+      "value": "6",
+      "prefix": "OTHER"
+    },
+    "CARTUCCI_MOVIE": {
+      "line": 100,
+      "value": "7",
+      "prefix": "OTHER"
+    },
+    "DETHCLAW_MOVIE": {
+      "line": 101,
+      "value": "8",
+      "prefix": "OTHER"
+    },
+    "TANKER_MOVIE": {
+      "line": 102,
+      "value": "9",
+      "prefix": "OTHER"
+    },
+    "ENCLAVE_MOVIE": {
+      "line": 103,
+      "value": "10",
+      "prefix": "OTHER"
+    },
+    "DERRICK_MOVIE": {
+      "line": 104,
+      "value": "11",
+      "prefix": "OTHER"
+    },
+    "FLOAT_MSG_WARNING": {
+      "line": 107,
+      "value": "(-2)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_SEQUENTIAL": {
+      "line": 108,
+      "value": "(-1)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_NORMAL": {
+      "line": 109,
+      "value": "(0)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_BLACK": {
+      "line": 110,
+      "value": "(1)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_RED": {
+      "line": 111,
+      "value": "(2)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_GREEN": {
+      "line": 112,
+      "value": "(3)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_BLUE": {
+      "line": 113,
+      "value": "(4)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_PURPLE": {
+      "line": 114,
+      "value": "(5)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_NEAR_WHITE": {
+      "line": 115,
+      "value": "(6)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_LIGHT_RED": {
+      "line": 116,
+      "value": "(7)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_YELLOW": {
+      "line": 117,
+      "value": "(8)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_WHITE": {
+      "line": 118,
+      "value": "(9)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_GREY": {
+      "line": 119,
+      "value": "(10)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_DARK_GREY": {
+      "line": 120,
+      "value": "(11)",
+      "prefix": "FLOAT_MSG"
+    },
+    "FLOAT_MSG_LIGHT_GREY": {
+      "line": 121,
+      "value": "(12)",
+      "prefix": "FLOAT_MSG"
+    },
+    "good_fidget": {
+      "line": 128,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "neutral_fidget": {
+      "line": 131,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "bad_fidget": {
+      "line": 134,
+      "value": "(7)",
+      "prefix": "OTHER"
+    },
+    "HEAD_MARCUS": {
+      "line": 141,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "HEAD_MYRON": {
+      "line": 142,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "HEAD_ELDER": {
+      "line": 143,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "HEAD_LYNETTE": {
+      "line": 144,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "HEAD_HAROLD": {
+      "line": 145,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "HEAD_TANDI": {
+      "line": 146,
+      "value": "(6)",
+      "prefix": "OTHER"
+    },
+    "HEAD_COM_OFFICER": {
+      "line": 147,
+      "value": "(7)",
+      "prefix": "OTHER"
+    },
+    "HEAD_SULIK": {
+      "line": 148,
+      "value": "(8)",
+      "prefix": "OTHER"
+    },
+    "HEAD_PRESIDENT": {
+      "line": 149,
+      "value": "(9)",
+      "prefix": "OTHER"
+    },
+    "HEAD_HAKUNIN": {
+      "line": 150,
+      "value": "(10)",
+      "prefix": "OTHER"
+    },
+    "HEAD_BOSS": {
+      "line": 151,
+      "value": "(11)",
+      "prefix": "OTHER"
+    },
+    "HEAD_DYING_HAKUNIN": {
+      "line": 152,
+      "value": "(12)",
+      "prefix": "OTHER"
+    },
+    "HEAD_OVERSEER": {
+      "line": 154,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND1": {
+      "line": 157,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_HUB": {
+      "line": 158,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_NECROPOLIS": {
+      "line": 159,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_BHOOD": {
+      "line": 160,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_MILITARYBS": {
+      "line": 161,
+      "value": "(6)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_JUNKTOWN": {
+      "line": 162,
+      "value": "(7)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_CATHEDRAL": {
+      "line": 163,
+      "value": "(8)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_SHADY": {
+      "line": 164,
+      "value": "(9)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_VAULT": {
+      "line": 165,
+      "value": "(10)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_MASTER": {
+      "line": 166,
+      "value": "(11)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_FOLLOWER": {
+      "line": 167,
+      "value": "(12)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_RAIDERS": {
+      "line": 168,
+      "value": "(13)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_CAVE": {
+      "line": 170,
+      "value": "(14)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_ENCLAVE": {
+      "line": 171,
+      "value": "(15)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_WASTELAND": {
+      "line": 172,
+      "value": "(16)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_BOSS": {
+      "line": 173,
+      "value": "(17)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_PRESIDENT": {
+      "line": 174,
+      "value": "(18)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_TENT": {
+      "line": 175,
+      "value": "(19)",
+      "prefix": "OTHER"
+    },
+    "BACKGROUND_ADOBE": {
+      "line": 176,
+      "value": "(20)",
+      "prefix": "OTHER"
+    },
+    "GOOD_REACTION": {
+      "line": 178,
+      "value": "(49)",
+      "prefix": "OTHER"
+    },
+    "NEUTRAL_REACTION": {
+      "line": 179,
+      "value": "(50)",
+      "prefix": "OTHER"
+    },
+    "BAD_REACTION": {
+      "line": 180,
+      "value": "(51)",
+      "prefix": "OTHER"
+    },
+    "IAN_MEMBER_PTR": {
+      "line": 189,
+      "value": "party_member_obj(PID_IAN)",
+      "prefix": "OTHER"
+    },
+    "KATJA_MEMBER_PTR": {
+      "line": 190,
+      "value": "party_member_obj(PID_KATJA)",
+      "prefix": "OTHER"
+    },
+    "TYCHO_MEMBER_PTR": {
+      "line": 191,
+      "value": "party_member_obj(PID_TYCHO)",
+      "prefix": "OTHER"
+    },
+    "DOGMEAT_MEMBER_PTR": {
+      "line": 192,
+      "value": "party_member_obj(PID_DOGMEAT)",
+      "prefix": "OTHER"
+    },
+    "TANDI_MEMBER_PTR": {
+      "line": 193,
+      "value": "party_member_obj(PID_TANDI)",
+      "prefix": "OTHER"
+    },
+    "PERK_bonus_awareness": {
+      "line": 203,
+      "value": "(0)",
+      "prefix": "PERK"
+    },
+    "PERK_bonus_hth_attacks": {
+      "line": 204,
+      "value": "(1)",
+      "prefix": "PERK"
+    },
+    "PERK_bonus_hth_damage": {
+      "line": 205,
+      "value": "(2)",
+      "prefix": "PERK"
+    },
+    "PERK_bonus_move": {
+      "line": 206,
+      "value": "(3)",
+      "prefix": "PERK"
+    },
+    "PERK_bonus_ranged_damage": {
+      "line": 207,
+      "value": "(4)",
+      "prefix": "PERK"
+    },
+    "PERK_bonus_rate_of_fire": {
+      "line": 208,
+      "value": "(5)",
+      "prefix": "PERK"
+    },
+    "PERK_earlier_sequence": {
+      "line": 209,
+      "value": "(6)",
+      "prefix": "PERK"
+    },
+    "PERK_faster_healing": {
+      "line": 210,
+      "value": "(7)",
+      "prefix": "PERK"
+    },
+    "PERK_more_criticals": {
+      "line": 211,
+      "value": "(8)",
+      "prefix": "PERK"
+    },
+    "PERK_night_vision": {
+      "line": 212,
+      "value": "(9)",
+      "prefix": "PERK"
+    },
+    "PERK_presence": {
+      "line": 213,
+      "value": "(10)",
+      "prefix": "PERK"
+    },
+    "PERK_rad_resistance": {
+      "line": 214,
+      "value": "(11)",
+      "prefix": "PERK"
+    },
+    "PERK_toughness": {
+      "line": 215,
+      "value": "(12)",
+      "prefix": "PERK"
+    },
+    "PERK_strong_back": {
+      "line": 216,
+      "value": "(13)",
+      "prefix": "PERK"
+    },
+    "PERK_sharpshooter": {
+      "line": 217,
+      "value": "(14)",
+      "prefix": "PERK"
+    },
+    "PERK_silent_running": {
+      "line": 218,
+      "value": "(15)",
+      "prefix": "PERK"
+    },
+    "PERK_survivalist": {
+      "line": 219,
+      "value": "(16)",
+      "prefix": "PERK"
+    },
+    "PERK_master_trader": {
+      "line": 220,
+      "value": "(17)",
+      "prefix": "PERK"
+    },
+    "PERK_educated": {
+      "line": 221,
+      "value": "(18)",
+      "prefix": "PERK"
+    },
+    "PERK_healer": {
+      "line": 222,
+      "value": "(19)",
+      "prefix": "PERK"
+    },
+    "PERK_fortune_finder": {
+      "line": 223,
+      "value": "(20)",
+      "prefix": "PERK"
+    },
+    "PERK_better_criticals": {
+      "line": 224,
+      "value": "(21)",
+      "prefix": "PERK"
+    },
+    "PERK_empathy": {
+      "line": 225,
+      "value": "(22)",
+      "prefix": "PERK"
+    },
+    "PERK_slayer": {
+      "line": 226,
+      "value": "(23)",
+      "prefix": "PERK"
+    },
+    "PERK_sniper": {
+      "line": 227,
+      "value": "(24)",
+      "prefix": "PERK"
+    },
+    "PERK_silent_death": {
+      "line": 228,
+      "value": "(25)",
+      "prefix": "PERK"
+    },
+    "PERK_action_boy": {
+      "line": 229,
+      "value": "(26)",
+      "prefix": "PERK"
+    },
+    "PERK_lifegiver": {
+      "line": 231,
+      "value": "(28)",
+      "prefix": "PERK"
+    },
+    "PERK_dodger": {
+      "line": 232,
+      "value": "(29)",
+      "prefix": "PERK"
+    },
+    "PERK_snakeater": {
+      "line": 233,
+      "value": "(30)",
+      "prefix": "PERK"
+    },
+    "PERK_mr_fixit": {
+      "line": 234,
+      "value": "(31)",
+      "prefix": "PERK"
+    },
+    "PERK_medic": {
+      "line": 235,
+      "value": "(32)",
+      "prefix": "PERK"
+    },
+    "PERK_master_thief": {
+      "line": 236,
+      "value": "(33)",
+      "prefix": "PERK"
+    },
+    "PERK_speaker": {
+      "line": 237,
+      "value": "(34)",
+      "prefix": "PERK"
+    },
+    "PERK_heave_ho": {
+      "line": 238,
+      "value": "(35)",
+      "prefix": "PERK"
+    },
+    "PERK_pickpocket": {
+      "line": 240,
+      "value": "(37)",
+      "prefix": "PERK"
+    },
+    "PERK_ghost": {
+      "line": 241,
+      "value": "(38)",
+      "prefix": "PERK"
+    },
+    "PERK_cult_of_personality": {
+      "line": 242,
+      "value": "(39)",
+      "prefix": "PERK"
+    },
+    "PERK_explorer": {
+      "line": 244,
+      "value": "(41)",
+      "prefix": "PERK"
+    },
+    "PERK_pathfinder": {
+      "line": 246,
+      "value": "(43)",
+      "prefix": "PERK"
+    },
+    "PERK_scout": {
+      "line": 248,
+      "value": "(45)",
+      "prefix": "PERK"
+    },
+    "PERK_mysterious_stranger": {
+      "line": 249,
+      "value": "(46)",
+      "prefix": "PERK"
+    },
+    "PERK_ranger": {
+      "line": 250,
+      "value": "(47)",
+      "prefix": "PERK"
+    },
+    "PERK_quick_pockets": {
+      "line": 251,
+      "value": "(48)",
+      "prefix": "PERK"
+    },
+    "PERK_smooth_talker": {
+      "line": 252,
+      "value": "(49)",
+      "prefix": "PERK"
+    },
+    "PERK_swift_learner": {
+      "line": 253,
+      "value": "(50)",
+      "prefix": "PERK"
+    },
+    "PERK_tag": {
+      "line": 254,
+      "value": "(51)",
+      "prefix": "PERK"
+    },
+    "PERK_mutate": {
+      "line": 255,
+      "value": "(52)",
+      "prefix": "PERK"
+    },
+    "PERK_gecko_skinning_perk": {
+      "line": 277,
+      "value": "(73)",
+      "prefix": "PERK"
+    },
+    "PERK_dermal_armor_perk": {
+      "line": 278,
+      "value": "(74)",
+      "prefix": "PERK"
+    },
+    "PERK_dermal_enhancement_perk": {
+      "line": 279,
+      "value": "(75)",
+      "prefix": "PERK"
+    },
+    "PERK_phoenix_armor_perk": {
+      "line": 280,
+      "value": "(76)",
+      "prefix": "PERK"
+    },
+    "PERK_phoenix_enhancement_perk": {
+      "line": 281,
+      "value": "(77)",
+      "prefix": "PERK"
+    },
+    "PERK_vault_city_inoculations_perk": {
+      "line": 282,
+      "value": "(78)",
+      "prefix": "PERK"
+    },
+    "PERK_adrenaline_rush_perk": {
+      "line": 283,
+      "value": "(79)",
+      "prefix": "PERK"
+    },
+    "PERK_cautious_nature_perk": {
+      "line": 284,
+      "value": "(80)",
+      "prefix": "PERK"
+    },
+    "PERK_comprehension_perk": {
+      "line": 285,
+      "value": "(81)",
+      "prefix": "PERK"
+    },
+    "PERK_demolition_expert_perk": {
+      "line": 286,
+      "value": "(82)",
+      "prefix": "PERK"
+    },
+    "PERK_gambler_perk": {
+      "line": 287,
+      "value": "(83)",
+      "prefix": "PERK"
+    },
+    "PERK_gain_strength_perk": {
+      "line": 288,
+      "value": "(84)",
+      "prefix": "PERK"
+    },
+    "PERK_gain_perception_perk": {
+      "line": 289,
+      "value": "(85)",
+      "prefix": "PERK"
+    },
+    "PERK_gain_endurance_perk": {
+      "line": 290,
+      "value": "(86)",
+      "prefix": "PERK"
+    },
+    "PERK_gain_charisma_perk": {
+      "line": 291,
+      "value": "(87)",
+      "prefix": "PERK"
+    },
+    "PERK_gain_intelligence_perk": {
+      "line": 292,
+      "value": "(88)",
+      "prefix": "PERK"
+    },
+    "PERK_gain_agility_perk": {
+      "line": 293,
+      "value": "(89)",
+      "prefix": "PERK"
+    },
+    "PERK_gain_luck_perk": {
+      "line": 294,
+      "value": "(90)",
+      "prefix": "PERK"
+    },
+    "PERK_harmless_perk": {
+      "line": 295,
+      "value": "(91)",
+      "prefix": "PERK"
+    },
+    "PERK_here_and_now_perk": {
+      "line": 296,
+      "value": "(92)",
+      "prefix": "PERK"
+    },
+    "PERK_hth_evade_perk": {
+      "line": 297,
+      "value": "(93)",
+      "prefix": "PERK"
+    },
+    "PERK_kama_sutra_perk": {
+      "line": 298,
+      "value": "(94)",
+      "prefix": "PERK"
+    },
+    "PERK_karma_beacon_perk": {
+      "line": 299,
+      "value": "(95)",
+      "prefix": "PERK"
+    },
+    "PERK_light_step_perk": {
+      "line": 300,
+      "value": "(96)",
+      "prefix": "PERK"
+    },
+    "PERK_living_anatomy_perk": {
+      "line": 301,
+      "value": "(97)",
+      "prefix": "PERK"
+    },
+    "PERK_magnetic_personality_perk": {
+      "line": 302,
+      "value": "(98)",
+      "prefix": "PERK"
+    },
+    "PERK_negotiator_perk": {
+      "line": 303,
+      "value": "(99)",
+      "prefix": "PERK"
+    },
+    "PERK_pack_rat_perk": {
+      "line": 304,
+      "value": "(100)",
+      "prefix": "PERK"
+    },
+    "PERK_pyromaniac_perk": {
+      "line": 305,
+      "value": "(101)",
+      "prefix": "PERK"
+    },
+    "PERK_quick_recovery_perk": {
+      "line": 306,
+      "value": "(102)",
+      "prefix": "PERK"
+    },
+    "PERK_salesman_perk": {
+      "line": 307,
+      "value": "(103)",
+      "prefix": "PERK"
+    },
+    "PERK_stonewall_perk": {
+      "line": 308,
+      "value": "(104)",
+      "prefix": "PERK"
+    },
+    "PERK_thief_perk": {
+      "line": 309,
+      "value": "(105)",
+      "prefix": "PERK"
+    },
+    "PERK_weapon_handling_perk": {
+      "line": 310,
+      "value": "(106)",
+      "prefix": "PERK"
+    },
+    "PERK_vault_city_training_perk": {
+      "line": 311,
+      "value": "(107)",
+      "prefix": "PERK"
+    },
+    "PERK_alcohol_hp_bonus1_perk": {
+      "line": 312,
+      "value": "(108)",
+      "prefix": "PERK"
+    },
+    "PERK_alcohol_hp_bonus2_perk": {
+      "line": 313,
+      "value": "(109)",
+      "prefix": "PERK"
+    },
+    "PERK_alcohol_hp_neg1_perk": {
+      "line": 314,
+      "value": "(110)",
+      "prefix": "PERK"
+    },
+    "PERK_alcohol_hp_neg2_perk": {
+      "line": 315,
+      "value": "(111)",
+      "prefix": "PERK"
+    },
+    "PERK_autodoc_hp_bonus1_perk": {
+      "line": 316,
+      "value": "(112)",
+      "prefix": "PERK"
+    },
+    "PERK_autodoc_hp_bonus2_perk": {
+      "line": 317,
+      "value": "(113)",
+      "prefix": "PERK"
+    },
+    "PERK_autodoc_hp_neg1_perk": {
+      "line": 318,
+      "value": "(114)",
+      "prefix": "PERK"
+    },
+    "PERK_autodoc_hp_neg2_perk": {
+      "line": 319,
+      "value": "(115)",
+      "prefix": "PERK"
+    },
+    "PERK_expert_excrement_expediter_perk": {
+      "line": 320,
+      "value": "(116)",
+      "prefix": "PERK"
+    },
+    "PERK_weapon_knockout_perk": {
+      "line": 321,
+      "value": "(117)",
+      "prefix": "PERK"
+    },
+    "PERK_jinxed_perk": {
+      "line": 322,
+      "value": "(118)",
+      "prefix": "PERK"
+    },
+    "OBJECT_AI_PACKET": {
+      "line": 325,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "OBJECT_TEAM_NUM": {
+      "line": 326,
+      "value": "(6)",
+      "prefix": "OTHER"
+    },
+    "OBJECT_CUR_ROT": {
+      "line": 327,
+      "value": "(10)",
+      "prefix": "OTHER"
+    },
+    "OBJECT_VISIBILITY": {
+      "line": 328,
+      "value": "(666)",
+      "prefix": "OTHER"
+    },
+    "OBJECT_CUR_WEIGHT": {
+      "line": 329,
+      "value": "(669)",
+      "prefix": "OTHER"
+    },
+    "TRAIT_fast_metabolism": {
+      "line": 332,
+      "value": "(0)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_bruiser": {
+      "line": 333,
+      "value": "(1)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_small_frame": {
+      "line": 334,
+      "value": "(2)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_one_hander": {
+      "line": 335,
+      "value": "(3)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_finesse": {
+      "line": 336,
+      "value": "(4)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_kamikaze": {
+      "line": 337,
+      "value": "(5)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_heavy_handed": {
+      "line": 338,
+      "value": "(6)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_fast_shot": {
+      "line": 339,
+      "value": "(7)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_bloody_mess": {
+      "line": 340,
+      "value": "(8)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_jinxed": {
+      "line": 341,
+      "value": "(9)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_good_natured": {
+      "line": 342,
+      "value": "(10)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_drug_addict": {
+      "line": 343,
+      "value": "(11)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_drug_resistant": {
+      "line": 344,
+      "value": "(12)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_sex_appeal": {
+      "line": 345,
+      "value": "(13)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_skilled": {
+      "line": 346,
+      "value": "(14)",
+      "prefix": "TRAIT"
+    },
+    "TRAIT_gifted": {
+      "line": 347,
+      "value": "(15)",
+      "prefix": "TRAIT"
+    },
+    "STAT_st": {
+      "line": 354,
+      "value": "(0)",
+      "prefix": "STAT"
+    },
+    "STAT_pe": {
+      "line": 355,
+      "value": "(1)",
+      "prefix": "STAT"
+    },
+    "STAT_en": {
+      "line": 356,
+      "value": "(2)",
+      "prefix": "STAT"
+    },
+    "STAT_ch": {
+      "line": 357,
+      "value": "(3)",
+      "prefix": "STAT"
+    },
+    "STAT_iq": {
+      "line": 358,
+      "value": "(4)",
+      "prefix": "STAT"
+    },
+    "STAT_ag": {
+      "line": 359,
+      "value": "(5)",
+      "prefix": "STAT"
+    },
+    "STAT_lu": {
+      "line": 360,
+      "value": "(6)",
+      "prefix": "STAT"
+    },
+    "STAT_max_hp": {
+      "line": 361,
+      "value": "(7)",
+      "prefix": "STAT"
+    },
+    "STAT_max_move_points": {
+      "line": 365,
+      "value": "(8)",
+      "prefix": "STAT"
+    },
+    "STAT_ac": {
+      "line": 366,
+      "value": "(9)",
+      "prefix": "STAT"
+    },
+    "STAT_unused": {
+      "line": 368,
+      "value": "(10)",
+      "prefix": "STAT"
+    },
+    "STAT_melee_dmg": {
+      "line": 369,
+      "value": "(11)",
+      "prefix": "STAT"
+    },
+    "STAT_carry_amt": {
+      "line": 370,
+      "value": "(12)",
+      "prefix": "STAT"
+    },
+    "STAT_sequence": {
+      "line": 371,
+      "value": "(13)",
+      "prefix": "STAT"
+    },
+    "STAT_heal_rate": {
+      "line": 372,
+      "value": "(14)",
+      "prefix": "STAT"
+    },
+    "STAT_crit_chance": {
+      "line": 373,
+      "value": "(15)",
+      "prefix": "STAT"
+    },
+    "STAT_better_crit": {
+      "line": 374,
+      "value": "(16)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_thresh": {
+      "line": 375,
+      "value": "(17)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_thresh_laser": {
+      "line": 376,
+      "value": "(18)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_thresh_fire": {
+      "line": 377,
+      "value": "(19)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_thresh_plasma": {
+      "line": 378,
+      "value": "(20)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_thresh_electrical": {
+      "line": 379,
+      "value": "(21)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_thresh_emp": {
+      "line": 380,
+      "value": "(22)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_thresh_explosion": {
+      "line": 381,
+      "value": "(23)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_resist": {
+      "line": 382,
+      "value": "(24)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_resist_laser": {
+      "line": 383,
+      "value": "(25)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_resist_fire": {
+      "line": 384,
+      "value": "(26)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_resist_plasma": {
+      "line": 385,
+      "value": "(27)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_resist_electrical": {
+      "line": 386,
+      "value": "(28)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_resist_emp": {
+      "line": 387,
+      "value": "(29)",
+      "prefix": "STAT"
+    },
+    "STAT_dmg_resist_explosion": {
+      "line": 388,
+      "value": "(30)",
+      "prefix": "STAT"
+    },
+    "STAT_rad_resist": {
+      "line": 389,
+      "value": "(31)",
+      "prefix": "STAT"
+    },
+    "STAT_poison_resist": {
+      "line": 390,
+      "value": "(32)",
+      "prefix": "STAT"
+    },
+    "STAT_age": {
+      "line": 393,
+      "value": "(33)",
+      "prefix": "STAT"
+    },
+    "STAT_gender": {
+      "line": 394,
+      "value": "(34)",
+      "prefix": "STAT"
+    },
+    "STAT_current_hp": {
+      "line": 396,
+      "value": "(35)",
+      "prefix": "STAT"
+    },
+    "STAT_current_poison": {
+      "line": 397,
+      "value": "(36)",
+      "prefix": "STAT"
+    },
+    "STAT_current_rad": {
+      "line": 398,
+      "value": "(37)",
+      "prefix": "STAT"
+    },
+    "STAT_real_max_stat": {
+      "line": 399,
+      "value": "(38)",
+      "prefix": "STAT"
+    },
+    "STAT_max_stat": {
+      "line": 401,
+      "value": "STAT_current_hp",
+      "prefix": "STAT"
+    },
+    "PCSTAT_unspent_skill_points": {
+      "line": 403,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "PCSTAT_level": {
+      "line": 404,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "PCSTAT_experience": {
+      "line": 405,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "PCSTAT_reputation": {
+      "line": 406,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "PCSTAT_karma": {
+      "line": 407,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "PCSTAT_max_pc_stat": {
+      "line": 408,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "SKILL_SMALL_GUNS": {
+      "line": 415,
+      "value": "(0)",
+      "prefix": "SKILL"
+    },
+    "SKILL_BIG_GUNS": {
+      "line": 416,
+      "value": "(1)",
+      "prefix": "SKILL"
+    },
+    "SKILL_ENERGY_WEAPONS": {
+      "line": 417,
+      "value": "(2)",
+      "prefix": "SKILL"
+    },
+    "SKILL_UNARMED_COMBAT": {
+      "line": 418,
+      "value": "(3)",
+      "prefix": "SKILL"
+    },
+    "SKILL_MELEE": {
+      "line": 419,
+      "value": "(4)",
+      "prefix": "SKILL"
+    },
+    "SKILL_THROWING": {
+      "line": 420,
+      "value": "(5)",
+      "prefix": "SKILL"
+    },
+    "SKILL_FIRST_AID": {
+      "line": 421,
+      "value": "(6)",
+      "prefix": "SKILL"
+    },
+    "SKILL_DOCTOR": {
+      "line": 422,
+      "value": "(7)",
+      "prefix": "SKILL"
+    },
+    "SKILL_SNEAK": {
+      "line": 423,
+      "value": "(8)",
+      "prefix": "SKILL"
+    },
+    "SKILL_LOCKPICK": {
+      "line": 424,
+      "value": "(9)",
+      "prefix": "SKILL"
+    },
+    "SKILL_STEAL": {
+      "line": 425,
+      "value": "(10)",
+      "prefix": "SKILL"
+    },
+    "SKILL_TRAPS": {
+      "line": 426,
+      "value": "(11)",
+      "prefix": "SKILL"
+    },
+    "SKILL_SCIENCE": {
+      "line": 427,
+      "value": "(12)",
+      "prefix": "SKILL"
+    },
+    "SKILL_REPAIR": {
+      "line": 428,
+      "value": "(13)",
+      "prefix": "SKILL"
+    },
+    "SKILL_SPEECH": {
+      "line": 429,
+      "value": "(14)",
+      "prefix": "SKILL"
+    },
+    "SKILL_BARTER": {
+      "line": 430,
+      "value": "(15)",
+      "prefix": "SKILL"
+    },
+    "SKILL_GAMBLING": {
+      "line": 431,
+      "value": "(16)",
+      "prefix": "SKILL"
+    },
+    "SKILL_OUTDOORSMAN": {
+      "line": 432,
+      "value": "(17)",
+      "prefix": "SKILL"
+    },
+    "rl_disastrous": {
+      "line": 441,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "rl_very_bad": {
+      "line": 442,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "rl_bad": {
+      "line": 443,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "rl_poor": {
+      "line": 444,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "rl_neutral": {
+      "line": 445,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "rl_good": {
+      "line": 446,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "rl_very_good": {
+      "line": 447,
+      "value": "(6)",
+      "prefix": "OTHER"
+    },
+    "rl_excellent": {
+      "line": 448,
+      "value": "(7)",
+      "prefix": "OTHER"
+    },
+    "GENDER_MALE": {
+      "line": 455,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "GENDER_FEMALE": {
+      "line": 456,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "CRITTER_IS_NORMAL": {
+      "line": 460,
+      "value": "(0)",
+      "prefix": "CRITTER"
+    },
+    "CRITTER_IS_DEAD": {
+      "line": 461,
+      "value": "(1)",
+      "prefix": "CRITTER"
+    },
+    "CRITTER_IS_PRONE": {
+      "line": 462,
+      "value": "(2)",
+      "prefix": "CRITTER"
+    },
+    "INVEN_TYPE_WORN": {
+      "line": 469,
+      "value": "(0)",
+      "prefix": "INVEN"
+    },
+    "INVEN_TYPE_RIGHT_HAND": {
+      "line": 470,
+      "value": "(1)",
+      "prefix": "INVEN"
+    },
+    "INVEN_TYPE_LEFT_HAND": {
+      "line": 471,
+      "value": "(2)",
+      "prefix": "INVEN"
+    },
+    "INVEN_TYPE_INV_COUNT": {
+      "line": 473,
+      "value": "(-2)",
+      "prefix": "INVEN"
+    },
+    "item_type_armor": {
+      "line": 483,
+      "value": "(0)",
+      "prefix": "item_type"
+    },
+    "item_type_container": {
+      "line": 484,
+      "value": "(1)",
+      "prefix": "item_type"
+    },
+    "item_type_drug": {
+      "line": 485,
+      "value": "(2)",
+      "prefix": "item_type"
+    },
+    "item_type_weapon": {
+      "line": 486,
+      "value": "(3)",
+      "prefix": "item_type"
+    },
+    "item_type_ammo": {
+      "line": 487,
+      "value": "(4)",
+      "prefix": "item_type"
+    },
+    "item_type_misc_item": {
+      "line": 488,
+      "value": "(5)",
+      "prefix": "item_type"
+    },
+    "item_type_key_item": {
+      "line": 489,
+      "value": "(6)",
+      "prefix": "item_type"
+    },
+    "it_pid": {
+      "line": 493,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "it_name": {
+      "line": 494,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "it_description": {
+      "line": 495,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "it_fid": {
+      "line": 496,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "it_light_distance": {
+      "line": 497,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "it_light_intensity": {
+      "line": 498,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "it_flags": {
+      "line": 499,
+      "value": "(6)",
+      "prefix": "OTHER"
+    },
+    "it_flags_ext": {
+      "line": 500,
+      "value": "(7)",
+      "prefix": "OTHER"
+    },
+    "it_sid": {
+      "line": 501,
+      "value": "(8)",
+      "prefix": "OTHER"
+    },
+    "it_type": {
+      "line": 502,
+      "value": "(9)",
+      "prefix": "OTHER"
+    },
+    "it_data": {
+      "line": 503,
+      "value": "(10)",
+      "prefix": "OTHER"
+    },
+    "it_material": {
+      "line": 504,
+      "value": "(11)",
+      "prefix": "OTHER"
+    },
+    "it_size": {
+      "line": 505,
+      "value": "(12)",
+      "prefix": "OTHER"
+    },
+    "it_weight": {
+      "line": 506,
+      "value": "(13)",
+      "prefix": "OTHER"
+    },
+    "it_cost": {
+      "line": 507,
+      "value": "(14)",
+      "prefix": "OTHER"
+    },
+    "it_inv_fid": {
+      "line": 508,
+      "value": "(15)",
+      "prefix": "OTHER"
+    },
+    "it_weapon_range": {
+      "line": 509,
+      "value": "(555)",
+      "prefix": "OTHER"
+    },
+    "cr_pid": {
+      "line": 512,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "cr_name": {
+      "line": 513,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "cr_description": {
+      "line": 514,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "cr_fid": {
+      "line": 515,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "cr_light_distance": {
+      "line": 516,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "cr_light_intensity": {
+      "line": 517,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "cr_flags": {
+      "line": 518,
+      "value": "(6)",
+      "prefix": "OTHER"
+    },
+    "cr_flags_ext": {
+      "line": 519,
+      "value": "(7)",
+      "prefix": "OTHER"
+    },
+    "cr_sid": {
+      "line": 520,
+      "value": "(8)",
+      "prefix": "OTHER"
+    },
+    "cr_data": {
+      "line": 521,
+      "value": "(9)",
+      "prefix": "OTHER"
+    },
+    "cr_head_fid": {
+      "line": 522,
+      "value": "(10)",
+      "prefix": "OTHER"
+    },
+    "cr_body_type": {
+      "line": 523,
+      "value": "(11)",
+      "prefix": "OTHER"
+    },
+    "CR_BODY_BIPED": {
+      "line": 526,
+      "value": "0",
+      "prefix": "OTHER"
+    },
+    "CR_BODY_QUADRUPED": {
+      "line": 527,
+      "value": "1",
+      "prefix": "OTHER"
+    },
+    "CR_BODY_ROBOTIC": {
+      "line": 528,
+      "value": "2",
+      "prefix": "OTHER"
+    },
+    "sc_pid": {
+      "line": 532,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "sc_name": {
+      "line": 533,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "sc_description": {
+      "line": 534,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "sc_fid": {
+      "line": 535,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "sc_light_distance": {
+      "line": 536,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "sc_light_intensity": {
+      "line": 537,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "sc_flags": {
+      "line": 538,
+      "value": "(6)",
+      "prefix": "OTHER"
+    },
+    "sc_flags_ext": {
+      "line": 539,
+      "value": "(7)",
+      "prefix": "OTHER"
+    },
+    "sc_sid": {
+      "line": 540,
+      "value": "(8)",
+      "prefix": "OTHER"
+    },
+    "sc_type": {
+      "line": 541,
+      "value": "(9)",
+      "prefix": "OTHER"
+    },
+    "sc_data": {
+      "line": 542,
+      "value": "(10)",
+      "prefix": "OTHER"
+    },
+    "sc_material": {
+      "line": 543,
+      "value": "(11)",
+      "prefix": "OTHER"
+    },
+    "wa_pid": {
+      "line": 546,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "wa_name": {
+      "line": 547,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "wa_description": {
+      "line": 548,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "wa_fid": {
+      "line": 549,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "wa_light_distance": {
+      "line": 550,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "wa_light_intensity": {
+      "line": 551,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "wa_flags": {
+      "line": 552,
+      "value": "(6)",
+      "prefix": "OTHER"
+    },
+    "wa_flags_ext": {
+      "line": 553,
+      "value": "(7)",
+      "prefix": "OTHER"
+    },
+    "wa_sid": {
+      "line": 554,
+      "value": "(8)",
+      "prefix": "OTHER"
+    },
+    "wa_material": {
+      "line": 555,
+      "value": "(9)",
+      "prefix": "OTHER"
+    },
+    "mi_pid": {
+      "line": 561,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "mi_name": {
+      "line": 562,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "mi_description": {
+      "line": 563,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "mi_fid": {
+      "line": 564,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "mi_light_distance": {
+      "line": 565,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "mi_light_intensity": {
+      "line": 566,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "mi_flags": {
+      "line": 567,
+      "value": "(6)",
+      "prefix": "OTHER"
+    },
+    "mi_flags_ext": {
+      "line": 568,
+      "value": "(7)",
+      "prefix": "OTHER"
+    },
+    "DAM_KNOCKED_OUT": {
+      "line": 575,
+      "value": "1",
+      "prefix": "DAM"
+    },
+    "DAM_KNOCKED_DOWN": {
+      "line": 576,
+      "value": "2",
+      "prefix": "DAM"
+    },
+    "DAM_CRIP_LEG_LEFT": {
+      "line": 577,
+      "value": "4",
+      "prefix": "DAM"
+    },
+    "DAM_CRIP_LEG_RIGHT": {
+      "line": 578,
+      "value": "8",
+      "prefix": "DAM"
+    },
+    "DAM_CRIP_ARM_LEFT": {
+      "line": 579,
+      "value": "16",
+      "prefix": "DAM"
+    },
+    "DAM_CRIP_ARM_RIGHT": {
+      "line": 580,
+      "value": "32",
+      "prefix": "DAM"
+    },
+    "DAM_BLIND": {
+      "line": 581,
+      "value": "64",
+      "prefix": "DAM"
+    },
+    "DAM_DEAD": {
+      "line": 582,
+      "value": "128",
+      "prefix": "DAM"
+    },
+    "DAM_HIT": {
+      "line": 583,
+      "value": "256",
+      "prefix": "DAM"
+    },
+    "DAM_CRITICAL": {
+      "line": 584,
+      "value": "512",
+      "prefix": "DAM"
+    },
+    "DAM_ON_FIRE": {
+      "line": 585,
+      "value": "1024",
+      "prefix": "DAM"
+    },
+    "DAM_BYPASS": {
+      "line": 586,
+      "value": "2048",
+      "prefix": "DAM"
+    },
+    "DAM_EXPLODE": {
+      "line": 587,
+      "value": "4096",
+      "prefix": "DAM"
+    },
+    "DAM_DESTROY": {
+      "line": 588,
+      "value": "8192",
+      "prefix": "DAM"
+    },
+    "DAM_DROP": {
+      "line": 589,
+      "value": "16384",
+      "prefix": "DAM"
+    },
+    "DAM_LOSE_TURN": {
+      "line": 590,
+      "value": "32768",
+      "prefix": "DAM"
+    },
+    "DAM_HIT_SELF": {
+      "line": 591,
+      "value": "65536",
+      "prefix": "DAM"
+    },
+    "DAM_LOSE_AMMO": {
+      "line": 592,
+      "value": "131072",
+      "prefix": "DAM"
+    },
+    "DAM_DUD": {
+      "line": 593,
+      "value": "262144",
+      "prefix": "DAM"
+    },
+    "DAM_HURT_SELF": {
+      "line": 594,
+      "value": "524288",
+      "prefix": "DAM"
+    },
+    "DAM_RANDOM_HIT": {
+      "line": 595,
+      "value": "1048576",
+      "prefix": "DAM"
+    },
+    "DAM_CRIP_RANDOM": {
+      "line": 596,
+      "value": "2097152",
+      "prefix": "DAM"
+    },
+    "DAM_BACKWASH": {
+      "line": 597,
+      "value": "4194304",
+      "prefix": "DAM"
+    },
+    "DAM_PERFORM_REVERSE": {
+      "line": 600,
+      "value": "8388608",
+      "prefix": "DAM"
+    },
+    "DMG_normal_dam": {
+      "line": 603,
+      "value": "0",
+      "prefix": "DMG"
+    },
+    "DMG_laser": {
+      "line": 604,
+      "value": "1",
+      "prefix": "DMG"
+    },
+    "DMG_fire": {
+      "line": 605,
+      "value": "2",
+      "prefix": "DMG"
+    },
+    "DMG_plasma": {
+      "line": 606,
+      "value": "3",
+      "prefix": "DMG"
+    },
+    "DMG_electrical": {
+      "line": 607,
+      "value": "4",
+      "prefix": "DMG"
+    },
+    "DMG_emp": {
+      "line": 608,
+      "value": "5",
+      "prefix": "DMG"
+    },
+    "DMG_explosion": {
+      "line": 609,
+      "value": "6",
+      "prefix": "DMG"
+    },
+    "DMG_BYPASS_ARMOR": {
+      "line": 611,
+      "value": "(256)",
+      "prefix": "DMG"
+    },
+    "DMG_NOANIMATE": {
+      "line": 612,
+      "value": "(512)",
+      "prefix": "DMG"
+    },
+    "KILL_DONT_LEAVE_BODY": {
+      "line": 618,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "KILL_LEAVE_BODY": {
+      "line": 619,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "KILL_LEAVE_NV_BODY": {
+      "line": 620,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "METARULE_SIGNAL_END_GAME": {
+      "line": 623,
+      "value": "13",
+      "prefix": "METARULE"
+    },
+    "signal_end_game": {
+      "line": 624,
+      "value": "metarule(METARULE_SIGNAL_END_GAME, 0)",
+      "prefix": "OTHER"
+    },
+    "METARULE_ELEVATOR": {
+      "line": 625,
+      "value": "15",
+      "prefix": "METARULE"
+    },
+    "ELEV_BOS1": {
+      "line": 627,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "ELEV_BOS2": {
+      "line": 628,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "ELEV_MASTR1": {
+      "line": 629,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "ELEV_MASTR2": {
+      "line": 630,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "ELEV_MILB1": {
+      "line": 631,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "ELEV_MILB2": {
+      "line": 632,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "ELEV_GLOW1": {
+      "line": 633,
+      "value": "(6)",
+      "prefix": "OTHER"
+    },
+    "ELEV_GLOW2": {
+      "line": 634,
+      "value": "(7)",
+      "prefix": "OTHER"
+    },
+    "ELEV_VAULT": {
+      "line": 635,
+      "value": "(8)",
+      "prefix": "OTHER"
+    },
+    "ELEV_NECVLT": {
+      "line": 636,
+      "value": "(9)",
+      "prefix": "OTHER"
+    },
+    "ELEV_SIERRA1": {
+      "line": 637,
+      "value": "(10)",
+      "prefix": "OTHER"
+    },
+    "ELEV_SIERRA2": {
+      "line": 638,
+      "value": "(11)",
+      "prefix": "OTHER"
+    },
+    "ELEV_SIERRAS": {
+      "line": 639,
+      "value": "(12)",
+      "prefix": "OTHER"
+    },
+    "METARULE_PARTY_COUNT": {
+      "line": 641,
+      "value": "16",
+      "prefix": "METARULE"
+    },
+    "DONT_LIST_HIDDEN_MEMBERS": {
+      "line": 643,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "LIST_HIDDEN_MEMBERS": {
+      "line": 644,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "METARULE_AREA_KNOWN": {
+      "line": 645,
+      "value": "17",
+      "prefix": "METARULE"
+    },
+    "METARULE_WHO_ON_DRUGS": {
+      "line": 647,
+      "value": "18",
+      "prefix": "METARULE"
+    },
+    "METARULE_MAP_KNOWN": {
+      "line": 649,
+      "value": "19",
+      "prefix": "METARULE"
+    },
+    "METARULE_CAR_CURRENT_TOWN": {
+      "line": 652,
+      "value": "30",
+      "prefix": "METARULE"
+    },
+    "METARULE_GIVE_CAR_TO_PARTY": {
+      "line": 653,
+      "value": "31",
+      "prefix": "METARULE"
+    },
+    "METARULE_GIVE_CAR_GAS": {
+      "line": 654,
+      "value": "32",
+      "prefix": "METARULE"
+    },
+    "car_current_town": {
+      "line": 655,
+      "value": "metarule(METARULE_CAR_CURRENT_TOWN, 0)",
+      "prefix": "OTHER"
+    },
+    "car_give_to_party": {
+      "line": 656,
+      "value": "metarule(METARULE_GIVE_CAR_TO_PARTY, 0)",
+      "prefix": "OTHER"
+    },
+    "METARULE_SKILL_CHECK_TAG": {
+      "line": 658,
+      "value": "40",
+      "prefix": "METARULE"
+    },
+    "METARULE_DROP_ALL_INVEN": {
+      "line": 660,
+      "value": "42",
+      "prefix": "METARULE"
+    },
+    "METARULE_INVEN_UNWIELD_WHO": {
+      "line": 662,
+      "value": "43",
+      "prefix": "METARULE"
+    },
+    "METARULE_GET_WORLDMAP_XPOS": {
+      "line": 664,
+      "value": "44",
+      "prefix": "METARULE"
+    },
+    "worldmap_xpos": {
+      "line": 665,
+      "value": "metarule(METARULE_GET_WORLDMAP_XPOS, 0)",
+      "prefix": "OTHER"
+    },
+    "METARULE_GET_WORLDMAP_YPOS": {
+      "line": 666,
+      "value": "45",
+      "prefix": "METARULE"
+    },
+    "worldmap_ypos": {
+      "line": 667,
+      "value": "metarule(METARULE_GET_WORLDMAP_YPOS, 0)",
+      "prefix": "OTHER"
+    },
+    "METARULE_CURRENT_TOWN": {
+      "line": 668,
+      "value": "46",
+      "prefix": "METARULE"
+    },
+    "cur_town": {
+      "line": 669,
+      "value": "metarule(METARULE_CURRENT_TOWN, 0)",
+      "prefix": "OTHER"
+    },
+    "METARULE_LANGUAGE_FILTER": {
+      "line": 670,
+      "value": "47",
+      "prefix": "METARULE"
+    },
+    "language_filter_is_on": {
+      "line": 671,
+      "value": "metarule(METARULE_LANGUAGE_FILTER, 0)",
+      "prefix": "OTHER"
+    },
+    "METARULE_VIOLENCE_FILTER": {
+      "line": 672,
+      "value": "48",
+      "prefix": "METARULE"
+    },
+    "violence_filter_setting": {
+      "line": 673,
+      "value": "metarule(METARULE_VIOLENCE_FILTER, 0)",
+      "prefix": "OTHER"
+    },
+    "VLNCLVL_NONE": {
+      "line": 674,
+      "value": "0",
+      "prefix": "OTHER"
+    },
+    "VLNCLVL_MIN": {
+      "line": 675,
+      "value": "1",
+      "prefix": "OTHER"
+    },
+    "VLNCLVL_NORMAL": {
+      "line": 676,
+      "value": "2",
+      "prefix": "OTHER"
+    },
+    "VLNCLVL_MAX": {
+      "line": 677,
+      "value": "3",
+      "prefix": "OTHER"
+    },
+    "METARULE_W_DAMAGE_TYPE": {
+      "line": 678,
+      "value": "49",
+      "prefix": "METARULE"
+    },
+    "METARULE_CRITTER_BARTERS": {
+      "line": 680,
+      "value": "50",
+      "prefix": "METARULE"
+    },
+    "METARULE_CRITTER_KILL_TYPE": {
+      "line": 682,
+      "value": "51",
+      "prefix": "METARULE"
+    },
+    "KILL_TYPE_men_kills": {
+      "line": 684,
+      "value": "0",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_women_kills": {
+      "line": 685,
+      "value": "1",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_children_kills": {
+      "line": 686,
+      "value": "2",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_super_mutant_kills": {
+      "line": 687,
+      "value": "3",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_ghoul_kills": {
+      "line": 688,
+      "value": "4",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_brahmin_kills": {
+      "line": 689,
+      "value": "5",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_radscorpion_kills": {
+      "line": 690,
+      "value": "6",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_rat_kills": {
+      "line": 691,
+      "value": "7",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_floater_kills": {
+      "line": 692,
+      "value": "8",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_centaur_kills": {
+      "line": 693,
+      "value": "9",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_robot_kills": {
+      "line": 694,
+      "value": "10",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_dog_kills": {
+      "line": 695,
+      "value": "11",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_manti_kills": {
+      "line": 696,
+      "value": "12",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_deathclaw_kills": {
+      "line": 697,
+      "value": "13",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_plant_kills": {
+      "line": 698,
+      "value": "14",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_gecko_kills": {
+      "line": 699,
+      "value": "15",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_alien_kills": {
+      "line": 700,
+      "value": "16",
+      "prefix": "OTHER"
+    },
+    "KILL_TYPE_giant_ant_kills": {
+      "line": 701,
+      "value": "17",
+      "prefix": "OTHER"
+    },
+    "DEFINE_METARULE_SET_CAR_CARRY_AMOUNT": {
+      "line": 702,
+      "value": "52",
+      "prefix": "OTHER"
+    },
+    "DEFINE_METARULE_GET_CAR_CARRY_AMOUNT": {
+      "line": 704,
+      "value": "53",
+      "prefix": "OTHER"
+    },
+    "car_carry_amount": {
+      "line": 705,
+      "value": "metarule(DEFINE_METARULE_GET_CAR_CARRY_AMOUNT, 0)",
+      "prefix": "OTHER"
+    },
+    "METARULE3_CLR_FIXED_TIMED_EVENTS": {
+      "line": 707,
+      "value": "100",
+      "prefix": "OTHER"
+    },
+    "METARULE3_MARK_SUBTILE": {
+      "line": 709,
+      "value": "101",
+      "prefix": "OTHER"
+    },
+    "METARULE3_GET_KILL_COUNT": {
+      "line": 713,
+      "value": "103",
+      "prefix": "OTHER"
+    },
+    "OFFSTATE": {
+      "line": 716,
+      "value": "0",
+      "prefix": "OTHER"
+    },
+    "ONSTATE": {
+      "line": 717,
+      "value": "1",
+      "prefix": "OTHER"
+    },
+    "METARULE3_MARK_MAP_ENTRANCE": {
+      "line": 718,
+      "value": "104",
+      "prefix": "OTHER"
+    },
+    "UNKNOWNTILETYPE": {
+      "line": 722,
+      "value": "0",
+      "prefix": "OTHER"
+    },
+    "KNOWNTILETYPE": {
+      "line": 723,
+      "value": "1",
+      "prefix": "OTHER"
+    },
+    "VISITEDTILETYPE": {
+      "line": 724,
+      "value": "2",
+      "prefix": "OTHER"
+    },
+    "METARULE3_WM_SUBTILE_STATE": {
+      "line": 725,
+      "value": "105",
+      "prefix": "OTHER"
+    },
+    "METARULE3_TILE_GET_NEXT_CRITTER": {
+      "line": 731,
+      "value": "(106)",
+      "prefix": "OTHER"
+    },
+    "METARULE3_ART_SET_BASE_FID_NUM": {
+      "line": 736,
+      "value": "(107)",
+      "prefix": "OTHER"
+    },
+    "METARULE3_TILE_SET_CENTER": {
+      "line": 739,
+      "value": "(108)",
+      "prefix": "OTHER"
+    },
+    "METARULE3_CHEM_USE_LEVEL": {
+      "line": 742,
+      "value": "(109)",
+      "prefix": "OTHER"
+    },
+    "METARULE3_CAR_OUT_OF_FUEL": {
+      "line": 745,
+      "value": "(110)",
+      "prefix": "OTHER"
+    },
+    "car_out_of_fuel": {
+      "line": 746,
+      "value": "metarule3(METARULE3_CAR_OUT_OF_FUEL,0,0,0)",
+      "prefix": "OTHER"
+    },
+    "METARULE3_MAP_GET_LOAD_AREA": {
+      "line": 748,
+      "value": "(111)",
+      "prefix": "OTHER"
+    },
+    "map_get_load_area": {
+      "line": 749,
+      "value": "metarule3(METARULE3_MAP_GET_LOAD_AREA,0,0,0)",
+      "prefix": "OTHER"
+    },
+    "MARK_TYPE_TOWN": {
+      "line": 752,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "MARK_TYPE_MAP": {
+      "line": 753,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "MARK_STATE_UNKNOWN": {
+      "line": 755,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "MARK_STATE_KNOWN": {
+      "line": 756,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "MARK_STATE_VISITED": {
+      "line": 757,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "MARK_STATE_INVISIBLE": {
+      "line": 758,
+      "value": "(-66)",
+      "prefix": "OTHER"
+    },
+    "INVEN_CMD_INDEX_PTR": {
+      "line": 762,
+      "value": "(13)",
+      "prefix": "INVEN"
+    },
+    "snd_human": {
+      "line": 767,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "snd_monster": {
+      "line": 768,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "snd_unused": {
+      "line": 771,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "snd_knock_down": {
+      "line": 772,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "snd_pass_out": {
+      "line": 773,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "snd_die": {
+      "line": 774,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "snd_contact": {
+      "line": 775,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "snd_active": {
+      "line": 778,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "snd_passive": {
+      "line": 779,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "snd_weapon_ready": {
+      "line": 782,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "snd_weapon_attack": {
+      "line": 783,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "snd_weapon_out": {
+      "line": 784,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "snd_weapon_ammo_flying": {
+      "line": 785,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "snd_weapon_hitting": {
+      "line": 786,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "snd_open": {
+      "line": 789,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "snd_close": {
+      "line": 790,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "snd_locked": {
+      "line": 791,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "snd_unlocked": {
+      "line": 792,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "snd_used": {
+      "line": 793,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "hit_left_weapon_primary": {
+      "line": 796,
+      "value": "(0)",
+      "prefix": "OTHER"
+    },
+    "hit_left_weapon_secondary": {
+      "line": 797,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "hit_right_weapon_primary": {
+      "line": 798,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "hit_right_weapon_secondary": {
+      "line": 799,
+      "value": "(3)",
+      "prefix": "OTHER"
+    },
+    "hit_punch": {
+      "line": 800,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "hit_kick": {
+      "line": 801,
+      "value": "(5)",
+      "prefix": "OTHER"
+    },
+    "hit_left_weapon_reload": {
+      "line": 802,
+      "value": "(6)",
+      "prefix": "OTHER"
+    },
+    "hit_right_weapon_reload": {
+      "line": 803,
+      "value": "(7)",
+      "prefix": "OTHER"
+    },
+    "fdout": {
+      "line": 809,
+      "value": "gfade_out(1)",
+      "prefix": "OTHER"
+    },
+    "fdin": {
+      "line": 810,
+      "value": "gfade_in(1)",
+      "prefix": "OTHER"
+    },
+    "ONE_GAME_SECOND": {
+      "line": 814,
+      "value": "(10)",
+      "prefix": "ONE_GAME"
+    },
+    "ONE_GAME_MINUTE": {
+      "line": 815,
+      "value": "(60*ONE_GAME_SECOND)",
+      "prefix": "ONE_GAME"
+    },
+    "ONE_GAME_HOUR": {
+      "line": 816,
+      "value": "(60*ONE_GAME_MINUTE)",
+      "prefix": "ONE_GAME"
+    },
+    "ONE_GAME_DAY": {
+      "line": 817,
+      "value": "(24*ONE_GAME_HOUR)",
+      "prefix": "ONE_GAME"
+    },
+    "ONE_GAME_WEEK": {
+      "line": 818,
+      "value": "(7*ONE_GAME_DAY)",
+      "prefix": "ONE_GAME"
+    },
+    "ONE_GAME_MONTH": {
+      "line": 819,
+      "value": "(30*ONE_GAME_DAY)",
+      "prefix": "ONE_GAME"
+    },
+    "bit_1": {
+      "line": 822,
+      "value": "(1)",
+      "prefix": "OTHER"
+    },
+    "bit_2": {
+      "line": 823,
+      "value": "(2)",
+      "prefix": "OTHER"
+    },
+    "bit_3": {
+      "line": 824,
+      "value": "(4)",
+      "prefix": "OTHER"
+    },
+    "bit_4": {
+      "line": 825,
+      "value": "(8)",
+      "prefix": "OTHER"
+    },
+    "bit_5": {
+      "line": 826,
+      "value": "(16)",
+      "prefix": "OTHER"
+    },
+    "bit_6": {
+      "line": 827,
+      "value": "(32)",
+      "prefix": "OTHER"
+    },
+    "bit_7": {
+      "line": 828,
+      "value": "(64)",
+      "prefix": "OTHER"
+    },
+    "bit_8": {
+      "line": 829,
+      "value": "(128)",
+      "prefix": "OTHER"
+    },
+    "bit_9": {
+      "line": 830,
+      "value": "(256)",
+      "prefix": "OTHER"
+    },
+    "bit_10": {
+      "line": 831,
+      "value": "(512)",
+      "prefix": "OTHER"
+    },
+    "bit_11": {
+      "line": 832,
+      "value": "(1024)",
+      "prefix": "OTHER"
+    },
+    "bit_12": {
+      "line": 833,
+      "value": "(2048)",
+      "prefix": "OTHER"
+    },
+    "bit_13": {
+      "line": 834,
+      "value": "(4096)",
+      "prefix": "OTHER"
+    },
+    "bit_14": {
+      "line": 835,
+      "value": "(8192)",
+      "prefix": "OTHER"
+    },
+    "bit_15": {
+      "line": 836,
+      "value": "(16384)",
+      "prefix": "OTHER"
+    },
+    "bit_16": {
+      "line": 837,
+      "value": "(32768)",
+      "prefix": "OTHER"
+    },
+    "bit_17": {
+      "line": 838,
+      "value": "(65536)",
+      "prefix": "OTHER"
+    },
+    "bit_18": {
+      "line": 839,
+      "value": "(131072)",
+      "prefix": "OTHER"
+    },
+    "bit_19": {
+      "line": 840,
+      "value": "(262144)",
+      "prefix": "OTHER"
+    },
+    "bit_20": {
+      "line": 841,
+      "value": "(524288)",
+      "prefix": "OTHER"
+    },
+    "bit_21": {
+      "line": 842,
+      "value": "(1048576)",
+      "prefix": "OTHER"
+    },
+    "bit_22": {
+      "line": 843,
+      "value": "(2097152)",
+      "prefix": "OTHER"
+    },
+    "bit_23": {
+      "line": 844,
+      "value": "(4194304)",
+      "prefix": "OTHER"
+    },
+    "bit_24": {
+      "line": 845,
+      "value": "(8388608)",
+      "prefix": "OTHER"
+    },
+    "bit_25": {
+      "line": 846,
+      "value": "(16777216)",
+      "prefix": "OTHER"
+    },
+    "bit_26": {
+      "line": 847,
+      "value": "(33554432)",
+      "prefix": "OTHER"
+    },
+    "bit_27": {
+      "line": 848,
+      "value": "(67108864)",
+      "prefix": "OTHER"
+    },
+    "bit_28": {
+      "line": 849,
+      "value": "(134217728)",
+      "prefix": "OTHER"
+    },
+    "bit_29": {
+      "line": 850,
+      "value": "(268435456)",
+      "prefix": "OTHER"
+    },
+    "bit_30": {
+      "line": 851,
+      "value": "(536870912)",
+      "prefix": "OTHER"
+    },
+    "bit_31": {
+      "line": 852,
+      "value": "(1073741824)",
+      "prefix": "OTHER"
+    },
+    "bit_32": {
+      "line": 853,
+      "value": "(-2147483648)",
+      "prefix": "OTHER"
+    },
+    "bit_ALL": {
+      "line": 854,
+      "value": "(-1)",
+      "prefix": "OTHER"
+    },
+    "REACTION_TG": {
+      "line": 857,
+      "value": "1",
+      "prefix": "OTHER"
+    },
+    "REACTION_G": {
+      "line": 858,
+      "value": "2",
+      "prefix": "OTHER"
+    },
+    "REACTION_TC": {
+      "line": 859,
+      "value": "3",
+      "prefix": "OTHER"
+    },
+    "REACTION_C": {
+      "line": 860,
+      "value": "4",
+      "prefix": "OTHER"
+    },
+    "R_CALL_THROUGH": {
+      "line": 862,
+      "value": "1",
+      "prefix": "OTHER"
+    },
+    "R_NOCALL_THROUGH": {
+      "line": 863,
+      "value": "-1",
+      "prefix": "OTHER"
+    },
+    "PICKUP_THRESH": {
+      "line": 866,
+      "value": "1",
+      "prefix": "OTHER"
+    },
+    "CALL_PICKUP": {
+      "line": 870,
+      "value": "R_NOCALL_THROUGH",
+      "prefix": "OTHER"
+    },
+    "NPC_REACTION_VAR": {
+      "line": 874,
+      "value": "(-1)",
+      "prefix": "OTHER"
+    },
+    "caught_pickpocket": {
+      "line": 884,
+      "value": "if (NPC_REACTION_TYPE == REACTION_TG) then begin          \\",
+      "prefix": "OTHER"
+    },
+    "pickup_p_proc": {
+      "line": 918,
+      "value": "old_pickup_p_proc",
+      "prefix": "OTHER"
+    }
+  }
+}

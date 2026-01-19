@@ -15,7 +15,10 @@
     "typecheck": "tsc",
     "generate-index": "node scripts/generate-function-index.js",
     "generate-index:dry": "node scripts/generate-function-index.js --dry-run",
-    "generate-index:yes": "node scripts/generate-function-index.js --yes"
+    "generate-index:yes": "node scripts/generate-function-index.js --yes",
+    "generate-defines": "node scripts/generate-define-index.js",
+    "generate-defines:dry": "node scripts/generate-define-index.js --dry-run",
+    "generate-defines:yes": "node scripts/generate-define-index.js --yes"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",

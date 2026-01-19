@@ -319,6 +319,10 @@ Macro alias for [`has_trait`](./critter#has_trait)`(TRAIT_OBJECT, who, OBJECT_VI
 
 :::tip
 See [this forum thread](https://www.nma-fallout.com/threads/scripting-issue-checking-invisibility.222380/) for more information about checking object visibility.
+
+```ssl
+#define is_visible(cr)  has_trait(TRAIT_OBJECT,cr,OBJECT_VISIBILITY)
+```
 :::
 
 **Parameters:**

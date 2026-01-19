@@ -81,7 +81,7 @@ Heals a critter for a given amount. If given a value above their MaxHP, it will 
 int critter_injure(ObjectPtr who, int how)
 ```
 
-Injures a critter by crippling given limbs/body parts (defined by DAM_CRIP_ARM_LEFT, DAM_BLIND, etc. in define.h).
+Injures a critter by crippling given limbs/body parts (defined by <DefineRef name="DAM_CRIP_ARM_LEFT" inline />, <DefineRef name="DAM_BLIND" inline />, etc.).
 
 **Parameters:**
 - `who` - Critter to injure
@@ -153,7 +153,7 @@ For tagged skills, the amount will be rounded down to the closest even number.
 
 **Parameters:**
 - `who` - Must be `dude_obj`
-- `skill` - `SKILL_*` constant from `define.h`
+- `skill` - <DefineRef name="SKILL_SMALL_GUNS" inline /> or other `SKILL_*` constant
 - `amount` - Amount to modify (can be negative)
 
 <FnRef fn="critter_mod_skill" />
@@ -362,7 +362,7 @@ Gets the player's bonus (extra) stat value.
 int get_pc_stat(int pcStat)
 ```
 
-Returns the value of a player-only stat from `obj_dude`. These stats are found in define.h starting with "PCSTAT_".
+Returns the value of a player-only stat from `obj_dude`. See <DefineRef name="PCSTAT_level" inline /> and other `PCSTAT_*` constants.
 
 **Parameters:**
 - `pcStat` - PC stat constant

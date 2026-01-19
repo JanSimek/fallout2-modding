@@ -62,6 +62,18 @@ procedure talk_p_proc begin
 end
 ```
 
+## Header Files
+
+SSL scripts use header files to define constants and macros. The most important is `define.h`, which contains all the game constants you'll need:
+
+- **Stats**: <DefineRef name="STAT_st" inline />, <DefineRef name="STAT_current_hp" inline />, etc.
+- **Skills**: <DefineRef name="SKILL_SMALL_GUNS" inline />, <DefineRef name="SKILL_LOCKPICK" inline />, etc.
+- **Perks**: <DefineRef name="PERK_bonus_awareness" inline />, <DefineRef name="PERK_sniper" inline />, etc.
+- **Damage types**: <DefineRef name="DMG_normal_dam" inline />, <DefineRef name="DMG_fire" inline />, etc.
+- **Injuries**: <DefineRef name="DAM_CRIP_LEG_LEFT" inline />, <DefineRef name="DAM_BLIND" inline />, etc.
+- **Inventory slots**: <DefineRef name="INVEN_TYPE_WORN" inline />, <DefineRef name="INVEN_TYPE_RIGHT_HAND" inline />, etc.
+- **Float message colors**: <DefineRef name="FLOAT_MSG_NORMAL" inline />, <DefineRef name="FLOAT_MSG_RED" inline />, etc.
+
 ## Event Procedures
 
 The engine calls specific procedures in response to game events:
