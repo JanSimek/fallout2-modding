@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Fallout 2 Modding',
   tagline: 'SSL scripting and engine documentation for Fallout 2 Community Edition',
-  favicon: 'img/favicon.png',
+  favicon: 'img/wrench.png',
 
   future: {
     v4: true,
@@ -74,7 +74,7 @@ const config: Config = {
       title: 'Fallout 2 Modding',
       logo: {
         alt: 'Fallout 2 Modding Logo',
-        src: 'img/logo.png',
+        src: 'img/wrench.png',
       },
       items: [
         {
@@ -96,12 +96,21 @@ const config: Config = {
           label: 'API',
         },
         {
+          type: 'search',
+          position: 'left',
+        },
+        {
+          href: 'https://f3mic.github.io/',
+          label: 'Femic guide',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/fallout2-ce/fallout2-ce',
           label: 'fallout2-ce',
           position: 'right',
         },
         {
-          href: 'https://github.com/your-username/fallout2-modding',
+          href: 'https://github.com/JanSimek/fallout2-modding',
           label: 'GitHub',
           position: 'right',
         },

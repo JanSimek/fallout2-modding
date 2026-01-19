@@ -1575,3 +1575,333 @@ Returns the current setting of the violence level. See define.h for values.
 <FnRef fn="violence_level_setting" />
 
 ---
+
+## sfall Hook Functions
+
+:::danger Not Implemented in fallout2-ce
+Hook registration functions are **not yet implemented** in fallout2-ce. While the opcodes exist, the hook execution mechanism has not been implemented. See the [Hook Scripts](/ssl/hooks) page for more details.
+:::
+
+The following functions are used to register custom hook scripts that intercept game events.
+
+### register_hook <span class="tag-sfall">sfall</span> {#register_hook}
+
+```ssl
+void register_hook(int hookID)
+```
+
+Registers the current script to receive callbacks for the specified hook type. The hook ID constants are defined in **sfall.h** (e.g., `HOOK_TOHIT`, `HOOK_ONDEATH`, `HOOK_COMBATDAMAGE`).
+
+**Parameters:**
+- `hookID` - The hook constant (`HOOK_*` from sfall.h)
+
+**Example:**
+```ssl
+procedure start begin
+    if game_loaded then begin
+        register_hook(HOOK_ONDEATH);
+    end
+end
+
+procedure ondeath_handler begin
+    variable critter;
+    critter := get_sfall_arg;
+    display_msg(obj_name(critter) + " has died!");
+end
+```
+
+---
+
+### register_hook_proc <span class="tag-sfall">sfall</span> {#register_hook_proc}
+
+```ssl
+void register_hook_proc(int hookID, procedure handler)
+```
+
+Registers a specific procedure as the handler for the specified hook type. This allows multiple hooks to be handled in the same script with separate procedures.
+
+**Parameters:**
+- `hookID` - The hook constant (`HOOK_*` from sfall.h)
+- `handler` - The procedure to call when the hook fires
+
+**Example:**
+```ssl
+procedure death_handler begin
+    variable critter;
+    critter := get_sfall_arg;
+    display_msg(obj_name(critter) + " has died!");
+end
+
+procedure start begin
+    if game_loaded then begin
+        register_hook_proc(HOOK_ONDEATH, death_handler);
+    end
+end
+```
+
+---
+
+### get_sfall_arg <span class="tag-sfall">sfall</span> {#get_sfall_arg}
+
+```ssl
+any get_sfall_arg
+```
+
+Gets the next argument passed to a hook script handler. Call this multiple times to retrieve consecutive arguments in the order they are documented for each hook type.
+
+**Returns:** `any` - The next hook argument
+
+---
+
+### get_sfall_arg_at <span class="tag-sfall">sfall</span> {#get_sfall_arg_at}
+
+```ssl
+any get_sfall_arg_at(int index)
+```
+
+Gets a specific argument by index from the hook script handler. Index starts at 0.
+
+**Parameters:**
+- `index` - The argument index (0-based)
+
+**Returns:** `any` - The argument at that index
+
+---
+
+### set_sfall_return <span class="tag-sfall">sfall</span> {#set_sfall_return}
+
+```ssl
+void set_sfall_return(any value)
+```
+
+Sets a return value for a hook script. Many hooks allow you to override game behavior by returning specific values.
+
+**Parameters:**
+- `value` - The return value
+
+---
+
+### set_sfall_arg <span class="tag-sfall">sfall</span> {#set_sfall_arg}
+
+```ssl
+void set_sfall_arg(int index, any value)
+```
+
+Modifies a hook argument at the specified index. Useful for passing modified values to subsequent hook handlers in a chain.
+
+**Parameters:**
+- `index` - The argument index (0-based)
+- `value` - The new value
+
+---
+
+## Interface Functions (sfall)
+
+### message_box <span class="tag-sfall">sfall</span> {#message_box}
+
+```ssl
+int message_box(string message, int flags, int color1, int color2)
+```
+
+Creates a dialog box with text and returns the result of pressing the button.
+
+**Parameters:**
+- `message` - The text in the dialog box. Use `\n` for line breaks
+- `flags` (optional) - Mode flags (see `MSGBOX_*` constants in define_extra.h). Pass -1 for defaults (NORMAL and YESNO)
+- `color1` (optional) - Color index for the first line (default: 145)
+- `color2` (optional) - Color index for subsequent lines (default: 145)
+
+**Returns:** `int` - 0 = No/Escape, 1 = Yes/Done/Enter, -1 = dialog could not be created
+
+**Example:**
+```ssl
+variable result;
+result := message_box("Are you sure you want to continue?\nThis cannot be undone.");
+if result then begin
+    display_msg("User confirmed.");
+end
+```
+
+---
+
+### get_window_under_mouse <span class="tag-sfall">sfall</span> {#get_window_under_mouse}
+
+```ssl
+int get_window_under_mouse
+```
+
+Returns the window ID of the window currently under the mouse cursor.
+
+**Returns:** `int` - Window ID
+
+---
+
+### set_window_flag <span class="tag-sfall">sfall</span> {#set_window_flag}
+
+```ssl
+void set_window_flag(string/int winName, int flag, int value)
+```
+
+Changes the specified flag for a script or game interface window.
+
+**Parameters:**
+- `winName` - Window name (string) or window ID (int). Pass 0 for current game interface
+- `flag` - The flag to change (see `WIN_FLAG_*` constants in define_extra.h)
+- `value` - 1 to set the flag, 0 to unset it
+
+---
+
+## World Map Functions (sfall)
+
+### get_world_map_x_pos <span class="tag-sfall">sfall</span> {#get_world_map_x_pos}
+
+```ssl
+int get_world_map_x_pos
+```
+
+Returns the player's current X position on the world map.
+
+**Returns:** `int` - X coordinate
+
+---
+
+### get_world_map_y_pos <span class="tag-sfall">sfall</span> {#get_world_map_y_pos}
+
+```ssl
+int get_world_map_y_pos
+```
+
+Returns the player's current Y position on the world map.
+
+**Returns:** `int` - Y coordinate
+
+---
+
+### set_world_map_pos <span class="tag-sfall">sfall</span> {#set_world_map_pos}
+
+```ssl
+void set_world_map_pos(int x, int y)
+```
+
+Sets the player's position on the world map.
+
+**Parameters:**
+- `x` - New X coordinate
+- `y` - New Y coordinate
+
+---
+
+## Low-Level Functions (sfall)
+
+:::danger Not Implemented in fallout2-ce
+Memory access functions (`read_byte`, `read_int`, `write_byte`, `write_int`, etc.) are **not implemented** in fallout2-ce. These functions were designed for the original Fallout 2 engine's memory layout and are not applicable to the rewritten codebase.
+:::
+
+:::warning Original sfall Only
+The following functions require `AllowUnsafeScripting` to be enabled in ddraw.ini and should be used with extreme caution.
+:::
+
+### read_byte <span class="tag-sfall">sfall</span> {#read_byte}
+
+```ssl
+int read_byte(int address)
+```
+
+Reads a single byte from the specified memory address.
+
+**Parameters:**
+- `address` - Memory address to read from
+
+**Returns:** `int` - The byte value at that address
+
+---
+
+### read_int <span class="tag-sfall">sfall</span> {#read_int}
+
+```ssl
+int read_int(int address)
+```
+
+Reads a 4-byte integer from the specified memory address.
+
+**Parameters:**
+- `address` - Memory address to read from
+
+**Returns:** `int` - The integer value at that address
+
+---
+
+### write_byte <span class="tag-sfall">sfall</span> {#write_byte}
+
+```ssl
+void write_byte(int address, int value)
+```
+
+Writes a single byte to the specified memory address. Requires `AllowUnsafeScripting`.
+
+**Parameters:**
+- `address` - Memory address to write to
+- `value` - The byte value to write
+
+---
+
+### write_int <span class="tag-sfall">sfall</span> {#write_int}
+
+```ssl
+void write_int(int address, int value)
+```
+
+Writes a 4-byte integer to the specified memory address. Requires `AllowUnsafeScripting`.
+
+**Parameters:**
+- `address` - Memory address to write to
+- `value` - The integer value to write
+
+---
+
+## sfall Generic Functions
+
+### sfall_func0 <span class="tag-sfall">sfall</span> {#sfall_func0}
+
+```ssl
+any sfall_func0(string funcName)
+```
+
+Calls an sfall function by name with no arguments.
+
+**Parameters:**
+- `funcName` - The function name (e.g., "get_metarule_table")
+
+**Returns:** `any` - The function's return value
+
+---
+
+### sfall_func1 <span class="tag-sfall">sfall</span> {#sfall_func1}
+
+```ssl
+any sfall_func1(string funcName, any arg1)
+```
+
+Calls an sfall function by name with 1 argument.
+
+---
+
+### sfall_func2 <span class="tag-sfall">sfall</span> {#sfall_func2}
+
+```ssl
+any sfall_func2(string funcName, any arg1, any arg2)
+```
+
+Calls an sfall function by name with 2 arguments.
+
+---
+
+### sfall_func3 - sfall_func8 <span class="tag-sfall">sfall</span> {#sfall_func_n}
+
+Similar to above, accepting 3-8 arguments respectively. Used for calling extended sfall functions by name.
+
+```ssl
+any sfall_func3(string funcName, any arg1, any arg2, any arg3)
+any sfall_func4(string funcName, any arg1, any arg2, any arg3, any arg4)
+// ... up to sfall_func8
+```

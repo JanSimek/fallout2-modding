@@ -66,12 +66,11 @@ Inflicts damage on a critter, killing it if necessary.
 void critter_heal(ObjectPtr who, int amount)
 ```
 
-Heals a critter for a given amount up to maximum HP.
+Heals a critter for a given amount. If given a value above their MaxHP, it will only heal up to their maximum HP (will not exceed max).
 
 **Parameters:**
 - `who` - Critter to heal
-- `amount` - Amount to heal
-
+- `amount` - Amount to heal (capped at MaxHP)
 
 <FnRef fn="critter_heal" />
 ---
@@ -142,17 +141,20 @@ Returns True if the critter has its FLEE flag set.
 int critter_mod_skill(ObjectPtr who, int skill, int amount)
 ```
 
-Modifies a given skill in a critter by a given amount.
+Modifies a given skill in a critter object by a given amount. The amount can be negative to decrease the skill.
 
 :::note
-This currently is only valid on the player (obj_dude) object.
+Must be `dude_obj`. Will not work on other critters.
+:::
+
+:::tip
+For tagged skills, the amount will be rounded down to the closest even number.
 :::
 
 **Parameters:**
-- `who` - Critter object
-- `skill` - Skill constant
-- `amount` - Amount to modify
-
+- `who` - Must be `dude_obj`
+- `skill` - `SKILL_*` constant from `define.h`
+- `amount` - Amount to modify (can be negative)
 
 <FnRef fn="critter_mod_skill" />
 ---

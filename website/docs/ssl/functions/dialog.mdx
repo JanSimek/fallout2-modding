@@ -103,7 +103,18 @@ Sets up a reaction animation in the dialogue system.
 void gsay_start
 ```
 
-Starts a new dialog sequence.
+Starts a new dialog sequence. This must be called before adding replies and options.
+
+The typical dialog structure is:
+```ssl
+procedure talk_p_proc begin
+    start_gdialog(NAME, self_obj, 4, -1, -1);
+    gsay_start;
+        call Node001;
+    gsay_end;
+    end_dialogue;
+end
+```
 
 <FnRef fn="gsay_start" />
 
@@ -274,5 +285,194 @@ greeting := message_str(SCRIPT_MYCHAR, 100);
 float_msg(self_obj, greeting, FLOAT_MSG_NORMAL);
 ```
 
-
 <FnRef fn="message_str" />
+
+---
+
+## float_msg <span class="tag-vanilla">vanilla</span> {#float_msg}
+
+```ssl
+void float_msg(ObjectPtr who, string msg, int type)
+```
+
+Displays a floating message above an object. The message appears as a text bubble that floats up and fades away.
+
+**Parameters:**
+- `who` - Object to display message above
+- `msg` - Message text to display
+- `type` - Float message type constant
+
+**Float Types:**
+- `FLOAT_MSG_NORMAL` (0) - Yellow text
+- `FLOAT_MSG_WARNING` (1) - Red text
+- `FLOAT_MSG_SEQUENTIAL` (2) - Sequential display
+- `FLOAT_MSG_YELLOW` (0) - Same as NORMAL
+- `FLOAT_MSG_RED` (1) - Same as WARNING
+
+**Example:**
+```ssl
+// Display a combat taunt
+float_msg(self_obj, "You'll pay for that!", FLOAT_MSG_RED);
+
+// Display reaction message
+float_msg(dude_obj, message_str(NAME, 200), FLOAT_MSG_NORMAL);
+```
+
+<FnRef fn="float_msg" />
+
+---
+
+## display_msg <span class="tag-vanilla">vanilla</span> {#display_msg}
+
+```ssl
+void display_msg(string msg)
+```
+
+Displays a message in the game's main message window (the scrolling text at the bottom of the screen).
+
+**Parameters:**
+- `msg` - Message text to display
+
+**Example:**
+```ssl
+display_msg("You discover a hidden cache!");
+display_msg(message_str(NAME, 150));
+```
+
+<FnRef fn="display_msg" />
+
+---
+
+## NMessage <span class="tag-vanilla">vanilla</span> {#nmessage}
+
+```ssl
+void NMessage(int msg_num)
+```
+
+Displays a message from the NAME message file in the message window. Shorthand macro for displaying script-specific messages.
+
+**Parameters:**
+- `msg_num` - Message number from the script's message file
+
+Macro alias for `display_msg(message_str(NAME, msg_num))`.
+
+---
+
+## NOption <span class="tag-vanilla">vanilla</span> {#noption}
+
+```ssl
+void NOption(int msg_num, procedure target, int reaction)
+```
+
+Sets up a dialogue option using the script's NAME message file.
+
+**Parameters:**
+- `msg_num` - Message number
+- `target` - Target procedure
+- `reaction` - Reaction constant
+
+Macro alias for `gsay_option(NAME, msg_num, target, reaction)`.
+
+---
+
+## BOption <span class="tag-vanilla">vanilla</span> {#boption}
+
+```ssl
+void BOption(int msg_num, procedure target, int reaction)
+```
+
+Sets up a dialogue option with a BAD reaction using the script's NAME message file.
+
+Macro alias for `gsay_option(NAME, msg_num, target, REACTION_BAD)`.
+
+---
+
+## GOption <span class="tag-vanilla">vanilla</span> {#goption}
+
+```ssl
+void GOption(int msg_num, procedure target, int reaction)
+```
+
+Sets up a dialogue option with a GOOD reaction using the script's NAME message file.
+
+Macro alias for `gsay_option(NAME, msg_num, target, REACTION_GOOD)`.
+
+---
+
+## Reply <span class="tag-vanilla">vanilla</span> {#reply}
+
+```ssl
+void Reply(int msg_num)
+```
+
+Sets up an NPC reply using the script's NAME message file.
+
+Macro alias for `gsay_reply(NAME, msg_num)`.
+
+---
+
+## gSay_Start <span class="tag-vanilla">vanilla</span> {#gsay_start_macro}
+
+```ssl
+void gSay_Start
+```
+
+Macro alias for [`gsay_start`](#gsay_start). Commonly used in dialogue scripts.
+
+---
+
+## gSay_End <span class="tag-vanilla">vanilla</span> {#gsay_end_macro}
+
+```ssl
+void gSay_End
+```
+
+Macro alias for [`gsay_end`](#gsay_end). Ends a dialog sequence and displays it.
+
+---
+
+## gSay_Reply <span class="tag-vanilla">vanilla</span> {#gsay_reply_macro}
+
+```ssl
+void gSay_Reply(int msg_list, int msg_num)
+```
+
+Sets up a reply block (what the **critter** says). The `msg_list` determines which file to pull from, and `msg_num` determines which message number in that file.
+
+Macro alias for [`gsay_reply`](#gsay_reply).
+
+---
+
+## gSay_Option <span class="tag-vanilla">vanilla</span> {#gsay_option_macro}
+
+```ssl
+void gSay_Option(int msg_list, int msg_num, procedure target, int reaction)
+```
+
+Sets up an option-choice for a reply block, getting the string from the message file. If chosen, causes the given reaction and jumps to the target procedure.
+
+Macro alias for [`gsay_option`](#gsay_option).
+
+---
+
+## gSay_Message <span class="tag-vanilla">vanilla</span> {#gsay_message_macro}
+
+```ssl
+void gSay_Message(int msg_list, int msg_num, int reaction)
+```
+
+Sets up a sayMessage, which is a reply with just a [Done] option. The `msg_list` determines which file to pull from, and `msg_num` determines which message number in that file.
+
+Macro alias for [`gsay_message`](#gsay_message).
+
+---
+
+## giQ_Option <span class="tag-vanilla">vanilla</span> {#giq_option_macro}
+
+```ssl
+void giQ_Option(int iq_test, int msg_list, int msg_num, procedure target, int reaction)
+```
+
+Sets up an IQ-dependent dialogue option. If `iq_test` is positive, the option shows only if player IQ is greater than or equal to that value. If negative, shows only if player IQ is less than or equal to the absolute value.
+
+Macro alias for [`giq_option`](#giq_option).

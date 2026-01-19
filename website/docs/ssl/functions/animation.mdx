@@ -15,7 +15,12 @@ Functions for controlling animations, movement, and visual effects.
 void animate_stand
 ```
 
-Sets up an animation for the currently focused object (`self`) to run its stand animation. Can be used to open doors, open container items, or run a critter's fidget animation.
+Sets up an animation for the currently focused object (`self`) to run its stand animation. This can be used to:
+- Open doors
+- Open container items (refrigerators, lockers, etc.)
+- Run a critter's fidget animation
+
+Should be used in place of [`animate_set_frame`](#animate_set_frame) for 2-frame animations.
 
 Macro alias for [`animate_stand_obj`](#animate_stand_obj)`(self_obj)`.
 
@@ -29,11 +34,13 @@ Macro alias for [`animate_stand_obj`](#animate_stand_obj)`(self_obj)`.
 void animate_stand_obj(ObjectPtr obj)
 ```
 
-Sets up an animation for an object to run its stand animation.
+Sets up an animation for an object to run its stand animation. This can be used to:
+- Open doors
+- Open container items (refrigerators, lockers, etc.)
+- Run a critter's fidget animation
 
 **Parameters:**
 - `obj` - Object to animate
-
 
 <FnRef fn="animate_stand_obj" />
 ---
@@ -416,3 +423,114 @@ Adds a sound effect to play during an animation sequence.
 - `delay` - Delay from previous animation
 
 <FnRef fn="reg_anim_play_sfx" />
+
+---
+
+## Extended Animation Functions (sfall)
+
+:::caution Partial Implementation in fallout2-ce
+Some of these extended animation functions may not be implemented in fallout2-ce. Check individual function notes for implementation status.
+:::
+
+The following functions extend the animation system with additional capabilities.
+
+### reg_anim_animate_and_hide <span class="tag-sfall">sfall</span> {#reg_anim_animate_and_hide}
+
+:::caution Not Implemented in fallout2-ce
+This function is **not yet implemented** in fallout2-ce.
+:::
+
+```ssl
+void reg_anim_animate_and_hide(ObjectPtr obj, int anim, int delay)
+```
+
+Works exactly like `reg_anim_animate` but the object will automatically disappear after the animation completes. Useful for death animations or effects that should vanish.
+
+**Parameters:**
+- `obj` - Object to animate
+- `anim` - Animation constant
+- `delay` - Delay from previous animation
+
+---
+
+### reg_anim_animate_and_move <span class="tag-sfall">sfall</span> {#reg_anim_animate_and_move}
+
+:::caution Not Implemented in fallout2-ce
+This function is **not yet implemented** in fallout2-ce.
+:::
+
+```ssl
+void reg_anim_animate_and_move(ObjectPtr obj, int tile, int anim, int delay)
+```
+
+Plays the specified animation while simultaneously moving the object to the given tile. Useful for custom movement animations.
+
+**Parameters:**
+- `obj` - Object to animate
+- `tile` - Destination tile number
+- `anim` - Animation constant to play during movement
+- `delay` - Delay from previous animation
+
+---
+
+### reg_anim_callback <span class="tag-sfall">sfall</span> {#reg_anim_callback}
+
+:::caution Not Implemented in fallout2-ce
+This function is **not yet implemented** in fallout2-ce.
+:::
+
+```ssl
+void reg_anim_callback(procedure proc)
+```
+
+Adds the given procedure to an animation sequence-list and executes it in the registered sequence. This allows you to run custom code at specific points during an animation sequence.
+
+**Parameters:**
+- `proc` - Procedure to call during the animation sequence
+
+**Example:**
+```ssl
+procedure on_pickup begin
+    // Code runs when animation reaches this point
+    display_msg("Item picked up!");
+end
+
+reg_anim_begin;
+reg_anim_obj_move_to_obj(dude_obj, item_obj, -1);
+reg_anim_callback(on_pickup);
+reg_anim_animate(dude_obj, ANIM_magic_hands_middle, -1);
+reg_anim_end;
+```
+
+---
+
+### reg_anim_change_fid <span class="tag-sfall">sfall</span> {#reg_anim_change_fid}
+
+:::caution Not Implemented in fallout2-ce
+This function is **not yet implemented** in fallout2-ce.
+:::
+
+```ssl
+void reg_anim_change_fid(ObjectPtr obj, int fid, int delay)
+```
+
+Changes the Frame ID (art) of an object during an animation sequence. Similar to `art_change_fid_num` but executed as part of a registered animation sequence.
+
+**Parameters:**
+- `obj` - Object to change
+- `fid` - New Frame ID
+- `delay` - Delay from previous animation
+
+---
+
+### art_change_fid_num <span class="tag-sfall">sfall</span> {#art_change_fid_num}
+
+```ssl
+void art_change_fid_num(ObjectPtr obj, int fid)
+```
+
+Immediately changes the Frame ID (art) of an object to the specified FID. The change takes effect immediately, outside of animation sequences.
+
+**Parameters:**
+- `obj` - Object to modify
+- `fid` - New Frame ID

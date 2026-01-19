@@ -32,6 +32,8 @@ const sidebars: SidebarsConfig = {
       items: [
         'ssl/overview',
         'ssl/syntax',
+        'ssl/procedures',
+        'ssl/hooks',
         {
           type: 'category',
           label: 'Function Reference',

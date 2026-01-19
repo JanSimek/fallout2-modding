@@ -1,0 +1,293 @@
+---
+sidebar_position: 4
+title: Event Procedures
+description: Engine callback procedures in SSL scripts
+---
+
+# Event Procedures
+
+Event procedures are special callbacks that the game engine invokes in response to game events. They allow scripts to react to player actions, combat events, and game state changes.
+
+## start {#start}
+
+```ssl
+procedure start begin
+    // initialization code
+end
+```
+
+Called when the script is first run by the engine. This should only happen once per script instance. After initialization, this procedure won't be called again unless explicitly invoked from elsewhere in the code.
+
+**Usage:** Initialize variables, set up the object's initial state.
+
+---
+
+## map_enter_p_proc {#map_enter_p_proc}
+
+```ssl
+procedure map_enter_p_proc begin
+    // map entry code
+end
+```
+
+Called once by the engine each time the map is entered from another map. It is **not** run when the elevation is changed within the same map.
+
+**Usage:** Set up map state, spawn objects, trigger cutscenes.
+
+**Note:** Use `map_first_run` to check if this is the first time the map has been entered.
+
+---
+
+## map_update_p_proc {#map_update_p_proc}
+
+```ssl
+procedure map_update_p_proc begin
+    // periodic update code
+end
+```
+
+Called roughly once every 30 seconds of game time. It is also called:
+- Each time you exit a dialogue
+- Each time you exit the Pipboy screen
+- Each time you use an item
+- Once when you enter the map
+- Twice when you change elevation
+
+**Usage:** Periodic checks, time-based events, environmental updates.
+
+---
+
+## critter_p_proc {#critter_p_proc}
+
+```ssl
+procedure critter_p_proc begin
+    // heartbeat code
+end
+```
+
+Called every "heartbeat", which means it runs **ten times per second**, except during combat. This is the main AI update loop for critters.
+
+**Usage:** NPC wandering behavior, detection checks, ambient actions.
+
+**Warning:** Keep this procedure lightweight as it runs very frequently.
+
+---
+
+## combat_p_proc {#combat_p_proc}
+
+```ssl
+procedure combat_p_proc begin
+    // combat turn code
+end
+```
+
+Called during combat, typically every turn for the critter running this script.
+
+**Usage:** Combat AI decisions, special combat behaviors, fleeing logic.
+
+---
+
+## damage_p_proc {#damage_p_proc}
+
+```ssl
+procedure damage_p_proc begin
+    // damage received code
+end
+```
+
+Called when the critter or object takes damage from any source.
+
+**Usage:** React to being attacked, trigger flee behavior, play pain sounds.
+
+---
+
+## destroy_p_proc {#destroy_p_proc}
+
+```ssl
+procedure destroy_p_proc begin
+    // destruction code
+end
+```
+
+Called on death of the critter or destruction of the object.
+
+**Important:** This procedure is **not** called when using `destroy_object(self_obj)` - the object is destroyed before the callback can be invoked.
+
+**Usage:** Drop loot, trigger quest updates, spawn replacement objects.
+
+---
+
+## talk_p_proc {#talk_p_proc}
+
+```ssl
+procedure talk_p_proc begin
+    // dialogue initiation code
+end
+```
+
+Called when the player tries to initiate dialogue with the critter.
+
+**Usage:** Start dialogue trees, check conditions for conversation.
+
+**Example:**
+```ssl
+procedure talk_p_proc begin
+    start_gdialog(NAME, self_obj, 4, -1, -1);
+    gSay_Start;
+        call Node001;
+    gSay_End;
+    end_dialogue;
+end
+```
+
+---
+
+## look_at_p_proc {#look_at_p_proc}
+
+```ssl
+procedure look_at_p_proc begin
+    // cursor hover code
+end
+```
+
+Called when the player passes the cursor over any object (hover examination).
+
+**Usage:** Display brief description in the interface bar.
+
+---
+
+## description_p_proc {#description_p_proc}
+
+```ssl
+procedure description_p_proc begin
+    // detailed examination code
+end
+```
+
+Called when the player inspects the object using the binoculars/examine action.
+
+**Usage:** Display detailed description, reveal hidden information based on skills.
+
+---
+
+## use_p_proc {#use_p_proc}
+
+```ssl
+procedure use_p_proc begin
+    // direct use code
+end
+```
+
+Called when:
+- A critter uses an object from inventory that has the "Use" action flag set, or it's an active flare or dynamite
+- Player uses an object from the main interface
+
+**Usage:** Activate items, toggle switches, open containers.
+
+---
+
+## use_obj_on_p_proc {#use_obj_on_p_proc}
+
+```ssl
+procedure use_obj_on_p_proc begin
+    variable item;
+    item := obj_being_used_with;
+    // use item on object code
+end
+```
+
+Called when:
+- A critter uses an object on another critter (or themselves)
+- A critter uses an object from the inventory screen and this object does **not** have the "Use" action flag set and it's not an active flare or explosive
+- Player or AI uses any drug
+
+**Usage:** Lockpicking with tools, healing with items, combining objects.
+
+---
+
+## use_skill_on_p_proc {#use_skill_on_p_proc}
+
+```ssl
+procedure use_skill_on_p_proc begin
+    variable skill;
+    skill := action_being_used;
+    // skill use code
+end
+```
+
+Called when a skill is used on the object. Use `action_being_used` to determine which skill.
+
+**Usage:** Custom skill checks, special interactions.
+
+---
+
+## pickup_p_proc {#pickup_p_proc}
+
+```ssl
+procedure pickup_p_proc begin
+    // theft detection code
+end
+```
+
+Called when the player is **caught** stealing from this critter. This is not called for normal item pickup from containers.
+
+**Usage:** Trigger hostile reaction, call guards, modify reputation.
+
+---
+
+## timed_event_p_proc {#timed_event_p_proc}
+
+```ssl
+procedure timed_event_p_proc begin
+    variable event_id;
+    event_id := fixed_param;
+
+    if (event_id == 1) then begin
+        // handle event type 1
+    end else if (event_id == 2) then begin
+        // handle event type 2
+    end
+end
+```
+
+Called by the `add_timer_event(ObjPtr obj, int time, int fixed_param)` function.
+
+**Parameters (from add_timer_event):**
+- `obj` - Points to the object whose script's `timed_event_p_proc` will be called
+- `time` - Number of game ticks (1 tick = 1/10 second) before the procedure is called
+- `fixed_param` - A value you can use to differentiate between various timed events
+
+Use `fixed_param` in `timed_event_p_proc` to check which event triggered the call. This allows multiple uses of timed events in the same script.
+
+**Example:**
+```ssl
+#define TIMER_EXPLODE   1
+#define TIMER_UNLOCK    2
+
+procedure start begin
+    add_timer_event(self_obj, game_ticks(10), TIMER_EXPLODE);
+    add_timer_event(self_obj, game_ticks(60), TIMER_UNLOCK);
+end
+
+procedure timed_event_p_proc begin
+    if (fixed_param == TIMER_EXPLODE) then begin
+        explosion(tile_num(self_obj), elevation(self_obj), 10);
+    end else if (fixed_param == TIMER_UNLOCK) then begin
+        obj_unlock(self_obj);
+    end
+end
+```
+
+---
+
+## spatial_p_proc {#spatial_p_proc}
+
+```ssl
+procedure spatial_p_proc begin
+    // trigger zone code
+end
+```
+
+Called when a critter enters the spatial trigger's radius. Spatial scripts are invisible trigger zones placed on maps.
+
+**Usage:** Ambushes, area transitions, environmental hazards.

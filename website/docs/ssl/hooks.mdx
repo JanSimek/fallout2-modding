@@ -1,0 +1,399 @@
+---
+sidebar_position: 5
+title: Hook Scripts
+description: sfall hook scripts for intercepting game events
+---
+
+# Hook Scripts
+
+:::danger Not Implemented in fallout2-ce
+Hook scripts are **not yet implemented** in fallout2-ce. While the hook constants are defined and the infrastructure exists, the actual hook execution mechanism has not been implemented. Hook scripts cannot be registered or executed.
+
+This documentation is provided for reference when using the original sfall with the classic Fallout 2 engine. See [Missing Sfall Functions](/compatibility/missing-sfall-functions) for implementation status.
+:::
+
+Hook scripts are a powerful sfall feature that allows you to intercept and modify game events. They run at specific points in the engine and can override default behavior.
+
+## Using Hooks
+
+To use a hook, you need to:
+1. Register the hook in your script's `start` procedure
+2. Implement a handler procedure that processes the hook arguments
+3. Optionally return values to override default behavior
+
+**Basic Structure:**
+```ssl
+#include "sfall.h"
+
+procedure start begin
+    if game_loaded then begin
+        register_hook(HOOK_ONDEATH);
+    end
+end
+
+procedure ondeath_handler begin
+    variable critter;
+    critter := get_sfall_arg;
+    display_msg(obj_name(critter) + " has died!");
+end
+```
+
+## Hook Functions
+
+| Function | Description |
+|----------|-------------|
+| `register_hook(hookID)` | Registers the script for a hook |
+| `register_hook_proc(hookID, proc)` | Registers a specific procedure for a hook |
+| `get_sfall_arg` | Gets the next hook argument |
+| `get_sfall_arg_at(index)` | Gets a hook argument by index |
+| `set_sfall_return(value)` | Sets the hook return value |
+| `set_sfall_arg(index, value)` | Modifies a hook argument |
+
+## Available Hooks
+
+### HOOK_TOHIT
+
+Runs when calculating the chances of an attack hitting a target. Runs after the hit chance is fully calculated, including the 95% cap.
+
+```
+int     arg0 - The hit chance (capped)
+Critter arg1 - The attacker
+Critter arg2 - The target of the attack
+int     arg3 - The bodypart being targeted
+int     arg4 - The hit chance (uncapped)
+
+int     ret0 - The new hit chance
+```
+
+---
+
+### HOOK_AFTERHITROLL
+
+Runs after Fallout decides if an attack will hit or miss.
+
+```
+int     arg0 - Hit result: 0 = critical miss, 1 = miss, 2 = hit, 3 = critical hit
+Critter arg1 - The attacker
+Critter arg2 - The target of the attack
+int     arg3 - The bodypart
+int     arg4 - The hit chance
+
+int     ret0 - Override the hit/miss
+int     ret1 - Override the targeted bodypart
+Critter ret2 - Override the target of the attack
+```
+
+---
+
+### HOOK_COMBATDAMAGE
+
+Runs when calculating how much damage each target will get. This includes the primary target and all extras (explosions and bursts). Runs BEFORE the actual attack animation.
+
+```
+Critter arg0  - The target
+Critter arg1  - The attacker
+int     arg2  - The amount of damage to the target
+int     arg3  - The amount of damage to the attacker
+int     arg4  - The special effect flags for the target (DAM_*)
+int     arg5  - The special effect flags for the attacker
+Item    arg6  - The weapon used
+int     arg7  - The bodypart struck
+int     arg8  - Damage Multiplier (divided by 2, so 3 = 1.5x, 8 = 4x)
+int     arg9  - Number of bullets that hit
+int     arg10 - Knockback amount
+int     arg11 - Attack Type (ATKTYPE_*)
+
+int     ret0 - Override damage to target
+int     ret1 - Override damage to attacker
+int     ret2 - Override special effect flags for target
+int     ret3 - Override special effect flags for attacker
+int     ret4 - Override knockback amount
+```
+
+---
+
+### HOOK_ONDEATH
+
+Runs immediately after a critter dies for any reason. This is a notification hook - no return values.
+
+```
+Critter arg0 - The critter that just died
+```
+
+**Example:**
+```ssl
+procedure ondeath_handler begin
+    variable critter;
+    critter := get_sfall_arg;
+
+    // Award bonus XP for killing bosses
+    if obj_pid(critter) == PID_BOSS then begin
+        give_exp_points(500);
+        display_msg("Boss defeated! +500 XP");
+    end
+end
+```
+
+---
+
+### HOOK_CALCAPCOST
+
+Runs when calculating the AP cost of using an active item in hand (or unarmed attack). Does not run for movement.
+
+```
+Critter arg0 - The critter performing the action
+int     arg1 - Attack Type (ATKTYPE_*)
+int     arg2 - Is aimed attack (1 or 0)
+int     arg3 - The default AP cost
+Item    arg4 - The weapon (0 if unarmed)
+
+int     ret0 - The new AP cost
+```
+
+---
+
+### HOOK_MOVECOST
+
+Runs when calculating the AP cost of movement.
+
+```
+Critter arg0 - The critter doing the moving
+int     arg1 - The number of hexes being moved
+int     arg2 - The original AP cost
+
+int     ret0 - The new AP cost
+```
+
+---
+
+### HOOK_DEATHANIM1
+
+Runs before Fallout calculates the death animation. Lets you switch which weapon Fallout sees.
+
+```
+int     arg0 - The PID of the attacking weapon (-1 if unarmed)
+Critter arg1 - The attacker
+Critter arg2 - The target
+int     arg3 - The amount of damage
+
+int     ret0 - Override the weapon PID
+```
+
+---
+
+### HOOK_DEATHANIM2
+
+Runs after Fallout calculates the death animation. Lets you set a custom death animation frame.
+
+```
+int     arg0 - The PID of the attacking weapon (-1 if unarmed)
+Critter arg1 - The attacker
+Critter arg2 - The target
+int     arg3 - The amount of damage
+int     arg4 - The death anim ID calculated by Fallout
+
+int     ret0 - Override the death anim ID
+```
+
+---
+
+### HOOK_COMBATTURN
+
+Runs before and after each turn in combat (for both PC and NPC).
+
+```
+int     arg0 - Event type:
+               1 = start of turn
+               0 = normal end of turn
+              -1 = combat ends abruptly
+              -2 = combat ends normally
+Critter arg1 - Critter doing the turn
+int     arg2 - 1 if loading from save in combat, 0 otherwise
+
+int     ret0 - Pass 1 at start to skip turn, -1 at end to force combat end
+```
+
+---
+
+### HOOK_KEYPRESS
+
+Runs every time a key is pressed or released.
+
+```
+int     arg0 - Event type: 1 = pressed, 0 = released
+int     arg1 - Key DX scancode
+int     arg2 - Key VK code
+
+int     ret0 - Override key (new DX scancode, or 0 for no override)
+```
+
+---
+
+### HOOK_MOUSECLICK
+
+Runs every time a mouse button is pressed or released.
+
+```
+int     arg0 - Event type: 1 = pressed, 0 = released
+int     arg1 - Button number (0 = left, 1 = right, up to 7)
+```
+
+---
+
+### HOOK_BARTERPRICE
+
+Runs when calculating the value of goods being traded.
+
+```
+Critter arg0 - The critter doing the bartering (dude_obj or inven_dude)
+Critter arg1 - The critter being bartered with
+int     arg2 - The default value of the goods
+Critter arg3 - Table of requested goods
+int     arg4 - The number of caps in the barter stack
+int     arg5 - The value of all goods before skill modifiers
+Critter arg6 - Table of offered goods
+int     arg7 - The total cost of goods offered by the player
+int     arg8 - 1 if "offers" button was pressed, 0 otherwise
+int     arg9 - 1 if trading with party member, 0 otherwise
+
+int     ret0 - Modified value of all goods (-1 to only modify offered goods)
+int     ret1 - Modified value of all offered goods
+```
+
+---
+
+### HOOK_INVENWIELD
+
+Runs before a critter wields/unwields armor or a weapon (except when using inventory).
+
+```
+Critter arg0 - Critter
+Item    arg1 - Item being wielded/unwielded
+int     arg2 - Slot (INVEN_TYPE_*)
+int     arg3 - 1 when wielding, 0 when unwielding
+int     arg4 - 1 when removing equipped item from inventory, 0 otherwise
+
+int     ret0 - Override handler (-1 = use engine handler)
+```
+
+---
+
+### HOOK_INVENTORYMOVE
+
+Runs before moving items between inventory slots in the dude interface.
+
+```
+int     arg0 - Target slot:
+               0 = main backpack
+               1 = left hand
+               2 = right hand
+               3 = armor slot
+               4 = weapon (reloading)
+               5 = container
+               6 = dropping on ground
+               7 = picking up
+               8 = dropping on character portrait
+Item    arg1 - Item being moved
+Item    arg2 - Item being replaced/weapon being reloaded/container (can be 0)
+
+int     ret0 - -1 = use engine handler, other = prevent action
+```
+
+---
+
+### HOOK_GAMEMODECHANGE
+
+Runs when the game mode changes (opening/closing inventory, character screen, pipboy, etc.).
+
+```
+int     arg0 - Event type: 1 = player exits game, 0 = otherwise
+int     arg1 - The previous game mode
+```
+
+---
+
+### HOOK_ENCOUNTER
+
+Runs when a random encounter occurs or when entering a local map from the world map.
+
+```
+int     arg0 - Event type: 0 = random encounter, 1 = entering from world map
+int     arg1 - The map ID that will load
+int     arg2 - 1 if special encounter, 0 otherwise
+int     arg3 - Encounter table number (-1 if not encounter)
+int     arg4 - Encounter index in table (-1 if not encounter)
+
+int     ret0 - Override map ID (-1 for event 0 to cancel encounter)
+int     ret1 - Pass 1 to cancel encounter and load specified map (event 0 only)
+```
+
+---
+
+### HOOK_ADJUSTPOISON
+
+Runs when a critter's poison level is changed.
+
+```
+Critter arg0 - The critter
+int     arg1 - Amount of poison being added/removed
+int     arg2 - Damage value (only for player, 0 for others)
+
+int     ret0 - Override poison amount
+int     ret1 - Override damage value (only negative allowed)
+```
+
+---
+
+### HOOK_ADJUSTRADS
+
+Runs when a critter's radiation level is changed.
+
+```
+Critter arg0 - The critter (usually dude_obj)
+int     arg1 - Amount of radiation being added/removed
+
+int     ret0 - Override radiation amount
+```
+
+---
+
+### HOOK_STEAL
+
+Runs when checking a steal/plant attempt using the Steal skill.
+
+```
+Critter arg0 - Thief
+Obj     arg1 - The target
+Item    arg2 - The item being stolen/planted
+int     arg3 - 0 when stealing, 1 when planting
+int     arg4 - Quantity of item
+
+int     ret0 - Override result: 2 = fail (keep window), 1 = success, 0 = fail, -1 = engine
+int     ret1 - Override experience points gained (must be >= 0)
+```
+
+---
+
+### HOOK_DESCRIPTIONOBJ
+
+Runs when using the examine action to display an object's description.
+
+```
+Obj     arg0 - The object
+
+String  ret0 - Override description text
+```
+
+---
+
+## Hook Script Files
+
+Hook scripts can also be placed as individual files in the `scripts/gl*.int` directory. The filename corresponds to the hook:
+
+- `hs_tohit.int` - HOOK_TOHIT
+- `hs_afterhitroll.int` - HOOK_AFTERHITROLL
+- `hs_combatdamage.int` - HOOK_COMBATDAMAGE
+- `hs_ondeath.int` - HOOK_ONDEATH
+- etc.
+
+These hook script files use the same argument/return conventions but don't require explicit registration.
