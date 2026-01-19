@@ -81,6 +81,7 @@ The engine calls specific procedures in response to game events:
 | Procedure | When Called |
 |-----------|-------------|
 | `start` | Script initialization |
+| `create_p_proc` | Object/critter is created |
 | `map_enter_p_proc` | Player enters map |
 | `map_exit_p_proc` | Player exits map |
 | `map_update_p_proc` | Periodic map update |
@@ -90,12 +91,16 @@ The engine calls specific procedures in response to game events:
 | `use_p_proc` | Player uses object |
 | `use_obj_on_p_proc` | Item used on object |
 | `use_skill_on_p_proc` | Skill used on object |
+| `push_p_proc` | Object is pushed |
 | `damage_p_proc` | Object takes damage |
 | `destroy_p_proc` | Object destroyed |
 | `critter_p_proc` | Critter AI update |
 | `pickup_p_proc` | Item picked up |
 | `drop_p_proc` | Item dropped |
+| `is_dropping_p_proc` | During drop/pickup interactions |
+| `combat_is_starting_p_proc` | Combat is about to start |
 | `combat_p_proc` | Combat round |
+| `combat_is_over_p_proc` | Combat ends |
 | `timed_event_p_proc` | Timed event fires |
 | `spatial_p_proc` | Spatial trigger activated |
 

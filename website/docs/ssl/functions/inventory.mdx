@@ -173,7 +173,7 @@ int inven_count(ObjectPtr what)
 
 Returns the count of how many inventory slots are filled on a given object.
 
-Macro alias for [`critter_inven_obj`](#critter_inven_obj)`(what, INVEN_TYPE_INV_COUNT)`.
+Macro alias for [`critter_inven_obj`](./critter#critter_inven_obj)`(what, INVEN_TYPE_INV_COUNT)`.
 
 **Parameters:**
 - `what` - Object to check
@@ -209,6 +209,27 @@ for (i := 0; i < item_count; i := i + 1) begin
     display_msg("Item " + i + ": " + obj_name(item));
 end
 ```
+
+<FnRef fn="inven_cmds" />
+
+---
+
+## inven_cmds <span class="tag-vanilla">vanilla</span> {#inven_cmds}
+
+```ssl
+any inven_cmds(ObjectPtr obj, int cmd, int p3)
+```
+
+Low-level inventory command function. Higher-level macros like `inven_count` and `inven_ptr` wrap this function.
+
+**Parameters:**
+- `obj` - Object to query
+- `cmd` - Command constant (`INVEN_CMD_*`)
+- `p3` - Third parameter (usage depends on command)
+
+**Commands:**
+- `INVEN_TYPE_INV_COUNT` (13) - Returns inventory slot count
+- `INVEN_CMD_INDEX_PTR` (14) - Returns item at slot index
 
 <FnRef fn="inven_cmds" />
 

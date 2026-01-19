@@ -22,6 +22,20 @@ Called when the script is first run by the engine. This should only happen once 
 
 ---
 
+## create_p_proc {#create_p_proc}
+
+```ssl
+procedure create_p_proc begin
+    // object creation code
+end
+```
+
+Called when the object or critter is first created in the game world.
+
+**Usage:** Initialize object-specific state, set initial properties.
+
+---
+
 ## map_enter_p_proc {#map_enter_p_proc}
 
 ```ssl
@@ -73,6 +87,20 @@ Called every "heartbeat", which means it runs **ten times per second**, except d
 
 ---
 
+## combat_is_starting_p_proc {#combat_is_starting_p_proc}
+
+```ssl
+procedure combat_is_starting_p_proc begin
+    // combat initialization code
+end
+```
+
+Called when combat is about to start, before the first combat round begins.
+
+**Usage:** Prepare for combat, trigger pre-combat dialogue, set combat flags.
+
+---
+
 ## combat_p_proc {#combat_p_proc}
 
 ```ssl
@@ -84,6 +112,20 @@ end
 Called during combat, typically every turn for the critter running this script.
 
 **Usage:** Combat AI decisions, special combat behaviors, fleeing logic.
+
+---
+
+## combat_is_over_p_proc {#combat_is_over_p_proc}
+
+```ssl
+procedure combat_is_over_p_proc begin
+    // combat end code
+end
+```
+
+Called when combat ends.
+
+**Usage:** Clean up combat state, trigger post-combat dialogue, update quest flags.
 
 ---
 
@@ -221,6 +263,20 @@ Called when a skill is used on the object. Use `action_being_used` to determine 
 
 ---
 
+## push_p_proc {#push_p_proc}
+
+```ssl
+procedure push_p_proc begin
+    // push handling code
+end
+```
+
+Called when the object is pushed by another critter.
+
+**Usage:** React to being pushed, block movement, trigger responses.
+
+---
+
 ## pickup_p_proc {#pickup_p_proc}
 
 ```ssl
@@ -232,6 +288,20 @@ end
 Called when the player is **caught** stealing from this critter. This is not called for normal item pickup from containers.
 
 **Usage:** Trigger hostile reaction, call guards, modify reputation.
+
+---
+
+## is_dropping_p_proc {#is_dropping_p_proc}
+
+```ssl
+procedure is_dropping_p_proc begin
+    // drop/pickup interaction code
+end
+```
+
+Called during drop and pickup interactions to validate whether the action should proceed.
+
+**Usage:** Prevent dropping quest items, validate inventory changes.
 
 ---
 
