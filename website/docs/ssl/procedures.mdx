@@ -48,7 +48,7 @@ Called once by the engine each time the map is entered from another map. It is *
 
 **Usage:** Set up map state, spawn objects, trigger cutscenes.
 
-**Note:** Use `map_first_run` to check if this is the first time the map has been entered.
+**Note:** Use [`map_first_run`](/ssl/functions/map#map_first_run) to check if this is the first time the map has been entered.
 
 ---
 
@@ -66,6 +66,10 @@ Called roughly once every 30 seconds of game time. It is also called:
 - Each time you use an item
 - Once when you enter the map
 - Twice when you change elevation
+
+:::caution TODO
+Verify elevation call count - source code in `map.cc:390` shows only one call per elevation change.
+:::
 
 **Usage:** Periodic checks, time-based events, environmental updates.
 
@@ -257,7 +261,7 @@ procedure use_skill_on_p_proc begin
 end
 ```
 
-Called when a skill is used on the object. Use `action_being_used` to determine which skill.
+Called when a skill is used on the object. Use [`action_being_used`](/ssl/functions/script#action_being_used) to determine which skill.
 
 **Usage:** Custom skill checks, special interactions.
 
@@ -320,14 +324,14 @@ procedure timed_event_p_proc begin
 end
 ```
 
-Called by the `add_timer_event(ObjPtr obj, int time, int fixed_param)` function.
+Called by the [`add_timer_event`](/ssl/functions/time#add_timer_event)`(ObjPtr obj, int time, int fixed_param)` function.
 
 **Parameters (from add_timer_event):**
 - `obj` - Points to the object whose script's `timed_event_p_proc` will be called
 - `time` - Number of game ticks (1 tick = 1/10 second) before the procedure is called
 - `fixed_param` - A value you can use to differentiate between various timed events
 
-Use `fixed_param` in `timed_event_p_proc` to check which event triggered the call. This allows multiple uses of timed events in the same script.
+Use [`fixed_param`](/ssl/functions/script#fixed_param) in `timed_event_p_proc` to check which event triggered the call. This allows multiple uses of timed events in the same script.
 
 **Example:**
 ```ssl
