@@ -35,6 +35,10 @@ const sslLanguage = {
       alias: 'keyword',
     },
   ],
+  'class-name': {
+    pattern: /\b(?:int|void|float|string|boolean|ObjectPtr|any)\b/,
+    alias: 'type',
+  },
   builtin: {
     // Common SSL built-in functions
     pattern:
