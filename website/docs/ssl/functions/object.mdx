@@ -29,14 +29,14 @@ Checks if an art asset exists.
 ## create_object <span class="tag-vanilla">vanilla</span> {#create_object}
 
 ```ssl
-ObjectPtr create_object(int pid, int tile_num, int elev)
+ObjectPtr create_object(int pid, int tileNum, int elev)
 ```
 
 Creates a new object of prototype (pid), placing it at a given tile number and elevation. If the prototype indicates a script should be attached, it will be.
 
 **Parameters:**
 - `pid` - Prototype ID of the object to create
-- `tile_num` - Tile number to place the object
+- `tileNum` - Tile number to place the object
 - `elev` - Elevation (0-2)
 
 **Returns:** `ObjectPtr` - Pointer to the created object
@@ -55,14 +55,14 @@ new_item := create_object(PID_STIMPAK, tile_num(dude_obj), elevation(dude_obj));
 ## create_object_sid <span class="tag-vanilla">vanilla</span> {#create_object_sid}
 
 ```ssl
-ObjectPtr create_object_sid(int pid, int tile_num, int elev, int sid)
+ObjectPtr create_object_sid(int pid, int tileNum, int elev, int sid)
 ```
 
 Creates a new object with an optional script override. If `sid` is not -1, it overrides the default script.
 
 **Parameters:**
 - `pid` - Prototype ID
-- `tile_num` - Tile number
+- `tileNum` - Tile number
 - `elev` - Elevation (0-2)
 - `sid` - Script ID (-1 for default script)
 
